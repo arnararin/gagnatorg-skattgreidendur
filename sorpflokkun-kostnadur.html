@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Hvað kostar að flokka rusl? · Tímakostnaðarmat</title>
+<meta name="description" content="Hvað kostar þjóðhagslega séð að íbúar þurfi að flokka rusl? Reiknivél byggð á aðferðafræði sem notuð hefur verið til að meta umferðartafir.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e; --rvk-mid: #1e6091;
+    --bg: #fefefe; --bg-2: #f8fafc;
+    --text: #0f172a; --text-2: #334155; --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669; --bad: #dc2626;
+    --yellow: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; font-size: 16px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1 { font-family: Georgia, serif; font-size: 42px; font-weight: 700; color: var(--rvk-deep); margin: 0 0 8px; line-height: 1.1; }
+  h2 { font-family: Georgia, serif; font-size: 24px; color: var(--rvk-deep); margin: 40px 0 16px; padding-bottom: 6px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-family: Georgia, serif; font-size: 18px; color: var(--rvk-mid); margin: 16px 0 8px; }
+  .lead { font-size: 19px; color: var(--text-2); max-width: 760px; margin: 0 0 24px; }
+
+  /* Hero */
+  .hero-result {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 24px 0;
+    border-left: 6px solid var(--yellow);
+    text-align: center;
+  }
+  .hero-tag { font-size: 12px; color: #92400e; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .hero-stat { font-family: Georgia, serif; font-size: 72px; line-height: 1; color: var(--rvk-deep); margin: 16px 0; font-weight: 700; }
+  .hero-stat .red { color: var(--bad); }
+  .hero-text { color: #78350f; font-size: 16px; max-width: 600px; margin: 12px auto 0; }
+
+  /* Calculator */
+  .calc {
+    background: var(--bg-2);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .calc-grid { grid-template-columns: 1fr; } }
+  .input-group { margin-bottom: 20px; }
+  .input-label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 8px; }
+  .input-value { color: var(--rvk-deep); font-family: Georgia, serif; font-size: 22px; }
+  input[type="range"] { width: 100%; -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type="range"]::-webkit-slider-runnable-track { height: 6px; background: var(--border); border-radius: 3px; }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--rvk-deep); border-radius: 50%; cursor: pointer; margin-top: -7px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  input[type="range"]::-moz-range-track { height: 6px; background: var(--border); border-radius: 3px; }
+  input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; background: var(--rvk-deep); border-radius: 50%; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  .input-help { font-size: 12px; color: var(--sub); margin-top: 4px; }
+
+  .results {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border);
+  }
+  .result-line { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .result-line:last-child { border-bottom: none; padding-top: 14px; margin-top: 6px; border-top: 2px solid var(--rvk-deep); font-size: 18px; font-weight: 700; color: var(--rvk-deep); }
+  .result-label { color: var(--text-2); font-size: 14px; }
+  .result-val { font-variant-numeric: tabular-nums; font-family: Georgia, serif; font-size: 16px; color: var(--rvk-deep); font-weight: 600; }
+
+  /* Comparison */
+  .comparison {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    border-left: 6px solid var(--rvk-mid);
+  }
+  .comp-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #93c5fd; }
+  .comp-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .comp-label { color: #1e40af; font-size: 14px; font-weight: 600; }
+  .comp-val { font-family: Georgia, serif; font-size: 22px; color: var(--rvk-deep); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .info-box, .warn-box, .method-box {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .info-box { background: #dbeafe; color: #1e40af; border-left: 3px solid #1e40af; }
+  .warn-box { background: #fef3c7; color: #92400e; border-left: 3px solid var(--yellow); }
+  .method-box { background: var(--bg-2); border-left: 3px solid var(--sub); }
+  .method-box ul { margin: 8px 0; padding-left: 20px; }
+  .method-box code { background: white; padding: 2px 6px; border-radius: 3px; font-size: 13px; font-family: 'Menlo', monospace; }
+
+  .sources {
+    background: var(--bg-2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .sources ul { margin: 8px 0 0; padding-left: 20px; }
+  .sources li { margin-bottom: 6px; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Hvað kostar þig<br>að flokka rusl?</h1>
+  <p class="lead">Tímakostnaðarmat á sorpflokkun íslenskra heimila — byggt á sömu þjóðhagslegu aðferðafræði sem hefur verið notuð til að meta kostnað við umferðartafir á höfuðborgarsvæðinu.</p>
+
+  <div class="hero-result">
+    <div class="hero-tag">★ Þjóðhagslegt mat</div>
+    <div class="hero-stat" id="heroStat"><span class="red">5,2</span> ma.kr.</div>
+    <p class="hero-text" id="heroText">Á ári fer í tíma íslenskra heimila við sorpflokkun (miðað við 10 mín/viku á heimili og 4.000 kr/klst tímakostnað).</p>
+  </div>
+
+  <h2>Reiknivél — breyttu forsendum</h2>
+
+  <div class="calc">
+    <div class="calc-grid">
+      <div>
+        <div class="input-group">
+          <div class="input-label">
+            <span>Mínútur á viku á heimili</span>
+            <span class="input-value" id="lblMin">10</span>
+          </div>
+          <input type="range" id="inMin" min="0" max="60" value="10" step="1">
+          <div class="input-help">Tími sem fer í að flokka rusl, þrífa umbúðir, skipta milli tunna o.fl.</div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Tímakostnaður (kr/klst)</span>
+            <span class="input-value" id="lblWage">4.000</span>
+          </div>
+          <input type="range" id="inWage" min="1000" max="10000" value="4000" step="500">
+          <div class="input-help">Þjóðhagslegt verðmæti tímans. Konráð/Ragnar nota ~4–5 þús. kr/klst í umferðargreiningum.</div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Fjöldi heimila</span>
+            <span class="input-value" id="lblHouseh">145.000</span>
+          </div>
+          <input type="range" id="inHouseh" min="50000" max="180000" value="145000" step="5000">
+          <div class="input-help">Heimili á Íslandi (Hagstofa: ~145 þús. 2024). Höfuðborgarsv. ~95 þús.</div>
+        </div>
+      </div>
+
+      <div class="results">
+        <h3 style="margin-top:0">Niðurstöður</h3>
+        <div class="result-line">
+          <div class="result-label">Tími á heimili á ári</div>
+          <div class="result-val" id="resTimeHome">8,7 klst</div>
+        </div>
+        <div class="result-line">
+          <div class="result-label">Tími á einstakling á ári</div>
+          <div class="result-val" id="resTimePerson">3,1 klst</div>
+        </div>
+        <div class="result-line">
+          <div class="result-label">Kostnaður á heimili á ári</div>
+          <div class="result-val" id="resCostHome">34.667 kr.</div>
+        </div>
+        <div class="result-line">
+          <div class="result-label">Kostnaður á einstakling á ári</div>
+          <div class="result-val" id="resCostPerson">12.381 kr.</div>
+        </div>
+        <div class="result-line">
+          <div class="result-label">Klukkustundir samtals (Ísland)</div>
+          <div class="result-val" id="resTotalHrs">1.257.000 klst</div>
+        </div>
+        <div class="result-line">
+          <div class="result-label"><strong>Samanlagður þjóðhagslegur kostnaður</strong></div>
+          <div class="result-val" id="resTotal">5,03 ma.kr.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Samanburður við önnur þjóðhagsleg möt</h2>
+
+  <div class="comparison">
+    <div class="comp-row">
+      <div class="comp-label">Sorpflokkun (þetta mat, sjálfgefið)</div>
+      <div class="comp-val" id="compSelf">5,0 ma.kr./ár</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Umferðartafir á höfuðborgarsvæðinu</div>
+      <div class="comp-val">100 ma.kr./ár</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Reykjavíkurborg sorphirða (heild 2024)</div>
+      <div class="comp-val">2,5 ma.kr./ár</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Reykjavíkurborg söluhagn. lóða (2024)</div>
+      <div class="comp-val">5,4 ma.kr./ár</div>
+    </div>
+  </div>
+
+  <h2>Aðferðafræði</h2>
+
+  <div class="method-box">
+    <p><strong>Útreikningur:</strong> <code>tími á viku × vikur × heimili × tímakostnaður</code></p>
+    <ul>
+      <li><strong>Tími á heimili á viku:</strong> rannsóknir benda til 5–20 mín. á heimili á viku, fer eftir þéttbýli og hve flokkað er fínt</li>
+      <li><strong>Vikur á ári:</strong> 52</li>
+      <li><strong>Heimili á Íslandi:</strong> 145 þús. (Hagstofa 2024)</li>
+      <li><strong>Tímakostnaður:</strong> 4.000 kr/klst (þjóðhagslegt verðmæti tímans, byggt á aðferðafræði sem Konráð Guðjónsson og Ragnar Árnason hafa notað í umferðargreiningum). Hagstofa-meðaltal heildarlauna er um 4.500 kr/klst (2024)</li>
+    </ul>
+    <p><strong>Athugasemd:</strong> Útreikningurinn nær <em>aðeins</em> til tímakostnaðar — ekki til hagkvæmni endurvinnslu, umhverfisávinnings, plásskostnaðar í eldhúsi/garði, eða gjalda fyrir tunnur. Þetta er einungis kostnaðar-hlið flokkunar fyrir heimili — ekki nettó-kostnaður/-ábati.</p>
+  </div>
+
+  <h2>Hvað þýðir þetta?</h2>
+
+  <div class="info-box">
+    <p><strong>Sjálfgefnar forsendur (10 mín/viku, 4.000 kr/klst):</strong></p>
+    <ul style="margin:8px 0">
+      <li>Hver einstaklingur eyðir <strong>3,1 klst</strong> á ári í sorpflokkun</li>
+      <li>Hvert heimili eyðir <strong>8,7 klst</strong> á ári</li>
+      <li>Þjóðhagslegur kostnaður: <strong>5 ma.kr. á ári</strong></li>
+      <li>Þetta er <strong>tvöfalt</strong> kostnaður Reykjavíkur við sorphirðu (~2,5 ma.kr.)</li>
+      <li>Ennþá er það <strong>5%</strong> af kostnaði umferðartafa (~100 ma.kr.)</li>
+    </ul>
+    <p>Ef tíminn er 20 mín/viku á heimili (raunsæ tala fyrir flokkað hverfi með 4-6 tunnur) þá tvöfaldast kostnaðurinn í <strong>10 ma.kr./ár</strong>.</p>
+  </div>
+
+  <h2>Spurningar sem vantar svar við</h2>
+
+  <div class="warn-box">
+    <ul style="margin:8px 0">
+      <li><strong>Hvað er raunverulegur tími á heimili?</strong> Engin íslensk könnun til (að okkar vitund). Bandarísk og norræn gögn benda til 5-20 mín/viku</li>
+      <li><strong>Hver er endurvinnsluhagkvæmnin?</strong> Hve mikið af þessum kostnaði sparast í minna förgun/landfyllingu? Þarf nánari greiningu</li>
+      <li><strong>Hvað kostar að setja upp 6 tunnur</strong> (heimili) miðað við tvær (gamla kerfið)? Plásskostnaður, geymsla, lykt</li>
+      <li><strong>Skiptir aldur máli?</strong> Eldri borgarar gætu lagt á sig meira en yngri</li>
+    </ul>
+    <p>Þessi reiknivél gerir <em>fyrstu nálgun</em> á þjóðhagslegan kostnað. Vönduð íslensk rannsókn — eins og Konráð/Ragnar gerðu fyrir umferðatafir — myndi gefa nákvæmari svör.</p>
+  </div>
+
+  <h2>Sjónarhorn — Er flokkun rétta lausnin?</h2>
+
+  <div class="warn-box" style="background:#fef3c7; border-left-color:#dc2626">
+    <p style="font-weight:600; color:#7f1d1d; margin-bottom:8px">„Flokkunarfyrirkomulagið er hugsanlega þjóðhagslega óhagkvæmt þegar allur kostnaður er talinn"</p>
+    <p>Núverandi kerfi krefst þess að íbúar flokki rusl í 4-6 mismunandi tunnur. Mikill hluti flokkaðs rusls er svo <strong>fluttur úr landi</strong> (aðallega til Svíþjóðar) til brennslu með orkuvinnslu — meðan við gætum sjálf brennt það á Íslandi og fengið orkuna.</p>
+  </div>
+
+  <h3>Tvær leiðir — kostnaðarsamanburður</h3>
+
+  <div class="comparison" style="background:linear-gradient(135deg,#fee2e2,#fecaca); border-left-color:#dc2626">
+    <div class="comp-row" style="border-bottom-color:#fca5a5">
+      <div class="comp-label" style="color:#7f1d1d"><strong>Leið A:</strong> Núverandi — flokkun + útflutningur til brennslu</div>
+      <div></div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#fca5a5">
+      <div class="comp-label" style="color:#7f1d1d">— Tímakostnaður íbúa við flokkun (þetta mat)</div>
+      <div class="comp-val" style="color:#7f1d1d">5 ma.kr./ár</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#fca5a5">
+      <div class="comp-label" style="color:#7f1d1d">— Útflutningur sorps SORPA (núverandi 40 þ. tonn)</div>
+      <div class="comp-val" style="color:#7f1d1d">2,3–3 ma.kr./ár</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#fca5a5">
+      <div class="comp-label" style="color:#7f1d1d">— Útflutningur (2028 spá: 80 þ. tonn vegna banns á urðun)</div>
+      <div class="comp-val" style="color:#7f1d1d">5–6 ma.kr./ár</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#fca5a5">
+      <div class="comp-label" style="color:#7f1d1d">— Glataður orkuábati (rafmagn + heitt vatn)</div>
+      <div class="comp-val" style="color:#7f1d1d">áætla að rannsaka</div>
+    </div>
+    <div class="comp-row" style="border-top:2px solid #dc2626; font-weight:700">
+      <div class="comp-label" style="color:#7f1d1d"><strong>Samtals leið A (2028 áætlun):</strong></div>
+      <div class="comp-val" style="color:var(--bad); font-size:24px">~10–11 ma.kr./ár</div>
+    </div>
+  </div>
+
+  <div class="comparison" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0); border-left-color:#059669">
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534"><strong>Leið B:</strong> Sorpbrennslustöð á Íslandi (eins og Svíþjóð, Noregur, Finnland)</div>
+      <div></div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534">— Stofnkostnaður (SORPA mat: 135–236 m EUR)</div>
+      <div class="comp-val" style="color:#166534">20–35 ma.kr. einskiptis</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534">— Afskriftir 30 ára á 25 ma.kr. stöðvar</div>
+      <div class="comp-val" style="color:#166534">~0,8 ma.kr./ár</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534">— Rekstrarkostnaður (laun, viðhald, etc.)</div>
+      <div class="comp-val" style="color:#166534">~1–2 ma.kr./ár</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534">+ Tekjur af raf- og hitavinnslu</div>
+      <div class="comp-val" style="color:#166534">áætla að rannsaka</div>
+    </div>
+    <div class="comp-row" style="border-bottom-color:#86efac">
+      <div class="comp-label" style="color:#166534">+ Engin eða mun minni tímakostnaður íbúa við flokkun</div>
+      <div class="comp-val" style="color:#166534">−5 ma.kr./ár sparnaður</div>
+    </div>
+    <div class="comp-row" style="border-top:2px solid #059669; font-weight:700">
+      <div class="comp-label" style="color:#166534"><strong>Nettó leið B (eftir afskriftir + sparnaður):</strong></div>
+      <div class="comp-val" style="color:var(--good); font-size:24px">~−2 til +1 ma.kr./ár</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Niðurstaða:</strong> Að byggja eigin sorpbrennslustöð gæti <strong>sparað 10+ ma.kr./ár</strong> miðað við núverandi kerfi árið 2028 — og veitt orku að auki. Stofnkostnaður (25 ma.kr.) myndi greiða sig á 2-3 árum.</p>
+    <p><strong>Sjónarhorn skattgreiðenda:</strong> Það er erfitt að réttlæta þjóðhagslega kerfi sem krefst 5+ ma.kr./ár í tímakostnað íbúa, plús 2-6 ma.kr./ár í flutningskostnað til útlanda, þegar lausn á 25 ma.kr. einskiptis-fjárfestingu liggur fyrir.</p>
+  </div>
+
+  <h3>Af hverju brennum við ekki?</h3>
+
+  <div class="method-box">
+    <p>SORPA og tækninefnd hafa lagt til að byggja sorpbrennslustöð á SV-landi. Helstu hindranir:</p>
+    <ul>
+      <li><strong>Pólitísk ákvörðun:</strong> ESB-stefna hvetur til endurvinnslu fram yfir brennslu — en Svíþjóð, Danmörk og Noregur hafa allir sérstakar brennslustöðvar með orkuvinnslu (waste-to-energy)</li>
+      <li><strong>Fjárfesting:</strong> 25 ma.kr. þarf að koma frá ríkinu, sveitarfélögum eða einkaaðilum — engin pólitísk samstaða um þetta</li>
+      <li><strong>NIMBY:</strong> Ekkert sveitarfélag vill brennslustöð á sínu svæði</li>
+      <li><strong>Mengun:</strong> Þarf nútímabúnað (high-spec síun) til að uppfylla útblásturskröfur — Svíþjóð, Þýskaland og Sviss hafa lengi rekið slík kerfi án vandamála</li>
+    </ul>
+    <p><strong>Sambærileg ríki sem brenna sorp og fá orku:</strong></p>
+    <ul>
+      <li><strong>Svíþjóð:</strong> 34 brennslustöðvar — flytur INN sorp frá öðrum löndum til að brenna fyrir orku</li>
+      <li><strong>Danmörk:</strong> 26 brennslustöðvar — sjá um 25% af hitaveitu landsins með brennslu</li>
+      <li><strong>Noregur:</strong> 18 brennslustöðvar</li>
+      <li><strong>Ísland:</strong> 0 stórar brennslustöðvar (Kalka í Reykjanesi tekur úr notkun 2017, var lítil)</li>
+    </ul>
+  </div>
+
+  <h2>Heimildir og forsendur</h2>
+
+  <div class="sources">
+    <ul>
+      <li><strong>Aðferðafræði:</strong> Konráð S. Guðjónsson og Ragnar Árnason — þjóðhagsleg matsaðferð á tímakostnaði (umferðartafir á höfuðborgarsvæðinu, 2025). Birt í Viðskiptaráði og Vísi.</li>
+      <li><strong>Tímakostnaður:</strong> Hagstofa Íslands — heildarlaun og meðallaunatengt frá launarannsókn 2024. ~4.500 kr/klst að meðaltali.</li>
+      <li><strong>Heimili á Íslandi:</strong> Hagstofa Íslands MAN05801 — fjölskyldur og heimili 2024.</li>
+      <li><strong>Reykjavíkurborg sorphirða:</strong> Sveitarfelag-sundurliðun (08 2 Sorphreinsun og sorpeyðing), Samband íslenskra sveitarfélaga / Hagstofa.</li>
+      <li><strong>Söluhagnaður lóða:</strong> Ársreikningur Reykjavíkurborgar 2024.</li>
+      <li><strong>Útflutningur sorps SORPA:</strong> Sorpa.is — fréttatilkynning um útflutning brennanlegs úrgangs (haustmánuðir 2025), Heimildin, Vísir.</li>
+      <li><strong>Stofnkostnaður brennslustöðvar:</strong> SORPA og tækninefnd, mat 135–236 m EUR (2024).</li>
+      <li><strong>Sambærileg ríki:</strong> Energy from Waste Europe — fjöldi brennslustöðva í Norðurlöndum (2024 skýrsla).</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-tekjuhlid.html">Tekjuhliðin · Reykjavíkurborg</a> — sorpgjöld og lóðasala</li>
+      <li><a href="utgjold-per-ibua.html">Útgjöld á mann sveitarfélaga</a></li>
+      <li><a href="index.html">← Gagnatorg</a></li>
+    </ul>
+    <p>© Samtök skattgreiðenda · Þetta er fyrstu nálgun og ekki ritrýnd rannsókn.</p>
+  </div>
+</div>
+
+<script>
+const inMin = document.getElementById('inMin');
+const inWage = document.getElementById('inWage');
+const inHouseh = document.getElementById('inHouseh');
+
+function fmt(v) { return Math.round(v).toLocaleString('is-IS').replace(/,/g, '.'); }
+function fmtDec(v, d) { return v.toFixed(d).replace('.', ','); }
+
+function calc() {
+  const min = +inMin.value;
+  const wage = +inWage.value;
+  const househ = +inHouseh.value;
+  const personsPerHome = 2.8;  // Hagstofa-meðaltal
+
+  const hrsHomeYear = min * 52 / 60;
+  const hrsPersonYear = hrsHomeYear / personsPerHome;
+  const costHomeYear = hrsHomeYear * wage;
+  const costPersonYear = costHomeYear / personsPerHome;
+  const totalHrs = hrsHomeYear * househ;
+  const totalCost = totalHrs * wage;
+
+  document.getElementById('lblMin').textContent = min;
+  document.getElementById('lblWage').textContent = fmt(wage);
+  document.getElementById('lblHouseh').textContent = fmt(househ);
+
+  document.getElementById('resTimeHome').textContent = fmtDec(hrsHomeYear, 1) + ' klst';
+  document.getElementById('resTimePerson').textContent = fmtDec(hrsPersonYear, 1) + ' klst';
+  document.getElementById('resCostHome').textContent = fmt(costHomeYear) + ' kr.';
+  document.getElementById('resCostPerson').textContent = fmt(costPersonYear) + ' kr.';
+  document.getElementById('resTotalHrs').textContent = fmt(totalHrs) + ' klst';
+
+  let totalDisplay;
+  if (totalCost >= 1e9) totalDisplay = fmtDec(totalCost / 1e9, 2) + ' ma.kr.';
+  else if (totalCost >= 1e6) totalDisplay = fmtDec(totalCost / 1e6, 1) + ' m.kr.';
+  else totalDisplay = fmt(totalCost) + ' kr.';
+
+  document.getElementById('resTotal').textContent = totalDisplay;
+  document.getElementById('compSelf').textContent = totalDisplay + '/ár';
+
+  // Hero update
+  const stat = document.getElementById('heroStat');
+  if (totalCost >= 1e9) {
+    stat.innerHTML = '<span class="red">' + fmtDec(totalCost / 1e9, 1) + '</span> ma.kr.';
+  } else {
+    stat.innerHTML = '<span class="red">' + fmtDec(totalCost / 1e6, 0) + '</span> m.kr.';
+  }
+  document.getElementById('heroText').textContent =
+    `Á ári fer í tíma íslenskra heimila við sorpflokkun (miðað við ${min} mín/viku á heimili og ${fmt(wage)} kr/klst tímakostnað).`;
+}
+
+inMin.addEventListener('input', calc);
+inWage.addEventListener('input', calc);
+inHouseh.addEventListener('input', calc);
+calc();
+</script>
+</body>
+</html>
