@@ -1,0 +1,1635 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hvað kostar sveitarfélagið þitt? | Samtök skattgreiðenda</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #f9fafb;
+    --bg-cream: #fef9f3;
+    --bg-green: #f0f9f4;
+    --bg-blue: #f0f7ff;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --border-strong: #d1d5db;
+    --text: #1f2937;
+    --sub: #4b5563;
+    --muted: #6b7280;
+    --green: #16a34a;
+    --green-dark: #15803d;
+    --green-light: #dcfce7;
+    --red: #dc2626;
+    --red-dark: #991b1b;
+    --red-bg: #fef2f2;
+    --orange: #f59e0b;
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --yellow: #eab308;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-display: 'Lora', Georgia, serif;
+    --font-mono: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font-sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Sticky nav */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 16px; padding: 12px 24px;
+    max-width: 1100px; margin: 0 auto; flex-wrap: wrap;
+  }
+  .nav-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 18px;
+    color: var(--green-dark);
+  }
+  .nav-select {
+    background: var(--card); border: 1px solid var(--border-strong);
+    border-radius: 8px; padding: 8px 14px; font-size: 14px; min-width: 220px;
+    font-family: var(--font-sans);
+  }
+  .nav-vnv {
+    display: flex; align-items: center; gap: 6px; font-size: 13px;
+    color: var(--sub); cursor: pointer;
+  }
+  .nav-vnv input { cursor: pointer; }
+  .nav-links {
+    display: flex; gap: 14px; font-size: 13px; flex-wrap: wrap; margin-left: auto;
+  }
+  .nav-links a {
+    color: var(--sub); text-decoration: none; font-weight: 500;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--green-dark); }
+  .nav-links .dot { color: var(--border-strong); }
+  .tier-badge {
+    display: inline-block; padding: 4px 10px; border-radius: 4px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  }
+  .tier-A { background: #fee2e2; color: var(--red-dark); }
+  .tier-B { background: #ffedd5; color: #9a3412; }
+  .tier-C { background: #fef3c7; color: #854d0e; }
+  .tier-D { background: var(--green-light); color: var(--green-dark); }
+
+  /* Section base */
+  section { padding: 64px 0; }
+  section.bg-cream { background: var(--bg-cream); }
+  section.bg-green { background: var(--bg-green); }
+  section.bg-blue { background: var(--bg-blue); }
+  section.bg-card { background: var(--card); }
+
+  .section-eyebrow {
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 11px; font-weight: 700;
+    color: var(--green-dark); margin-bottom: 8px;
+  }
+  .section-heading {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px); line-height: 1.15;
+    margin: 0 0 12px; color: var(--text);
+  }
+  .section-subheading {
+    font-size: 17px; color: var(--sub); max-width: 720px;
+    margin: 0 0 32px; line-height: 1.6;
+  }
+  .narrative {
+    font-size: 16px; color: var(--sub); line-height: 1.7;
+    max-width: 720px; margin: 16px 0 24px;
+  }
+  .narrative strong { color: var(--text); font-weight: 600; }
+
+  /* Hero */
+  .hero-number {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(56px, 12vw, 110px); line-height: 1;
+    color: var(--green-dark); font-variant-numeric: tabular-nums;
+    margin: 24px 0 8px;
+  }
+  .hero-unit { font-size: 17px; color: var(--sub); margin-bottom: 32px; }
+
+  /* Context cards */
+  .ctx-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px; margin: 32px 0;
+  }
+  .ctx-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+  .ctx-label {
+    font-size: 12px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .ctx-value {
+    font-family: var(--font-display); font-weight: 700; font-size: 28px;
+    line-height: 1.1; color: var(--text); font-variant-numeric: tabular-nums;
+  }
+  .ctx-text { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* Klukkur */
+  .clock-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px; margin: 32px 0;
+  }
+  .clock {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    border-radius: 16px; padding: 24px; color: white;
+    box-shadow: 0 4px 12px rgba(30,58,138,0.15);
+    position: relative; overflow: hidden;
+  }
+  .clock.red { background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%); }
+  .clock.green { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+  .clock-label {
+    font-size: 13px; opacity: 0.9; margin-bottom: 6px;
+    text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+  }
+  .clock-value {
+    font-family: var(--font-mono); font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px); line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin: 6px 0;
+  }
+  .clock-unit { font-size: 14px; opacity: 0.85; }
+  .clock-stats {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .clock-stat {
+    flex: 1; min-width: 110px; background: rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 8px 12px;
+  }
+  .clock-stat-label {
+    font-size: 11px; opacity: 0.85; text-transform: uppercase;
+  }
+  .clock-stat-value {
+    font-family: var(--font-mono); font-weight: 700; font-size: 18px;
+    margin-top: 2px; font-variant-numeric: tabular-nums;
+  }
+
+  /* Charts */
+  .chart-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px; margin: 16px 0;
+  }
+  .chart-card h3 {
+    font-family: var(--font-display); font-weight: 600; font-size: 20px;
+    margin: 0 0 12px; color: var(--text);
+  }
+  .chart-card p.lead {
+    font-size: 14px; color: var(--muted); margin: 0 0 16px;
+  }
+  .chart-wrap { position: relative; height: 380px; }
+  .chart-wrap.tall { height: 450px; }
+
+  /* Pyramid controls */
+  .pyramid-controls {
+    display: flex; align-items: center; gap: 12px; margin: 16px 0;
+  }
+  .play-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: var(--green); color: white; cursor: pointer;
+    font-size: 14px; transition: transform 0.15s;
+  }
+  .play-btn:hover { transform: scale(1.1); }
+  .pyramid-controls input[type=range] {
+    flex: 1; max-width: 400px; accent-color: var(--green);
+  }
+  .year-display {
+    font-family: var(--font-display); font-weight: 700; font-size: 22px;
+    color: var(--green-dark); min-width: 60px;
+  }
+
+  /* Stat boxes */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; text-align: center;
+  }
+  .stat-box-value {
+    font-family: var(--font-display); font-weight: 700; font-size: 28px;
+    line-height: 1.1; color: var(--green-dark); font-variant-numeric: tabular-nums;
+  }
+  .stat-box-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* Verdict */
+  .verdict {
+    padding: 20px 24px; border-radius: 12px; margin: 24px 0;
+    font-size: 15px; line-height: 1.65;
+  }
+  .verdict strong { font-weight: 700; }
+  .verdict-positive {
+    background: var(--green-light); border-left: 4px solid var(--green);
+    color: var(--green-dark);
+  }
+  .verdict-negative {
+    background: var(--red-bg); border-left: 4px solid var(--red);
+    color: var(--red-dark);
+  }
+  .verdict-neutral {
+    background: #fef3c7; border-left: 4px solid var(--yellow);
+    color: #854d0e;
+  }
+
+  /* Sameiningarviðvörun */
+  .merger-notice {
+    background: #fef3c7; border-left: 4px solid var(--yellow);
+    padding: 14px 18px; border-radius: 8px; margin: 24px 0;
+    font-size: 14px; line-height: 1.5;
+  }
+  .merger-notice strong { color: #854d0e; }
+
+  /* Tier-comparison table */
+  table.svf-tbl {
+    width: 100%; border-collapse: collapse; font-size: 14px;
+    margin: 16px 0;
+  }
+  table.svf-tbl th, table.svf-tbl td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+  }
+  table.svf-tbl th {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  table.svf-tbl td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.svf-tbl tr:hover { background: var(--bg); }
+  table.svf-tbl tr.highlight { background: var(--bg-green); }
+  .pos { color: var(--green-dark); }
+  .neg { color: var(--red); }
+
+  /* Ítarefni — collapsible */
+  details.advanced {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 0; margin: 24px 0;
+  }
+  details.advanced > summary {
+    padding: 18px 24px; font-size: 16px; font-weight: 600;
+    cursor: pointer; user-select: none; color: var(--text);
+  }
+  details.advanced > summary:hover { background: var(--bg); }
+  details.advanced[open] > summary {
+    border-bottom: 1px solid var(--border);
+  }
+  details.advanced .content { padding: 24px; }
+
+  /* Mini link */
+  a.text-link {
+    color: var(--blue); text-decoration: none; font-weight: 500;
+  }
+  a.text-link:hover { text-decoration: underline; }
+
+  footer {
+    background: var(--text); color: #d1d5db; padding: 48px 0; margin-top: 64px;
+    font-size: 14px; line-height: 1.7;
+  }
+  footer a { color: #93c5fd; }
+</style>
+</head>
+<body>
+
+<!-- ─── STICKY NAV ─────────────────────────────────────────────── -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <div class="nav-title">📊 Sveitarfélögin</div>
+    <select class="nav-select" id="svfSelect"></select>
+    <span id="tierBadge" class="tier-badge tier-A">A</span>
+    <label class="nav-vnv">
+      <input type="checkbox" id="vnvToggle">
+      Á föstu verðlagi
+    </label>
+    <div class="nav-links">
+      <a href="#sec-hero">Yfirlit</a>
+      <span class="dot">·</span>
+      <a href="#sec-klukkur">Klukkur</a>
+      <span class="dot">·</span>
+      <a href="#sec-utgjold">Útgjöld</a>
+      <span class="dot">·</span>
+      <a href="#sec-tekjur">Tekjur</a>
+      <span class="dot">·</span>
+      <a href="#sec-folkid">Fólkið</a>
+      <span class="dot">·</span>
+      <a href="#sec-throun">Þróun</a>
+      <span class="dot">·</span>
+      <a href="#sec-itarefni">Ítarefni</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── SECTION 1: HERO ────────────────────────────────────────── -->
+<section id="sec-hero" class="bg-green">
+  <div class="container">
+    <div class="section-eyebrow">Hvað kostar sveitarfélagið þitt?</div>
+    <h1 class="section-heading" id="heroHeading">—</h1>
+
+    <div id="mergerNotice" class="merger-notice" style="display:none">
+      <strong>⚠️ Sameining:</strong> <span id="mergerMsg"></span>
+      <br><span style="color:var(--muted)">Sögulegar tölur sýna eldri sveitarfélagsmörk.</span>
+    </div>
+
+    <div class="hero-number" id="heroNumber">—</div>
+    <div class="hero-unit" id="heroUnit">krónur á íbúa árið 2024</div>
+    <p class="narrative" id="heroNarrative">—</p>
+
+    <div class="ctx-grid">
+      <div class="ctx-card">
+        <div class="ctx-label">Landsmeðaltal</div>
+        <div class="ctx-value" id="ctxNational">—</div>
+        <div class="ctx-text" id="ctxNationalText">krónur á íbúa</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">Vs. flokksmeðaltal</div>
+        <div class="ctx-value" id="ctxTier">—</div>
+        <div class="ctx-text" id="ctxTierText">—</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">Stærsti útgjaldaliður</div>
+        <div class="ctx-value" id="ctxTopMfl" style="font-size:18px">—</div>
+        <div class="ctx-text" id="ctxTopMflText">—</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">5 ára breyting (raun)</div>
+        <div class="ctx-value" id="ctx5yr">—</div>
+        <div class="ctx-text">verðlagsleiðrétt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2: KLUKKURNAR ──────────────────────────────────── -->
+<section id="sec-klukkur" class="bg-cream">
+  <div class="container">
+    <div class="section-eyebrow">Lifandi tölur</div>
+    <h2 class="section-heading">Á meðan þú lest…</h2>
+    <p class="section-subheading">
+      Þetta er hve mikið sveitarfélagið hefur eytt og safnað skuldum frá áramótum.
+      Tölurnar uppfærast á sekúndufresti miðað við ársfjárlög.
+    </p>
+
+    <div class="clock-grid">
+      <div class="clock">
+        <div class="clock-label">📊 Útgjöld frá áramótum</div>
+        <div class="clock-value" id="clockTotal">—</div>
+        <div class="clock-unit" id="clockUnit">krónur</div>
+        <div class="clock-stats">
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á sekúndu</div>
+            <div class="clock-stat-value" id="clockPerSec">—</div>
+          </div>
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á dag</div>
+            <div class="clock-stat-value" id="clockPerDay">—</div>
+          </div>
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á íbúa á ári</div>
+            <div class="clock-stat-value" id="clockPerCap">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clock red" id="clockDebtCard">
+        <div class="clock-label">💰 Skuldir A-hluta (2020)</div>
+        <div class="clock-value" id="debtTotal">—</div>
+        <div class="clock-unit">krónur</div>
+        <div class="clock-stats">
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á íbúa</div>
+            <div class="clock-stat-value" id="debtPerCap">—</div>
+          </div>
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á barn (0–17)</div>
+            <div class="clock-stat-value" id="debtPerChild">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clock" id="clockAfkomaCard">
+        <div class="clock-label">⚖️ Afkoma 2024 (tekjur − gjöld)</div>
+        <div class="clock-value" id="afkomaValue">—</div>
+        <div class="clock-unit" id="afkomaUnit">milljónir króna</div>
+        <div class="clock-stats">
+          <div class="clock-stat">
+            <div class="clock-stat-label">Á íbúa</div>
+            <div class="clock-stat-value" id="afkomaPerCap">—</div>
+          </div>
+          <div class="clock-stat">
+            <div class="clock-stat-label">% af tekjum</div>
+            <div class="clock-stat-value" id="afkomaPct">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <em>Klukkur miðast við ársfjárlög 2024 deilt á 365,25 daga × 86.400 sekúndur.
+      Skuldir eru úr ársreikningum 2020 (A-hluti) því nýrri ársreikningar eru ekki
+      í miðlægum gagnagrunni.</em>
+    </p>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: HVERT FARA PENINGARNIR? ─────────────────────── -->
+<section id="sec-utgjold">
+  <div class="container">
+    <div class="section-eyebrow">Útgjöld 2024</div>
+    <h2 class="section-heading">Hvert fara peningarnir?</h2>
+    <p class="section-subheading" id="utgjoldNarrative">—</p>
+
+    <div class="chart-card">
+      <h3>Útgjöld eftir málaflokkum (m.kr.)</h3>
+      <div class="chart-wrap tall"><canvas id="chartMalafl"></canvas></div>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:48px 0 16px">
+      Skólakostnaður — stærsti einstaki útgjaldaliður
+    </h3>
+    <p class="narrative" id="schoolNarrative">—</p>
+
+    <div class="ctx-grid">
+      <div class="ctx-card">
+        <div class="ctx-label">Leikskóli (per barn 0–5 ára)</div>
+        <div class="ctx-value" id="schoolLeikVal">—</div>
+        <div class="ctx-text" id="schoolLeikCompare">—</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">Grunnskóli (per barn 6–15 ára)</div>
+        <div class="ctx-value" id="schoolGrunnVal">—</div>
+        <div class="ctx-text" id="schoolGrunnCompare">—</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Skólakostnaður á barn yfir tíma</h3>
+      <p class="lead">Borið saman við landsmeðaltal í flokki sveitarfélagsins.</p>
+      <div class="chart-wrap"><canvas id="chartSkoli"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 4: HVAÐAN KOMA PENINGARNIR? ────────────────────── -->
+<section id="sec-tekjur" class="bg-blue">
+  <div class="container">
+    <div class="section-eyebrow">Skatttekjur</div>
+    <h2 class="section-heading">Hvaðan koma peningarnir?</h2>
+    <p class="section-subheading" id="tekjurNarrative">—</p>
+
+    <div class="chart-card">
+      <h3>Skatttekjur sundurliðun (m.kr., yfir tíma)</h3>
+      <p class="lead">Útsvar (langstærst), fasteignaskattur, framlög Jöfnunarsjóðs og aðrar skattatengdar tekjur.</p>
+      <div class="chart-wrap"><canvas id="chartSkattSundur"></canvas></div>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:48px 0 16px">
+      Útsvarsprósentan — beinasta skattbyrðin
+    </h3>
+    <p class="narrative" id="utsvarNarrative">—</p>
+
+    <div class="chart-card">
+      <h3>Útsvarsprósenta (%) — þróun og samanburður</h3>
+      <div class="chart-wrap"><canvas id="chartUtsvar"></canvas></div>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:48px 0 16px">
+      Fasteignaskattur og fasteignagjöld
+    </h3>
+    <p class="narrative">
+      Fasteignaskattshlutfall í þremur flokkum:
+      <strong>A</strong> = íbúðarhúsnæði, <strong>B</strong> = opinber bygging,
+      <strong>C</strong> = atvinnu- og iðnaðarhúsnæði.
+    </p>
+
+    <div class="chart-card">
+      <table class="svf-tbl" id="tblFasteign">
+        <thead><tr>
+          <th>Ár</th>
+          <th class="num">A — íbúðir</th>
+          <th class="num">B — opinber</th>
+          <th class="num">C — atvinnu</th>
+          <th class="num">Heildarálagning (m.kr.)</th>
+          <th class="num">Per íbúa (kr.)</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="chart-card">
+      <h3>Fasteignaskattur á íbúa — söguleg þróun</h3>
+      <p class="lead">Heildarálagning fasteignaskatts deilt með íbúafjölda 2002–2024.</p>
+      <div class="chart-wrap"><canvas id="chartFasteignSaga"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 5: FÓLKIÐ ──────────────────────────────────────── -->
+<section id="sec-folkid">
+  <div class="container">
+    <div class="section-eyebrow">Lýðfræði</div>
+    <h2 class="section-heading">Íbúasamsetning</h2>
+    <p class="section-subheading" id="folkNarrative">—</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-box-value" id="statIbuar">—</div>
+        <div class="stat-box-label">Íbúar 2024</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-value" id="statErlent">—</div>
+        <div class="stat-box-label">Erlent ríkisfang</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-value" id="statBuferla">—</div>
+        <div class="stat-box-label">Aðfluttir umfram brottflutta (2024)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-value" id="statAldradir">—</div>
+        <div class="stat-box-label">65 ára og eldri</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Aldurspíramídi</h3>
+      <p class="lead">Smelltu á ▶ til að sjá hvernig aldurssamsetning hefur þróast yfir 23 ár.
+        Karlar vinstra megin, konur hægra megin. Litir aðgreina íslenskt og erlent ríkisfang.</p>
+      <div class="pyramid-controls">
+        <button class="play-btn" id="pyramidPlay" onclick="togglePlay()">▶</button>
+        <input type="range" id="pyramidSlider" min="2002" max="2025" value="2024" oninput="drawPyramid()">
+        <span class="year-display" id="pyramidYear">2024</span>
+      </div>
+      <div class="chart-wrap tall"><canvas id="chartPyramid"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Mannfjöldaþróun og hlutfall erlendra ríkisborgara</h3>
+      <div class="chart-wrap"><canvas id="chartMannfj"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 6: ÞRÓUN ────────────────────────────────────────── -->
+<section id="sec-throun" class="bg-cream">
+  <div class="container">
+    <div class="section-eyebrow">Heildarmyndin</div>
+    <h2 class="section-heading">Eyðir sveitarfélagið meira en það tekur inn?</h2>
+    <p class="section-subheading" id="throunNarrative">—</p>
+
+    <div class="chart-card">
+      <h3>Skatttekjur og útgjöld á íbúa (kr.)</h3>
+      <p class="lead">Borið saman við meðaltal í flokki sveitarfélagsins og landsmeðaltal.</p>
+      <div class="chart-wrap tall"><canvas id="chartTekjurGjold"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Afkoma á íbúa yfir tíma</h3>
+      <p class="lead">Tekjur mínus gjöld. Jákvætt = afgangur, neikvætt = halli.</p>
+      <div class="chart-wrap"><canvas id="chartAfkomaTime"></canvas></div>
+    </div>
+
+    <div id="verdictBox" class="verdict verdict-positive">—</div>
+  </div>
+</section>
+
+<!-- ─── SECTION 7: SAMANBURÐUR INNAN FLOKKS ─────────────────────── -->
+<section id="sec-samanburdur" class="bg-card">
+  <div class="container">
+    <div class="section-eyebrow">Samanburður</div>
+    <h2 class="section-heading">Önnur sveitarfélög í sama flokki</h2>
+    <p class="section-subheading" id="tierLead">—</p>
+
+    <div class="chart-card">
+      <table class="svf-tbl" id="tblTier">
+        <thead><tr>
+          <th>Sveitarfélag</th>
+          <th class="num">Íbúar</th>
+          <th class="num">Tekjur/íbúa</th>
+          <th class="num">Gjöld/íbúa</th>
+          <th class="num">Afkoma/íbúa</th>
+          <th class="num">Útsvar</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 8: ÍTAREFNI (collapsible) ───────────────────────── -->
+<section id="sec-itarefni">
+  <div class="container">
+    <div class="section-eyebrow">Fyrir áhugasamir</div>
+    <h2 class="section-heading">Ítarleg greining</h2>
+    <p class="section-subheading">
+      Hér er hægt að rýna í gögnin. Veldu málaflokka, ártöl og graftegund.
+    </p>
+
+    <details class="advanced">
+      <summary>📊 Ítarleg sundurliðun útgjalda yfir tíma</summary>
+      <div class="content">
+        <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:20px">
+          <div style="flex:1; min-width:200px">
+            <label style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase">Frá ári</label>
+            <input type="range" id="yearFrom" min="2002" max="2024" value="2002" style="width:100%; accent-color:var(--green)">
+            <span id="yearFromLabel" style="font-weight:600">2002</span>
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase">Til árs</label>
+            <input type="range" id="yearTo" min="2002" max="2024" value="2024" style="width:100%; accent-color:var(--green)">
+            <span id="yearToLabel" style="font-weight:600">2024</span>
+          </div>
+        </div>
+
+        <div class="chart-wrap tall"><canvas id="chartItar"></canvas></div>
+
+        <h4 style="margin-top:32px; font-family:var(--font-display)">Tafla yfir útgjöld eftir málaflokkum (m.kr.)</h4>
+        <div style="overflow-x:auto">
+          <table class="svf-tbl" id="tblItar">
+            <thead><tr id="tblItarHead"></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="advanced">
+      <summary>💰 Ársreikningstölur (A-hluti og samstæða 2018–2020)</summary>
+      <div class="content">
+        <p class="lead">
+          A-hluti = aðalsjóður sveitarfélagsins (rekstur, skattar, þjónusta).
+          A+B = samstæða (A-hluti + B-hluti lögaðila eins og veitur, hafnir o.fl.).
+        </p>
+        <table class="svf-tbl" id="tblArsreik">
+          <thead><tr>
+            <th>Ár</th>
+            <th>Hluti</th>
+            <th class="num">Tekjur (m.kr.)</th>
+            <th class="num">Gjöld (m.kr.)</th>
+            <th class="num">Afkoma (m.kr.)</th>
+            <th class="num">Eignir</th>
+            <th class="num">Skuldir</th>
+            <th class="num">Eigið fé</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      <strong style="color:#fff">Heimildir:</strong>
+      Hagstofa Íslands · Samband íslenskra sveitarfélaga · ársreikningar sveitarfélaga (rikisreikningur.is) · Þjóðskrá Íslands.
+    </p>
+    <p style="margin-top:12px">
+      Gögn úr <code>sveitarfelag_sundurlidun</code> 2002–2024 (158.694 raðir, A-hluti),
+      <code>arsreikningar_svf</code> 2018–2020 (samstæða, takmarkað),
+      <code>mannfjoldi_svf</code> 1998–2025, <code>utsvarsprosent</code> 1998–2026,
+      <code>fasteignaskattur</code> 2023–2025.
+    </p>
+    <p style="margin-top:12px">
+      <strong style="color:#fff">Verklag:</strong> Allar tölur eru pre-computed
+      úr Supabase-gagnagrunni og vistaðar staðbundið — engin köll á gagnagrunn við skoðun.
+      Verðlagsleiðrétting (VNV) miðast við nýjasta gildi vísitölu neysluverðs.
+    </p>
+    <p style="margin-top:12px">
+      Greining: Samtök skattgreiðenda, apríl 2026.
+      <a href="#sec-hero">↑ Til baka efst</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// =========================================================================
+// HJÁLPARFÖLL — íslenskt talnasnið
+// =========================================================================
+function isFmt(n, decimals) {
+  if (n == null || isNaN(n)) return '—';
+  const isNeg = n < 0; const abs = Math.abs(n);
+  let str;
+  if (decimals != null && decimals > 0) {
+    str = abs.toFixed(decimals);
+    const [intP, decP] = str.split('.');
+    str = intP.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + decP;
+  } else {
+    str = Math.round(abs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+  return (isNeg ? '−' : '') + str;
+}
+const fmt = n => n == null ? '—' : isFmt(n, 0);
+const fmtKr = n => n == null ? '—' : isFmt(n, 0);
+const fmtMkr = n => n == null ? '—' : isFmt(n, 0);
+const fmtPct = (p, d=1) => p == null ? '—' : isFmt(p, d) + '%';
+const fmtAxisNum = v => isFmt(v, 0);
+const fmtAxisPct = v => isFmt(v, 1) + '%';
+
+// =========================================================================
+// LITIR
+// =========================================================================
+const COLORS = {
+  green: '#16a34a', greenDark: '#15803d', greenLight: '#86efac',
+  blue: '#2563eb', blueDark: '#1d4ed8', blueLight: '#93c5fd',
+  red: '#dc2626', redDark: '#991b1b', redLight: '#fca5a5',
+  orange: '#f59e0b', yellow: '#eab308', purple: '#9333ea',
+  cyan: '#0891b2', pink: '#db2777',
+  gray: '#6b7280', muted: '#9ca3af', text: '#1f2937', border: '#e5e7eb'
+};
+
+const CHART_DEFAULTS = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { labels: { color: COLORS.text, font: { size: 12 }, usePointStyle: true } },
+    tooltip: {
+      backgroundColor: '#1f2937', titleColor: '#fff', bodyColor: '#fff',
+      borderColor: '#374151', borderWidth: 1, padding: 12,
+      callbacks: {
+        label: function(ctx) {
+          const v = ctx.parsed.y ?? ctx.parsed.x ?? ctx.parsed;
+          const lbl = ctx.dataset.label || '';
+          if (typeof v !== 'number') return lbl;
+          const yScale = ctx.chart.scales.y;
+          const isPct = yScale && yScale.options && yScale.options.ticks &&
+                        yScale.options.ticks.callback === fmtAxisPct;
+          return `${lbl}: ${isPct ? fmtPct(v) : fmt(v)}`;
+        }
+      }
+    }
+  },
+  scales: {
+    x: { ticks: { color: COLORS.muted }, grid: { color: '#f3f4f6' } },
+    y: { ticks: { color: COLORS.muted, callback: fmtAxisNum },
+         grid: { color: '#f3f4f6' }, beginAtZero: true }
+  }
+};
+
+// =========================================================================
+// SAMEININGAR
+// =========================================================================
+const MERGERS = {
+  'Garðabær': '1. jan 2013 sameinuðust Garðabær og Sveitarfélagið Álftanes í Garðabæ.',
+  'Suðurnesjabær': '11. júní 2018 sameinuðust Sandgerðisbær og Sveitarfélagið Garður í Suðurnesjabæ.',
+  'Fjarðabyggð': '13. okt 2018 sameinaðist Breiðdalshreppur Fjarðabyggð.',
+  'Múlaþing': '17. okt 2020 sameinuðust Seyðisfjarðarkaupstaður, Djúpavogshreppur, Fljótsdalshérað og Borgarfjarðarhreppur í Múlaþing.',
+  'Sveitarfélagið Stykkishólmur': '2022 sameinuðust Stykkishólmsbær og Helgafellssveit.',
+  'Húnabyggð': '2022 sameinuðust Blönduósbær og Húnavatnshreppur.',
+  'Skagafjörður': '2022 sameinuðust Sveitarfélagið Skagafjörður og Akrahreppur.',
+  'Þingeyjarsveit': '2022 sameinuðust Þingeyjarsveit og Skútustaðahreppur.',
+  'Langanesbyggð': '2022 sameinuðust Langanesbyggð og Svalbarðshreppur.',
+  'Vesturbyggð': '2024 sameinuðust Vesturbyggð og Tálknafjarðarhreppur.',
+};
+
+// =========================================================================
+// STATE og GÖGN
+// =========================================================================
+let DATA = null;
+let currentSvf = null;
+let charts = {};
+let useFastVerdlag = false;
+let LATEST_VNV = null;
+let playing = false;
+
+function adjust(val, ar) {
+  if (val == null || !useFastVerdlag) return val;
+  const v_y = DATA.vnv && DATA.vnv[ar];
+  if (!v_y || !LATEST_VNV) return val;
+  return val * LATEST_VNV / v_y;
+}
+
+function destroyChart(id) {
+  if (charts[id]) { charts[id].destroy(); delete charts[id]; }
+}
+
+// =========================================================================
+// HLAÐA GÖGNUM
+// =========================================================================
+fetch('public/data/svf_dashboard_v2.json').then(r => r.json()).then(d => {
+  DATA = d;
+  if (d.vnv) {
+    const yrs = Object.keys(d.vnv).map(Number).sort((a,b) => b - a);
+    LATEST_VNV = d.vnv[yrs[0]];
+  }
+  initSelector();
+  document.getElementById('vnvToggle').addEventListener('change', e => {
+    useFastVerdlag = e.target.checked;
+    if (currentSvf) selectSvf(currentSvf);
+  });
+  // Default: Reykjavík
+  selectSvf('Reykjavíkurborg');
+}).catch(err => {
+  document.body.innerHTML = '<div style="padding:40px;text-align:center"><h1>Villa við að hlaða gögnum</h1><pre>' + err + '</pre></div>';
+});
+
+function initSelector() {
+  const sel = document.getElementById('svfSelect');
+  const sorted = [...DATA.svf_list].sort((a, b) => {
+    if (a.tier !== b.tier) return a.tier.localeCompare(b.tier);
+    return b.ibuar_2024 - a.ibuar_2024;
+  });
+  sorted.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s.name;
+    opt.textContent = `${s.tier} · ${s.name} (${fmt(s.ibuar_2024)})`;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', e => selectSvf(e.target.value));
+}
+
+// =========================================================================
+// AÐALFÖLL
+// =========================================================================
+function selectSvf(name) {
+  currentSvf = name;
+  const svfInfo = DATA.svf_list.find(s => s.name === name);
+  if (!svfInfo) return;
+  document.getElementById('svfSelect').value = name;
+  const tier = svfInfo.tier;
+  const badge = document.getElementById('tierBadge');
+  badge.textContent = tier;
+  badge.className = 'tier-badge tier-' + tier;
+  badge.title = DATA.tiers[tier].label;
+
+  // Sameiningarviðvörun
+  const noticeEl = document.getElementById('mergerNotice');
+  if (MERGERS[name]) {
+    document.getElementById('mergerMsg').textContent = MERGERS[name];
+    noticeEl.style.display = 'block';
+  } else { noticeEl.style.display = 'none'; }
+
+  renderHero(svfInfo);
+  renderClocks(svfInfo);
+  renderUtgjold(svfInfo);
+  renderTekjur(svfInfo);
+  renderFolkid(svfInfo);
+  renderThroun(svfInfo);
+  renderTier(svfInfo);
+  renderItarefni(svfInfo);
+  renderArsreik(svfInfo);
+}
+
+// =========================================================================
+// SECTION 1: HERO
+// =========================================================================
+function renderHero(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  document.getElementById('heroHeading').textContent = svfInfo.name;
+  document.getElementById('heroNumber').textContent = fmt(k.gjold_per_ibua);
+
+  const natGjPer = DATA.national_avg.gjold_per_ibua[2024];
+  const tierGjPer = DATA.tier_avg[svfInfo.tier]?.gjold_per_ibua[2024];
+
+  document.getElementById('ctxNational').textContent = fmt(natGjPer);
+  if (natGjPer && k.gjold_per_ibua) {
+    const diff = ((k.gjold_per_ibua / natGjPer) - 1) * 100;
+    const sign = diff >= 0 ? '+' : '';
+    const dirText = diff >= 0 ? 'yfir landsmeðaltali' : 'undir landsmeðaltali';
+    document.getElementById('ctxNationalText').textContent =
+      `${sign}${isFmt(diff, 1)}% ${dirText}`;
+  }
+  if (tierGjPer && k.gjold_per_ibua) {
+    const diff = ((k.gjold_per_ibua / tierGjPer) - 1) * 100;
+    document.getElementById('ctxTier').textContent = (diff >= 0 ? '+' : '') + isFmt(diff, 1) + '%';
+    document.getElementById('ctxTierText').textContent =
+      `Flokkur ${svfInfo.tier} (${DATA.tiers[svfInfo.tier].label})`;
+  }
+
+  // Stærsti útgjaldaliður
+  const malafl24 = d.malaflokkar[2024] || {};
+  const gjoldEnt = Object.entries(malafl24).filter(([mf]) => !mf.startsWith('00')).sort((a,b) => b[1] - a[1]);
+  if (gjoldEnt.length) {
+    document.getElementById('ctxTopMfl').textContent = gjoldEnt[0][0].replace(/^\d+\s+/, '');
+    document.getElementById('ctxTopMflText').textContent =
+      fmt(gjoldEnt[0][1]) + ' m.kr. (' + isFmt(gjoldEnt[0][1] / k.gjold_mkr * 100, 1) + '% af gjöldum)';
+  }
+
+  // 5-ára breyting raun
+  const v19 = d.gjold[2019] && d.mannfjoldi[2019] ? d.gjold[2019] * 1e6 / d.mannfjoldi[2019] : null;
+  const v24 = k.gjold_per_ibua;
+  if (v19 && v24 && DATA.vnv) {
+    const v19adj = v19 * LATEST_VNV / DATA.vnv[2019];
+    const ch = ((v24 / v19adj) - 1) * 100;
+    document.getElementById('ctx5yr').textContent = (ch >= 0 ? '+' : '') + isFmt(ch, 1) + '%';
+  }
+
+  // Narrative
+  const ibuar_str = fmt(k.ibuar) + ' íbúa';
+  document.getElementById('heroNarrative').innerHTML =
+    `<strong>${svfInfo.name}</strong> er sveitarfélag með ${ibuar_str}. ` +
+    `Á hverju ári eyðir sveitarfélagið um <strong>${fmt(k.gjold_mkr)} milljónum króna</strong>, ` +
+    `eða <strong>${fmt(k.gjold_per_ibua)} kr.</strong> á hvern íbúa. ` +
+    `Hér fyrir neðan má sjá hvaðan peningarnir koma og hvert þeir fara.`;
+}
+
+// =========================================================================
+// SECTION 2: KLUKKURNAR
+// =========================================================================
+function secSinceNewYear() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 1);
+  return (now - start) / 1000;
+}
+
+function renderClocks(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+
+  // Setja unit á ar 2024
+  document.getElementById('clockUnit').textContent = `krónur (út frá árseyðslu ${fmt(k.gjold_mkr)} m.kr.)`;
+
+  // Skuldir
+  const debtCard = document.getElementById('clockDebtCard');
+  if (k.a_skuldir_per_ibua) {
+    debtCard.style.display = 'block';
+    const skuldir2020 = (d.arsreik[2020] || {}).a_skuldir_samtals || 0;
+    document.getElementById('debtTotal').textContent = fmt(skuldir2020 * 1000);
+    document.getElementById('debtPerCap').textContent = fmt(k.a_skuldir_per_ibua);
+    // Á barn 0-17
+    const barn0_17 = (d.barn_0_5[2024] || 0) + (d.barn_6_15[2024] || 0);
+    if (barn0_17 > 0) {
+      document.getElementById('debtPerChild').textContent = fmt(skuldir2020 * 1000 / barn0_17);
+    }
+  } else {
+    debtCard.style.display = 'none';
+  }
+
+  // Afkoma
+  const afk = k.afkoma_mkr;
+  document.getElementById('afkomaValue').textContent = (afk >= 0 ? '+' : '') + fmt(afk);
+  const afkClass = afk >= 0 ? 'green' : 'red';
+  document.getElementById('clockAfkomaCard').className = 'clock ' + afkClass;
+  if (k.ibuar) {
+    document.getElementById('afkomaPerCap').textContent = (afk >= 0 ? '+' : '') + fmt(afk * 1e6 / k.ibuar);
+  }
+  if (k.skatttekjur_mkr > 0) {
+    document.getElementById('afkomaPct').textContent = (afk >= 0 ? '+' : '') + isFmt(afk / k.skatttekjur_mkr * 100, 1) + '%';
+  }
+
+  // Klukka — uppfæra hvert 100ms
+  if (window._clockInterval) clearInterval(window._clockInterval);
+  window._clockInterval = setInterval(() => updateClock(svfInfo), 100);
+  updateClock(svfInfo);
+}
+
+function updateClock(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  const SECS_YR = 365.25 * 86400;
+  const annualKr = k.gjold_mkr * 1e6;
+  const perSec = annualKr / SECS_YR;
+  const elapsed = secSinceNewYear();
+  document.getElementById('clockTotal').textContent = fmt(perSec * elapsed);
+  document.getElementById('clockPerSec').textContent = fmt(perSec);
+  document.getElementById('clockPerDay').textContent = fmt(perSec * 86400);
+  if (k.ibuar) {
+    document.getElementById('clockPerCap').textContent = fmt(annualKr / k.ibuar);
+  }
+}
+
+// =========================================================================
+// SECTION 3: ÚTGJÖLD
+// =========================================================================
+function renderUtgjold(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  const malafl24 = d.malaflokkar[2024] || {};
+  const gjoldEnt = Object.entries(malafl24).filter(([mf]) => !mf.startsWith('00')).sort((a,b) => b[1] - a[1]);
+
+  // Narrative
+  if (gjoldEnt.length >= 2) {
+    document.getElementById('utgjoldNarrative').innerHTML =
+      `Stærsti útgjaldaliður er ` +
+      `<strong>${gjoldEnt[0][0].replace(/^\d+\s+/, '')}</strong> ` +
+      `(${fmt(gjoldEnt[0][1])} m.kr. — ${isFmt(gjoldEnt[0][1] / k.gjold_mkr * 100, 1)}% af gjöldum). ` +
+      `Þar á eftir kemur <strong>${gjoldEnt[1][0].replace(/^\d+\s+/, '')}</strong>. ` +
+      `Samtals eru ${gjoldEnt.length} málaflokkar í sundurliðun.`;
+  }
+
+  // Bar chart
+  destroyChart('chartMalafl');
+  charts['chartMalafl'] = new Chart(document.getElementById('chartMalafl'), {
+    type: 'bar',
+    data: {
+      labels: gjoldEnt.map(([mf]) => mf),
+      datasets: [{
+        label: 'Útgjöld 2024 (m.kr.)',
+        data: gjoldEnt.map(([_, v]) => useFastVerdlag ? adjust(v, 2024) : v),
+        backgroundColor: COLORS.green,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      plugins: { ...CHART_DEFAULTS.plugins, legend: { display: false } },
+      scales: {
+        x: { ticks: { color: COLORS.muted, callback: fmtAxisNum },
+             grid: { color: '#f3f4f6' }, beginAtZero: true,
+             title: { display: true, text: 'm.kr.', color: COLORS.muted } },
+        y: { ticks: { color: COLORS.text, autoSkip: false }, grid: { display: false } }
+      }
+    }
+  });
+
+  // Skólar
+  const leik24 = d.skoli_leik[2024] || 0;
+  const grunn24 = d.skoli_grunn[2024] || 0;
+  const barn05 = d.barn_0_5[2024] || 0;
+  const barn615 = d.barn_6_15[2024] || 0;
+  const leikPer = barn05 ? leik24 * 1e6 / barn05 : null;
+  const grunnPer = barn615 ? grunn24 * 1e6 / barn615 : null;
+
+  // Landsmeðaltal skólar
+  let natLeikPer = null, natGrunnPer = null;
+  let totLeikSpend = 0, totGrunnSpend = 0, tot05 = 0, tot615 = 0;
+  for (const s of DATA.svf_list) {
+    const sd = DATA.svf_data[s.name];
+    totLeikSpend += sd.skoli_leik[2024] || 0;
+    totGrunnSpend += sd.skoli_grunn[2024] || 0;
+    tot05 += sd.barn_0_5[2024] || 0;
+    tot615 += sd.barn_6_15[2024] || 0;
+  }
+  natLeikPer = tot05 ? totLeikSpend * 1e6 / tot05 : null;
+  natGrunnPer = tot615 ? totGrunnSpend * 1e6 / tot615 : null;
+
+  document.getElementById('schoolLeikVal').textContent = fmt(leikPer) + ' kr.';
+  document.getElementById('schoolGrunnVal').textContent = fmt(grunnPer) + ' kr.';
+  if (natLeikPer && leikPer) {
+    const diff = ((leikPer / natLeikPer) - 1) * 100;
+    document.getElementById('schoolLeikCompare').innerHTML =
+      `Landsmeðaltal: ${fmt(natLeikPer)} kr. — <span class="${diff>=0?'pos':'neg'}">${diff>=0?'+':''}${isFmt(diff,1)}%</span>`;
+  }
+  if (natGrunnPer && grunnPer) {
+    const diff = ((grunnPer / natGrunnPer) - 1) * 100;
+    document.getElementById('schoolGrunnCompare').innerHTML =
+      `Landsmeðaltal: ${fmt(natGrunnPer)} kr. — <span class="${diff>=0?'pos':'neg'}">${diff>=0?'+':''}${isFmt(diff,1)}%</span>`;
+  }
+
+  document.getElementById('schoolNarrative').innerHTML =
+    `Skólakostnaður er einn stærsti útgjaldaliður sveitarfélaga. ` +
+    `Hér er kostnaður deilt með fjölda barna á viðeigandi aldursbili — sem gefur ` +
+    `samanburðarhæfar tölur þvert á sveitarfélög.`;
+
+  // Skólar yfir tíma
+  const years = DATA.years;
+  destroyChart('chartSkoli');
+  charts['chartSkoli'] = new Chart(document.getElementById('chartSkoli'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        { label: 'Leikskóli — kr. á barn',
+          data: years.map(y => {
+            const v = d.skoli_leik[y]; const b = d.barn_0_5[y];
+            return (v && b) ? adjust(v * 1e6 / b, y) : null;
+          }),
+          borderColor: COLORS.blue, backgroundColor: COLORS.blue + '20', fill: true, tension: 0.3, borderWidth: 2 },
+        { label: 'Grunnskóli — kr. á barn',
+          data: years.map(y => {
+            const v = d.skoli_grunn[y]; const b = d.barn_6_15[y];
+            return (v && b) ? adjust(v * 1e6 / b, y) : null;
+          }),
+          borderColor: COLORS.green, backgroundColor: COLORS.green + '20', fill: true, tension: 0.3, borderWidth: 2 },
+      ]
+    },
+    options: { ...CHART_DEFAULTS,
+      scales: { ...CHART_DEFAULTS.scales,
+        y: { ...CHART_DEFAULTS.scales.y, title: { display:true, text: 'kr. á barn', color: COLORS.muted } } } }
+  });
+}
+
+// =========================================================================
+// SECTION 4: TEKJUR
+// =========================================================================
+function renderTekjur(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  const sk24 = d.skatttekjur_deild[2024] || {};
+  const utsvar24 = sk24['Útsvör'] || 0;
+  const fasteign24 = sk24['Fasteignaskattur'] || 0;
+  const jofnun24 = sk24['Framlög úr Jöfnunarsjóði'] || 0;
+
+  document.getElementById('tekjurNarrative').innerHTML =
+    `Skatttekjur 2024 voru ` +
+    `<strong>${fmt(k.skatttekjur_mkr)} m.kr.</strong> ` +
+    `Þar af voru tekjur af útsvari <strong>${fmt(utsvar24)} m.kr.</strong> ` +
+    `(${isFmt(utsvar24/k.skatttekjur_mkr*100,1)}%), tekjur af fasteignaskatti ${fmt(fasteign24)} m.kr. ` +
+    `og framlög Jöfnunarsjóðs ${fmt(jofnun24)} m.kr.`;
+
+  // Skatttekjur sundurlidun yfir tíma (stacked area)
+  const years = DATA.years;
+  const deildSet = new Set();
+  years.forEach(y => Object.keys(d.skatttekjur_deild[y] || {}).forEach(k => deildSet.add(k)));
+  const deilds = [...deildSet];
+  const deildColors = {
+    'Útsvör': COLORS.green,
+    'Fasteignaskattur': COLORS.blue,
+    'Framlög úr Jöfnunarsjóði': COLORS.purple,
+    'Aðrar tekjur með skattaígildi': COLORS.yellow
+  };
+  destroyChart('chartSkattSundur');
+  charts['chartSkattSundur'] = new Chart(document.getElementById('chartSkattSundur'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: deilds.map(deild => ({
+        label: deild,
+        data: years.map(y => {
+          const v = (d.skatttekjur_deild[y] || {})[deild];
+          return v != null ? adjust(v, y) : null;
+        }),
+        backgroundColor: (deildColors[deild] || COLORS.gray) + '60',
+        borderColor: deildColors[deild] || COLORS.gray,
+        fill: true, tension: 0.3, borderWidth: 2,
+      }))
+    },
+    options: { ...CHART_DEFAULTS,
+      scales: { x: CHART_DEFAULTS.scales.x,
+        y: { ...CHART_DEFAULTS.scales.y, stacked: true,
+             title: { display:true, text:'m.kr.', color: COLORS.muted } } } }
+  });
+
+  // Útsvar narrative
+  const utsv = k.utsvar_pct;
+  const natUtsv = DATA.national_avg.utsvar[2026] || DATA.national_avg.utsvar[2025];
+  if (utsv) {
+    let txt = `Núverandi útsvarsprósenta er ` +
+              `<strong>${fmtPct(utsv*100, 2)}</strong>. `;
+    if (natUtsv) {
+      const diff = (utsv - natUtsv) * 100;
+      txt += `Það er ${diff >= 0 ? '<strong>' + isFmt(diff,2) + ' prósentustigum hærra</strong>' :
+              '<strong>' + isFmt(Math.abs(diff),2) + ' prósentustigum lægra</strong>'} en landsmeðaltal.`;
+    }
+    document.getElementById('utsvarNarrative').innerHTML = txt;
+  }
+
+  // Útsvar chart
+  const utsvarYears = []; for (let y=2002;y<=2026;y++) utsvarYears.push(y);
+  destroyChart('chartUtsvar');
+  charts['chartUtsvar'] = new Chart(document.getElementById('chartUtsvar'), {
+    type: 'line',
+    data: {
+      labels: utsvarYears,
+      datasets: [
+        { label: svfInfo.name,
+          data: utsvarYears.map(y => { const v = d.utsvar[y]; return v!=null?v*100:null; }),
+          borderColor: COLORS.green, backgroundColor: COLORS.green+'20', fill: true,
+          tension: 0.2, borderWidth: 3 },
+        { label: 'Flokksmeðaltal',
+          data: utsvarYears.map(y => { const v = DATA.tier_avg[svfInfo.tier]?.utsvar[y]; return v!=null?v*100:null; }),
+          borderColor: COLORS.blue, backgroundColor: 'transparent', fill: false,
+          tension: 0.2, borderWidth: 1.5 },
+        { label: 'Landsmeðaltal',
+          data: utsvarYears.map(y => { const v = DATA.national_avg.utsvar[y]; return v!=null?v*100:null; }),
+          borderColor: COLORS.gray, backgroundColor: 'transparent', fill: false,
+          tension: 0.2, borderDash: [4,4] },
+      ]
+    },
+    options: { ...CHART_DEFAULTS,
+      scales: { ...CHART_DEFAULTS.scales,
+        y: { ...CHART_DEFAULTS.scales.y,
+             title: { display:true, text: '%', color: COLORS.muted },
+             ticks: { ...CHART_DEFAULTS.scales.y.ticks, callback: fmtAxisPct } } } }
+  });
+
+  // Fasteign tafla
+  const tbody = document.querySelector('#tblFasteign tbody');
+  tbody.innerHTML = '';
+  for (let y=2023; y<=2025; y++) {
+    const f = d.fasteign[y]; if (!f) continue;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${y}</td>
+      <td class="num">${f.a!=null?fmtPct(f.a*100,2):'—'}</td>
+      <td class="num">${f.b!=null?fmtPct(f.b*100,2):'—'}</td>
+      <td class="num">${f.c!=null?fmtPct(f.c*100,2):'—'}</td>
+      <td class="num">${f.alagning_samtals?fmt(f.alagning_samtals/1000):'—'}</td>
+      <td class="num">${f.per_ibua?fmt(f.per_ibua):'—'}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  // Fasteign saga
+  destroyChart('chartFasteignSaga');
+  charts['chartFasteignSaga'] = new Chart(document.getElementById('chartFasteignSaga'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{ label: 'Fasteignaskattur — kr. á íbúa',
+        data: years.map(y => {
+          const sk = d.skatttekjur_deild[y] || {};
+          const f = sk['Fasteignaskattur'] || 0;
+          const i = d.mannfjoldi[y];
+          return (f && i) ? adjust(f * 1e6 / i, y) : null;
+        }),
+        borderColor: COLORS.blue, backgroundColor: COLORS.blue+'25',
+        fill: true, tension: 0.3, borderWidth: 3 }]
+    },
+    options: { ...CHART_DEFAULTS,
+      plugins: { ...CHART_DEFAULTS.plugins, legend: { display: false } },
+      scales: { ...CHART_DEFAULTS.scales,
+        y: { ...CHART_DEFAULTS.scales.y, title: { display:true, text:'kr. á íbúa', color: COLORS.muted } } } }
+  });
+}
+
+// =========================================================================
+// SECTION 5: FÓLKIÐ
+// =========================================================================
+function renderFolkid(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  document.getElementById('statIbuar').textContent = fmt(k.ibuar);
+
+  // Erlent ríkisfang
+  const rf = d.rikisfang[2024] || d.rikisfang[2023];
+  if (rf) {
+    document.getElementById('statErlent').textContent = fmtPct(rf.erlent_pct);
+  }
+
+  // Aðfluttir umfram brottflutta
+  const buf = d.buferla[2024] || {};
+  const adfl = buf['Aðfluttir umfram brottflutta'] || buf['Aðfluttir umfram'] || 0;
+  document.getElementById('statBuferla').textContent = (adfl >= 0 ? '+' : '') + fmt(adfl);
+
+  // Aldraðir 65+
+  const ald65 = d.aldradir_65[2024];
+  if (ald65 && k.ibuar) {
+    document.getElementById('statAldradir').textContent =
+      fmt(ald65) + ' (' + isFmt(ald65/k.ibuar*100, 1) + '%)';
+  }
+
+  // Folk narrative
+  const ib19 = d.mannfjoldi[2019];
+  const ib24 = d.mannfjoldi[2024];
+  let popTxt = '';
+  if (ib19 && ib24) {
+    const ch = ((ib24/ib19)-1)*100;
+    popTxt = `Íbúum hefur ${ch >= 0 ? 'fjölgað' : 'fækkað'} um ` +
+             `<strong>${ch>=0?'+':''}${isFmt(ch,1)}%</strong> síðustu 5 ár. `;
+  }
+  if (rf) {
+    popTxt += `Hlutfall íbúa með erlent ríkisfang er nú <strong>${fmtPct(rf.erlent_pct)}</strong>.`;
+  }
+  document.getElementById('folkNarrative').innerHTML = popTxt;
+
+  // Aldurspíramídi — finna max x fyrir konsistenta skala
+  let maxX = 0;
+  for (const ar of Object.keys(d.pyramid)) {
+    const dat = d.pyramid[ar];
+    for (let i = 0; i < 21; i++) {
+      const k_total = (dat[`${i}_k_is`]||0) + (dat[`${i}_k_erl`]||0);
+      const ko_total = (dat[`${i}_ko_is`]||0) + (dat[`${i}_ko_erl`]||0);
+      maxX = Math.max(maxX, k_total, ko_total);
+    }
+  }
+  window._pyramidMaxX = Math.ceil(maxX * 1.1);
+  drawPyramid();
+
+  // Mannfjöldi yfir tíma + erlent hlutfall
+  const years = DATA.years;
+  destroyChart('chartMannfj');
+  charts['chartMannfj'] = new Chart(document.getElementById('chartMannfj'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        { label: 'Mannfjöldi',
+          data: years.map(y => d.mannfjoldi[y]),
+          borderColor: COLORS.green, backgroundColor: COLORS.green+'20',
+          fill: true, tension: 0.3, borderWidth: 2, yAxisID: 'y' },
+        { label: 'Erlent ríkisfang (%)',
+          data: years.map(y => { const v = (d.rikisfang[y]||{}).erlent_pct; return v||null; }),
+          borderColor: COLORS.purple, backgroundColor: 'transparent',
+          fill: false, tension: 0.3, borderWidth: 2, yAxisID: 'y1' },
+      ]
+    },
+    options: { ...CHART_DEFAULTS,
+      scales: { x: CHART_DEFAULTS.scales.x,
+        y: { ...CHART_DEFAULTS.scales.y, position: 'left',
+             title: { display:true, text:'íbúar', color: COLORS.muted } },
+        y1: { ...CHART_DEFAULTS.scales.y, position: 'right',
+              title: { display:true, text:'erlent %', color: COLORS.purple },
+              ticks: { ...CHART_DEFAULTS.scales.y.ticks, callback: fmtAxisPct },
+              grid: { drawOnChartArea: false } }
+      }
+    }
+  });
+}
+
+function drawPyramid() {
+  if (!currentSvf) return;
+  const d = DATA.svf_data[currentSvf];
+  const year = parseInt(document.getElementById('pyramidSlider').value);
+  document.getElementById('pyramidYear').textContent = year;
+  const data = d.pyramid[year] || {};
+
+  // Buckets
+  const labels = ['0–4','5–9','10–14','15–19','20–24','25–29','30–34','35–39','40–44',
+                  '45–49','50–54','55–59','60–64','65–69','70–74','75–79','80–84',
+                  '85–89','90–94','95–99','100+'];
+  const k_is = [], k_erl = [], ko_is = [], ko_erl = [];
+  for (let i = 0; i < 21; i++) {
+    k_is.push(-(data[`${i}_k_is`]||0));
+    k_erl.push(-(data[`${i}_k_erl`]||0));
+    ko_is.push(data[`${i}_ko_is`]||0);
+    ko_erl.push(data[`${i}_ko_erl`]||0);
+  }
+  // Reverse so oldest at top
+  labels.reverse(); k_is.reverse(); k_erl.reverse(); ko_is.reverse(); ko_erl.reverse();
+
+  const maxX = window._pyramidMaxX || 5000;
+  const ds = [
+    { label: 'Karlar (m. íslenskt ríkisfang)', data: k_is, backgroundColor: COLORS.blueDark+'cc', stack: 'k', borderWidth: 0 },
+    { label: 'Karlar (m. erlent ríkisfang)', data: k_erl, backgroundColor: COLORS.blueLight+'cc', stack: 'k', borderWidth: 0 },
+    { label: 'Konur (m. íslenskt ríkisfang)', data: ko_is, backgroundColor: COLORS.redDark+'cc', stack: 'ko', borderWidth: 0 },
+    { label: 'Konur (m. erlent ríkisfang)', data: ko_erl, backgroundColor: COLORS.redLight+'cc', stack: 'ko', borderWidth: 0 },
+  ];
+
+  if (charts.pyramid) {
+    charts.pyramid.data.labels = labels;
+    ds.forEach((d, i) => charts.pyramid.data.datasets[i].data = d.data);
+    charts.pyramid.options.animation.duration = playing ? 200 : 400;
+    charts.pyramid.options.scales.x.min = -maxX;
+    charts.pyramid.options.scales.x.max = maxX;
+    charts.pyramid.update();
+  } else {
+    charts.pyramid = new Chart(document.getElementById('chartPyramid'), {
+      type: 'bar',
+      data: { labels, datasets: ds },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        animation: { duration: 400 },
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 14, font: { size: 11 } } },
+          tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmt(Math.abs(ctx.parsed.x)) } }
+        },
+        scales: {
+          x: { stacked: true, min: -maxX, max: maxX,
+               grid: { color: '#f3f4f6' },
+               ticks: { callback: v => fmt(Math.abs(v)) } },
+          y: { stacked: true, grid: { display: false } }
+        }
+      }
+    });
+  }
+}
+
+async function togglePlay() {
+  const btn = document.getElementById('pyramidPlay');
+  if (playing) { playing = false; btn.textContent = '▶'; return; }
+  playing = true; btn.textContent = '⏸';
+  const slider = document.getElementById('pyramidSlider');
+  const min = +slider.min, max = +slider.max;
+  for (let y = min; y <= max && playing; y++) {
+    slider.value = y; drawPyramid(); await new Promise(r => setTimeout(r, 350));
+  }
+  playing = false; btn.textContent = '▶';
+}
+
+// =========================================================================
+// SECTION 6: ÞRÓUN
+// =========================================================================
+function renderThroun(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const k = d.kpi;
+  const tier = svfInfo.tier;
+  const years = DATA.years;
+
+  // Narrative
+  const afk = k.afkoma_mkr;
+  document.getElementById('throunNarrative').innerHTML =
+    `Hér er borin saman þróun tekna og útgjalda yfir 23 ár.`;
+
+  // Tekjur og gjöld per íbúa með samanburði
+  destroyChart('chartTekjurGjold');
+  charts['chartTekjurGjold'] = new Chart(document.getElementById('chartTekjurGjold'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        { label: svfInfo.name + ' — tekjur',
+          data: years.map(y => {
+            const t = d.skatttekjur[y]; const i = d.mannfjoldi[y];
+            return (t && i) ? adjust(t * 1e6 / i, y) : null;
+          }),
+          borderColor: COLORS.green, backgroundColor: COLORS.green+'20',
+          fill: true, tension: 0.3, borderWidth: 3 },
+        { label: svfInfo.name + ' — gjöld',
+          data: years.map(y => {
+            const g = d.gjold[y]; const i = d.mannfjoldi[y];
+            return (g && i) ? adjust(g * 1e6 / i, y) : null;
+          }),
+          borderColor: COLORS.red, backgroundColor: 'transparent',
+          fill: false, tension: 0.3, borderWidth: 2, borderDash: [5,5] },
+        { label: 'Flokksmeðaltal — tekjur',
+          data: years.map(y => adjust(DATA.tier_avg[tier]?.skatttekjur_per_ibua[y], y)),
+          borderColor: COLORS.blue, backgroundColor: 'transparent',
+          fill: false, tension: 0.3, borderWidth: 1.5 },
+        { label: 'Landsmeðaltal — tekjur',
+          data: years.map(y => adjust(DATA.national_avg.skatttekjur_per_ibua[y], y)),
+          borderColor: COLORS.gray, backgroundColor: 'transparent',
+          fill: false, tension: 0.3, borderDash: [2,2] },
+      ]
+    },
+    options: { ...CHART_DEFAULTS,
+      scales: { ...CHART_DEFAULTS.scales,
+        y: { ...CHART_DEFAULTS.scales.y,
+             title: { display:true, text: 'kr. á íbúa', color: COLORS.muted } } } }
+  });
+
+  // Afkoma per íbúa bar chart
+  destroyChart('chartAfkomaTime');
+  charts['chartAfkomaTime'] = new Chart(document.getElementById('chartAfkomaTime'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [{ label: 'Afkoma',
+        data: years.map(y => {
+          const t = d.skatttekjur[y]; const g = d.gjold[y]; const i = d.mannfjoldi[y];
+          return (t!=null && g!=null && i) ? adjust((t-g) * 1e6 / i, y) : null;
+        }),
+        backgroundColor: years.map(y => {
+          const t = d.skatttekjur[y]; const g = d.gjold[y];
+          return (t!=null && g!=null) ? ((t-g) >= 0 ? COLORS.green : COLORS.red) : COLORS.gray;
+        })
+      }]
+    },
+    options: { ...CHART_DEFAULTS,
+      plugins: { ...CHART_DEFAULTS.plugins, legend: { display: false } },
+      scales: { ...CHART_DEFAULTS.scales,
+        y: { ...CHART_DEFAULTS.scales.y, title: { display:true, text:'kr. á íbúa', color: COLORS.muted } } } }
+  });
+
+  // Verdict
+  const vBox = document.getElementById('verdictBox');
+  if (afk > 0) {
+    vBox.className = 'verdict verdict-positive';
+    vBox.innerHTML =
+      `<strong>Afgangur 2024:</strong> Tekjur voru ${fmt(k.skatttekjur_mkr)} m.kr. ` +
+      `og gjöld ${fmt(k.gjold_mkr)} m.kr. Afgangurinn er ${fmt(afk)} m.kr. ` +
+      `(${isFmt(afk/k.skatttekjur_mkr*100,1)}% af tekjum).`;
+  } else if (afk < 0) {
+    vBox.className = 'verdict verdict-negative';
+    vBox.innerHTML =
+      `<strong>Halli 2024:</strong> Tekjur voru ${fmt(k.skatttekjur_mkr)} m.kr. ` +
+      `en gjöld ${fmt(k.gjold_mkr)} m.kr. Hallinn er ${fmt(Math.abs(afk))} m.kr. ` +
+      `(${isFmt(Math.abs(afk)/k.skatttekjur_mkr*100,1)}% af tekjum).`;
+  } else {
+    vBox.className = 'verdict verdict-neutral';
+    vBox.innerHTML = `<strong>Slétt:</strong> Tekjur og gjöld eru í jafnvægi 2024.`;
+  }
+}
+
+// =========================================================================
+// SECTION 7: TIER COMPARISON
+// =========================================================================
+function renderTier(svfInfo) {
+  const tier = svfInfo.tier;
+  const tierSvfs = DATA.svf_list.filter(s => s.tier === tier).sort((a,b) => b.ibuar_2024 - a.ibuar_2024);
+  document.getElementById('tierLead').textContent =
+    `Flokkur ${tier} — ${DATA.tiers[tier].label} — ${tierSvfs.length} sveitarfélög samtals.`;
+  const tbody = document.querySelector('#tblTier tbody');
+  tbody.innerHTML = '';
+  tierSvfs.forEach(s => {
+    const d = DATA.svf_data[s.name];
+    const k = d.kpi;
+    const tr = document.createElement('tr');
+    if (s.name === svfInfo.name) tr.className = 'highlight';
+    const afkPer = k.ibuar ? k.afkoma_mkr * 1e6 / k.ibuar : null;
+    tr.innerHTML = `
+      <td><a href="#" class="text-link" onclick="selectSvf('${s.name.replace(/'/g, "\\'")}'); window.scrollTo({top:0,behavior:'smooth'}); return false;">${s.name}</a></td>
+      <td class="num">${fmt(s.ibuar_2024)}</td>
+      <td class="num">${fmt(k.skatttekjur_per_ibua)}</td>
+      <td class="num">${fmt(k.gjold_per_ibua)}</td>
+      <td class="num ${afkPer>=0?'pos':'neg'}">${afkPer>=0?'+':''}${fmt(afkPer)}</td>
+      <td class="num">${k.utsvar_pct?fmtPct(k.utsvar_pct*100,2):'—'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// =========================================================================
+// SECTION 8: ÍTAREFNI
+// =========================================================================
+function renderItarefni(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const yFromInput = document.getElementById('yearFrom');
+  const yToInput = document.getElementById('yearTo');
+
+  function update() {
+    const yFrom = +yFromInput.value;
+    const yTo = +yToInput.value;
+    if (yFrom > yTo) {
+      if (this === yFromInput) yFromInput.value = yTo;
+      else yToInput.value = yFrom;
+    }
+    document.getElementById('yearFromLabel').textContent = yFromInput.value;
+    document.getElementById('yearToLabel').textContent = yToInput.value;
+
+    // Söfn malaflokka yfir tíma
+    const yrs = [];
+    for (let y = +yFromInput.value; y <= +yToInput.value; y++) yrs.push(y);
+    const allMfl = new Set();
+    yrs.forEach(y => Object.keys(d.malaflokkar[y] || {}).filter(m => !m.startsWith('00')).forEach(m => allMfl.add(m)));
+    const mflList = [...allMfl];
+    const palette = [COLORS.green, COLORS.blue, COLORS.red, COLORS.orange,
+                     COLORS.purple, COLORS.cyan, COLORS.pink, COLORS.yellow,
+                     COLORS.gray, COLORS.greenDark, COLORS.blueDark, COLORS.redDark];
+
+    destroyChart('chartItar');
+    charts['chartItar'] = new Chart(document.getElementById('chartItar'), {
+      type: 'line',
+      data: {
+        labels: yrs,
+        datasets: mflList.map((mf, i) => ({
+          label: mf, data: yrs.map(y => adjust((d.malaflokkar[y]||{})[mf], y)),
+          borderColor: palette[i % palette.length],
+          backgroundColor: palette[i % palette.length] + '20',
+          fill: false, tension: 0.3, borderWidth: 2,
+        }))
+      },
+      options: { ...CHART_DEFAULTS,
+        scales: { ...CHART_DEFAULTS.scales,
+          y: { ...CHART_DEFAULTS.scales.y, title: { display:true, text:'m.kr.', color: COLORS.muted } } } }
+    });
+
+    // Tafla
+    const head = document.getElementById('tblItarHead');
+    head.innerHTML = '<th>Málaflokkur</th>' + yrs.map(y => `<th class="num">${y}</th>`).join('');
+    const body = document.querySelector('#tblItar tbody');
+    body.innerHTML = '';
+    mflList.sort((a, b) => {
+      const sumA = yrs.reduce((s, y) => s + ((d.malaflokkar[y]||{})[a] || 0), 0);
+      const sumB = yrs.reduce((s, y) => s + ((d.malaflokkar[y]||{})[b] || 0), 0);
+      return sumB - sumA;
+    });
+    mflList.forEach(mf => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${mf}</td>` +
+        yrs.map(y => `<td class="num">${fmt(adjust((d.malaflokkar[y]||{})[mf], y))}</td>`).join('');
+      body.appendChild(tr);
+    });
+  }
+
+  yFromInput.oninput = update.bind(yFromInput);
+  yToInput.oninput = update.bind(yToInput);
+  update();
+}
+
+// =========================================================================
+// SECTION 8: ÁRSREIKNINGAR (samstæða)
+// =========================================================================
+function renderArsreik(svfInfo) {
+  const d = DATA.svf_data[svfInfo.name];
+  const tbody = document.querySelector('#tblArsreik tbody');
+  tbody.innerHTML = '';
+  for (let y = 2018; y <= 2020; y++) {
+    const a = d.arsreik[y];
+    if (!a) continue;
+    // A-hluti
+    if (a.a_tekjur_samtals != null) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${y}</td>
+        <td><strong>A-hluti</strong></td>
+        <td class="num">${fmt(a.a_tekjur_samtals/1000)}</td>
+        <td class="num">${fmt(a.a_gjold_samtals/1000)}</td>
+        <td class="num ${(a.a_rekstrarnidurstada||0)>=0?'pos':'neg'}">${fmt(a.a_rekstrarnidurstada/1000)}</td>
+        <td class="num">${fmt(a.a_eignir_samtals/1000)}</td>
+        <td class="num">${fmt(a.a_skuldir_samtals/1000)}</td>
+        <td class="num">${fmt(a.a_eigid_fe/1000)}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+    // A+B
+    if (a.ab_tekjur_samtals != null) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td></td>
+        <td>A+B (samstæða)</td>
+        <td class="num">${fmt(a.ab_tekjur_samtals/1000)}</td>
+        <td class="num">${fmt(a.ab_gjold_samtals/1000)}</td>
+        <td class="num ${(a.ab_rekstrarnidurstada||0)>=0?'pos':'neg'}">${fmt(a.ab_rekstrarnidurstada/1000)}</td>
+        <td class="num">${fmt(a.ab_eignir_samtals/1000)}</td>
+        <td class="num">${fmt(a.ab_skuldir_samtals/1000)}</td>
+        <td class="num">${fmt(a.ab_eigid_fe/1000)}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  }
+  if (!tbody.children.length) {
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:24px">Engin gögn fyrir þetta sveitarfélag</td></tr>';
+  }
+}
+</script>
+
+</body>
+</html>
