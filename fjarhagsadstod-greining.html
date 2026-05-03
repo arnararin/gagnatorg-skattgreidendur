@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fjárhagsaðstoð Reykjavíkur — Greining | Samtök skattgreiðenda</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --text: #1c1c1a;
+    --sub: #555;
+    --muted: #9a9a90;
+    --border: #dddad0;
+    --card: #fff;
+    --green: #2d7a3a;
+    --green-light: #e8f5e9;
+    --red: #c0392b;
+    --font-d: 'Newsreader', Georgia, serif;
+    --font-b: 'Archivo', system-ui, sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.5; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 24px 64px; }
+
+  .header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .header h1 { font-family: var(--font-d); font-weight: 700; font-size: 26px; letter-spacing: -0.02em; }
+  .header .badge {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    background: var(--green-light); color: var(--green); padding: 3px 10px; border-radius: 20px;
+  }
+  .header-desc { font-size: 14px; color: var(--sub); margin-bottom: 24px; max-width: 700px; }
+
+  .chart-section {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; margin-bottom: 28px;
+  }
+  .chart-section h2 {
+    font-family: var(--font-d); font-weight: 700; font-size: 20px; margin-bottom: 4px;
+  }
+  .chart-section .desc { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .chart-wrap { position: relative; height: 380px; }
+
+  .kpi-row { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+  .kpi-card {
+    flex: 1; min-width: 160px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px;
+  }
+  .kpi-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .kpi-value { font-family: var(--font-d); font-size: 28px; font-weight: 700; }
+  .kpi-sub { font-size: 12px; color: var(--sub); margin-top: 2px; }
+  .kpi-up { color: var(--red); }
+  .kpi-down { color: var(--green); }
+
+  .source {
+    font-size: 12px; color: var(--muted); margin-top: 32px; padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .source a { color: var(--green); }
+
+  @media (max-width: 600px) {
+    .chart-wrap { height: 300px; }
+    .kpi-row { gap: 10px; }
+    .kpi-card { min-width: 140px; }
+    .kpi-value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Fjárhagsaðstoð Reykjavíkur</h1>
+    <span class="badge">2007–2024</span>
+  </div>
+  <div class="header-desc">
+    Fjöldi einstaklinga sem fengu fjárhagsaðstoð til framfærslu frá Reykjavíkurborg,
+    sundurgreint eftir ríkisfangi, kyni og tegund aðstoðar. Gögn frá velstat.reykjavik.is.
+  </div>
+
+  <!-- KPI cards -->
+  <div class="kpi-row" id="kpi-row"></div>
+
+  <!-- Chart 1: Ríkisfang + Kyn -->
+  <div class="chart-section">
+    <h2>Ríkisfang og kyn</h2>
+    <div class="desc">Fjöldi notenda fjárhagsaðstoðar eftir ríkisfangi (2007–2024) og kyni (2010–2024)</div>
+    <div class="chart-wrap"><canvas id="chart1"></canvas></div>
+  </div>
+
+  <!-- Chart 2: Tegund aðstoðar -->
+  <div class="chart-section">
+    <h2>Tegund aðstoðar</h2>
+    <div class="desc">Fjöldi notenda eftir helstu flokkum fjárhagsaðstoðar, 2010–2024</div>
+    <div class="chart-wrap"><canvas id="chart2"></canvas></div>
+  </div>
+
+  <div class="source">
+    <strong>27a*</strong> Sérstök aðstoð vegna stuðningsvinnu skv. 27. gr. A laga um félagsþjónustu sveitarfélaga (nr. 40/1991).
+    Nær til einstaklinga sem þurfa sérstakan stuðning umfram grunnframfærslu, t.d. ráðgjöf, persónulega aðstoð og endurhæfingu.<br><br>
+    Heimild: <a href="https://velstat.reykjavik.is" target="_blank">Velferðartölfræði Reykjavíkur</a> (velstat.reykjavik.is) —
+    VEL02001, VEL02002, VEL02009.
+    Uppfært sjálfvirkt vikulega.
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = 'https://hsjgwtytyzpiuhdcgyzq.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhzamd3dHl0eXpwaXVoZGNneXpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyNzkyNjAsImV4cCI6MjA4Njg1NTI2MH0.c1pq1FH3EEVWLChtCefv7L_rv0Loh24MT71gpMx5tqQ';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const COLORS = {
+  erlent: '#e74c3c',
+  islenskt: '#2980b9',
+  karlar: '#3498db',
+  konur: '#e67e22',
+  samtals: '#2c3e50',
+  framfaersla: '#2c3e50',
+  adstod27a: '#e74c3c',
+  husbunadur: '#27ae60',
+  tannlaekn: '#8e44ad',
+  barna16a: '#f39c12',
+  bokakostn: '#1abc9c',
+  medferdar: '#d35400',
+  serfraedi: '#2980b9',
+  annad: '#95a5a6',
+};
+
+function fmt(n) {
+  if (n == null) return '–';
+  return n.toLocaleString('is-IS');
+}
+
+async function fetchData() {
+  // 1. Ríkisfang (2007-2024)
+  var res1 = await sb
+    .from('rvk_fjarhagsadstod_rikisfang')
+    .select('ar, rikisfang, fjoldi')
+    .eq('thjonustumidstod', 'Samtals')
+    .order('ar');
+  if (res1.error) console.error('rikisfang error:', res1.error);
+  var rikisfang = res1.data || [];
+  console.log('rikisfang:', rikisfang.length, 'rows', rikisfang.slice(0, 3));
+
+  // 2. Tegund + Kyn (2010-2024)
+  var res2 = await sb
+    .from('rvk_fjarhagsadstod_tegund')
+    .select('ar,kyn,framfaerslustyrkur,serstok_adstod_27a,serstok_adstod_27b,serstok_adstod_27c,bokakostnadur_18,framfaersla_nams,adstod_barna_16a,adstod_barna_skolabyrjun,adstod_medferdar_16b,tannlaekningastyrkur,serfraediadstod,husbunadarstyrkur,styrkur_serstakra_erfidleika,utfararstyrkur,lani_breytt_i_styrk,samtals')
+    .order('ar');
+  if (res2.error) console.error('tegund error:', res2.error);
+  var tegund = res2.data || [];
+  console.log('tegund:', tegund.length, 'rows', tegund.slice(0, 3));
+
+  return { rikisfang: rikisfang, tegund: tegund };
+}
+
+function buildKPIs(rikisfang, tegund) {
+  const container = document.getElementById('kpi-row');
+
+  // Latest year data
+  const latest = rikisfang.filter(r => r.ar === 2024);
+  const erlent24 = latest.find(r => r.rikisfang.includes('Erlent'))?.fjoldi || 0;
+  const islenskt24 = latest.find(r => r.rikisfang.includes('slenskt'))?.fjoldi || 0;
+  const samtals24 = latest.find(r => r.rikisfang === 'Samtals')?.fjoldi || 0;
+  const pctErlent = samtals24 ? Math.round(erlent24 / samtals24 * 100) : 0;
+
+  // 2007 for comparison
+  const first = rikisfang.filter(r => r.ar === 2007);
+  const erlent07 = first.find(r => r.rikisfang.includes('Erlent'))?.fjoldi || 0;
+  const samtals07 = first.find(r => r.rikisfang === 'Samtals')?.fjoldi || 0;
+  const pctErlent07 = samtals07 ? Math.round(erlent07 / samtals07 * 100) : 0;
+
+  // Top year
+  const samtalsPerYear = {};
+  rikisfang.filter(r => r.rikisfang === 'Samtals').forEach(r => { samtalsPerYear[r.ar] = r.fjoldi; });
+  const topYear = Object.entries(samtalsPerYear).sort((a,b) => b[1] - a[1])[0];
+
+  const cards = [
+    { label: 'Samtals 2024', value: fmt(samtals24), sub: `${fmt(erlent24)} erlent, ${fmt(islenskt24)} íslenskt` },
+    { label: 'Hlutfall erlent 2024', value: `${pctErlent}%`, sub: `Var ${pctErlent07}% árið 2007`, cls: 'kpi-up' },
+    { label: 'Hæst', value: fmt(topYear[1]), sub: `Árið ${topYear[0]}` },
+  ];
+
+  // Largest type 2024
+  const tegund24 = tegund.find(r => r.ar === 2024 && r.kyn === 'Alls');
+  if (tegund24) {
+    cards.push({
+      label: 'Framfærslurstyrkur 2024',
+      value: fmt(tegund24.framfaerslustyrkur),
+      sub: `af ${fmt(tegund24.samtals)} samtals`
+    });
+  }
+
+  container.innerHTML = cards.map(c => `
+    <div class="kpi-card">
+      <div class="kpi-label">${c.label}</div>
+      <div class="kpi-value ${c.cls || ''}">${c.value}</div>
+      <div class="kpi-sub">${c.sub}</div>
+    </div>
+  `).join('');
+}
+
+function buildChart1(rikisfang, tegund) {
+  // Pivot ríkisfang by year
+  const years = [...new Set(rikisfang.map(r => r.ar))].sort();
+  const erlentByYear = {}, islensktByYear = {};
+  rikisfang.forEach(r => {
+    if (r.rikisfang.includes('Erlent')) erlentByYear[r.ar] = r.fjoldi;
+    if (r.rikisfang.includes('slenskt')) islensktByYear[r.ar] = r.fjoldi;
+  });
+
+  // Kyn from tegund table
+  const karlarByYear = {}, konurByYear = {};
+  tegund.forEach(r => {
+    if (r.kyn === 'Karlar') karlarByYear[r.ar] = r.samtals;
+    if (r.kyn === 'Konur') konurByYear[r.ar] = r.samtals;
+  });
+
+  new Chart(document.getElementById('chart1'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Erlent ríkisfang',
+          data: years.map(y => erlentByYear[y] ?? null),
+          borderColor: COLORS.erlent,
+          backgroundColor: COLORS.erlent + '18',
+          borderWidth: 2.5,
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+          pointHoverRadius: 6,
+        },
+        {
+          label: 'Íslenskt ríkisfang',
+          data: years.map(y => islensktByYear[y] ?? null),
+          borderColor: COLORS.islenskt,
+          backgroundColor: COLORS.islenskt + '18',
+          borderWidth: 2.5,
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+          pointHoverRadius: 6,
+        },
+        {
+          label: 'Karlar (alls)',
+          data: years.map(y => karlarByYear[y] ?? null),
+          borderColor: COLORS.karlar,
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [6, 3],
+          tension: 0.3,
+          pointRadius: 2,
+          pointHoverRadius: 5,
+        },
+        {
+          label: 'Konur (alls)',
+          data: years.map(y => konurByYear[y] ?? null),
+          borderColor: COLORS.konur,
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [6, 3],
+          tension: 0.3,
+          pointRadius: 2,
+          pointHoverRadius: 5,
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { usePointStyle: true, padding: 16, font: { size: 13 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${fmt(ctx.raw)}`
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => fmt(v) },
+          grid: { color: '#eee' }
+        }
+      }
+    }
+  });
+}
+
+function buildChart2(tegund) {
+  // Only 'Alls' kyn
+  var allsRows = tegund.filter(r => r.kyn === 'Alls').sort((a,b) => a.ar - b.ar);
+  var years = allsRows.map(r => r.ar);
+
+  var types = [
+    { key: 'framfaerslustyrkur', label: 'Framfærslurstyrkur', color: '#2c3e50', width: 3 },
+    { key: 'serstok_adstod_27a', label: 'Sérstök aðstoð 27a', color: '#e74c3c', width: 3 },
+    { key: 'husbunadarstyrkur', label: 'Húsbúnaðarstyrkur', color: '#27ae60', width: 2.5 },
+    { key: 'tannlaekningastyrkur', label: 'Tannlækningastyrkur', color: '#8e44ad', width: 2 },
+    { key: 'adstod_barna_16a', label: 'Aðstoð vegna barna', color: '#f39c12', width: 2 },
+    { key: 'bokakostnadur_18', label: 'Bókakostnaður 18+', color: '#1abc9c', width: 1.5 },
+    { key: 'adstod_medferdar_16b', label: 'Meðferðaraðstoð', color: '#d35400', width: 1.5 },
+    { key: 'serfraediadstod', label: 'Sérfræðiaðstoð', color: '#2980b9', width: 1.5 },
+  ];
+
+  var datasets = types.map(t => ({
+    label: t.label,
+    data: allsRows.map(r => r[t.key] || 0),
+    borderColor: t.color,
+    backgroundColor: t.color + '15',
+    borderWidth: t.width,
+    fill: t.key === 'serstok_adstod_27a',
+    tension: 0.3,
+    pointRadius: t.key === 'serstok_adstod_27a' ? 5 : 3,
+    pointHoverRadius: 7,
+    pointBackgroundColor: t.color,
+  }));
+
+  new Chart(document.getElementById('chart2'), {
+    type: 'line',
+    data: { labels: years, datasets: datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { usePointStyle: true, padding: 14, font: { size: 12 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              var val = ctx.raw;
+              var prev = ctx.dataIndex > 0 ? ctx.dataset.data[ctx.dataIndex - 1] : null;
+              var change = prev ? ' (' + (val > prev ? '+' : '') + Math.round((val - prev) / prev * 100) + '%)' : '';
+              return ctx.dataset.label + ': ' + fmt(val) + change;
+            }
+          }
+        },
+        annotation: undefined
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => fmt(v) },
+          grid: { color: '#eee' }
+        }
+      }
+    }
+  });
+}
+
+async function init() {
+  try {
+    console.log('Starting init...');
+    var data = await fetchData();
+    console.log('Data fetched, building KPIs...');
+    buildKPIs(data.rikisfang, data.tegund);
+    console.log('KPIs done, building chart1...');
+    buildChart1(data.rikisfang, data.tegund);
+    console.log('Chart1 done, building chart2...');
+    buildChart2(data.tegund);
+    console.log('All done!');
+  } catch (err) {
+    console.error('Init error:', err);
+    document.querySelector('.header-desc').textContent = 'Villa: ' + err.message;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sveitarfélög — Samtök skattgreiðenda</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  :root {
+    --bg: #f8f7f4; --text: #1c1c1a; --sub: #555; --muted: #9a9a90;
+    --border: #dddad0; --card: #fff; --green: #2d7a3a; --green-light: #e8f5e9;
+    --font-d: 'Newsreader', Georgia, serif;
+    --font-b: 'Archivo', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-b); background: var(--bg); color: var(--text); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 24px 64px; }
+
+  /* Header */
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .header h1 { font-family: var(--font-d); font-weight: 700; font-size: 24px; }
+  .header .desc { font-size: 14px; color: var(--sub); line-height: 1.5; flex-basis: 100%; }
+
+  /* Svf selector */
+  .selector { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .selector select {
+    padding: 8px 14px; font-size: 14px; font-family: var(--font-b);
+    border: 1px solid var(--border); border-radius: 8px; background: var(--card);
+    min-width: 280px; cursor: pointer;
+  }
+  .vnv-toggle {
+    display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--sub);
+    cursor: pointer; user-select: none;
+  }
+  .vnv-toggle input { accent-color: var(--green); }
+  .compare-link {
+    margin-left: auto; font-size: 13px; color: var(--green); font-weight: 600;
+    text-decoration: none; border: 1px solid var(--green); border-radius: 6px;
+    padding: 6px 14px;
+  }
+  .compare-link:hover { background: var(--green-light); }
+
+  /* Summary cards */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 2px; }
+  .card-value { font-size: 24px; font-weight: 700; }
+  .card-sub { font-size: 12px; color: var(--sub); margin-top: 2px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 0; margin-bottom: 24px; border-bottom: 2px solid var(--border); }
+  .tab {
+    padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer;
+    border-bottom: 2px solid transparent; margin-bottom: -2px; color: var(--muted);
+    background: none; border-top: none; border-left: none; border-right: none;
+    font-family: var(--font-b);
+  }
+  .tab.active { color: var(--green); border-bottom-color: var(--green); }
+  .tab:hover { color: var(--text); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* Charts */
+  .chart-wrap {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px;
+  }
+  .chart-wrap h3 { font-family: var(--font-d); font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+  .chart-canvas { height: 320px; }
+
+  /* Tables */
+  .table-wrap {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    overflow-x: auto; margin-bottom: 16px;
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 500px; }
+  th {
+    padding: 10px 12px; font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--muted); border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--card); text-align: left;
+  }
+  td { padding: 8px 12px; font-size: 13px; border-bottom: 1px solid var(--border); }
+  th.right, td.right { text-align: right; }
+  tr:hover { background: rgba(0,0,0,0.02); }
+
+  /* Pyramid */
+  .pyramid-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .pyramid-controls label { font-size: 13px; color: var(--sub); }
+  .pyramid-controls input[type=range] { flex: 1; max-width: 300px; accent-color: var(--green); }
+  .pyramid-controls .year-display { font-weight: 700; font-size: 16px; min-width: 50px; }
+
+  /* Grid for side by side */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* Toggle button */
+  .toggle-table {
+    font-size: 13px; color: var(--sub); cursor: pointer; border: none;
+    background: none; font-family: var(--font-b); padding: 4px 0; margin-bottom: 8px;
+  }
+  .toggle-table:hover { color: var(--text); }
+
+  /* Loading / Footer */
+  .loading { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; }
+  .footer {
+    border-top: 1px solid var(--border); padding: 20px 0; text-align: center;
+    font-size: 12px; color: var(--muted); margin-top: 40px;
+  }
+  .note { font-size: 12px; color: var(--muted); margin: 4px 0 16px; }
+
+  @media (max-width: 800px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .container { padding: 16px 12px 48px; }
+    .header h1 { font-size: 20px; }
+    .selector select { min-width: 200px; }
+    .chart-canvas { height: 240px; }
+  }
+  @media (max-width: 480px) {
+    .cards { grid-template-columns: 1fr 1fr; }
+    .tabs { overflow-x: auto; }
+    .tab { padding: 8px 12px; font-size: 13px; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Sveitarfélög — Mælaborð</h1>
+    <p class="desc">Fjárhagur, lýðfræði og samanburður sveitarfélaga. Gögn frá Sambandi íslenskra sveitarfélaga og Hagstofu Íslands.<br><strong>Athugið:</strong> Allar fjárhagstölur miðast við <strong>A-hluta</strong> sveitarfélaganna (aðalsjóð) — ekki samstæðu (A+B) sem inniheldur einnig B-hluta lögaðila eins og veitur og hafnarstjórnir.</p>
+  </div>
+
+  <div class="selector">
+    <select id="svfSelect" onchange="onSvfChange()">
+      <option value="" disabled>Veldu sveitarfélag...</option>
+    </select>
+    <label class="vnv-toggle">
+      <input type="checkbox" id="vnvToggle" onchange="onVnvToggle()">
+      Verðlag dagsins (VNV-leiðrétt)
+    </label>
+    <a class="compare-link" href="sveitarfelog-samanburdur.html">Bera saman sveitarfélög</a>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-label">Íbúafjöldi</div>
+      <div class="card-value" id="cardPop">-</div>
+      <div class="card-sub" id="cardPopYear"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Heildarútgjöld</div>
+      <div class="card-value" id="cardExpense">-</div>
+      <div class="card-sub" id="cardExpenseSub"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Útgjöld per íbúa</div>
+      <div class="card-value" id="cardPerCap">-</div>
+      <div class="card-sub" id="cardPerCapSub"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Breyting frá fyrra ári</div>
+      <div class="card-value" id="cardChange">-</div>
+      <div class="card-sub" id="cardChangeSub"></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('fjarmal')">Fjármál</button>
+    <button class="tab" onclick="switchTab('lydfraedi')">Lýðfræði</button>
+    <button class="tab" onclick="switchTab('peribua')">Per íbúa</button>
+  </div>
+
+  <!-- Tab 1: Fjármál -->
+  <div id="tab-fjarmal" class="tab-panel active">
+    <div class="chart-wrap">
+      <h3>Heildarútgjöld sundurliðun 2002–2024</h3>
+      <div class="chart-canvas"><canvas id="chartExpenses"></canvas></div>
+    </div>
+    <p class="note">Upphæðir í milljónum króna (m.kr.) úr sundurliðun A-hluta</p>
+
+    <button class="toggle-table" onclick="toggleEl('tblExpenses')">Sjá töflu ▾</button>
+    <div id="tblExpenses" style="display:none">
+      <div class="table-wrap">
+        <table id="expenseTable"></table>
+      </div>
+    </div>
+
+    <div class="chart-wrap" style="margin-top:24px">
+      <h3>Ársreikningur — Rekstrarreikningur</h3>
+      <div class="chart-canvas"><canvas id="chartRekstrar"></canvas></div>
+    </div>
+    <p class="note">Tekjur og gjöld A-hluta eftir árum (m.kr.). Gögn úr ársreikningum sveitarfélaga.</p>
+  </div>
+
+  <!-- Tab 2: Lýðfræði -->
+  <div id="tab-lydfraedi" class="tab-panel">
+    <div class="chart-wrap">
+      <h3>Aldurspýramídi</h3>
+      <div class="pyramid-controls">
+        <button id="pyramidPlay" onclick="togglePyramidPlay()" style="background:var(--card);border:1px solid var(--border);border-radius:6px;width:32px;height:32px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">&#9654;</button>
+        <label>Ár:</label>
+        <input type="range" id="pyramidSlider" min="1998" max="2025" value="2025" oninput="drawPyramid()">
+        <span class="year-display" id="pyramidYear">2025</span>
+      </div>
+      <div class="chart-canvas" style="height:400px"><canvas id="chartPyramid"></canvas></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h3>Ríkisfang</h3>
+        <div style="height:280px"><canvas id="chartCitizenship"></canvas></div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Þróun erlendra íbúa</h3>
+        <div style="height:280px"><canvas id="chartForeignTrend"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <h3>Búferlaflutningar</h3>
+      <div class="chart-canvas"><canvas id="chartMigration"></canvas></div>
+    </div>
+    <p class="note">Aðfluttir, brottfluttir og nettó búferlaflutningar</p>
+  </div>
+
+  <!-- Tab 3: Per íbúa -->
+  <div id="tab-peribua" class="tab-panel">
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h3>Útgjöld per íbúa eftir málaflokkum</h3>
+        <div class="chart-canvas"><canvas id="chartPerCapita"></canvas></div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Tekjur per íbúa eftir tekjustofnum</h3>
+        <div class="chart-canvas"><canvas id="chartIncomePerCap"></canvas></div>
+      </div>
+    </div>
+    <p class="note">Nýjustu gögn. Þús. króna per íbúa.</p>
+
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h3>Kostnaður per grunnskólabarn (6–15 ára)</h3>
+        <div style="height:280px"><canvas id="chartPerSchool"></canvas></div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Kostnaður per leikskólabarn (0–5 ára)</h3>
+        <div style="height:280px"><canvas id="chartPerPreschool"></canvas></div>
+      </div>
+    </div>
+    <p class="note">Skólakostnaður deilt með fjölda barna í viðkomandi aldurshóp í sveitarfélaginu. Strikuð lína er landsmeðaltal.</p>
+
+    <div class="chart-wrap">
+      <h3>Útgjöld per íbúa — þróun</h3>
+      <div class="chart-canvas"><canvas id="chartPerCapTrend"></canvas></div>
+    </div>
+    <p class="note">Heild per íbúa og landsmeðaltal til samanburðar</p>
+  </div>
+
+  <div class="footer">
+    Gögn: Samband íslenskra sveitarfélaga og Hagstofa Íslands · Unnið af Samtökum skattgreiðenda
+  </div>
+</div>
+
+<script src="sveitarfelog-dashboard.js"></script>
+</body>
+</html>
