@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Veitur ohf. og OR Vatns- og fráveita · Greining 2024-2025</title>
+<meta name="description" content="Hvað kostar heitt vatn, kalt vatn, rafmagn og frárennsli á íbúa á starfssvæði Veitna ohf? Tekjur og hagnaður B-hluta dótturfélaga Orkuveitan.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e; --rvk-mid: #1e6091;
+    --bg: #fefefe; --bg-2: #f8fafc;
+    --text: #0f172a; --text-2: #334155; --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669; --bad: #dc2626;
+    --c-heitt: #dc2626;
+    --c-kalt: #0891b2;
+    --c-frar: #7c3aed;
+    --c-raf: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; font-size: 16px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1 { font-family: Georgia, serif; font-size: 42px; font-weight: 700; color: var(--rvk-deep); margin: 0 0 8px; line-height: 1.1; }
+  h2 { font-family: Georgia, serif; font-size: 24px; color: var(--rvk-deep); margin: 40px 0 16px; padding-bottom: 6px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-family: Georgia, serif; font-size: 19px; color: var(--rvk-mid); margin: 16px 0 8px; }
+  .lead { font-size: 18px; color: var(--text-2); max-width: 760px; margin: 0 0 24px; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+  .stat-card { background: var(--bg-2); border-radius: 10px; padding: 18px; border-left: 5px solid var(--rvk-mid); }
+  .stat-card.heitt { border-left-color: var(--c-heitt); }
+  .stat-card.kalt { border-left-color: var(--c-kalt); }
+  .stat-card.frar { border-left-color: var(--c-frar); }
+  .stat-card.raf { border-left-color: var(--c-raf); }
+  .stat-label { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; font-weight: 700; }
+  .stat-value { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); font-weight: 700; line-height: 1.1; }
+  .stat-detail { font-size: 13px; color: var(--text-2); margin-top: 4px; }
+  .stat-delta { font-size: 12px; font-weight: 600; margin-top: 4px; }
+  .stat-delta.up { color: var(--good); }
+  .stat-delta.down { color: var(--bad); }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 12px 0; }
+  th { padding: 10px 12px; text-align: left; color: var(--sub); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); background: var(--bg-2); font-weight: 700; }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tr.total td { font-weight: 700; background: var(--bg-2); }
+
+  .info-box, .warn-box {
+    border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 14px;
+  }
+  .info-box { background: #dbeafe; color: #1e40af; border-left: 3px solid #1e40af; }
+  .warn-box { background: #fef3c7; color: #92400e; border-left: 3px solid #f59e0b; }
+
+  .stacked { display: flex; height: 32px; border-radius: 4px; overflow: hidden; margin: 8px 0; }
+  .stacked > div { display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 600; min-width: 30px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; margin: 8px 0 16px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Veitur ohf. og<br>OR Vatns- og fráveita</h1>
+  <p class="lead">B-hluta dótturfélög Orkuveitunnar sjá um heitt vatn, kalt vatn, rafmagnsdreifingu og frárennsli á starfssvæði sínu — sem nær yfir Reykjavík, alla höfuðborgarsv. og fleiri sveitarfélög. Tekjur, hagnaður og þjónustuverð 2024-2025.</p>
+
+  <h2>Lykiltölur 2025</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card heitt">
+      <div class="stat-label">🔥 Heitt vatn (Veitur)</div>
+      <div class="stat-value">20,0 ma.kr.</div>
+      <div class="stat-detail">Tekjur 2025 · 52% af Veitur</div>
+      <div class="stat-delta down">↘ −2,5% frá 2024</div>
+    </div>
+    <div class="stat-card raf">
+      <div class="stat-label">⚡ Rafmagnsdreifing (Veitur)</div>
+      <div class="stat-value">11,3 ma.kr.</div>
+      <div class="stat-detail">Tekjur 2025 · 29% af Veitur</div>
+      <div class="stat-delta up">↗ +15,8% frá 2024</div>
+    </div>
+    <div class="stat-card kalt">
+      <div class="stat-label">💧 Kalt vatn (OR vatns- og fráv.)</div>
+      <div class="stat-value">4,4 ma.kr.</div>
+      <div class="stat-detail">Tekjur 2025</div>
+      <div class="stat-delta up">↗ +4,3% frá 2024</div>
+    </div>
+    <div class="stat-card frar">
+      <div class="stat-label">🚰 Frárennsli (OR vatns- og fráv.)</div>
+      <div class="stat-value">7,9 ma.kr.</div>
+      <div class="stat-detail">Tekjur 2025 · 64% af OR vatns/fráv.</div>
+      <div class="stat-delta up">↗ +5,1% frá 2024</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Heildartekjur 2025:</strong> Veitur ohf. + OR Vatns- og fráveita = <strong>51,1 ma.kr.</strong>
+    (Veitur 38,8 ma + OR vatns/fráv. 12,3 ma).
+    Þetta eru tekjur sem ekki sjást í A-hluta sveitarfélaganna — þetta er B-hluti sem rekur sig á <strong>notendagjöldum</strong>, ekki sköttum.
+  </div>
+
+  <h2>Sundurliðun á tekjum 2025</h2>
+
+  <div class="legend">
+    <span><i style="background:var(--c-heitt)"></i> Heitt vatn</span>
+    <span><i style="background:var(--c-raf)"></i> Rafmagnsdreifing</span>
+    <span><i style="background:var(--c-frar)"></i> Frárennsli</span>
+    <span><i style="background:var(--c-kalt)"></i> Kalt vatn</span>
+    <span><i style="background:var(--sub)"></i> Annað</span>
+  </div>
+
+  <div class="stacked">
+    <div style="background:var(--c-heitt); width:39.2%">39%</div>
+    <div style="background:var(--c-raf); width:22.0%">22%</div>
+    <div style="background:var(--c-frar); width:15.4%">15%</div>
+    <div style="background:var(--c-kalt); width:8.7%">9%</div>
+    <div style="background:var(--sub); width:14.7%">15%</div>
+  </div>
+  <p style="font-size:13px; color:var(--sub); margin-top:0">51,1 ma.kr. samtals 2025 (Veitur 38,8 + OR vatns/fráv. 12,3)</p>
+
+  <h2>Hagnaður og arðgreiðslur</h2>
+
+  <table>
+    <thead><tr>
+      <th>Félag</th><th class="num">Tekjur 2025</th><th class="num">EBITDA 2025</th><th class="num">Hagnaður 2025</th><th class="num">Eigið fé</th><th class="num">Arður 2026</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Veitur ohf.</strong><br><span style="color:var(--sub); font-size:12px">heitt vatn + rafmagnsdreifing</span></td>
+        <td class="num">38.816 m.kr.</td>
+        <td class="num">14.944 m.kr.</td>
+        <td class="num">4.540 m.kr.</td>
+        <td class="num">85.492 m.kr.</td>
+        <td class="num">3.750 m.kr.</td>
+      </tr>
+      <tr>
+        <td><strong>OR Vatns- og fráveita sf.</strong><br><span style="color:var(--sub); font-size:12px">kalt vatn + frárennsli</span></td>
+        <td class="num">12.304 m.kr.</td>
+        <td class="num">7.370 m.kr.</td>
+        <td class="num">3.832 m.kr.</td>
+        <td class="num">92.791 m.kr.</td>
+        <td class="num">0 m.kr.</td>
+      </tr>
+      <tr class="total">
+        <td>Samtals</td>
+        <td class="num">51.120 m.kr.</td>
+        <td class="num">22.314 m.kr.</td>
+        <td class="num">8.372 m.kr.</td>
+        <td class="num">178.283 m.kr.</td>
+        <td class="num">3.750 m.kr.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>Lykilatriði:</strong> Bæði félög skila góðum hagnaði — samtals 8,4 ma.kr. á árinu 2025. Eigið fé er 178 ma.kr. samtals. Eigninfjárhlutfall Veitur 51%, OR vatns/fráv. 71% (mjög sterk fjárhagsstaða).
+    <br><br>
+    <strong>Arður:</strong> Veitur greiðir 3,75 ma.kr. arð til Orkuveitunnar (móðurfélagsins) árið 2026 vegna 2025-rekstrar. Orkuveitan greiðir svo arð til eigenda sinna — 93,5% Reykjavíkurborg, 5% Akraneskaupstaður, 1,5% Borgarbyggð.
+  </div>
+
+  <h2>Sundurliðun á EBITDA-hagnaði per þjónustu</h2>
+
+  <table>
+    <thead><tr>
+      <th>Þjónusta</th><th class="num">Tekjur 2025</th><th class="num">EBITDA</th><th class="num">EBITDA-margin</th><th class="num">Frá 2024</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>🔥 Heitt vatn</td><td class="num">21.013 m.kr.</td><td class="num">8.900 m.kr.</td><td class="num">42%</td><td class="num">2024 (sama formúla)</td></tr>
+      <tr><td>⚡ Rafmagn (Veitur dreifing)</td><td class="num">10.426 m.kr.</td><td class="num">4.423 m.kr.</td><td class="num">42%</td><td class="num">2024</td></tr>
+      <tr><td>🚰 Frárennsli</td><td class="num">7.875 m.kr.</td><td class="num">5.256 m.kr.</td><td class="num"><strong>67%</strong></td><td class="num">2025</td></tr>
+      <tr><td>💧 Kalt vatn</td><td class="num">4.439 m.kr.</td><td class="num">2.113 m.kr.</td><td class="num">48%</td><td class="num">2025</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Athyglisvert:</strong> Frárennsli (sewage) er <strong>arðbærasta þjónusta</strong> með 67% EBITDA-margin. Það merkir að af hverri króna sem viðskiptavinir borga í frárennslisgjald, þá lendir 67 aurar í hagnaði (fyrir afskriftir og fjármagnskostnað).
+    <br><br>
+    Þetta endurspeglar að frárennslisgjöld eru sett til að standa undir <em>endurnýjun og uppbyggingu lagnakerfis</em> — en hagnaður er svo stór að hann gæti hugsanlega bent á of há gjöld eða mikla afskrifaða framleiðsluskapa-eign.
+  </div>
+
+  <h2>Per-íbúa á starfssvæðinu</h2>
+
+  <p>Veitur og OR Vatns- og fráveita þjóna áætlað 280.000 íbúum (Reykjavík + nágrannasveitarfélög + Akranes + Borgarbyggð + Snæfellsnes + fl.).</p>
+
+  <table>
+    <thead><tr>
+      <th>Þjónusta</th><th class="num">Heildartekjur 2025</th><th class="num">Per íbúi 2025</th><th class="num">Per heimili (2,8 manns)</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>🔥 Heitt vatn</td><td class="num">20.024 m.kr.</td><td class="num">71.500 kr.</td><td class="num">200.200 kr.</td></tr>
+      <tr><td>⚡ Rafmagnsdreifing</td><td class="num">11.255 m.kr.</td><td class="num">40.200 kr.</td><td class="num">112.600 kr.</td></tr>
+      <tr><td>🚰 Frárennsli</td><td class="num">7.868 m.kr.</td><td class="num">28.100 kr.</td><td class="num">78.700 kr.</td></tr>
+      <tr><td>💧 Kalt vatn</td><td class="num">4.436 m.kr.</td><td class="num">15.800 kr.</td><td class="num">44.400 kr.</td></tr>
+      <tr class="total">
+        <td>Samtals</td><td class="num">43.583 m.kr.</td><td class="num">155.700 kr.</td><td class="num">435.900 kr.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>Heimili á höfuðborgarsvæðinu</strong> borgar áætlað <strong>~436 þ.kr. á ári</strong> til Veitur/OR fyrir hita, vatn og frárennsli — eða <strong>36 þ.kr./mán</strong>. Þetta er beinar greiðslur, ekki skattar.
+    <br><br>
+    Til samanburðar: heildarskatttekjur Reykjavíkurborgar á íbúa eru ~1,2 m.kr./ár (útsvar+fasteignaskattur+jöfnunarsjóður). Veitur/OR-gjöldin eru <strong>13% af þessu</strong> — mikilvægur en oft ósýnilegur kostnaður.
+  </div>
+
+  <h2>Hvers vegna sjást þessi gjöld ekki á sveitarfélaga-mælaborðinu?</h2>
+
+  <div class="warn-box">
+    Sveitarfélagagögn (sveitarfelag_arsreikningar, Hagstofa-pivot) ná aðeins yfir <strong>A-hluta</strong> — sveitarfélagið sjálft. Veitur og OR vatns- og fráveita eru <strong>B-hluti</strong> Orkuveitunnar, sem aftur er B-hluti Reykjavíkur.
+    <br><br>
+    Til að sjá heildarmyndina þarf að lesa:
+    <ul style="margin:8px 0">
+      <li>Ársreikning sveitarfélagsins (A-hluti)</li>
+      <li>Samstæðureikning sveitarfélagsins (A+B)</li>
+      <li>Ársreikninga einstakra B-hluta dótturfélaga (Orkuveitan, Faxaflóahafnir, Sorpa, Strætó, Eignasjóður, Félagsbústaðir o.fl.)</li>
+    </ul>
+    Þessi greining nær yfir tvö stærstu B-hluta dótturfélögin sem snerta hverja íbúa beint: Veitur og OR vatns- og fráveitu.
+  </div>
+
+  <h2>Heimildir</h2>
+
+  <ul style="font-size:14px">
+    <li><a href="https://www.veitur.is/utgefid-efni/arsreikningar">Ársreikningar Veitur ohf.</a> — 2025 (birt 24. feb 2026)</li>
+    <li>Ársreikningur OR Vatns- og fráveitu sf. 2025</li>
+    <li>Áætlað 280.000 íbúa á starfssvæði byggt á Hagstofu MAN02005</li>
+    <li>Eigendur Orkuveitunnar: 93,5% Reykjavíkurborg, 5% Akraneskaupstaður, 1,5% Borgarbyggð</li>
+  </ul>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-tekjuhlid.html">Tekjuhliðin Reykjavíkur — A-hluti vs B-hluti</a></li>
+      <li><a href="rvk-er-bestrekna.html">Reykjavík tap 19,4 ma.kr.</a></li>
+      <li><a href="utgjold-per-ibua.html">Útgjöld á mann sveitarfélaga</a></li>
+      <li><a href="index.html">← Gagnatorg</a></li>
+    </ul>
+    <p>© Samtök skattgreiðenda · Heimild: Veitur ohf. og OR vatns- og fráveita ársreikningar 2025</p>
+  </div>
+</div>
+</body>
+</html>
