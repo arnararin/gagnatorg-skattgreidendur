@@ -1,0 +1,576 @@
+{
+  "yearly": [
+    {
+      "ar": 2019,
+      "utsvar": 88.447230753,
+      "fasteignaskattur": 23.118541727,
+      "jofnunarsjodur": 7.49393077,
+      "ardur": 2.652493497,
+      "soluhagnadur_eigna": 0.043103587,
+      "gatnagerd": 1.80537747,
+      "sorphirda": 1.057217159,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.284375788
+    },
+    {
+      "ar": 2020,
+      "utsvar": 91.381807403,
+      "fasteignaskattur": 24.091791805,
+      "jofnunarsjodur": 8.031222491,
+      "ardur": 3.743935866,
+      "soluhagnadur_eigna": 1.237111921,
+      "gatnagerd": 0.804336745,
+      "sorphirda": 1.079421437,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.326304803
+    },
+    {
+      "ar": 2021,
+      "utsvar": 100.339686465,
+      "fasteignaskattur": 24.513123628,
+      "jofnunarsjodur": 8.76195104,
+      "ardur": 4.356005817,
+      "soluhagnadur_eigna": 4.32141917,
+      "gatnagerd": 1.964804384,
+      "sorphirda": 1.361031338,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.39651375
+    },
+    {
+      "ar": 2022,
+      "utsvar": 107.484759518,
+      "fasteignaskattur": 26.173169319,
+      "jofnunarsjodur": 10.608300504,
+      "ardur": 4.731139161,
+      "soluhagnadur_eigna": 5.509226629,
+      "gatnagerd": 1.676320338,
+      "sorphirda": 1.562129834,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.519380753
+    },
+    {
+      "ar": 2023,
+      "utsvar": 124.194326627,
+      "fasteignaskattur": 29.947475892,
+      "jofnunarsjodur": 13.449090529,
+      "ardur": 6.797123948,
+      "soluhagnadur_eigna": 2.998075027,
+      "gatnagerd": 1.841736876,
+      "sorphirda": 1.880286401,
+      "sorpeyding": 0.078825261,
+      "atvinnu_lodaleiga": 1.671281193
+    },
+    {
+      "ar": 2024,
+      "utsvar": 134.761824861,
+      "fasteignaskattur": 32.177765332,
+      "jofnunarsjodur": 17.038108364,
+      "ardur": 5.968931211,
+      "soluhagnadur_eigna": 6.1191363,
+      "gatnagerd": 2.863058109,
+      "sorphirda": 2.497331224,
+      "sorpeyding": 0.374693991,
+      "atvinnu_lodaleiga": 1.71807464
+    },
+    {
+      "ar": 2025,
+      "utsvar": 146.108525263,
+      "fasteignaskattur": 34.155697166,
+      "jofnunarsjodur": 18.914315376,
+      "ardur": 7.259184618,
+      "soluhagnadur_eigna": 4.818183068,
+      "gatnagerd": 2.653256671,
+      "sorphirda": 2.223720266,
+      "sorpeyding": 0.31833076,
+      "atvinnu_lodaleiga": 1.814559763
+    }
+  ],
+  "solu_per_stofnun": [
+    {
+      "stofnun": "Lóðir og lönd, sala byggingaréttar",
+      "ma": 21.129580983
+    },
+    {
+      "stofnun": "Rekstur eigna - Ýmsar fasteignir",
+      "ma": 2.033257876
+    },
+    {
+      "stofnun": "Rekstur eigna - Bílastæðasjóður",
+      "ma": 0.598704506
+    },
+    {
+      "stofnun": "Rekstur eigna - Velferðarmál",
+      "ma": 0.549830026
+    },
+    {
+      "stofnun": "Rekstur eigna - sala fasteigna",
+      "ma": 0.486705108
+    },
+    {
+      "stofnun": "Rekstur eigna - Borgarskrifstofur",
+      "ma": 0.155525304
+    },
+    {
+      "stofnun": "Rekstur eigna - Samgöngumál",
+      "ma": 0.034605812
+    },
+    {
+      "stofnun": "Rekstur eigna - Heilbrigðismál",
+      "ma": 0.028431371
+    },
+    {
+      "stofnun": "Rekstur lóða - skipulagseignir",
+      "ma": 0.013200002
+    },
+    {
+      "stofnun": "Vinnuvélar",
+      "ma": 0.009001324
+    },
+    {
+      "stofnun": "Bifreiðar",
+      "ma": 0.006798756
+    },
+    {
+      "stofnun": "Rekstur eigna - Grunnskólar",
+      "ma": 0.000738634
+    },
+    {
+      "stofnun": "Biðskýli Strætó",
+      "ma": 2e-05
+    },
+    {
+      "stofnun": "Bifreiðar - Bílastæðasjóður",
+      "ma": -0.000144
+    }
+  ],
+  "totals": [
+    {
+      "ar": 2019,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 38.40962643,
+      "gjold": 50.961290255
+    },
+    {
+      "ar": 2019,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 149.005966604,
+      "gjold": 149.978286936
+    },
+    {
+      "ar": 2020,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 37.949713908,
+      "gjold": 47.853109245
+    },
+    {
+      "ar": 2020,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 157.784647211,
+      "gjold": 167.618523948
+    },
+    {
+      "ar": 2021,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 46.217583988,
+      "gjold": 57.657382338
+    },
+    {
+      "ar": 2021,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 172.951370739,
+      "gjold": 182.823613576
+    },
+    {
+      "ar": 2022,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 51.037392267,
+      "gjold": 72.387939947
+    },
+    {
+      "ar": 2022,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 187.619854416,
+      "gjold": 206.462650432
+    },
+    {
+      "ar": 2023,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 52.058973027,
+      "gjold": 72.976933386
+    },
+    {
+      "ar": 2023,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 211.982647535,
+      "gjold": 220.023817821
+    },
+    {
+      "ar": 2024,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 59.152447601,
+      "gjold": 66.662342519
+    },
+    {
+      "ar": 2024,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 230.759228511,
+      "gjold": 236.380184363
+    },
+    {
+      "ar": 2025,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 59.79259272,
+      "gjold": 68.06975492
+    },
+    {
+      "ar": 2025,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 244.030708777,
+      "gjold": 259.828813431
+    }
+  ],
+  "authlutanir": [
+    {
+      "ar": 1994,
+      "alls": 804,
+      "einbyli": 80,
+      "rad_par": 190,
+      "fjolbyli": 534
+    },
+    {
+      "ar": 1995,
+      "alls": 302,
+      "einbyli": 12,
+      "rad_par": 22,
+      "fjolbyli": 268
+    },
+    {
+      "ar": 1996,
+      "alls": 586,
+      "einbyli": 68,
+      "rad_par": 174,
+      "fjolbyli": 344
+    },
+    {
+      "ar": 1997,
+      "alls": 464,
+      "einbyli": 66,
+      "rad_par": 184,
+      "fjolbyli": 214
+    },
+    {
+      "ar": 1998,
+      "alls": 840,
+      "einbyli": 158,
+      "rad_par": 100,
+      "fjolbyli": 582
+    },
+    {
+      "ar": 1999,
+      "alls": 596,
+      "einbyli": 122,
+      "rad_par": 216,
+      "fjolbyli": 258
+    },
+    {
+      "ar": 2000,
+      "alls": 850,
+      "einbyli": 90,
+      "rad_par": 190,
+      "fjolbyli": 570
+    },
+    {
+      "ar": 2001,
+      "alls": 964,
+      "einbyli": 122,
+      "rad_par": 102,
+      "fjolbyli": 740
+    },
+    {
+      "ar": 2002,
+      "alls": 844,
+      "einbyli": 32,
+      "rad_par": -28,
+      "fjolbyli": 840
+    },
+    {
+      "ar": 2003,
+      "alls": 1332,
+      "einbyli": 82,
+      "rad_par": 214,
+      "fjolbyli": 1036
+    },
+    {
+      "ar": 2004,
+      "alls": 856,
+      "einbyli": 28,
+      "rad_par": 196,
+      "fjolbyli": 632
+    },
+    {
+      "ar": 2005,
+      "alls": 1212,
+      "einbyli": 74,
+      "rad_par": 188,
+      "fjolbyli": 950
+    },
+    {
+      "ar": 2006,
+      "alls": 1022,
+      "einbyli": 56,
+      "rad_par": 274,
+      "fjolbyli": 692
+    },
+    {
+      "ar": 2007,
+      "alls": 1680,
+      "einbyli": 216,
+      "rad_par": 352,
+      "fjolbyli": 1112
+    },
+    {
+      "ar": 2008,
+      "alls": -354,
+      "einbyli": -114,
+      "rad_par": -122,
+      "fjolbyli": -118
+    },
+    {
+      "ar": 2009,
+      "alls": 102,
+      "einbyli": 8,
+      "rad_par": -4,
+      "fjolbyli": 98
+    },
+    {
+      "ar": 2010,
+      "alls": 72,
+      "einbyli": 6,
+      "rad_par": 4,
+      "fjolbyli": 62
+    },
+    {
+      "ar": 2011,
+      "alls": 40,
+      "einbyli": 8,
+      "rad_par": 32,
+      "fjolbyli": 0
+    },
+    {
+      "ar": 2012,
+      "alls": 14,
+      "einbyli": 4,
+      "rad_par": 10,
+      "fjolbyli": 0
+    },
+    {
+      "ar": 2013,
+      "alls": 32,
+      "einbyli": 8,
+      "rad_par": 16,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2014,
+      "alls": 28,
+      "einbyli": 20,
+      "rad_par": 0,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2015,
+      "alls": 78,
+      "einbyli": 22,
+      "rad_par": 52,
+      "fjolbyli": 4
+    },
+    {
+      "ar": 2016,
+      "alls": 32,
+      "einbyli": 24,
+      "rad_par": 0,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2017,
+      "alls": 66,
+      "einbyli": 44,
+      "rad_par": 0,
+      "fjolbyli": 22
+    }
+  ],
+  "top_hverfi": [
+    {
+      "hverfi": "Alls",
+      "alls": 6231
+    },
+    {
+      "hverfi": "Grafarholt",
+      "alls": 1967
+    },
+    {
+      "hverfi": "Borgarholt",
+      "alls": 1011
+    },
+    {
+      "hverfi": "Norðlingaholt",
+      "alls": 905
+    },
+    {
+      "hverfi": "Annað",
+      "alls": 753
+    },
+    {
+      "hverfi": "Úlfarsárdalur",
+      "alls": 655
+    },
+    {
+      "hverfi": "Staðahverfi",
+      "alls": 392
+    },
+    {
+      "hverfi": "Fossvogur",
+      "alls": 312
+    },
+    {
+      "hverfi": "Reynisvatnsás",
+      "alls": 94
+    },
+    {
+      "hverfi": "Kjalarnes",
+      "alls": 38
+    },
+    {
+      "hverfi": "Grafarvogur",
+      "alls": 34
+    },
+    {
+      "hverfi": "Sæviðarsund",
+      "alls": 32
+    }
+  ],
+  "tekjur_2024_rvk": [
+    {
+      "tegund": "Útsvar",
+      "ma": 134.761824861
+    },
+    {
+      "tegund": "Fasteignaskattur",
+      "ma": 32.177765332
+    },
+    {
+      "tegund": "Framlög Jöfnunarsjóðs",
+      "ma": 16.93262139
+    },
+    {
+      "tegund": "Endurgreiðslur annarra",
+      "ma": 10.026918923
+    },
+    {
+      "tegund": "Arður frá fyrirtækjum",
+      "ma": 5.621227858
+    },
+    {
+      "tegund": "Breyting Lífeyrisskuldbindingar",
+      "ma": 4.352806899
+    },
+    {
+      "tegund": "Aðrar sértekjur",
+      "ma": 3.003848976
+    },
+    {
+      "tegund": "Þjónustutekjur",
+      "ma": 2.970042683
+    },
+    {
+      "tegund": "Aðrar þjónustutekjur",
+      "ma": 2.635357649
+    },
+    {
+      "tegund": "Vörusala tekjur",
+      "ma": 2.272523994
+    },
+    {
+      "tegund": "Inni leigutekjur",
+      "ma": 2.140139309
+    },
+    {
+      "tegund": "Vistunartekjur",
+      "ma": 2.08962542
+    },
+    {
+      "tegund": "Bílastæðatekjur",
+      "ma": 2.080169659
+    },
+    {
+      "tegund": "Skóla- og námstekjur",
+      "ma": 1.939666505
+    },
+    {
+      "tegund": "Vextir og verðbætur af skuldum eigin fyrirtækja",
+      "ma": 1.086541606
+    }
+  ],
+  "tekjur_2024_eignasj": [
+    {
+      "tegund": "Inni leigutekjur",
+      "ma": 31.418690737
+    },
+    {
+      "tegund": "Millifærslur",
+      "ma": 7.013694745
+    },
+    {
+      "tegund": "Söluhagnaður Eigna",
+      "ma": 6.166467055
+    },
+    {
+      "tegund": "Milliviðskipti verkbókhald",
+      "ma": 3.228962596
+    },
+    {
+      "tegund": "Leigutekjur",
+      "ma": 2.922839483
+    },
+    {
+      "tegund": "Leyfistekjur",
+      "ma": 2.867714931
+    },
+    {
+      "tegund": "Afskriftir",
+      "ma": 1.419784512
+    },
+    {
+      "tegund": "Húsaleiga",
+      "ma": 1.334167366
+    },
+    {
+      "tegund": "Innri viðskipti rekstur",
+      "ma": 0.736983006
+    },
+    {
+      "tegund": "Aðrar tekjur",
+      "ma": 0.729383959
+    },
+    {
+      "tegund": "Aðrar sértekjur",
+      "ma": 0.374432593
+    },
+    {
+      "tegund": "Vörusala tekjur",
+      "ma": 0.253089713
+    },
+    {
+      "tegund": "Stofnbúnaður fjárfesting",
+      "ma": 0.157249724
+    },
+    {
+      "tegund": "Ýmsar framkvæmdir",
+      "ma": 0.111461507
+    },
+    {
+      "tegund": "Framlög Jöfnunarsjóðs",
+      "ma": 0.105486974
+    }
+  ]
+}

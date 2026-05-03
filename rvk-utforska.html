@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Útforska reikninga Reykjavíkur — Samtök skattgreiðenda</title>
+<meta name="description" content="Ítarlegt mælaborð fyrir opna reikninga Reykjavíkurborgar 2019–2025. Síaðu eftir sviði, deild, stofnun, tegund og birgi.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --paper: #ffffff;
+    --paper-2: #fafafa;
+    --text: #0f172a;
+    --text-2: #334155;
+    --sub: #64748b;
+    --border: #e2e8f0;
+    --border-2: #cbd5e1;
+    --rvk: #1e6091;
+    --rvk-deep: #0c4a6e;
+    --rvk-light: #dbeafe;
+    --rvk-tint: #f0f9ff;
+    --hover: #f1f5f9;
+    --green: #047857;
+    --red: #b91c1c;
+    --warn: #d97706;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Topbar */
+  .topbar {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+  .topbar a { color: var(--sub); text-decoration: none; font-size: 13px; }
+  .topbar h1 { font-family: Georgia, serif; font-size: 17px; margin: 0; flex: 1; font-weight: 600; }
+  .topbar .pill { background: var(--rvk); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .topbar .share-btn {
+    background: var(--rvk-tint);
+    color: var(--rvk);
+    border: 1px solid var(--rvk-light);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .topbar .toggle-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-2);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-2);
+    user-select: none;
+    background: var(--paper);
+  }
+  .topbar .toggle-pill:hover { border-color: var(--rvk); color: var(--rvk); }
+  .topbar .toggle-pill input { accent-color: var(--rvk); cursor: pointer; }
+  .topbar .toggle-pill .help {
+    color: var(--sub);
+    font-size: 11px;
+    border: 1px solid var(--border-2);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+  }
+
+  /* Hero strip — gives big-picture context */
+  .hero-strip {
+    background: linear-gradient(180deg, var(--rvk-tint) 0%, transparent 100%);
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .context-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .chip {
+    background: var(--paper);
+    border: 1px solid var(--border-2);
+    padding: 5px 12px;
+    border-radius: 16px;
+    color: var(--text-2);
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .chip .label { color: var(--sub); font-size: 11px; }
+  .chip .value { font-weight: 600; }
+  .chip-x { color: var(--sub); cursor: pointer; margin-left: 4px; font-size: 11px; }
+  .chip-toggle { cursor: pointer; user-select: none; }
+  .chip-toggle:has(input:checked) { background: var(--rvk); color: white; border-color: var(--rvk-deep); }
+  .chip-toggle:has(input:checked) .help { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.4); }
+  .chip-toggle input { accent-color: var(--rvk); margin-right: 4px; }
+  .chip-toggle .help { color: var(--sub); font-size: 11px; border: 1px solid var(--border-2); border-radius: 50%; width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; cursor: help; margin-left: 4px; }
+  .hero-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-headline .big {
+    font-family: Georgia, serif;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--rvk-deep);
+    font-weight: 700;
+  }
+  .hero-headline .meta { color: var(--sub); font-size: 14px; }
+  .hero-headline .meta strong { color: var(--text); }
+  .hero-headline .delta { font-family: Georgia, serif; font-size: 18px; color: var(--red); }
+  .hero-headline .delta.down { color: var(--green); }
+
+  /* Layout: filters + main */
+  .app { display: grid; grid-template-columns: 260px 1fr; position: relative; }
+  @media (max-width: 1100px) { .app { grid-template-columns: 220px 1fr; } }
+
+  /* Mobile filter drawer */
+  .filter-toggle-btn { display: none; }
+  @media (max-width: 768px) {
+    .app { grid-template-columns: 1fr; }
+    .filters {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 280px; max-width: 90vw;
+      transform: translateX(-100%);
+      transition: transform .25s ease-out;
+      z-index: 50;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+      height: 100vh;
+    }
+    .filters.open { transform: translateX(0); }
+    .filter-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--rvk);
+      color: white;
+      border: 0;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .filter-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 40;
+    }
+    .filter-overlay.show { display: block; }
+    .topbar h1 { font-size: 14px; }
+    .topbar h1 .pill { display: none; }
+    .hero-strip { padding: 20px 16px 16px; }
+    .hero-headline .big { font-size: 38px; }
+    .main { padding: 16px; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    .chart-row { grid-template-columns: 1fr; }
+    .movers-grid { grid-template-columns: 1fr; gap: 16px; }
+    .table-tools { flex-direction: column; align-items: stretch; }
+    .table-search { max-width: none; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 4px; }
+    th:nth-child(3), td:nth-child(3),  /* ÍSAT */
+    th:nth-child(6), td:nth-child(6),  /* Stærð */
+    th:nth-child(7), td:nth-child(7) { display: none; }  /* Þróun */
+  }
+
+  /* Filter sidebar */
+  .filters {
+    background: var(--paper);
+    border-right: 1px solid var(--border);
+    padding: 20px 18px;
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    position: sticky;
+    top: 50px;
+  }
+  .filters .section {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .filters .section:last-child { border: 0; }
+  .filters .section-h {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--sub);
+    margin: 0 0 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .filters .section-h .help {
+    cursor: help;
+    color: var(--sub);
+    font-size: 12px;
+    border: 1px solid var(--border-2);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .filter-input {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .filter-input:focus { outline: 2px solid var(--rvk-light); border-color: var(--rvk); }
+  .seg {
+    display: flex;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px;
+    font-size: 12px;
+  }
+  .seg button {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: var(--sub);
+    border-radius: 4px;
+  }
+  .seg button.active {
+    background: var(--paper);
+    color: var(--rvk);
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+
+  .check-list label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-2);
+  }
+  .check-list label:hover { color: var(--rvk); }
+  .check-list .count { margin-left: auto; color: var(--sub); font-size: 11px; font-family: Georgia, serif; }
+  .check-list input { accent-color: var(--rvk); }
+  .more-btn {
+    background: none;
+    border: 0;
+    color: var(--rvk);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 6px 0 0;
+  }
+
+  /* Hierarchy tree */
+  .tree-search {
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .tree-search input {
+    width: 100%;
+    padding: 7px 10px 7px 28px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  .tree-search::before {
+    content: '🔍';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+  }
+  .tree { font-size: 13px; }
+  .tree-node { padding: 3px 0; }
+  .tree-node label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--text-2);
+    min-width: 0;  /* leyfir flex-children að klippa */
+  }
+  .tree-node label:hover { color: var(--rvk); }
+  .tree-node label .tree-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .tree-node label .count {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .tree-toggle {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--sub);
+    width: 14px;
+    padding: 0;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  .tree-toggle.no-children { visibility: hidden; }
+  .tree-children {
+    margin-left: 20px;
+    border-left: 1px dashed var(--border);
+    padding-left: 8px;
+    display: none;
+  }
+  .tree-node.open > .tree-children { display: block; }
+  .tree-node .count { margin-left: auto; color: var(--sub); font-size: 10px; font-family: Georgia, serif; }
+  .tree-node input { accent-color: var(--rvk); }
+  .tree-name { flex: 1; min-width: 0; }
+  .tree-children .tree-node label { font-size: 12px; }
+  .tree-active-chip {
+    background: var(--rvk-light);
+    color: var(--rvk-deep);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .range-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--sub);
+    margin-top: 4px;
+  }
+  .range-display strong { color: var(--text); }
+
+  /* Stærri og augljósari ár-slider */
+  .ar-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    height: 30px;
+    margin: 4px 0;
+  }
+  .ar-slider::-webkit-slider-runnable-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+  }
+  .ar-slider::-moz-range-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+  }
+  .ar-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--rvk);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    cursor: grab;
+    margin-top: -7px;
+  }
+  .ar-slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.1); }
+  .ar-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--rvk);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    cursor: grab;
+  }
+  .ar-slider::-moz-range-thumb:active { cursor: grabbing; transform: scale(1.1); }
+
+  /* Main panel */
+  .main { padding: 20px 24px 60px; }
+
+  /* KPI strip — kompakt */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .kpi {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+  .kpi .l { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: 1px; }
+  .kpi .v { font-family: Georgia, serif; font-size: 22px; line-height: 1.15; margin-top: 2px; font-weight: 600; }
+  .kpi .d { font-size: 11px; color: var(--sub); }
+
+  /* Charts */
+  .chart-row { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 1100px) { .chart-row { grid-template-columns: 1fr 1fr; } }
+  .panel { background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .panel-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .panel-h h3 { font-family: Georgia, serif; font-size: 15px; margin: 0; font-weight: 600; }
+  .panel-h .panel-actions a {
+    font-size: 12px;
+    color: var(--rvk);
+    text-decoration: none;
+    margin-left: 8px;
+  }
+
+  .trend { height: 200px; width: 100%; }
+
+  /* Donut */
+  .donut-row { display: flex; gap: 12px; align-items: center; }
+  .donut-svg { flex: 0 0 110px; height: 110px; }
+  .donut-list { font-size: 12px; flex: 1; }
+  .donut-list .row { display: flex; align-items: center; gap: 6px; padding: 2px 0; }
+  .donut-list .swatch { width: 9px; height: 9px; border-radius: 2px; }
+  .donut-list .num { margin-left: auto; font-family: Georgia, serif; }
+  .donut-list .pct { color: var(--sub); margin-left: 4px; font-size: 11px; }
+
+  /* Movers panel (Top hækkun / fall) */
+  .movers-panel { margin-bottom: 20px; }
+  .movers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .movers-col h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sub);
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .movers-col h4 .arrow { font-size: 14px; }
+  .movers-col.up h4 .arrow { color: var(--red); }
+  .movers-col.down h4 .arrow { color: var(--green); }
+  .mover {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .mover:last-child { border: 0; }
+  .mover .who { min-width: 0; }
+  .mover .who .nm { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mover .who .ctx { font-size: 11px; color: var(--sub); margin-top: 1px; }
+  .mover .delta {
+    font-family: Georgia, serif;
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .mover.up .delta { color: var(--red); }
+  .mover.down .delta { color: var(--green); }
+  .mover .delta .pct { font-size: 11px; color: var(--sub); display: block; font-weight: 400; }
+
+  /* Tabs above table */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+  .tabs button {
+    background: none;
+    border: 0;
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--sub);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tabs button.active { color: var(--rvk); border-bottom-color: var(--rvk); font-weight: 600; }
+  .tabs .count { font-size: 11px; color: var(--sub); margin-left: 4px; }
+  .tabs button.active .count { color: var(--rvk); }
+
+  /* Table */
+  .table-card { background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .table-tools {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .table-search {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+  .table-search input {
+    width: 100%;
+    padding: 8px 12px 8px 32px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .table-search::before {
+    content: '🔍';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+  }
+  .table-tools-r { display: flex; gap: 6px; }
+  .table-tools-r button {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--text-2);
+  }
+  .table-tools-r button:hover { border-color: var(--rvk); color: var(--rvk); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--paper-2);
+    text-align: left;
+    padding: 9px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sub);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th.num { text-align: right; }
+  thead th:hover { color: var(--rvk); }
+  thead th.sorted { color: var(--rvk); }
+  thead th.sorted::after { content: ' ↓'; }
+  td { padding: 11px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  td.num { text-align: right; font-family: Georgia, serif; }
+  tbody tr { transition: background .1s; }
+  tbody tr:hover { background: var(--hover); cursor: pointer; }
+  tbody tr:hover .name { color: var(--rvk); }
+  .rank { color: var(--sub); font-size: 12px; }
+  .name { font-weight: 500; }
+  .sub-name { font-size: 11px; color: var(--sub); margin-top: 2px; }
+  .bar-cell { width: 120px; }
+  .mini-bar {
+    height: 6px;
+    background: var(--rvk-light);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .mini-bar .fill {
+    height: 100%;
+    background: var(--rvk);
+    border-radius: 3px;
+  }
+  .spark {
+    width: 80px;
+    height: 24px;
+    display: block;
+  }
+  .delta-up { color: var(--red); font-size: 12px; }
+  .delta-down { color: var(--green); font-size: 12px; }
+
+  .pagination {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--sub);
+  }
+  .pagination button {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-2);
+    font-size: 13px;
+  }
+  .pagination button.active { background: var(--rvk); color: white; border-color: var(--rvk); }
+
+  /* Loading skeleton */
+  @keyframes skeleton-pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 0.8; } }
+  .skeleton {
+    background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    display: inline-block;
+    animation: skeleton-pulse 1.4s ease-in-out infinite;
+  }
+
+  /* Empty states */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--sub);
+    font-size: 14px;
+  }
+  .empty-state .icon { font-size: 36px; margin-bottom: 8px; opacity: 0.4; }
+  .empty-state h4 { font-family: Georgia, serif; color: var(--text); margin: 8px 0 4px; }
+
+  /* Birgi-detail modal */
+  .modal-bg {
+    position: fixed; inset: 0;
+    background: rgba(15,23,42,.5);
+    z-index: 100;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--paper);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    overflow: hidden;
+    animation: modal-pop .15s ease-out;
+  }
+  @keyframes modal-pop {
+    from { transform: translateY(8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-h {
+    padding: 20px 28px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .modal-h h2 { font-family: Georgia, serif; font-size: 24px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .modal-h .meta { font-size: 13px; color: var(--sub); }
+  .modal-h .close {
+    background: none; border: 0; font-size: 22px; color: var(--sub); cursor: pointer;
+    margin-left: auto; padding: 0 4px; line-height: 1;
+  }
+  .modal-h .close:hover { color: var(--rvk); }
+  .modal-body { padding: 20px 28px 28px; max-height: 70vh; overflow-y: auto; }
+  .modal-summary {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .modal-summary .stat .l { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--sub); }
+  .modal-summary .stat .v { font-family: Georgia, serif; font-size: 22px; line-height: 1.1; margin-top: 2px; }
+  .modal-yearly { display: grid; gap: 16px; }
+  .modal-year {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .modal-year-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .modal-year-h .year {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .modal-year-h .total {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    color: var(--rvk-deep);
+  }
+  .modal-year-h .delta {
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  .modal-year-bars { display: grid; gap: 4px; font-size: 13px; }
+  .modal-year-bar {
+    display: grid;
+    grid-template-columns: 1fr 80px 80px;
+    gap: 12px;
+    align-items: center;
+    padding: 4px 0;
+  }
+  .modal-year-bar .lbl { color: var(--text-2); }
+  .modal-year-bar .lbl .deild { color: var(--sub); font-size: 11px; }
+  .modal-year-bar .bar {
+    background: var(--rvk-light);
+    height: 10px;
+    border-radius: 3px;
+    position: relative;
+  }
+  .modal-year-bar .bar .fill {
+    background: var(--rvk);
+    height: 100%;
+    border-radius: 3px;
+  }
+  .modal-year-bar .v {
+    text-align: right;
+    font-family: Georgia, serif;
+    color: var(--rvk-deep);
+  }
+  .modal-no-detail {
+    color: var(--sub);
+    font-style: italic;
+    padding: 24px;
+    text-align: center;
+  }
+
+  /* Alert / context note */
+  .note {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #78350f;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .note .icon { font-size: 16px; }
+  .note a { color: var(--warn); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/">← skattgreidendur.is</a>
+  <h1>Útforska reikninga · Reykjavík <span class="pill">ALPHA</span></h1>
+  <a href="gagnatorg.html" class="share-btn" style="text-decoration:none;background:#0c4a6e;color:white" title="Gagnatorg — yfirlit yfir öll mælaborð og greiningar">🏛️ Gagnatorg</a>
+  <a href="svf-heilsuvog.html" class="share-btn" style="text-decoration:none" title="Fjárhagsleg heilsuvog 40 sveitarfélaga — einkunn 0-100">🌡️ Heilsuvog</a>
+  <a href="skatttekjur-per-ibua.html" class="share-btn" style="text-decoration:none" title="Útsvar og fasteignaskattur á mann fyrir 55 sveitarfélög">💰 Skatttekjur/mann</a>
+  <a href="rvk-er-bestrekna.html" class="share-btn" style="text-decoration:none;background:#dc2626;color:white" title="Reykjavík tapaði 19,4 ma.kr. á 7 árum">📉 19,4 ma. tap</a>
+  <a href="rvk-tekjuhlid.html" class="share-btn" style="text-decoration:none" title="Skýring á því hvernig tekjuhliðin sést í þessum gögnum">📖 Tekjuhliðin</a>
+  <button class="filter-toggle-btn" id="filterToggle">☰ Síur</button>
+  <button class="share-btn" id="shareBtn">🔗 Deila</button>
+</div>
+<div class="filter-overlay" id="filterOverlay"></div>
+
+<!-- ============ HERO STRIP ============ -->
+<div class="hero-strip">
+  <div class="context-chips" id="contextChips">
+    <label class="chip chip-toggle" id="vnvToggleLabel">
+      <input type="checkbox" id="vnvToggle">
+      <span class="value">Fast verðlag (2025)</span>
+      <span class="help" title="Tölur leiðréttar með VNV svo þær séu sambærilegar yfir tíma. Sjálfgefið nafnverð.">?</span>
+    </label>
+  </div>
+  <div class="hero-headline">
+    <div class="big" id="heroBig"><span class="skeleton" style="width:200px;height:48px"></span></div>
+    <div>
+      <div class="meta" id="heroMeta"><span class="skeleton" style="width:280px;height:14px"></span></div>
+      <div class="delta" id="heroDelta"></div>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- ============ FILTER SIDEBAR ============ -->
+  <aside class="filters">
+    <div class="section">
+      <div class="section-h">Lögaðili <span class="help" title="A-hluti = aðalsjóður borgarinnar (rekstur, skólar, velferð). B-hluti = sjálfstæður lögaðili eins og Eignasjóður fasteignastofa sem heldur után um fasteignir borgarinnar. A+B = bæði saman (samstaða).">?</span></div>
+      <div class="seg" id="fyrirtaekiSeg"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-h">Ár <span id="arSliderLabel" style="color:var(--rvk);font-family:Georgia,serif;font-weight:700;font-size:18px;letter-spacing:-0.02em">2025</span></div>
+      <input type="range" id="arSlider" min="2019" max="2025" value="2025" step="1" class="ar-slider">
+      <div class="range-display" style="font-family:Georgia,serif"><span id="arSliderMin">2019</span><span id="arSliderMax">2025</span></div>
+    </div>
+
+    <div class="section">
+      <div class="section-h">Svið / deild / stofnun <span class="help" title="Smelltu á ▸ til að opna næsta lag. Þrjú stig: svið → deild → stofnun (t.d. einstakir skólar).">?</span></div>
+      <div class="tree-search">
+        <input type="text" id="treeSearch" placeholder="Finna t.d. „Dalskóli"...">
+      </div>
+      <div class="tree" id="treeContainer">
+        <div style="color:var(--sub); font-size:12px; padding:8px 0">Sæki gögn…</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-h">Tegund kostnaðar <span class="help" title="Hvers konar greiðsla — Launakostnaður (laun starfsmanna), Þjónustukostnaður (verktakar, ræsting o.fl.), Húsnæðiskostnaður (leiga, viðhald), Skrifstofu- og stjórnunarkostnaður, Verkframkvæmdir, Fjármagnsliðir, Afskriftir.">?</span></div>
+      <div class="check-list" id="tegundList"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-h">ÍSAT-flokkur birgja <span class="help" title="Atvinnugrein birgis skv. Hagstofu — t.d. 56 = veitingaþjónusta, 47 = smásöluverslun. Um 33% birgja hafa ÍSAT-skráningu (fyrirtæki). Einstaklingar (~37%) og erlend félög (~2%) hafa ekki ÍSAT.">?</span></div>
+      <div class="check-list" id="isatList"></div>
+    </div>
+
+    <button class="more-btn" id="clearFiltersBtn" style="color:var(--sub); font-size:12px; padding:8px 0">↻ Hreinsa allar síur</button>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- Note (kontextskýring sem JS uppfærir) -->
+    <div class="note" id="contextNote" style="display:none">
+      <span class="icon">ℹ️</span>
+      <div id="contextNoteText"></div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-row" id="kpiRow"></div>
+
+    <!-- Charts -->
+    <div class="chart-row">
+      <div class="panel">
+        <div class="panel-h">
+          <h3>Þróun greiðslna · 2019–2025</h3>
+          <div class="panel-actions">
+            <a href="#">⬇ PNG</a>
+          </div>
+        </div>
+        <svg class="trend" id="trendSvg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div class="panel">
+        <div class="panel-h">
+          <h3 id="donutTitle">Skipting kostnaðar</h3>
+        </div>
+        <div class="donut-row">
+          <svg class="donut-svg" id="donutSvg" viewBox="0 0 36 36"></svg>
+          <div class="donut-list" id="donutList"></div>
+        </div>
+      </div>
+      <div class="panel" id="statsPanel">
+        <div class="panel-h"><h3>Lykiltölur</h3></div>
+        <div id="statsContent"></div>
+      </div>
+    </div>
+
+    <!-- Tegund yfir tíma -->
+    <div class="panel">
+      <div class="panel-h">
+        <h3>Þróun eftir tegund kostnaðar (2019–2025)</h3>
+        <div class="panel-actions"><a href="#" id="tegundTimeStacked">stacked</a></div>
+      </div>
+      <svg id="tegundTimeSvg" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid meet" style="width:100%;height:240px"></svg>
+      <div id="tegundTimeLegend" style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;margin-top:8px"></div>
+    </div>
+
+    <!-- Movers — Mest hækkun / Mest fall -->
+    <div class="panel movers-panel">
+      <div class="panel-h">
+        <h3 id="moversTitle">Stærstu breytingar</h3>
+        <div class="panel-actions">
+          <a href="#" id="moversBy">eftir upphæð</a>
+        </div>
+      </div>
+      <div class="movers-grid">
+        <div class="movers-col up">
+          <h4><span class="arrow">↗</span> Mest hækkun</h4>
+          <div id="moversUp"></div>
+        </div>
+        <div class="movers-col down">
+          <h4><span class="arrow">↘</span> Mest fall</h4>
+          <div id="moversDown"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs + Table -->
+    <div class="table-card">
+      <div class="tabs" id="tableTabs">
+        <button class="active" data-tab="birgjar">Birgjar <span class="count" id="cntBirgjar">…</span></button>
+        <button data-tab="stofnanir">Stofnanir <span class="count" id="cntStofnanir">…</span></button>
+      </div>
+      <div class="table-tools">
+        <div class="table-search">
+          <input type="text" id="tableSearch" placeholder="Leita að birgi eða kennitölu...">
+        </div>
+        <div class="table-tools-r">
+          <button id="csvBtn">⬇ CSV</button>
+        </div>
+      </div>
+      <table>
+        <thead id="tableHead">
+          <tr>
+            <th>#</th>
+            <th>Birgir</th>
+            <th>ÍSAT</th>
+            <th class="num">Reikn.</th>
+            <th class="num sorted" id="thCurAr">2025 (m.kr.)</th>
+            <th>Stærð</th>
+            <th>Þróun</th>
+            <th class="num" id="thDelta">Δ frá 2024</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+    <div style="margin-top:32px; padding-top:16px; border-top:1px solid var(--border); color:var(--sub); font-size:12px; line-height:1.7">
+      <div>
+        <strong style="color:var(--text-2)">Heimild:</strong> opnir reikningar Reykjavíkurborgar 2019–2025
+        · <a href="GAGNAGREINING_RVK_MISRAEMI.md" style="color:var(--rvk)">Samanburður við ársreikning →</a>
+      </div>
+      <div style="margin-top:6px">
+        <strong style="color:var(--text-2)">Gögn uppfærð:</strong> <span id="dataDate" style="font-family:Georgia,serif">…</span>
+        · <strong style="color:var(--text-2)">Skjal byggt:</strong> <span id="buildDate" style="font-family:Georgia,serif">…</span>
+        <span id="versionPill" style="display:none; margin-left:10px; padding:2px 8px; background:var(--rvk-light); color:var(--rvk-deep); border-radius:4px; font-size:11px; font-weight:600">…</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Birgi-detail modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-h">
+      <div>
+        <h2 id="modalTitle">…</h2>
+        <div class="meta" id="modalMeta">…</div>
+      </div>
+      <button class="close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-summary" id="modalSummary"></div>
+      <div class="modal-yearly" id="modalYearly"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// STATE
+// ============================================================
+const STATE = {
+  fyrirtaeki: 'Reykjavíkurborg',  // 'Reykjavíkurborg' | 'Eignasjóður fasteignastofa' | 'Bæði'
+  ar: 2025,
+  svid: new Set(),       // tóm = öll
+  deild: new Set(),      // tóm = allar
+  stofnun: new Set(),    // tóm = allar
+  tegund: new Set(),     // tóm = allar
+  openSvid: new Set(),   // útbrjótin svið í tréinu (óháð síun)
+  openDeild: new Set(),  // útbrjótar deildir í tréinu (óháð síun)
+  expandedDeild: new Set(), // deildir sem hafa „sýna alla stofnanir" virkjað
+  vnv: false,            // false = nafnverð, true = föst 2025-verðlag
+  search: '',
+  tab: 'birgjar',
+  tableLimit: 50,
+  isat: new Set(),  // ISAT 2-stafa sektorar (t.d. "47", "56")
+};
+
+const DATA = { vnv: null, summary: null, tree: null, birgjar: null, svidTegund: null, birgiDetail: null, cube: null, stofnunBirgjar: null };
+
+const COLORS = ['#1e6091', '#0e7490', '#0891b2', '#7c3aed', '#a21caf', '#dc2626', '#d97706', '#9ca3af'];
+
+// ============================================================
+// FORMATTING (íslenskt snið)
+// ============================================================
+function isFmt(n, decimals) {
+  if (n == null || isNaN(n)) return '—';
+  decimals = decimals == null ? 0 : decimals;
+  const sign = n < 0 ? '-' : '';
+  const abs = Math.abs(n);
+  let str;
+  if (decimals === 0) {
+    str = Math.round(abs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  } else {
+    const fixed = abs.toFixed(decimals);
+    const [whole, frac] = fixed.split('.');
+    str = whole.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + frac;
+  }
+  return sign + str;
+}
+
+function fmtMkr(mkr) {
+  if (mkr == null) return '—';
+  const abs = Math.abs(mkr);
+  if (abs >= 1000) return isFmt(mkr / 1000, 2) + ' ma.kr.';
+  if (abs >= 10) return isFmt(mkr, 1) + ' m.kr.';
+  if (abs >= 1) return isFmt(mkr, 2) + ' m.kr.';
+  if (abs >= 0.1) return isFmt(mkr * 1000, 0) + ' þ.kr.';
+  if (abs >= 0.001) return isFmt(mkr * 1000, 1) + ' þ.kr.';
+  if (abs > 0) return isFmt(mkr * 1e6, 0) + ' kr.';
+  return '0 kr.';
+}
+
+function fmtMkrShort(mkr) {
+  if (mkr == null) return '—';
+  const abs = Math.abs(mkr);
+  if (abs >= 1000) return isFmt(mkr / 1000, 1) + ' ma.';
+  if (abs >= 10) return isFmt(mkr, 0) + ' m.';
+  if (abs >= 1) return isFmt(mkr, 1) + ' m.';
+  if (abs >= 0.001) return isFmt(mkr * 1000, 0) + ' þ.';
+  if (abs > 0) return isFmt(mkr * 1e6, 0) + ' kr.';
+  return '0';
+}
+
+function fmtCount(n) {
+  if (n == null) return '—';
+  return isFmt(n, 0);
+}
+
+function fmtDelta(n, asPct, full) {
+  if (n == null) return '—';
+  const s = n >= 0 ? '+' : '−';
+  const abs = Math.abs(n);
+  if (asPct) return s + isFmt(abs, 1) + '%';
+  return s + (full ? fmtMkr(abs) : fmtMkrShort(abs));
+}
+
+// ============================================================
+// VNV
+// ============================================================
+function vnvFactor(ar) {
+  if (!STATE.vnv || !DATA.vnv) return 1;
+  return DATA.vnv.factors[String(ar)] || 1;
+}
+
+function adjust(mkr, ar) {
+  if (mkr == null) return null;
+  return mkr * vnvFactor(ar);
+}
+
+// ============================================================
+// LOAD
+// ============================================================
+async function loadData() {
+  // Reyni inline gögn fyrst (standalone), fellur svo í fetch
+  const inline = document.getElementById('inlineData');
+  if (inline && inline.textContent.trim().length > 100) {
+    const all = JSON.parse(inline.textContent);
+    DATA.vnv = all.vnv;
+    DATA.summary = all.summary;
+    DATA.tree = all.tree;
+    DATA.birgjar = all.birgjar;
+    DATA.svidTegund = all.svidTegund;
+    DATA.birgiDetail = all.birgiDetail;
+    DATA.cube = all.cube;
+    DATA.stofnunBirgjar = all.stofnunBirgjar;
+  } else {
+    const ts = new Date().toISOString().slice(0, 10);
+    const base = 'public/data/';
+    const files = ['rvk-vnv.json', 'rvk-summary.json', 'rvk-tree.json', 'rvk-birgjar.json', 'rvk-svid-tegund.json', 'rvk-birgi-detail.json', 'rvk-cube.json', 'rvk-stofnun-birgjar.json'];
+    const [vnv, summary, tree, birgjar, svidTegund, birgiDetail, cube, stofnunBirgjar] = await Promise.all(
+      files.map(f => fetch(base + f + '?v=' + ts).then(r => r.json()))
+    );
+    DATA.vnv = vnv;
+    DATA.summary = summary;
+    DATA.tree = tree;
+    DATA.birgjar = birgjar;
+    DATA.svidTegund = svidTegund;
+    DATA.birgiDetail = birgiDetail;
+    DATA.cube = cube;
+    DATA.stofnunBirgjar = stofnunBirgjar;
+  }
+  document.getElementById('arSlider').max = DATA.summary.meta.ar_max;
+  document.getElementById('arSlider').min = DATA.summary.meta.ar_min;
+  const minLbl = document.getElementById('arSliderMin');
+  const maxLbl = document.getElementById('arSliderMax');
+  if (minLbl) minLbl.textContent = DATA.summary.meta.ar_min;
+  if (maxLbl) maxLbl.textContent = DATA.summary.meta.ar_max;
+  document.getElementById('dataDate').textContent = DATA.summary.meta.generated.replace('T', ' kl. ').slice(0, 20);
+  const build = window.__BUILD_TS__ || (document.lastModified || '').replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2');
+  document.getElementById('buildDate').textContent = build || '—';
+  if (window.__BUILD_VERSION__) {
+    const pill = document.getElementById('versionPill');
+    pill.textContent = window.__BUILD_VERSION__;
+    pill.style.display = 'inline-block';
+  }
+}
+
+// ============================================================
+// RENDER: HERO + KPI
+// ============================================================
+function getYearly(fyrirtaeki, ar) {
+  const y = DATA.summary.yearly[fyrirtaeki];
+  if (!y) return null;
+  return y[String(ar)] || null;
+}
+
+function combineYearly(ar) {
+  // Combinated A+B if STATE.fyrirtaeki = 'Bæði'
+  if (STATE.fyrirtaeki !== 'Bæði') return getYearly(STATE.fyrirtaeki, ar);
+  const a = getYearly('Reykjavíkurborg', ar) || {};
+  const b = getYearly('Eignasjóður fasteignastofa', ar) || {};
+  return {
+    tekjur: (a.tekjur || 0) + (b.tekjur || 0),
+    gjold: (a.gjold || 0) + (b.gjold || 0),
+    afkoma: (a.afkoma || 0) + (b.afkoma || 0),
+    reikningar: (a.reikningar || 0) + (b.reikningar || 0),
+    birgjar: (a.birgjar || 0) + (b.birgjar || 0),
+  };
+}
+
+// ============================================================
+// MIKILVÆGT — STATE.fyrirtaeki getur verið:
+//   'Reykjavíkurborg' (A-hluti)
+//   'Eignasjóður fasteignastofa' (B-hluti)
+//   'Bæði' (A+B sameinað)
+//
+// Allar render-aðgerðir verða að styðja öll þrjú gildin. JSON-gögnin eru
+// keyed eftir A og B sér; 'Bæði' er reiknað á flugi með hjálparföllunum:
+//   - combineYearly(ar) / getYearly(fyr, ar) — yearly KPI
+//   - getEffectiveGjold(fyr, ar) — gjöld með síum
+//   - getFilteredTegundBreakdown(fyr, ar) — tegund-skipting með síum
+//   - getTegundForFyr(fyr, ar) — tegund-skipting án sía (incl. Bæði)
+//   - getTreeForFyr(fyr) — tré (svið → deild → stofnun) með A+B merge
+//
+// EKKI nota DATA.tree[STATE.fyrirtaeki] eða DATA.summary.tegund[STATE.fyrirtaeki]
+// beint — það gefur empty {} fyrir 'Bæði'.
+// ============================================================
+
+// True ef einhver sía er virk
+function hasFilters() {
+  return STATE.svid.size > 0 || STATE.deild.size > 0 || STATE.stofnun.size > 0 || STATE.tegund.size > 0;
+}
+
+const TEKJU_TEGUND_SET = new Set(['Tekjur', 'Fjármunatekjur', 'Arður frá fyrirtækjum']);
+const ALL_FYRS = ['Reykjavíkurborg', 'Eignasjóður fasteignastofa'];
+
+// Sækir tegund-breakdown án sía. Styður 'Bæði' með því að leggja saman A+B.
+function getTegundForFyr(fyr, ar) {
+  if (fyr === 'Bæði') {
+    const out = {};
+    for (const f of ALL_FYRS) {
+      const t = (DATA.summary.tegund[f] || {})[String(ar)] || {};
+      for (const [k, v] of Object.entries(t)) out[k] = (out[k] || 0) + v;
+    }
+    return out;
+  }
+  return { ...((DATA.summary.tegund[fyr] || {})[String(ar)] || {}) };
+}
+
+// Sækir tré fyrir fyr. Fyrir 'Bæði' merge-ar A og B tré (svið → deild → stofnun → yearly).
+let __mergedTreeCache = null;
+function getTreeForFyr(fyr) {
+  if (fyr !== 'Bæði') return DATA.tree[fyr] || {};
+  if (__mergedTreeCache) return __mergedTreeCache;
+  const merged = {};
+  for (const f of ALL_FYRS) {
+    const t = DATA.tree[f] || {};
+    for (const [svidName, svidObj] of Object.entries(t)) {
+      if (!merged[svidName]) merged[svidName] = { yearly: {}, deildir: {} };
+      for (const [ar, v] of Object.entries(svidObj.yearly || {})) {
+        merged[svidName].yearly[ar] = (merged[svidName].yearly[ar] || 0) + v;
+      }
+      for (const [deildName, deildObj] of Object.entries(svidObj.deildir || {})) {
+        if (!merged[svidName].deildir[deildName]) {
+          merged[svidName].deildir[deildName] = { yearly: {}, stofnanir: {} };
+        }
+        for (const [ar, v] of Object.entries(deildObj.yearly || {})) {
+          merged[svidName].deildir[deildName].yearly[ar] =
+            (merged[svidName].deildir[deildName].yearly[ar] || 0) + v;
+        }
+        for (const [stName, stObj] of Object.entries(deildObj.stofnanir || {})) {
+          if (!merged[svidName].deildir[deildName].stofnanir[stName]) {
+            merged[svidName].deildir[deildName].stofnanir[stName] = {};
+          }
+          for (const [ar, v] of Object.entries(stObj || {})) {
+            merged[svidName].deildir[deildName].stofnanir[stName][ar] =
+              (merged[svidName].deildir[deildName].stofnanir[stName][ar] || 0) + v;
+          }
+        }
+      }
+    }
+  }
+  __mergedTreeCache = merged;
+  return merged;
+}
+
+// Reiknar gjöld út frá fullum cube með öllum sía-stöðum
+function getFilteredGjold(fyr, ar) {
+  if (fyr === 'Bæði') {
+    return getFilteredGjold('Reykjavíkurborg', ar) + getFilteredGjold('Eignasjóður fasteignastofa', ar);
+  }
+  // Ef bara svið+tegund (ekki deild/stofnun) — fljótlegri svidTegund cube
+  const useFullCube = STATE.deild.size > 0 || STATE.stofnun.size > 0;
+  if (!useFullCube && DATA.svidTegund) {
+    const yearData = (DATA.svidTegund[fyr] || {})[String(ar)];
+    if (!yearData) return 0;
+    let total = 0;
+    const svidFilter = STATE.svid.size > 0 ? STATE.svid : null;
+    const tegundFilter = STATE.tegund.size > 0 ? STATE.tegund : null;
+    for (const [svid, tegunds] of Object.entries(yearData)) {
+      if (svidFilter && !svidFilter.has(svid)) continue;
+      for (const [tg, val] of Object.entries(tegunds)) {
+        if (TEKJU_TEGUND_SET.has(tg)) continue;
+        if (tegundFilter && !tegundFilter.has(tg)) continue;
+        total += val;
+      }
+    }
+    return total;
+  }
+  // Annars — fullur cube fyrir nákvæma síun
+  if (!DATA.cube) return 0;
+  const yearData = (DATA.cube[fyr] || {})[String(ar)];
+  if (!yearData) return 0;
+  let total = 0;
+  const svidF = STATE.svid.size > 0 ? STATE.svid : null;
+  const deildF = STATE.deild.size > 0 ? STATE.deild : null;
+  const stofnunF = STATE.stofnun.size > 0 ? STATE.stofnun : null;
+  const tegundF = STATE.tegund.size > 0 ? STATE.tegund : null;
+  for (const [svid, deildir] of Object.entries(yearData)) {
+    if (svidF && !svidF.has(svid)) continue;
+    for (const [deild, stofnanir] of Object.entries(deildir)) {
+      if (deildF && !deildF.has(deild)) continue;
+      for (const [stofnun, tegunds] of Object.entries(stofnanir)) {
+        if (stofnunF && !stofnunF.has(stofnun)) continue;
+        for (const [tg, val] of Object.entries(tegunds)) {
+          if (TEKJU_TEGUND_SET.has(tg)) continue;
+          if (tegundF && !tegundF.has(tg)) continue;
+          total += val;
+        }
+      }
+    }
+  }
+  return total;
+}
+
+// Donut tegund-skipting — notar cube með öllum sía-stöðum (svið/deild/stofnun)
+function getFilteredTegundBreakdown(fyr, ar) {
+  if (fyr === 'Bæði') {
+    const a = getFilteredTegundBreakdown('Reykjavíkurborg', ar);
+    const b = getFilteredTegundBreakdown('Eignasjóður fasteignastofa', ar);
+    const out = { ...a };
+    for (const [k, v] of Object.entries(b)) out[k] = (out[k] || 0) + v;
+    return out;
+  }
+  const cube = DATA.cube;
+  if (!cube) return {};
+  const yearData = (cube[fyr] || {})[String(ar)];
+  if (!yearData) return {};
+  const out = {};
+  const svidF = STATE.svid.size > 0 ? STATE.svid : null;
+  const deildF = STATE.deild.size > 0 ? STATE.deild : null;
+  const stofnunF = STATE.stofnun.size > 0 ? STATE.stofnun : null;
+  for (const [svid, deildir] of Object.entries(yearData)) {
+    if (svidF && !svidF.has(svid)) continue;
+    for (const [deild, stofnanir] of Object.entries(deildir)) {
+      if (deildF && !deildF.has(deild)) continue;
+      for (const [stofnun, tegunds] of Object.entries(stofnanir)) {
+        if (stofnunF && !stofnunF.has(stofnun)) continue;
+        for (const [tg, val] of Object.entries(tegunds)) {
+          if (TEKJU_TEGUND_SET.has(tg)) continue;
+          out[tg] = (out[tg] || 0) + val;
+        }
+      }
+    }
+  }
+  return out;
+}
+
+// Yearly total með filterum (ef síur eru virkar — fall back á heildartölu annars)
+function getEffectiveGjold(fyr, ar) {
+  if (hasFilters()) return getFilteredGjold(fyr, ar);
+  const y = (fyr === 'Bæði') ? combineYearly(ar) : getYearly(fyr, ar);
+  return y ? (y.gjold || 0) : 0;
+}
+
+function renderHero() {
+  const cur = combineYearly(STATE.ar);
+  if (!cur) {
+    document.getElementById('heroBig').textContent = '—';
+    document.getElementById('heroMeta').textContent = 'Engin gögn fyrir þetta ár';
+    document.getElementById('heroDelta').textContent = '';
+    return;
+  }
+  const gjold = adjust(getEffectiveGjold(STATE.fyrirtaeki, STATE.ar), STATE.ar);
+  const prevGjold = adjust(getEffectiveGjold(STATE.fyrirtaeki, STATE.ar - 1), STATE.ar - 1);
+
+  document.getElementById('heroBig').textContent = fmtMkr(gjold);
+  let metaText;
+  if (hasFilters()) {
+    const totGjold = adjust(getEffectiveGjold(STATE.fyrirtaeki, STATE.ar), STATE.ar);
+    const fullGjold = adjust(cur.gjold, STATE.ar);
+    const pct = fullGjold ? (totGjold / fullGjold * 100) : 0;
+    metaText = `<strong>${pct.toFixed(0)}%</strong> af heild · ${fmtCount(cur.reikningar)} reikningar (sía gildir)`;
+  } else {
+    metaText = `í <strong>${fmtCount(cur.reikningar)}</strong> reikningum til <strong>${fmtCount(cur.birgjar)}</strong> birgja`;
+  }
+  document.getElementById('heroMeta').innerHTML = metaText;
+
+  if (prevGjold > 0) {
+    const delta = gjold - prevGjold;
+    const pct = prevGjold ? (delta / prevGjold * 100) : 0;
+    const arrow = delta >= 0 ? '↗' : '↘';
+    const cls = delta >= 0 ? '' : 'down';
+    document.getElementById('heroDelta').className = 'delta ' + cls;
+    document.getElementById('heroDelta').textContent =
+      `${arrow} ${fmtDelta(delta, false, true)} (${fmtDelta(pct, true)}) frá ${STATE.ar - 1}`;
+  } else {
+    document.getElementById('heroDelta').textContent = '';
+  }
+}
+
+function renderChips() {
+  const c = document.getElementById('contextChips');
+  // Hreinsa allt nema VNV-toggle (sem er statíkur element)
+  const toggle = document.getElementById('vnvToggleLabel');
+  c.innerHTML = '';
+  const chips = [
+    { label: 'Lögaðili', value: STATE.fyrirtaeki },
+    { label: 'Ár', value: String(STATE.ar) },
+  ];
+  if (STATE.svid.size > 0) {
+    chips.push({ label: 'Svið', value: [...STATE.svid].slice(0, 2).join(', ') + (STATE.svid.size > 2 ? ` +${STATE.svid.size - 2}` : '') });
+  }
+  if (STATE.deild.size > 0) {
+    chips.push({ label: 'Deild', value: [...STATE.deild].slice(0, 2).join(', ') + (STATE.deild.size > 2 ? ` +${STATE.deild.size - 2}` : '') });
+  }
+  if (STATE.stofnun.size > 0) {
+    chips.push({ label: 'Stofnun', value: [...STATE.stofnun].slice(0, 2).join(', ') + (STATE.stofnun.size > 2 ? ` +${STATE.stofnun.size - 2}` : '') });
+  }
+  if (STATE.tegund.size > 0) {
+    chips.push({ label: 'Tegund', value: STATE.tegund.size + ' valdar' });
+  }
+  if (STATE.isat.size > 0) {
+    const names = [...STATE.isat].map(k => k + ' ' + (ISAT_SECTOR_NAFN[k] || ''));
+    chips.push({ label: 'ÍSAT', value: names.slice(0, 2).join(', ') + (STATE.isat.size > 2 ? ` +${STATE.isat.size - 2}` : '') });
+  }
+  for (const ch of chips) {
+    const span = document.createElement('span');
+    span.className = 'chip';
+    span.innerHTML = `<span class="label">${ch.label}:</span> <span class="value">${ch.value}</span>`;
+    c.appendChild(span);
+  }
+  // Bæta toggle aftast
+  if (toggle) c.appendChild(toggle);
+}
+
+function renderKpis() {
+  const cur = combineYearly(STATE.ar);
+  const target = document.getElementById('kpiRow');
+  if (!cur) { target.innerHTML = ''; return; }
+  // Top birgir í tegund-skiptingu
+  let topBirgir = '—', topBirgirVal = '';
+  if (STATE.fyrirtaeki !== 'Bæði' && DATA.birgjar) {
+    const list = DATA.birgjar.birgjar
+      .map(b => {
+        const yr = (b.yearly[STATE.fyrirtaeki] || {})[String(STATE.ar)];
+        return yr ? { nafn: b.nafn, mkr: yr.mkr } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.mkr - a.mkr);
+    if (list.length > 0) {
+      topBirgir = list[0].nafn;
+      topBirgirVal = fmtMkr(adjust(list[0].mkr, STATE.ar));
+    }
+  }
+  const reiknA_viku = cur.reikningar / 52;
+  const medal = cur.gjold && cur.reikningar ? (adjust(cur.gjold, STATE.ar) * 1e6 / cur.reikningar) : 0;
+
+  target.innerHTML = `
+    <div class="kpi"><div class="l">Reikningar á ári</div><div class="v">${fmtCount(cur.reikningar)}</div><div class="d">um ${isFmt(reiknA_viku, 0)} á viku</div></div>
+    <div class="kpi"><div class="l">Meðalreikningur</div><div class="v">${medal >= 1e6 ? isFmt(medal/1e6, 1) + ' m.kr.' : isFmt(medal/1000, 0) + ' þ.kr.'}</div><div class="d">heild ${fmtMkr(adjust(cur.gjold, STATE.ar))}</div></div>
+    <div class="kpi"><div class="l">Stærsti birgir</div><div class="v" style="font-family:Inter, sans-serif; font-size:16px; line-height:1.3; max-height:46px; overflow:hidden">${topBirgir}</div><div class="d">${topBirgirVal}</div></div>
+    <div class="kpi"><div class="l">Fjöldi birgja</div><div class="v">${fmtCount(cur.birgjar)}</div><div class="d">í ${STATE.ar}</div></div>
+  `;
+}
+
+// ============================================================
+// RENDER: TREND
+// ============================================================
+function renderTrend() {
+  const svg = document.getElementById('trendSvg');
+  const yMin = DATA.summary.meta.ar_min, yMax = DATA.summary.meta.ar_max;
+  const arr = [];
+  for (let ar = yMin; ar <= yMax; ar++) {
+    arr.push({ ar, val: adjust(getEffectiveGjold(STATE.fyrirtaeki, ar), ar) });
+  }
+  const maxV = Math.max(...arr.map(d => d.val), 1);
+  // Use actual rendered width so 1 SVG unit == 1 pixel (no stretching)
+  const W = Math.max(Math.round(svg.clientWidth || 600), 360);
+  const H = 200;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const P = { l: 50, r: 30, t: 20, b: 30 };
+  const xStep = (W - P.l - P.r) / (arr.length - 1);
+  const yScale = v => H - P.b - (v / maxV) * (H - P.t - P.b);
+  const points = arr.map((d, i) => `${P.l + i * xStep},${yScale(d.val)}`).join(' ');
+  const polygon = `${P.l},${H - P.b} ${points} ${W - P.r},${H - P.b}`;
+  let html = `
+    <defs>
+      <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1e6091" stop-opacity=".25"/>
+        <stop offset="100%" stop-color="#1e6091" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="${P.l}" y1="${H - P.b}" x2="${W - P.r}" y2="${H - P.b}" stroke="#e2e8f0"/>
+    <line x1="${P.l}" y1="${yScale(maxV / 2)}" x2="${W - P.r}" y2="${yScale(maxV / 2)}" stroke="#f1f5f9" stroke-dasharray="2,2"/>
+    <text x="${P.l - 6}" y="${H - P.b + 4}" font-size="9" fill="#94a3b8" text-anchor="end">0</text>
+    <text x="${P.l - 6}" y="${yScale(maxV/2) + 4}" font-size="9" fill="#94a3b8" text-anchor="end">${isFmt(maxV/2/1000, 0)}</text>
+    <text x="${P.l - 6}" y="${P.t + 4}" font-size="9" fill="#94a3b8" text-anchor="end">${isFmt(maxV/1000, 0)} ma.</text>
+    <polygon points="${polygon}" fill="url(#grad)"/>
+    <polyline points="${points}" fill="none" stroke="#1e6091" stroke-width="2.5"/>
+  `;
+  arr.forEach((d, i) => {
+    const x = P.l + i * xStep;
+    const y = yScale(d.val);
+    const isCur = d.ar === STATE.ar;
+    if (isCur) {
+      html += `<circle cx="${x}" cy="${y}" r="5" fill="#1e6091"/>`;
+      html += `<text x="${x}" y="${y - 12}" font-size="11" fill="#0c4a6e" text-anchor="middle" font-weight="bold">${isFmt(d.val/1000, 1)}</text>`;
+    }
+    if (i === 0 || i === arr.length - 1 || i % 2 === 0) {
+      html += `<text x="${x}" y="${H - 8}" font-size="10" fill="${isCur ? '#1e6091' : '#64748b'}" text-anchor="middle" font-weight="${isCur ? 'bold' : 'normal'}">${d.ar}</text>`;
+    }
+    // Hover-svæði og tooltip
+    html += `<circle cx="${x}" cy="${y}" r="9" fill="transparent" stroke="transparent" style="cursor:help"><title>${d.ar}: ${fmtMkr(d.val)}</title></circle>`;
+  });
+  svg.innerHTML = html;
+}
+
+// ============================================================
+// RENDER: LYKILTÖLUR (3. panel í chart-row)
+// ============================================================
+function renderStats() {
+  const el = document.getElementById('statsContent');
+  if (!el) return;
+  const cur = combineYearly(STATE.ar);
+  if (!cur) { el.innerHTML = ''; return; }
+  const gjold = adjust(getEffectiveGjold(STATE.fyrirtaeki, STATE.ar), STATE.ar);
+  // RVK íbúafjöldi (úr Hagstofu áætlað 2025: ~135.000)
+  const ibuar = 135000;
+  const perIbua = gjold * 1e6 / ibuar;
+  const perDag = gjold / 365;
+  const perMin = gjold * 1e6 / (365 * 24 * 60);
+  el.innerHTML = `
+    <div style="display:grid; gap:12px; font-size:13px">
+      <div>
+        <div style="color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:1px">Per íbúa</div>
+        <div style="font-family:Georgia,serif;font-size:20px;color:var(--rvk-deep)">${perIbua >= 1e6 ? isFmt(perIbua/1e6, 1) + ' m.kr.' : isFmt(perIbua/1000, 0) + ' þ.kr.'}</div>
+        <div style="color:var(--sub);font-size:11px">${ibuar.toLocaleString('is-IS').replace(/,/g,'.')} íbúar</div>
+      </div>
+      <div>
+        <div style="color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:1px">Á degi</div>
+        <div style="font-family:Georgia,serif;font-size:20px;color:var(--rvk-deep)">${fmtMkrShort(perDag)}</div>
+      </div>
+      <div>
+        <div style="color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:1px">Á mínútu</div>
+        <div style="font-family:Georgia,serif;font-size:20px;color:var(--rvk-deep)">${isFmt(perMin/1000, 0)} þ.kr.</div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// RENDER: DONUT (tegund-skipting)
+// ============================================================
+function renderDonut() {
+  // Tegund-skipting með öllum sía-stöðum (styður 'Bæði' í gegnum hjálparföll)
+  let tg;
+  if (hasFilters()) {
+    tg = getFilteredTegundBreakdown(STATE.fyrirtaeki, STATE.ar);
+  } else {
+    tg = getTegundForFyr(STATE.fyrirtaeki, STATE.ar);
+  }
+  const allItems = Object.entries(tg)
+    .filter(([k]) => !['Tekjur', 'Fjármunatekjur', 'Arður frá fyrirtækjum'].includes(k))
+    .map(([k, v]) => ({ name: k, val: adjust(v, STATE.ar) || 0 }))
+    .filter(d => d.val > 0)
+    .sort((a, b) => b.val - a.val);
+  const total = allItems.reduce((s, d) => s + d.val, 0);
+  // Top 6 + „Annað" með afgangi
+  let items;
+  if (allItems.length > 7) {
+    const top6 = allItems.slice(0, 6);
+    const rest = allItems.slice(6);
+    const restSum = rest.reduce((s, d) => s + d.val, 0);
+    const restNames = rest.map(d => d.name.replace(/ \(kjarnastarfsemi\)/, '') + ': ' + fmtMkrShort(d.val)).join('\n');
+    items = [...top6, { name: `Annað (${rest.length} flokkar)`, val: restSum, _tooltip: restNames }];
+  } else {
+    items = allItems;
+  }
+
+  // Donut SVG
+  const svg = document.getElementById('donutSvg');
+  if (svg) {
+    let off = 0;
+    let html = `<circle cx="18" cy="18" r="14" fill="none" stroke="#dbeafe" stroke-width="6"/>`;
+    items.forEach((d, i) => {
+      const len = total ? (d.val / total) * 88 : 0;
+      html += `<circle cx="18" cy="18" r="14" fill="none" stroke="${COLORS[i]}" stroke-width="6" stroke-dasharray="${len.toFixed(2)} 88" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 18 18)"/>`;
+      off += len;
+    });
+    svg.innerHTML = html;
+  }
+  // Legend — sýna einingu (ma.kr. eða m.kr. eftir stærð)
+  const list = document.getElementById('donutList');
+  if (list) {
+    list.innerHTML = items.map((d, i) => `
+      <div class="row" ${d._tooltip ? `title="${escapeAttr(d._tooltip)}" style="cursor:help"` : ''}>
+        <span class="swatch" style="background:${COLORS[i]}"></span>
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.name.replace(/ \(kjarnastarfsemi\)/, '')}${d._tooltip ? ' <span style="color:var(--sub);font-size:9px">ⓘ</span>' : ''}</span>
+        <span class="num">${fmtMkrShort(d.val)}</span>
+        <span class="pct">${total ? (d.val/total*100).toFixed(0) : 0}%</span>
+      </div>
+    `).join('');
+  }
+}
+
+// ============================================================
+// RENDER: TEGUND YFIR TÍMA
+// ============================================================
+function renderTegundTime() {
+  const svg = document.getElementById('tegundTimeSvg');
+  const legendEl = document.getElementById('tegundTimeLegend');
+  if (!svg || !DATA.summary) return;
+  const fyr = STATE.fyrirtaeki;
+  const yMin = DATA.summary.meta.ar_min, yMax = DATA.summary.meta.ar_max;
+  // Byggja tegundData á öllum sía-stöðum: svið/deild/stofnun.
+  // Ef sía er virk fáum við cube-filtered breakdown (styður 'Bæði');
+  // annars notum við getTegundForFyr (styður líka 'Bæði').
+  const filtered = hasFilters();
+  const tegundData = {};
+  for (let ar = yMin; ar <= yMax; ar++) {
+    if (filtered) {
+      tegundData[String(ar)] = getFilteredTegundBreakdown(fyr, ar);
+    } else {
+      tegundData[String(ar)] = getTegundForFyr(fyr, ar);
+    }
+  }
+  // Sækja allar tegundir sem hafa virkni einhvern tíma (gjalda-tegundir)
+  const allTegunds = new Set();
+  for (const ar in tegundData) {
+    for (const t in tegundData[ar]) {
+      if (TEKJU_TEGUND_SET.has(t)) continue;
+      // Ef notandi hefur valið ákveðnar tegundir, sýna aðeins þær
+      if (STATE.tegund.size > 0 && !STATE.tegund.has(t)) continue;
+      if ((tegundData[ar][t] || 0) > 0) allTegunds.add(t);
+    }
+  }
+  // Top 6 tegundir eftir nýjasta ári (lokaár í samhengi)
+  const tgLast = tegundData[String(yMax)] || {};
+  const topTegund = [...allTegunds]
+    .map(t => ({ name: t, val: tgLast[t] || 0 }))
+    .filter(d => d.val > 0)
+    .sort((a, b) => b.val - a.val)
+    .slice(0, 6)
+    .map(d => d.name);
+
+  // Ef engar gjaldatengdar tegundir með jákvæðu gildi — empty state
+  if (topTegund.length === 0) {
+    svg.innerHTML = '';
+    legendEl.innerHTML = '<span style="color:var(--sub)">Engar tegundir með jákvæðu gildi við núverandi sía-stöðu.</span>';
+    return;
+  }
+
+  // Smíða gögn: line per tegund yfir ár
+  const lines = topTegund.map(t => ({
+    name: t,
+    points: []
+  }));
+  for (let ar = yMin; ar <= yMax; ar++) {
+    for (const line of lines) {
+      const v = adjust(tegundData[String(ar)]?.[line.name] || 0, ar);
+      line.points.push({ ar, val: v });
+    }
+  }
+  // Hámark
+  const allVals = lines.flatMap(l => l.points.map(p => p.val));
+  const maxV = Math.max(...allVals, 1) * 1.1;
+
+  const W = Math.max(Math.round(svg.clientWidth || 800), 400);
+  const H = 240, P = { l: 50, r: 30, t: 20, b: 30 };
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const xStep = (W - P.l - P.r) / (yMax - yMin);
+  const yScale = v => H - P.b - (v / maxV) * (H - P.t - P.b);
+  let html = '';
+  // Grid lines
+  for (let i = 0; i < 5; i++) {
+    const y = P.t + i * (H - P.t - P.b) / 4;
+    html += `<line x1="${P.l}" y1="${y}" x2="${W - P.r}" y2="${y}" stroke="#f1f5f9" stroke-dasharray="2,2"/>`;
+    const v = maxV * (1 - i / 4);
+    html += `<text x="${P.l - 6}" y="${y + 4}" font-size="9" fill="#94a3b8" text-anchor="end">${v >= 1000 ? (v/1000).toFixed(0) + 'k' : v.toFixed(0)}</text>`;
+  }
+  // Lines
+  lines.forEach((line, idx) => {
+    const color = COLORS[idx];
+    const points = line.points.map((p, i) => `${P.l + i * xStep},${yScale(p.val)}`).join(' ');
+    html += `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    line.points.forEach((p, i) => {
+      const x = P.l + i * xStep;
+      const y = yScale(p.val);
+      html += `<circle cx="${x}" cy="${y}" r="3" fill="${color}"><title>${line.name} · ${p.ar}: ${fmtMkr(p.val)}</title></circle>`;
+    });
+  });
+  // X-axis labels
+  for (let ar = yMin; ar <= yMax; ar++) {
+    const x = P.l + (ar - yMin) * xStep;
+    html += `<text x="${x}" y="${H - 8}" font-size="10" fill="#64748b" text-anchor="middle">${ar}</text>`;
+  }
+  svg.innerHTML = html;
+
+  // Legend
+  legendEl.innerHTML = lines.map((l, i) => `
+    <span style="display:inline-flex;align-items:center;gap:4px">
+      <span style="width:14px;height:3px;background:${COLORS[i]}"></span>
+      ${escapeHtml(l.name.replace(/ \(kjarnastarfsemi\)/, ''))}
+    </span>
+  `).join('');
+}
+
+// ============================================================
+// RENDER: MOVERS
+// ============================================================
+function renderMovers() {
+  const titleEl = document.getElementById('moversTitle');
+  if (titleEl) titleEl.textContent = `Stærstu breytingar · ${STATE.ar - 1} → ${STATE.ar}`;
+  const upEl = document.getElementById('moversUp');
+  const downEl = document.getElementById('moversDown');
+
+  // Engin sía: nota forreiknaðar movers úr summary (eingöngu fyrir A eða B sér).
+  // Fyrir 'Bæði' eða með síu þarf að reikna úr birgjar JSON.
+  let upArr, downArr;
+  if (!hasFilters() && STATE.fyrirtaeki !== 'Bæði') {
+    const m = (DATA.summary.movers[STATE.fyrirtaeki] || {})[String(STATE.ar)];
+    if (!m) {
+      upEl.innerHTML = '<div style="color:var(--sub);padding:20px 0">Engin gögn</div>';
+      downEl.innerHTML = '';
+      return;
+    }
+    upArr = m.up;
+    downArr = m.down;
+  } else if (!hasFilters() && STATE.fyrirtaeki === 'Bæði') {
+    // Bæði án síu: reikna saman úr birgjar JSON
+    [upArr, downArr] = computeFilteredMovers();
+  } else if (STATE.stofnun.size > 0 && DATA.stofnunBirgjar) {
+    // Stofnun-sía: nota stofnun-birgjar gögn
+    [upArr, downArr] = computeFilteredMoversStofnun();
+  } else if (STATE.deild.size > 0) {
+    upEl.innerHTML = '<div style="color:var(--sub);padding:20px 0;font-style:italic">Birgi-breytingar ekki tiltækar fyrir síun á deild (notið stofnun í staðinn)</div>';
+    downEl.innerHTML = '';
+    return;
+  } else {
+    // Svið og/eða tegund-sía: reikna úr birgjar JSON
+    [upArr, downArr] = computeFilteredMovers();
+  }
+
+  const renderList = (arr, dir) => arr.map(x => {
+    const dMkr = STATE.vnv ? x.delta_mkr * vnvFactor(STATE.ar) : x.delta_mkr;
+    return `
+      <div class="mover ${dir}">
+        <div class="who">
+          <div class="nm">${escapeHtml(x.birgir_nafn)}</div>
+          <div class="ctx">${fmtMkrShort(adjust(x.prev, STATE.ar - 1))} → ${fmtMkrShort(adjust(x.cur, STATE.ar))}</div>
+        </div>
+        <div class="delta">${fmtDelta(dMkr)}<span class="pct">${x.pct != null ? fmtDelta(x.pct, true) : ''}</span></div>
+      </div>
+    `;
+  }).join('');
+  upEl.innerHTML = renderList(upArr, 'up') || '<div style="color:var(--sub);padding:20px 0">Enginn</div>';
+  downEl.innerHTML = renderList(downArr, 'down') || '<div style="color:var(--sub);padding:20px 0">Enginn</div>';
+}
+
+function computeFilteredMoversStofnun() {
+  const fyrs = STATE.fyrirtaeki === 'Bæði'
+    ? ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']
+    : [STATE.fyrirtaeki];
+  const map = new Map();
+  for (const fyr of fyrs) {
+    const stofnsData = DATA.stofnunBirgjar[fyr] || {};
+    for (const stofnun of STATE.stofnun) {
+      const cur = (stofnsData[stofnun] || {})[String(STATE.ar)] || [];
+      const prev = (stofnsData[stofnun] || {})[String(STATE.ar - 1)] || [];
+      const prevMap = new Map();
+      for (const p of prev) prevMap.set((p.kennitala || '') + '|' + p.birgir, p.mkr);
+      const curMap = new Map();
+      for (const c of cur) curMap.set((c.kennitala || '') + '|' + c.birgir, c.mkr);
+      const allKeys = new Set([...prevMap.keys(), ...curMap.keys()]);
+      for (const k of allKeys) {
+        const cM = curMap.get(k) || 0;
+        const pM = prevMap.get(k) || 0;
+        if (Math.abs(cM) < 1 && Math.abs(pM) < 1) continue;
+        const nafn = k.split('|', 2)[1];
+        const ex = map.get(k);
+        if (ex) { ex.cur += cM; ex.prev += pM; }
+        else { map.set(k, { birgir_nafn: nafn, cur: cM, prev: pM }); }
+      }
+    }
+  }
+  const items = [...map.values()].map(x => ({
+    ...x,
+    delta_mkr: x.cur - x.prev,
+    pct: x.prev > 0 ? ((x.cur - x.prev) / x.prev * 100) : null,
+  }));
+  items.sort((a, b) => b.delta_mkr - a.delta_mkr);
+  return [items.slice(0, 5), items.slice(-5).reverse()];
+}
+
+function computeFilteredMovers() {
+  const sv = STATE.svid;
+  const items = [];
+  const fyrs = STATE.fyrirtaeki === 'Bæði'
+    ? ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']
+    : [STATE.fyrirtaeki];
+  for (const b of DATA.birgjar.birgjar) {
+    if (sv.size > 0) {
+      const inSvid = (b.svids || []).some(s => sv.has(s));
+      if (!inSvid) continue;
+    }
+    let cur = 0, prev = 0;
+    for (const fyr of fyrs) {
+      const c = (b.yearly[fyr] || {})[String(STATE.ar)];
+      const p = (b.yearly[fyr] || {})[String(STATE.ar - 1)];
+      if (c && (sv.size === 0 || sv.has(c.svid))) cur += c.mkr || 0;
+      if (p && (sv.size === 0 || sv.has(p.svid))) prev += p.mkr || 0;
+    }
+    if (cur < 0.5 && prev < 0.5) continue;  // útiloka núll-birgja
+    items.push({
+      birgir_nafn: b.nafn,
+      cur, prev,
+      delta_mkr: cur - prev,
+      pct: prev > 0 ? ((cur - prev) / prev * 100) : null,
+    });
+  }
+  items.sort((a, b) => b.delta_mkr - a.delta_mkr);
+  const up = items.slice(0, 5);
+  const down = items.slice(-5).reverse();
+  return [up, down];
+}
+
+// ============================================================
+// RENDER: TABLE (birgjar)
+// ============================================================
+function renderTable() {
+  if (STATE.tab === 'stofnanir') return renderTableStofnanir();
+  return renderTableBirgjar();
+}
+
+function renderTableBirgjar() {
+  // Ef stofnun er sía: nota stofnun-birgjar gögn (top 30 per stofnun-ár)
+  if (STATE.stofnun.size > 0 && DATA.stofnunBirgjar) {
+    return renderTableBirgjarStofnun();
+  }
+  let arr = [];
+  const sv = STATE.svid;
+  const searchActive = !!STATE.search;
+  const fyrs = STATE.fyrirtaeki === 'Bæði'
+    ? ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']
+    : [STATE.fyrirtaeki];
+  for (const b of DATA.birgjar.birgjar) {
+    // Svið-sía: aðeins birgjar sem hafa borgað í völdum sviðum (ÓBREYTT — gildir alltaf)
+    if (sv.size > 0) {
+      const inSvid = (b.svids || []).some(s => sv.has(s));
+      if (!inSvid) continue;
+    }
+    // ÍSAT-sía
+    if (STATE.isat.size > 0) {
+      const sec = b.isat_nr ? String(b.isat_nr).slice(0, 2) : null;
+      if (!sec || !STATE.isat.has(sec)) continue;
+    }
+    let curMkr = 0, curReikn = 0, prevMkr = 0;
+    for (const fyr of fyrs) {
+      const cur = (b.yearly[fyr] || {})[String(STATE.ar)];
+      const prev = (b.yearly[fyr] || {})[String(STATE.ar - 1)];
+      if (cur && (sv.size === 0 || sv.has(cur.svid))) { curMkr += cur.mkr; curReikn += (cur.reikn || 0); }
+      if (prev && (sv.size === 0 || sv.has(prev.svid))) { prevMkr += prev.mkr; }
+    }
+    if (curMkr <= 0) {
+      // Ef leit er virk og nafn matchar, taka með ásamt nýjasta ári með gildi
+      if (!searchActive) continue;
+      const q = STATE.search.toLowerCase();
+      const nameMatch = (b.nafn || '').toLowerCase().includes(q) ||
+                       (b.kennitala || '').includes(q);
+      if (!nameMatch) continue;
+      // Finna nýjasta ár með gildi
+      let lastYear = null, lastVal = 0, lastReikn = 0;
+      for (const fyr of fyrs) {
+        for (const [yStr, info] of Object.entries(b.yearly[fyr] || {})) {
+          const y = parseInt(yStr, 10);
+          const v = info?.mkr || 0;
+          if (v > 0 && (lastYear === null || y > lastYear)) {
+            lastYear = y; lastVal = v; lastReikn = info.reikn || 0;
+          }
+        }
+      }
+      if (lastYear === null) continue;
+      arr.push({ ...b, curMkr: 0, curReikn: 0, prevMkr: 0, delta: 0,
+                 inactive: true, lastYear, lastVal, lastReikn });
+      continue;
+    }
+    arr.push({ ...b, curMkr, curReikn, prevMkr, delta: curMkr - prevMkr });
+  }
+  // Search filter
+  if (STATE.search) {
+    const q = STATE.search.toLowerCase();
+    arr = arr.filter(b =>
+      (b.nafn || '').toLowerCase().includes(q) ||
+      (b.kennitala || '').includes(q)
+    );
+  }
+  arr.sort((a, b) => b.curMkr - a.curMkr);
+  document.getElementById('cntBirgjar').textContent = fmtCount(arr.length);
+  document.getElementById('thCurAr').textContent = `${STATE.ar} (m.kr.)`;
+  document.getElementById('thDelta').textContent = `Δ frá ${STATE.ar - 1}`;
+
+  const top = arr.slice(0, STATE.tableLimit);
+  const maxV = top[0]?.curMkr || 1;
+  const tb = document.getElementById('tableBody');
+  if (arr.length === 0) {
+    tb.innerHTML = `<tr><td colspan="8"><div class="empty-state">
+      <div class="icon">🔍</div><h4>Engir birgjar</h4>
+      <div>Engin niðurstaða með núverandi sía-stöðu. Prófaðu að hreinsa síur eða leita með öðru orði.</div></div></td></tr>`;
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+  tb.innerHTML = top.map((b, i) => {
+    const cur = adjust(b.curMkr, STATE.ar);
+    const delta = STATE.vnv ? b.delta * vnvFactor(STATE.ar) : b.delta;
+    const deltaClass = delta >= 0 ? 'delta-up' : 'delta-down';
+    const yrs = [];
+    const fyr = STATE.fyrirtaeki === 'Bæði' ? null : STATE.fyrirtaeki;
+    for (let y = STATE.ar - 3; y <= STATE.ar; y++) {
+      let v = 0;
+      if (fyr) {
+        v = ((b.yearly[fyr] || {})[String(y)] || {}).mkr || 0;
+      } else {
+        for (const f of ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']) {
+          v += ((b.yearly[f] || {})[String(y)] || {}).mkr || 0;
+        }
+      }
+      yrs.push(adjust(v, y));
+    }
+    const yMax = Math.max(...yrs, 1);
+    const sparkPts = yrs.map((v, i) => `${i * 26 + 2},${24 - (v / yMax) * 20}`).join(' ');
+    const lastX = (yrs.length - 1) * 26 + 2;
+    const lastY = 24 - (yrs[yrs.length - 1] / yMax) * 20;
+    const k = (b.kennitala || '') + '|' + b.nafn;
+    if (b.inactive) {
+      return `
+        <tr data-bkey="${escapeAttr(k)}" style="background:rgba(248,250,252,0.6)">
+          <td class="rank">${i + 1}</td>
+          <td><div class="name">${escapeHtml(b.nafn)} <em style="color:var(--sub);font-weight:400;font-size:11px">(síðast ${b.lastYear})</em>${tegundBadge(b)}</div><div class="sub-name">${escapeHtml(b.isat_lysing || '—')}</div></td>
+          <td style="font-size:11px;color:var(--sub)">${b.isat_nr || '—'}</td>
+          <td class="num" style="color:var(--sub)">${fmtCount(b.lastReikn)}</td>
+          <td class="num" style="color:var(--sub)"><em>${isFmt(adjust(b.lastVal, b.lastYear), 0)}</em></td>
+          <td class="bar-cell"></td>
+          <td></td>
+          <td class="num" style="color:var(--sub)">—</td>
+        </tr>
+      `;
+    }
+    return `
+      <tr data-bkey="${escapeAttr(k)}">
+        <td class="rank">${i + 1}</td>
+        <td><div class="name">${escapeHtml(b.nafn)}${tegundBadge(b)}</div><div class="sub-name">${escapeHtml(b.isat_lysing || '—')}</div></td>
+        <td style="font-size:11px;color:var(--sub)">${b.isat_nr || '—'}</td>
+        <td class="num">${fmtCount(b.curReikn)}</td>
+        <td class="num"><strong>${isFmt(cur, 0)}</strong></td>
+        <td class="bar-cell"><div class="mini-bar"><div class="fill" style="width:${(b.curMkr/maxV*100).toFixed(0)}%"></div></div></td>
+        <td><svg class="spark" viewBox="0 0 80 24"><polyline points="${sparkPts}" fill="none" stroke="#1e6091" stroke-width="1.5"/><circle cx="${lastX}" cy="${lastY}" r="2" fill="#1e6091"/></svg>
+        <td class="num ${deltaClass}">${fmtDelta(delta)}</td>
+      </tr>
+    `;
+  }).join('');
+  document.getElementById('pagination').innerHTML = renderPagination(top.length, arr.length, 'birgja');
+}
+
+function renderTableBirgjarStofnun() {
+  // Sækja birgjar fyrir völdum stofnunum (úr stofnun-birgjar gögnum)
+  const fyrs = STATE.fyrirtaeki === 'Bæði'
+    ? ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']
+    : [STATE.fyrirtaeki];
+  const map = new Map();
+  for (const fyr of fyrs) {
+    const stofnsData = DATA.stofnunBirgjar[fyr] || {};
+    for (const stofnun of STATE.stofnun) {
+      const cur = (stofnsData[stofnun] || {})[String(STATE.ar)] || [];
+      const prev = (stofnsData[stofnun] || {})[String(STATE.ar - 1)] || [];
+      // Indexa prev fyrir uppslátt
+      const prevMap = new Map();
+      for (const p of prev) {
+        const k = (p.kennitala || '') + '|' + p.birgir;
+        prevMap.set(k, p.mkr);
+      }
+      for (const c of cur) {
+        if (c.mkr <= 0) continue;
+        const k = (c.kennitala || '') + '|' + c.birgir;
+        const prevMkr = prevMap.get(k) || 0;
+        const ex = map.get(k);
+        if (ex) {
+          ex.curMkr += c.mkr; ex.curReikn += (c.reikn || 0); ex.prevMkr += prevMkr;
+        } else {
+          map.set(k, { nafn: c.birgir, kennitala: c.kennitala, isat_lysing: '', isat_nr: '', curMkr: c.mkr, curReikn: c.reikn || 0, prevMkr });
+        }
+      }
+    }
+  }
+  // Bæta við ÍSAT úr birgjar JSON
+  for (const [k, e] of map) {
+    const b = DATA.birgjar.birgjar.find(x => ((x.kennitala || '') + '|' + x.nafn) === k);
+    if (b) { e.isat_lysing = b.isat_lysing; e.isat_nr = b.isat_nr; e.svids = b.svids; e.yearly = b.yearly; }
+  }
+  let arr = [...map.values()].map(e => ({ ...e, delta: e.curMkr - e.prevMkr }));
+  if (STATE.search) {
+    const q = STATE.search.toLowerCase();
+    arr = arr.filter(b =>
+      (b.nafn || '').toLowerCase().includes(q) ||
+      (b.kennitala || '').includes(q)
+    );
+  }
+  arr.sort((a, b) => b.curMkr - a.curMkr);
+  document.getElementById('cntBirgjar').textContent = fmtCount(arr.length);
+  document.getElementById('thCurAr').textContent = `${STATE.ar} (m.kr.)`;
+  document.getElementById('thDelta').textContent = `Δ frá ${STATE.ar - 1}`;
+
+  const top = arr.slice(0, STATE.tableLimit);
+  const maxV = top[0]?.curMkr || 1;
+  const tb = document.getElementById('tableBody');
+  tb.innerHTML = top.map((b, i) => {
+    const cur = adjust(b.curMkr, STATE.ar);
+    const delta = STATE.vnv ? b.delta * vnvFactor(STATE.ar) : b.delta;
+    const deltaClass = delta >= 0 ? 'delta-up' : 'delta-down';
+    const k = (b.kennitala || '') + '|' + b.nafn;
+    return `
+      <tr data-bkey="${escapeAttr(k)}">
+        <td class="rank">${i + 1}</td>
+        <td><div class="name">${escapeHtml(b.nafn)}${tegundBadge(b)}</div><div class="sub-name">${escapeHtml(b.isat_lysing || '—')}</div></td>
+        <td style="font-size:11px;color:var(--sub)">${b.isat_nr || '—'}</td>
+        <td class="num">${fmtCount(b.curReikn)}</td>
+        <td class="num"><strong>${isFmt(cur, 0)}</strong></td>
+        <td class="bar-cell"><div class="mini-bar"><div class="fill" style="width:${(b.curMkr/maxV*100).toFixed(0)}%"></div></div></td>
+        <td></td>
+        <td class="num ${deltaClass}">${fmtDelta(delta)}</td>
+      </tr>
+    `;
+  }).join('');
+  const stofnTxt = [...STATE.stofnun].slice(0, 2).join(', ') + (STATE.stofnun.size > 2 ? ` +${STATE.stofnun.size - 2}` : '');
+  document.getElementById('pagination').innerHTML =
+    `<span>Sýna <strong>${fmtCount(top.length)}</strong> af ${fmtCount(arr.length)} birgjum sem fengu greitt frá ${escapeHtml(stofnTxt)} í ${STATE.ar} <em>(toppur 30 per stofnun)</em></span>`;
+}
+
+function renderPagination(shown, total, what) {
+  const more = total - shown;
+  const showMoreBtn = more > 0
+    ? `<button id="showMoreBtn" style="margin-left:8px">+ Sýna ${Math.min(more, 50)} fleiri</button>`
+    : '';
+  const showAllBtn = more > 50
+    ? `<button id="showAllBtn" style="margin-left:4px">Sýna alla ${fmtCount(total)}</button>`
+    : '';
+  return `<span>Sýna <strong>${fmtCount(shown)}</strong> af ${fmtCount(total)} ${what} sem fengu greitt í ${STATE.ar}</span>${showMoreBtn}${showAllBtn}`;
+}
+
+function renderTableStofnanir() {
+  // Sækja stofnanir úr cube með núverandi sía-stöðu
+  let arr = [];
+  const fyrs = STATE.fyrirtaeki === 'Bæði'
+    ? ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']
+    : [STATE.fyrirtaeki];
+  const svidF = STATE.svid.size > 0 ? STATE.svid : null;
+  const deildF = STATE.deild.size > 0 ? STATE.deild : null;
+  const tegundF = STATE.tegund.size > 0 ? STATE.tegund : null;
+
+  // [{nafn, svid, deild, curMkr, prevMkr}]
+  const map = new Map();
+  for (const fyr of fyrs) {
+    const yearData = (DATA.cube[fyr] || {})[String(STATE.ar)] || {};
+    const prevYearData = (DATA.cube[fyr] || {})[String(STATE.ar - 1)] || {};
+    for (const [svid, deildir] of Object.entries(yearData)) {
+      if (svidF && !svidF.has(svid)) continue;
+      if (svid.startsWith('_no_')) continue;
+      for (const [deild, stofnanir] of Object.entries(deildir)) {
+        if (deildF && !deildF.has(deild)) continue;
+        if (deild.startsWith('_no_')) continue;
+        for (const [stofnun, tegunds] of Object.entries(stofnanir)) {
+          if (stofnun.startsWith('_no_')) continue;
+          let cur = 0;
+          for (const [tg, val] of Object.entries(tegunds)) {
+            if (TEKJU_TEGUND_SET.has(tg)) continue;
+            if (tegundF && !tegundF.has(tg)) continue;
+            cur += val;
+          }
+          if (cur === 0) continue;
+          // Prev year
+          let prev = 0;
+          const prevTegunds = ((prevYearData[svid] || {})[deild] || {})[stofnun] || {};
+          for (const [tg, val] of Object.entries(prevTegunds)) {
+            if (TEKJU_TEGUND_SET.has(tg)) continue;
+            if (tegundF && !tegundF.has(tg)) continue;
+            prev += val;
+          }
+          const key = stofnun;
+          if (map.has(key)) {
+            const e = map.get(key);
+            e.curMkr += cur;
+            e.prevMkr += prev;
+          } else {
+            map.set(key, { nafn: stofnun, svid, deild, curMkr: cur, prevMkr: prev });
+          }
+        }
+      }
+    }
+  }
+  arr = [...map.values()];
+
+  if (STATE.search) {
+    const q = STATE.search.toLowerCase();
+    arr = arr.filter(s =>
+      (s.nafn || '').toLowerCase().includes(q) ||
+      (s.deild || '').toLowerCase().includes(q) ||
+      (s.svid || '').toLowerCase().includes(q)
+    );
+  }
+  arr.sort((a, b) => b.curMkr - a.curMkr);
+  document.getElementById('cntStofnanir').textContent = fmtCount(arr.length);
+  document.getElementById('thCurAr').textContent = `${STATE.ar} (m.kr.)`;
+  document.getElementById('thDelta').textContent = `Δ frá ${STATE.ar - 1}`;
+
+  const top = arr.slice(0, STATE.tableLimit);
+  const maxV = top[0]?.curMkr || 1;
+  const tb = document.getElementById('tableBody');
+  tb.innerHTML = top.map((s, i) => {
+    const cur = adjust(s.curMkr, STATE.ar);
+    const delta = (s.curMkr - s.prevMkr) * (STATE.vnv ? vnvFactor(STATE.ar) : 1);
+    const deltaClass = delta >= 0 ? 'delta-up' : 'delta-down';
+    return `
+      <tr>
+        <td class="rank">${i + 1}</td>
+        <td>
+          <div class="name">${escapeHtml(s.nafn)}</div>
+          <div class="sub-name">${escapeHtml(s.svid)} · ${escapeHtml(s.deild)}</div>
+        </td>
+        <td style="font-size:11px;color:var(--sub)">—</td>
+        <td class="num">—</td>
+        <td class="num"><strong>${isFmt(cur, 0)}</strong></td>
+        <td class="bar-cell"><div class="mini-bar"><div class="fill" style="width:${(s.curMkr/maxV*100).toFixed(0)}%"></div></div></td>
+        <td></td>
+        <td class="num ${deltaClass}">${fmtDelta(delta)}</td>
+      </tr>
+    `;
+  }).join('');
+  document.getElementById('pagination').innerHTML = renderPagination(top.length, arr.length, 'stofnunum');
+}
+
+// ============================================================
+// RENDER: TREE
+// ============================================================
+function renderTree() {
+  const c = document.getElementById('treeContainer');
+  if (!c) return;
+  // Styður 'Bæði' með því að merge-a A og B tré
+  const tree = getTreeForFyr(STATE.fyrirtaeki);
+  // Síðustu árin: filter sviðs sem hafa virkni 2024 eða 2025
+  const current = STATE.ar;
+  const sviðsList = Object.entries(tree)
+    .filter(([k]) => !k.startsWith('_no_'))
+    .map(([k, v]) => ({ nafn: k, val: adjust(v.yearly[String(current)] || 0, current), v }))
+    .filter(d => d.val !== 0)  // sýna allt sem hefur einhver gildi (útgjöld + tekjur)
+    .sort((a, b) => Math.abs(b.val) - Math.abs(a.val));
+
+  const search = STATE.search.toLowerCase();
+  const matches = (name) => !search || name.toLowerCase().includes(search);
+
+  let html = '';
+  for (const sv of sviðsList) {
+    const showSvid = matches(sv.nafn) || Object.keys(sv.v.deildir).some(d => matches(d) ||
+      Object.keys(sv.v.deildir[d].stofnanir || {}).some(s => matches(s)));
+    if (!showSvid) continue;
+    const open = STATE.openSvid.has(sv.nafn) || STATE.svid.has(sv.nafn) || (search && search.length > 0);
+    html += `<div class="tree-node ${open ? 'open' : ''}" data-svid="${escapeAttr(sv.nafn)}">
+      <label title="${escapeAttr(sv.nafn)}">
+        <button class="tree-toggle" data-act="toggle-svid" data-name="${escapeAttr(sv.nafn)}">${open ? '▾' : '▸'}</button>
+        <input type="checkbox" data-act="check-svid" data-name="${escapeAttr(sv.nafn)}" ${STATE.svid.has(sv.nafn) ? 'checked' : ''}>
+        <span class="tree-name">${escapeHtml(sv.nafn)}</span>
+        <span class="count">${fmtMkrShort(sv.val)}</span>
+      </label>
+      <div class="tree-children">`;
+    const deildir = Object.entries(sv.v.deildir)
+      .filter(([k]) => !k.startsWith('_no_'))
+      .map(([k, v]) => ({ nafn: k, val: adjust(v.yearly[String(current)] || 0, current), v }))
+      .filter(d => d.val !== 0)
+      .sort((a, b) => Math.abs(b.val) - Math.abs(a.val));
+    for (const dl of deildir) {
+      const showDeild = !search || matches(dl.nafn) || Object.keys(dl.v.stofnanir || {}).some(s => matches(s));
+      if (!showDeild) continue;
+      const dlOpen = STATE.openDeild.has(dl.nafn) || STATE.deild.has(dl.nafn) || (search && search.length > 0);
+      // Reikna gildi fyrir hverja stofnun: núverandi ár + nýjasta virka ár
+      const stofnanir = Object.entries(dl.v.stofnanir || {})
+        .filter(([k]) => !k.startsWith('_no_'))
+        .map(([k, v]) => {
+          const curVal = adjust(v[String(current)] || 0, current);
+          // Nýjasta árið með gildi (jafnvel mjög lágt)
+          let lastActive = null, lastActiveVal = 0;
+          for (let y = current; y >= 2018; y--) {
+            const vy = v[String(y)];
+            if (vy && Math.abs(vy) > 0.001) { lastActive = y; lastActiveVal = adjust(vy, y); break; }
+          }
+          return { nafn: k, val: curVal, lastActive, lastActiveVal };
+        })
+        // Sýna allt sem hefur einhvern tíma gildi (lifandi eða ekki)
+        .filter(s => s.val > 0 || s.lastActive !== null)
+        .sort((a, b) => Math.abs(b.val || b.lastActiveVal) - Math.abs(a.val || a.lastActiveVal));
+      html += `<div class="tree-node ${dlOpen ? 'open' : ''}" data-deild="${escapeAttr(dl.nafn)}">
+        <label title="${escapeAttr(dl.nafn)}">
+          <button class="tree-toggle ${stofnanir.length === 0 ? 'no-children' : ''}" data-act="toggle-deild" data-name="${escapeAttr(dl.nafn)}">${dlOpen ? '▾' : '▸'}</button>
+          <input type="checkbox" data-act="check-deild" data-name="${escapeAttr(dl.nafn)}" ${STATE.deild.has(dl.nafn) ? 'checked' : ''}>
+          <span class="tree-name">${escapeHtml(dl.nafn)}</span>
+          <span class="count">${fmtMkrShort(dl.val)}</span>
+        </label>`;
+      if (stofnanir.length > 0) {
+        const isExpanded = STATE.expandedDeild?.has(dl.nafn) || false;
+        const limit = (search || isExpanded) ? stofnanir.length : 8;
+        const shown = stofnanir.filter(s => matches(s.nafn) || matches(dl.nafn)).slice(0, limit);
+        html += '<div class="tree-children">';
+        for (const st of shown) {
+          const isInactive = st.val < 0.5 && st.lastActive;
+          const valDisplay = isInactive
+            ? `<em style="color:var(--sub);font-style:italic">síðast ${st.lastActive}: ${fmtMkrShort(st.lastActiveVal)}</em>`
+            : fmtMkrShort(st.val);
+          const titleAttr = `${escapeAttr(st.nafn)}${isInactive ? ' (engin gögn fyrir ' + STATE.ar + ')' : ''}`;
+          html += `<div class="tree-node">
+            <label title="${titleAttr}">
+              <button class="tree-toggle no-children">▸</button>
+              <input type="checkbox" data-act="check-stofnun" data-name="${escapeAttr(st.nafn)}" ${STATE.stofnun.has(st.nafn) ? 'checked' : ''}>
+              <span class="tree-name">${escapeHtml(st.nafn)}</span>
+              <span class="count" ${isInactive ? 'style="font-size:9px"' : ''}>${valDisplay}</span>
+            </label>
+          </div>`;
+        }
+        if (!search && stofnanir.length > limit && !isExpanded) {
+          html += `<button class="more-btn tree-expand-deild" data-deild="${escapeAttr(dl.nafn)}" style="margin-left:20px">+ ${stofnanir.length - limit} fleiri stofnanir</button>`;
+        }
+        html += '</div>';
+      }
+      html += '</div>';
+    }
+    html += '</div></div>';
+  }
+  c.innerHTML = html || `<div class="empty-state" style="padding:20px 8px">
+    <div class="icon" style="font-size:24px">🔍</div>
+    <h4 style="font-size:14px">Engin niðurstaða</h4>
+    <div style="font-size:12px">Engin svið/deild/stofnun finnast með „${escapeHtml(STATE.search)}". Prófaðu annað leitarorð eða hreinsaðu leit.</div>
+  </div>`;
+}
+
+// ============================================================
+// RENDER: TEGUND CHECKLIST
+// ============================================================
+// ÍSAT — 2-stafa sektor heiti (Hagstofa)
+const ISAT_SECTOR_NAFN = {
+  '01':'Búgreinar','02':'Skógrækt','03':'Fiskveiðar','05':'Kolanám','06':'Olía & gas',
+  '08':'Námur','10':'Matvælaframleiðsla','11':'Drykkjarvörur','13':'Textíl','14':'Fatnaður','15':'Leðurvörur',
+  '16':'Trjávörur','17':'Pappír','18':'Prentun','19':'Kókvinnsla','20':'Efnaiðnaður','21':'Lyf','22':'Plast',
+  '23':'Steinefni','24':'Málmar','25':'Málmsmiður','26':'Tölvur og rafeindavörur','27':'Rafmagnsvörur',
+  '28':'Vélar','29':'Bifreiðar','30':'Önnur farartæki','31':'Húsgögn','32':'Annað iðnvarir','33':'Viðhald',
+  '35':'Veitustarfsemi','36':'Vatnsveita','37':'Frárennsli','38':'Sorphirða','39':'Endurvinnsla',
+  '41':'Bygging húsnæðis','42':'Mannvirki','43':'Sérhæfð byggingarstarfsemi',
+  '45':'Bifreiðasala','46':'Heildverslun','47':'Smásöluverslun',
+  '49':'Landflutningar','50':'Sjóflutningar','51':'Loftflutningar','52':'Flutningaþjónusta','53':'Póstþjónusta',
+  '55':'Gisting','56':'Veitingaþjónusta',
+  '58':'Útgáfa','59':'Kvikmyndir','60':'Útvarp','61':'Fjarskipti','62':'Tölvuþjónusta','63':'Upplýsingatækni',
+  '64':'Fjármálaþjónusta','65':'Vátryggingar','66':'Hjálparstarfsemi v/fjármála',
+  '68':'Fasteignaviðskipti','69':'Lögfræði & endurskoðun','70':'Stjórnunarráðgjöf','71':'Verkfræði',
+  '72':'Rannsóknir','73':'Auglýsingar','74':'Önnur sérfræðistarfsemi','75':'Dýralækningar',
+  '77':'Leiga','78':'Vinnumiðlun','79':'Ferðaskrifstofur','80':'Öryggisþjónusta','81':'Fasteignaumsjón','82':'Skrifstofuþjónusta',
+  '84':'Almannastjórn','85':'Menntun','86':'Heilbrigðisþjónusta','87':'Hjúkrun','88':'Félagsþjónusta',
+  '90':'Listir','91':'Söfn','92':'Veðmál','93':'Íþróttir','94':'Félagasamtök','95':'Viðgerðir','96':'Önnur þjónusta',
+  '97':'Heimilisstörf','98':'Sjálfsþurftarbúskapur','99':'Alþjóðastofnanir',
+};
+
+function renderIsatList() {
+  if (!DATA.birgjar) return;
+  // Telja birgjar per ISAT-sector (2-staf) með útgjöld á núv. ári
+  const sectors = {};
+  for (const b of DATA.birgjar.birgjar) {
+    if (!b.isat_nr) continue;
+    const sec = String(b.isat_nr).slice(0, 2);
+    let mkr = 0;
+    const fyrs = STATE.fyrirtaeki === 'Bæði' ? ['Reykjavíkurborg','Eignasjóður fasteignastofa'] : [STATE.fyrirtaeki];
+    for (const fyr of fyrs) {
+      const slot = (b.yearly[fyr] || {})[String(STATE.ar)];
+      if (slot) mkr += slot.mkr || 0;
+    }
+    if (mkr <= 0) continue;
+    if (!sectors[sec]) sectors[sec] = { count: 0, mkr: 0 };
+    sectors[sec].count++;
+    sectors[sec].mkr += mkr;
+  }
+  const items = Object.entries(sectors)
+    .map(([k, v]) => ({ kodi: k, ...v, nafn: ISAT_SECTOR_NAFN[k] || `Flokkur ${k}` }))
+    .sort((a, b) => b.mkr - a.mkr);
+  const c = document.getElementById('isatList');
+  if (!c) return;
+  // Sýna alla flokka með scroll-i (til þess að allir séu sýnilegir)
+  const wrapStyle = items.length > 10 ? 'max-height:280px;overflow-y:auto;padding-right:4px' : '';
+  c.style.cssText = wrapStyle;
+  c.innerHTML = items.map(d => `
+    <label title="${escapeAttr(d.kodi + ' — ' + d.nafn + ': ' + d.count + ' birgjar')}"><input type="checkbox" data-act="check-isat" data-kodi="${d.kodi}" ${STATE.isat.has(d.kodi) ? 'checked' : ''}>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.kodi} ${escapeHtml(d.nafn)}</span>
+      <span class="count">${fmtMkrShort(adjust(d.mkr, STATE.ar))}</span>
+    </label>
+  `).join('');
+}
+
+// Útskýringar á helstu kostnaðar-tegundum (sýndar sem hover-tooltipi)
+const TEGUND_TOOLTIPS = {
+  'Laun': 'Beinir launagreiðslur til starfsfólks (kennarar, leikskólastarfsfólk, stjórnsýsla o.fl.)',
+  'Launakostnaður': 'Heildarlaunakostnaður borgarinnar (laun + launatengd gjöld saman)',
+  'Launatengd gjöld': 'Lífeyrissjóðir, tryggingagjald, orlof o.fl. sem fylgja launum',
+  'Húsnæðiskostnaður': 'Rekstur og viðhald húsnæðis — leiga, hiti, rafmagn, viðhald',
+  'Þjónustukostnaður (kjarnastarfsemi)': 'Aðkeypt þjónusta sem snýr beint að kjarnastarfsemi (t.d. innkeypt kennsla, hjúkrun, viðhald)',
+  'Skrifstofu- og stjórnunarkostnaður': 'Almennur stjórnunar- og skrifstofukostnaður — sími, tölvubúnaður, ráðgjöf, gjöld',
+  'Annar rekstrarkostnaður': 'Aðrar greiðslur sem falla ekki annarsstaðar — tryggingar, ferðir, fundir o.fl.',
+  'Eignakaup': 'Kaup á varanlegum eignum — húsnæði, búnaði, tækjum',
+  'Vextir': 'Vextir af lánum og skuldum',
+  'Afskriftir': 'Bókhaldsleg færsla á verðmætarýrnun fastafjármuna (ekki raungreiðslur)',
+  'Afskriftir fastafjármuna': 'Bókhaldsleg færsla á verðmætarýrnun fastafjármuna (ekki raungreiðslur)',
+  'Fjármagnsgjöld': 'Vextir, gengismunur og aðrir fjármögnunarliðir',
+  'Breyting Lífeyrisskuldbindingar': 'Áætluð breyting á framtíðarskuldbindingu vegna eldri lífeyrisréttinda starfsfólks (B-deild)',
+  'Hráefni': 'Hráefni og rekstrarvörur (mat, hreinlætisvörur, eldsneyti o.fl.)',
+  'Áhöld og búnaður': 'Áhöld og búnaður — tölvur, húsbúnaður, rekstrartæki',
+  'Aksturþjónusta': 'Akstur fyrir viðskiptavini eða skólabörn',
+  'Tryggingar': 'Iðgjöld af tryggingum',
+  'Sérfræðiþjónusta': 'Aðkeypt þjónusta sérfræðinga — lögfræðingar, endurskoðun, ráðgjöf',
+  'Innri leiga': 'Leiga á húsnæði sem A-hluti leigir frá B-hluta (Eignasjóði fasteignastofa)',
+  'Eigin akstur': 'Beinn akstur á eigin bifreiðum',
+};
+
+function renderTegundList() {
+  // Styður 'Bæði' í gegnum getTegundForFyr
+  const tg = getTegundForFyr(STATE.fyrirtaeki, STATE.ar);
+  const items = Object.entries(tg)
+    .filter(([k]) => !TEKJU_TEGUND_SET.has(k))
+    .map(([k, v]) => ({ nafn: k, val: adjust(v, STATE.ar) || 0 }))
+    .filter(d => d.val > 1)
+    .sort((a, b) => b.val - a.val);
+  const c = document.getElementById('tegundList');
+  c.innerHTML = items.map(d => {
+    const tip = TEGUND_TOOLTIPS[d.nafn] || TEGUND_TOOLTIPS[d.nafn.replace(/ \(kjarnastarfsemi\)/,'')] || '';
+    const tipAttr = tip ? `title="${escapeAttr(tip)}"` : '';
+    return `<label ${tipAttr}><input type="checkbox" data-act="check-tegund" data-name="${escapeAttr(d.nafn)}" ${STATE.tegund.has(d.nafn) ? 'checked' : ''}>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(d.nafn.replace(/ \(kjarnastarfsemi\)/,''))}${tip ? ' <span style="color:var(--sub);font-size:9px">ⓘ</span>' : ''}</span>
+      <span class="count">${fmtMkrShort(d.val)}</span>
+    </label>`;
+  }).join('');
+}
+
+// ============================================================
+// RENDER: FYRIRTAEKI SEG
+// ============================================================
+function renderFyrirtaekiSeg() {
+  const c = document.getElementById('fyrirtaekiSeg');
+  const opts = [
+    { key: 'Reykjavíkurborg', label: 'A-hluti' },
+    { key: 'Eignasjóður fasteignastofa', label: 'B-hluti' },
+    { key: 'Bæði', label: 'A+B' },
+  ];
+  c.innerHTML = opts.map(o =>
+    `<button class="${STATE.fyrirtaeki === o.key ? 'active' : ''}" data-fyr="${o.key}">${o.label}</button>`
+  ).join('');
+}
+
+// ============================================================
+// RENDER: NOTE / CONTEXT
+// ============================================================
+function renderContextNote() {
+  const note = document.getElementById('contextNote');
+  const text = document.getElementById('contextNoteText');
+  if (STATE.fyrirtaeki === 'Reykjavíkurborg') {
+    const b = combineYearly.bind(null, STATE.ar)();  // hack to call it
+    const bData = getYearly('Eignasjóður fasteignastofa', STATE.ar);
+    if (bData) {
+      text.innerHTML = `<strong>Þú ert að skoða A-hluta</strong> (aðalsjóð borgarinnar). ` +
+        `Eignasjóður fasteignastofa (B-hluti) með ${fmtCount(bData.reikningar)} reikninga ` +
+        `upp á ${fmtMkr(adjust(bData.gjold, STATE.ar))} er ekki tekinn með.`;
+      note.style.display = 'flex';
+    }
+  } else if (STATE.fyrirtaeki === 'Eignasjóður fasteignastofa') {
+    text.innerHTML = `<strong>Þú ert að skoða B-hluta</strong> (Eignasjóð fasteignastofu). Þetta er sjálfstæður lögaðili sem sinnir umsýslu fasteigna borgarinnar.`;
+    note.style.display = 'flex';
+  } else {
+    note.style.display = 'none';
+  }
+}
+
+// ============================================================
+// FULL RENDER
+// ============================================================
+function renderAll() {
+  renderHero();
+  renderChips();
+  renderKpis();
+  renderTrend();
+  renderDonut();
+  renderStats();
+  renderTegundTime();
+  renderMovers();
+  renderTable();
+  renderTree();
+  renderTegundList();
+  renderIsatList();
+  renderFyrirtaekiSeg();
+  renderContextNote();
+}
+
+// Re-render trend on window resize (debounced) so SVG matches actual panel width
+let __resizeTimer = null;
+window.addEventListener('resize', () => {
+  if (__resizeTimer) clearTimeout(__resizeTimer);
+  __resizeTimer = setTimeout(() => {
+    if (typeof DATA !== 'undefined' && DATA && DATA.summary) {
+      renderTrend();
+      renderTegundTime();
+    }
+  }, 150);
+});
+
+// ============================================================
+// URL state
+// ============================================================
+function stateToUrl() {
+  const p = new URLSearchParams();
+  if (STATE.fyrirtaeki !== 'Reykjavíkurborg') p.set('fyr', STATE.fyrirtaeki);
+  if (STATE.ar !== DATA.summary.meta.ar_max) p.set('ar', STATE.ar);
+  if (STATE.vnv) p.set('vnv', '1');
+  const qs = p.toString();
+  history.replaceState(null, '', qs ? '?' + qs : window.location.pathname);
+}
+
+function urlToState() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.has('fyr')) STATE.fyrirtaeki = p.get('fyr');
+  if (p.has('ar')) STATE.ar = parseInt(p.get('ar'), 10);
+  if (p.has('vnv')) STATE.vnv = p.get('vnv') === '1';
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+}
+function escapeAttr(s) { return escapeHtml(s); }
+
+function tegundBadge(b) {
+  const t = b?.tegund_birgis;
+  if (!t || t === 'fyrirtaeki') return '';
+  const labels = {
+    'einstaklingur': { txt: 'einstaklingur', color: '#7c2d12', bg: '#fef3c7' },
+    'erlent':        { txt: 'erlent',         color: '#1e40af', bg: '#dbeafe' },
+    'oskrad':        { txt: 'óskráð',         color: '#6b7280', bg: '#f3f4f6' },
+  };
+  const l = labels[t];
+  if (!l) return '';
+  return `<span style="display:inline-block;font-size:10px;font-weight:500;padding:1px 6px;border-radius:3px;color:${l.color};background:${l.bg};margin-left:6px;vertical-align:middle">${l.txt}</span>`;
+}
+
+// ============================================================
+// EVENT WIRING
+// ============================================================
+function wireEvents() {
+  // Fyrirtaeki seg
+  document.getElementById('fyrirtaekiSeg').addEventListener('click', e => {
+    const b = e.target.closest('button[data-fyr]');
+    if (!b) return;
+    STATE.fyrirtaeki = b.dataset.fyr;
+    STATE.svid.clear(); STATE.deild.clear(); STATE.stofnun.clear(); STATE.tegund.clear();
+    renderAll();
+    stateToUrl();
+  });
+
+  // Year slider
+  const slider = document.getElementById('arSlider');
+  slider.addEventListener('input', e => {
+    STATE.ar = parseInt(e.target.value, 10);
+    document.getElementById('arSliderLabel').textContent = STATE.ar;
+    renderAll();
+    stateToUrl();
+  });
+
+  // VNV toggle
+  document.getElementById('vnvToggle').addEventListener('change', e => {
+    STATE.vnv = e.target.checked;
+    renderAll();
+    stateToUrl();
+  });
+
+  // Tree clicks (delegation)
+  document.getElementById('treeContainer').addEventListener('click', e => {
+    const btn = e.target.closest('button.tree-toggle:not(.no-children)');
+    if (btn) {
+      e.preventDefault(); e.stopPropagation();
+      const node = btn.closest('.tree-node');
+      const wasOpen = node.classList.contains('open');
+      const name = btn.dataset.name;
+      const act = btn.dataset.act;
+      if (act === 'toggle-svid') {
+        if (wasOpen) STATE.openSvid.delete(name);
+        else STATE.openSvid.add(name);
+      } else if (act === 'toggle-deild') {
+        if (wasOpen) STATE.openDeild.delete(name);
+        else STATE.openDeild.add(name);
+      }
+      node.classList.toggle('open');
+      btn.textContent = node.classList.contains('open') ? '▾' : '▸';
+      return;
+    }
+    // „+ fleiri stofnanir" hnappur
+    const expandBtn = e.target.closest('button.tree-expand-deild');
+    if (expandBtn) {
+      e.preventDefault(); e.stopPropagation();
+      STATE.expandedDeild.add(expandBtn.dataset.deild);
+      renderTree();
+    }
+  });
+  document.getElementById('treeContainer').addEventListener('change', e => {
+    const t = e.target;
+    if (t.matches('input[data-act="check-svid"]')) {
+      const n = t.dataset.name;
+      if (t.checked) STATE.svid.add(n); else STATE.svid.delete(n);
+      renderAll(); stateToUrl();
+    } else if (t.matches('input[data-act="check-deild"]')) {
+      const n = t.dataset.name;
+      if (t.checked) STATE.deild.add(n); else STATE.deild.delete(n);
+      renderAll(); stateToUrl();
+    } else if (t.matches('input[data-act="check-stofnun"]')) {
+      const n = t.dataset.name;
+      if (t.checked) STATE.stofnun.add(n); else STATE.stofnun.delete(n);
+      renderAll(); stateToUrl();
+    }
+  });
+
+  // ÍSAT checkboxes
+  document.getElementById('isatList').addEventListener('change', e => {
+    const t = e.target;
+    if (t.matches('input[data-act="check-isat"]')) {
+      const k = t.dataset.kodi;
+      if (t.checked) STATE.isat.add(k); else STATE.isat.delete(k);
+      renderHero();
+      renderKpis();
+      renderTable();
+      renderChips();
+      stateToUrl();
+    }
+  });
+
+  // Tegund checkboxes — uppfæra allt nema tré (sem heldur sömu skiptingu)
+  document.getElementById('tegundList').addEventListener('change', e => {
+    const t = e.target;
+    if (t.matches('input[data-act="check-tegund"]')) {
+      const n = t.dataset.name;
+      if (t.checked) STATE.tegund.add(n); else STATE.tegund.delete(n);
+      renderHero();
+      renderKpis();
+      renderTrend();
+      renderDonut();
+      renderStats();
+      renderMovers();
+      renderTable();
+      renderChips();
+      stateToUrl();
+    }
+  });
+
+  // Tree search
+  document.getElementById('treeSearch').addEventListener('input', e => {
+    STATE.search = e.target.value;
+    renderTree();
+  });
+
+  // Table search
+  document.getElementById('tableSearch').addEventListener('input', e => {
+    STATE.search = e.target.value;
+    renderTable();
+  });
+
+  // Clear filters
+  document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+    STATE.svid.clear(); STATE.deild.clear(); STATE.stofnun.clear();
+    STATE.tegund.clear(); STATE.isat.clear();
+    STATE.search = '';
+    const treeSearch = document.getElementById('treeSearch');
+    const tableSearch = document.getElementById('tableSearch');
+    const isatSearch = document.getElementById('isatSearch');
+    if (treeSearch) treeSearch.value = '';
+    if (tableSearch) tableSearch.value = '';
+    if (isatSearch) isatSearch.value = '';
+    renderAll();
+    stateToUrl();
+  });
+
+  // Mobile filter drawer
+  const filterToggle = document.getElementById('filterToggle');
+  const filters = document.querySelector('.filters');
+  const filterOverlay = document.getElementById('filterOverlay');
+  function openFilters() { filters.classList.add('open'); filterOverlay.classList.add('show'); }
+  function closeFilters() { filters.classList.remove('open'); filterOverlay.classList.remove('show'); }
+  if (filterToggle) filterToggle.addEventListener('click', openFilters);
+  if (filterOverlay) filterOverlay.addEventListener('click', closeFilters);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFilters(); });
+
+  // Share
+  document.getElementById('shareBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.getElementById('shareBtn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✅ Afritað!';
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    });
+  });
+
+  // CSV export
+  document.getElementById('csvBtn').addEventListener('click', () => exportCsv());
+
+  // Tabs
+  document.getElementById('tableTabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-tab]');
+    if (!b) return;
+    document.querySelectorAll('#tableTabs button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    STATE.tab = b.dataset.tab;
+    STATE.tableLimit = 50;  // reset
+    renderTable();
+  });
+
+  // Pagination — sýna fleiri
+  document.getElementById('pagination').addEventListener('click', e => {
+    if (e.target.id === 'showMoreBtn') {
+      STATE.tableLimit += 50;
+      renderTable();
+    } else if (e.target.id === 'showAllBtn') {
+      STATE.tableLimit = Infinity;
+      renderTable();
+    }
+  });
+
+  // Birgi-detail modal
+  document.getElementById('tableBody').addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-bkey]');
+    if (!tr) return;
+    openBirgiModal(tr.dataset.bkey);
+  });
+  document.getElementById('modalClose').addEventListener('click', closeBirgiModal);
+  document.getElementById('modalBg').addEventListener('click', e => {
+    if (e.target.id === 'modalBg') closeBirgiModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeBirgiModal();
+  });
+}
+
+// ============================================================
+// BIRGI-DETAIL MODAL
+// ============================================================
+function openBirgiModal(bkey) {
+  const b = DATA.birgjar.birgjar.find(x => ((x.kennitala || '') + '|' + x.nafn) === bkey);
+  if (!b) return;
+  document.getElementById('modalTitle').textContent = b.nafn;
+  let meta = [];
+  if (b.kennitala) meta.push('Kennitala: ' + b.kennitala);
+  if (b.isat_nr) meta.push('ÍSAT ' + b.isat_nr + (b.isat_lysing ? ' · ' + b.isat_lysing : ''));
+  document.getElementById('modalMeta').textContent = meta.join(' · ') || '—';
+
+  // Heildartölur (öll ár). „Virk ár" telur ár með jákvæðu gildi yfir fyrirtaeki — ekki fyr×ar pör.
+  let totalAll = 0, totalCur = 0, totalReikn = 0;
+  const activeYears = new Set();
+  for (const fyr of Object.keys(b.yearly || {})) {
+    for (const ar of Object.keys(b.yearly[fyr])) {
+      const slot = b.yearly[fyr][ar];
+      totalAll += slot.mkr || 0;
+      if (parseInt(ar, 10) === STATE.ar) {
+        totalCur += slot.mkr || 0;
+        totalReikn += slot.reikn || 0;
+      }
+      if (slot.mkr > 0) activeYears.add(ar);
+    }
+  }
+  const yearsActive = activeYears.size;
+
+  document.getElementById('modalSummary').innerHTML = `
+    <div class="stat"><div class="l">${STATE.ar}</div><div class="v">${fmtMkr(adjust(totalCur, STATE.ar))}</div></div>
+    <div class="stat"><div class="l">Reikningar ${STATE.ar}</div><div class="v">${fmtCount(totalReikn)}</div></div>
+    <div class="stat"><div class="l">Heildargreiðsla 2019–2025</div><div class="v">${fmtMkr(totalAll)}</div></div>
+    <div class="stat"><div class="l">Virk ár</div><div class="v">${yearsActive}</div></div>
+  `;
+
+  // Year-by-year detail. birgi-detail.json notar vm_numer + '|' + nafn sem lykla,
+  // en bkey hér er kennitala + '|' + nafn. Notum vm_numer fyrir uppfletting.
+  const detailKey = (b.vm_numer || '') + '|' + b.nafn;
+  const detail = (DATA.birgiDetail.detail || {})[detailKey];
+  const yearsContainer = document.getElementById('modalYearly');
+  if (!detail) {
+    yearsContainer.innerHTML = '<div class="modal-no-detail">Engin sundurliðun fundin fyrir þennan birgi.</div>';
+  } else {
+    // Combina öllum fyrirtaeki saman per ár
+    const byAr = {};
+    for (const fyr of Object.keys(detail)) {
+      for (const ar of Object.keys(detail[fyr])) {
+        if (!byAr[ar]) byAr[ar] = [];
+        for (const it of detail[fyr][ar]) {
+          byAr[ar].push({ svid: it[0], deild: it[1], mkr: it[2], fyr });
+        }
+      }
+    }
+    const arsSorted = Object.keys(byAr).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
+    let html = '';
+    for (const ar of arsSorted) {
+      const items = byAr[ar];
+      // Aggregate by svid+deild
+      const agg = {};
+      for (const it of items) {
+        const key = it.svid + '||' + it.deild;
+        if (!agg[key]) agg[key] = { svid: it.svid, deild: it.deild, mkr: 0 };
+        agg[key].mkr += it.mkr;
+      }
+      const sorted = Object.values(agg).sort((a, b) => b.mkr - a.mkr);
+      const yearTotal = sorted.reduce((s, x) => s + x.mkr, 0);
+      const maxV = sorted[0]?.mkr || 1;
+
+      const prevAr = String(parseInt(ar, 10) - 1);
+      const prevTotal = (byAr[prevAr] || []).reduce((s, x) => s + x.mkr, 0);
+      let deltaHtml = '';
+      if (prevTotal > 0) {
+        const d = yearTotal - prevTotal;
+        const cls = d >= 0 ? 'delta-up' : 'delta-down';
+        deltaHtml = `<span class="${cls}" style="font-family:Georgia,serif;font-weight:600">${fmtDelta(d)}</span>`;
+      }
+
+      html += `<div class="modal-year">
+        <div class="modal-year-h">
+          <div class="year">${ar}</div>
+          <div><span class="total">${fmtMkr(adjust(yearTotal, parseInt(ar, 10)))}</span> ${deltaHtml}</div>
+        </div>
+        <div class="modal-year-bars">`;
+      for (const it of sorted.slice(0, 8)) {
+        const adj = adjust(it.mkr, parseInt(ar, 10));
+        html += `<div class="modal-year-bar">
+          <div class="lbl">
+            ${escapeHtml(it.svid)}
+            <div class="deild">${escapeHtml(it.deild)}</div>
+          </div>
+          <div class="bar"><div class="fill" style="width:${(it.mkr/maxV*100).toFixed(0)}%"></div></div>
+          <div class="v">${isFmt(adj, 0)} m.</div>
+        </div>`;
+      }
+      if (sorted.length > 8) {
+        html += `<div style="color:var(--sub);font-size:11px;padding:4px 0">+ ${sorted.length - 8} fleiri</div>`;
+      }
+      html += '</div></div>';
+    }
+    yearsContainer.innerHTML = html;
+  }
+  document.getElementById('modalBg').classList.add('open');
+}
+
+function closeBirgiModal() {
+  document.getElementById('modalBg').classList.remove('open');
+}
+
+// ============================================================
+// CSV EXPORT
+// ============================================================
+function exportCsv() {
+  const rows = [['Nafn', 'Kennitala', 'ÍSAT-númer', 'ÍSAT-lýsing', `Reikningar ${STATE.ar}`, `${STATE.ar} (m.kr.)`, `Δ frá ${STATE.ar - 1} (m.kr.)`]];
+  const fyr = STATE.fyrirtaeki;
+  for (const b of DATA.birgjar.birgjar) {
+    let cur = 0, curR = 0, prev = 0;
+    if (fyr === 'Bæði') {
+      for (const f of ['Reykjavíkurborg', 'Eignasjóður fasteignastofa']) {
+        const c = (b.yearly[f] || {})[String(STATE.ar)];
+        const p = (b.yearly[f] || {})[String(STATE.ar - 1)];
+        if (c) { cur += c.mkr; curR += c.reikn; }
+        if (p) prev += p.mkr;
+      }
+    } else {
+      const c = (b.yearly[fyr] || {})[String(STATE.ar)];
+      const p = (b.yearly[fyr] || {})[String(STATE.ar - 1)];
+      if (c) { cur = c.mkr; curR = c.reikn; }
+      if (p) prev = p.mkr;
+    }
+    if (cur <= 0) continue;
+    rows.push([b.nafn, b.kennitala || '', b.isat_nr || '', b.isat_lysing || '',
+      curR, isFmt(adjust(cur, STATE.ar), 1), isFmt(adjust(cur - prev, STATE.ar), 1)]);
+  }
+  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(';')).join('\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `rvk-birgjar-${STATE.fyrirtaeki}-${STATE.ar}.csv`;
+  a.click();
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+(async function init() {
+  try {
+    urlToState();
+    await loadData();
+    document.getElementById('arSlider').value = STATE.ar;
+    document.getElementById('arSliderLabel').textContent = STATE.ar;
+    document.getElementById('vnvToggle').checked = STATE.vnv;
+    renderAll();
+    wireEvents();
+  } catch (err) {
+    console.error('Villa við hleðslu:', err);
+    const isFile = window.location.protocol === 'file:';
+    document.getElementById('heroBig').textContent = '⚠';
+    document.getElementById('heroBig').style.fontSize = '40px';
+    if (isFile) {
+      document.getElementById('heroMeta').innerHTML =
+        'Þetta skjal verður að keyra úr vefþjóni — vafrar leyfa ekki að lesa JSON-skrár úr <code>file://</code>.<br>' +
+        '<strong>Lausn:</strong> opnaðu <a href="rvk-utforska-standalone.html" style="color:var(--rvk)"><strong>rvk-utforska-standalone.html</strong></a> í staðinn (gögn innbyggð í skrána).';
+    } else {
+      document.getElementById('heroMeta').innerHTML =
+        'Gat ekki sótt gögn: <code>' + err.message + '</code><br>' +
+        'Athugaðu að <code>public/data/rvk-*.json</code> séu aðgengileg á sömu slóð.';
+    }
+    document.getElementById('heroDelta').textContent = '';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Reykjavík hefur tapað 19,4 milljörðum á 7 árum</title>
+<meta name="description" content="A-hluti rekstrarniðurstaða Reykjavíkurborgar 2018-2024 er TAP upp á 19,4 ma.kr. — sex sinnum verri en næsta sveitarfélag á höfuðborgarsvæðinu (Seltjarnarnes -3,0 ma.). Heimild: Samband íslenskra sveitarfélaga.">
+<meta property="og:title" content="Reykjavík hefur tapað 19,4 milljörðum á 7 árum">
+<meta property="og:description" content="A-hluti rekstrarniðurstaða 2018-2024. Reykjavík er sex sinnum verri en næsta sveitarfélag á höfuðborgarsvæðinu.">
+<meta property="og:image" content="public/img/rvk-bestrekna-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="public/img/rvk-bestrekna-og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e;
+    --rvk-mid: #1e6091;
+    --bg: #fefefe;
+    --bg-2: #f8fafc;
+    --text: #0f172a;
+    --text-2: #334155;
+    --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669;
+    --bad: #dc2626;
+    --rvk-red: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; color: var(--rvk-deep); line-height: 1.15; }
+  h1 { font-size: 44px; margin: 0 0 12px; }
+  h2 { font-size: 26px; margin: 50px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-size: 19px; margin: 28px 0 8px; color: var(--rvk-mid); }
+  .lead { font-size: 19px; color: var(--text-2); margin: 0 0 8px; max-width: 760px; }
+  .sub-lead { font-size: 14px; color: var(--sub); margin-bottom: 24px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 24px 0 30px;
+    border-left: 6px solid var(--rvk-red);
+  }
+  .hero-tag { font-size: 12px; color: var(--rvk-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero-stat { font-family: Georgia, serif; font-size: 56px; line-height: 1; color: var(--rvk-deep); margin: 8px 0; font-weight: 700; }
+  .hero-stat .red { color: var(--rvk-red); }
+  .hero-text { color: var(--text-2); font-size: 17px; margin-top: 12px; max-width: 720px; }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+  .card {
+    background: var(--bg-2); border-radius: 10px; padding: 20px; border: 1px solid var(--border);
+  }
+  .card-title { font-size: 13px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .card-stat { font-family: Georgia, serif; font-size: 32px; color: var(--rvk-deep); margin: 4px 0; font-weight: 700; }
+  .card-text { font-size: 14px; color: var(--text-2); margin-top: 6px; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th { text-align: left; padding: 10px; background: var(--bg-2); border-bottom: 2px solid var(--border); font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px; border-bottom: 1px solid var(--border); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.rvk td { background: #fee2e2 !important; font-weight: 700; }
+  tr:hover td { background: #f1f5f9; }
+  tr.rvk:hover td { background: #fecaca !important; }
+  td.delta-up { color: var(--good); }
+  td.delta-down { color: var(--bad); font-weight: 600; }
+
+  /* Bar chart */
+  .barchart { margin: 16px 0; }
+  .bar-row {
+    display: grid; grid-template-columns: 200px 1fr 70px;
+    gap: 12px; align-items: center; padding: 4px 0; font-size: 13px;
+  }
+  .bar-label { color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-track {
+    background: #f1f5f9; height: 22px; border-radius: 3px;
+    position: relative; overflow: hidden;
+  }
+  .bar-track::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 1px; background: var(--sub); z-index: 1;
+  }
+  .bar-fill {
+    height: 100%; position: absolute; top: 0; bottom: 0;
+    border-radius: 2px;
+  }
+  .bar-fill.pos { background: linear-gradient(90deg, #10b981, #059669); }
+  .bar-fill.neg { background: linear-gradient(90deg, #f87171, #dc2626); }
+  .bar-row.rvk .bar-label { color: var(--rvk-red); font-weight: 700; }
+  .bar-row.rvk .bar-fill.neg { background: linear-gradient(90deg, #ef4444, #991b1b); }
+  .bar-val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .bar-val.pos { color: var(--good); }
+  .bar-val.neg { color: var(--bad); }
+
+  /* Boxes */
+  .info-box, .warn-box, .key-finding {
+    border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 15px;
+  }
+  .info-box { background: #dbeafe; color: #1e40af; border-left: 4px solid #1e40af; }
+  .warn-box { background: #fef3c7; color: #92400e; border-left: 4px solid #f59e0b; }
+  .key-finding {
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border-left: 4px solid var(--rvk-deep); padding: 18px 24px;
+  }
+  .key-finding h3 { margin-top: 0; color: var(--rvk-deep); }
+
+  /* Methodology */
+  .method { background: var(--bg-2); border-radius: 8px; padding: 20px; margin: 30px 0; font-size: 14px; }
+  .method strong { color: var(--rvk-deep); }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .share-bar {
+    background: var(--bg-2); border-radius: 8px; padding: 16px;
+    margin: 30px 0; text-align: center; font-size: 14px;
+  }
+  .share-bar a {
+    display: inline-block; padding: 8px 16px; margin: 0 4px;
+    background: var(--rvk-deep); color: white; text-decoration: none;
+    border-radius: 6px; font-size: 13px;
+  }
+  a { color: var(--rvk-mid); }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .container { padding: 20px 16px 60px; }
+    h1 { font-size: 32px; }
+    .hero-stat { font-size: 42px; }
+    .bar-row { grid-template-columns: 130px 1fr 60px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Reykjavík hefur tapað<br><span style="color:var(--rvk-red)">19,4 milljörðum</span> á 7 árum.</h1>
+  <p class="lead">A-hluti rekstrarniðurstaða Reykjavíkurborgar samanlagt 2018–2024 — sex sinnum verri en næsta sveitarfélag á höfuðborgarsvæðinu.</p>
+  <p class="sub-lead">Tölur úr ársreikningum sem Samband íslenskra sveitarfélaga safnar. Engin meðaltöl, engar túlkanir — bara hreinar krónutölur.</p>
+
+  <div style="margin: 24px 0; text-align: center;">
+    <img src="public/img/rvk-bestrekna-og.png" alt="A-hluti rekstrarniðurstaða sveitarfélaga á höfuðborgarsvæðinu 2018-2024. Reykjavík -19,4 ma.kr. tap." style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+    <p style="font-size:13px; color:var(--sub); margin-top:8px">↑ Sjá og deildu þessari mynd. Hægrismelltu og veldu „Vista mynd sem".</p>
+  </div>
+
+  <div class="key-finding">
+    <h3>Þetta eru tölurnar — beint úr ársreikningunum</h3>
+    <table style="margin-top:8px">
+      <tr><td>Reykjavíkurborg</td><td class="num delta-down" style="font-weight:700">−19,4 ma.kr.</td><td>(4 ár af 7 með tap)</td></tr>
+      <tr><td>Seltjarnarnesbær</td><td class="num delta-down">−3,0 ma.kr.</td><td>(7 ár af 7 með tap)</td></tr>
+      <tr><td>Mosfellsbær</td><td class="num delta-down">−0,3 ma.kr.</td><td>(3 ár af 7 með tap)</td></tr>
+      <tr><td>Hafnarfjörður</td><td class="num delta-up">+1,7 ma.kr.</td><td>(1 ár af 7 með tap)</td></tr>
+      <tr><td>Garðabær</td><td class="num delta-up">+2,7 ma.kr.</td><td>(2 ár af 7 með tap)</td></tr>
+      <tr><td>Kópavogsbær</td><td class="num delta-up">+3,7 ma.kr.</td><td>(3 ár af 7 með tap)</td></tr>
+    </table>
+    <p style="font-size:13px; color:var(--text-2); margin-top:12px">
+      <strong>Reykjavík tapaði 6,5× meira en næsta sveitarfélag á svæðinu.</strong> Önnur fjögur sveitarfélög á höfuðborgarsvæðinu voru með afgang.
+    </p>
+  </div>
+
+  <h2>1. Reykjavík vs. samanburðarsveitarfélögin</h2>
+
+  <p>Sex sveitarfélög á höfuðborgarsvæðinu (sleppum Kjósarhreppi með 250 íbúa). Hér er rekstrarmargin (Niðurstaða ÷ Tekjur) á A-hluta yfir sjö ár 2018–2024:</p>
+
+  <div class="barchart" id="hborgBars"></div>
+
+  <div class="key-finding">
+    <h3>Niðurstaða: 5. sæti af 6</h3>
+    <p>Reykjavíkurborg hefur tapað á 4 árum af 7. Aðeins Seltjarnarnesbær (sem hefur tapað öllum 7 árum) er með verri afkomu á höfuðborgarsvæðinu.</p>
+  </div>
+
+  <h2>2. Stór sveitarfélög (yfir 10 ma. tekjum)</h2>
+
+  <p>Þetta eru átta sveitarfélög sem standa fyrir mestum hluta opinberra útgjalda á sveitarstigi. Hér er Reykjavík <strong>næstverst rekna</strong> — aðeins Sveitarfélagið Árborg er verri:</p>
+
+  <table id="storirTable">
+    <thead><tr>
+      <th class="num">#</th><th>Sveitarfélag</th>
+      <th class="num">Avg margin</th><th class="num">Tap ár</th><th class="num">Avg tekjur</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>3. Allt landið — 62 sveitarfélög</h2>
+
+  <p>Á landsvísu er Reykjavík í <strong id="rvkRankText2">15. sæti af 62</strong> talið frá verstu — <strong id="betterCount">47 sveitarfélög</strong> hafa BETRI rekstur en Reykjavík.</p>
+
+  <div class="info-box">
+    <strong>Athugið:</strong> Margin er reiknað sem <em>Rekstrarniðurstaða ÷ Rekstrartekjur × 100%</em>. Margt smátt sveitarfélag hefur háar prósentur vegna lóðasala eða annars sem sveiflar einangruðum tölum, en heildarmyndin er skýr: Reykjavík er meðal þeirra verstu á landsvísu.
+  </div>
+
+  <h3>Topp 15 verst rekna sveitarfélögin (avg margin 2018–2024)</h3>
+
+  <table id="worstTable">
+    <thead><tr>
+      <th class="num">#</th><th>Sveitarfélag</th>
+      <th class="num">Margin</th><th class="num">Tap ár</th><th class="num">Avg tekjur</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>4. Söguleg þróun — Reykjavík vs. samanburðarsveitarfélög</h2>
+
+  <p>Margin per ár 2018–2024 fyrir Reykjavík og samanburðarsveitarfélög (positive % = hagnaður, negative % = tap):</p>
+
+  <svg id="histChart" style="width:100%;height:340px"></svg>
+
+  <h2>5. 2025-uppfærsla</h2>
+
+  <p>Tveir 2025-ársreikningar hafa borist. Reykjavík versnar verulega:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Reykjavík 2025 (A-hluti)</div>
+      <div class="card-stat" style="color:var(--bad)">−2,6%</div>
+      <div class="card-text">
+        Margin: <strong>−2,6%</strong> (tap upp á 5,3 ma.kr.)<br>
+        2024 var margin: <strong>+2,4%</strong><br>
+        Versnar um 5 prósentustig á einu ári
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Kópavogur 2025 (A-hluti)</div>
+      <div class="card-stat" style="color:var(--good)">+7,4%</div>
+      <div class="card-text">
+        Margin: <strong>+7,4%</strong> (hagnaður 4,2 ma.kr.)<br>
+        2024 var margin: <strong>+7,9%</strong><br>
+        Stöðugur sterkur rekstur
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <strong>Munurinn 2025:</strong> Kópavogur skilar 7,4% hagnaði, Reykjavík 2,6% tapi. Á sömu krónutekjum væri þetta 10 ma.kr. munur ($\approx 50 m.kr. á 100 m.kr. tekjur).
+  </div>
+
+  <h2>6. Aðferðafræði</h2>
+
+  <div class="method">
+    <p><strong>Hvað er „A-hluti"?</strong> Sveitarfélagið sjálft (skólar, leikskólar, velferð, garðar, skipulag, stjórnsýsla), fjármagnað fyrst og fremst með skatttekjum. <strong>B-hluti</strong> (Orkuveita, Faxaflóahafnir, Sorpa o.s.frv.) er sérstök rekstrareining sem rekið er á notendagjöldum og er hér fjarlægð til að gera samanburð sanngjarnan milli sveitarfélaga.</p>
+
+    <p><strong>Hvað er „margin"?</strong> Rekstrarniðurstaða (hagnaður/tap) deilt með Rekstrartekjum. Þetta er staðlað hagrænt mælitæki sem segir: <em>hve stóran hluta af hverri krónu tekjustofnsins er afgangs eftir öll gjöld?</em></p>
+
+    <p><strong>Hvers vegna 7-ára meðaltal?</strong> Einstök ár geta verið lituð af lóðasala (Rvk fékk 5,4 ma. í 2024 vs 3,4 ma. í 2025) eða einskiptisliðum. Sjö-ára meðaltal jafnar þessa sveiflu.</p>
+
+    <p><strong>Hvaðan koma tölurnar?</strong> Beint úr <a href="https://www.samband.is/arsreikningar">Sambandsskrá íslenskra sveitarfélaga</a> — sem sækir gögnin úr ársreikningum sveitarfélaganna sjálfra. 2025-tölur eru úr opnum PDF-skjölum sveitarfélaganna sem komu út í apríl-mars 2026.</p>
+
+    <p><strong>Þekktar takmarkanir:</strong> Sum smá sveitarfélög hafa háar margin% vegna lóðasala (t.d. Hvalfjarðarsveit +31% — Norðurál borgar mikið í fasteignaskatt) eða einskiptiliða. Þess vegna er aðalstaðfesting á <em>stór sveitarfélögum (yfir 10 ma. tekjum)</em> þar sem Reykjavík er næstverst rekna.</p>
+  </div>
+
+  <div class="share-bar">
+    <strong>Deildu þessari greiningu:</strong><br>
+    <a href="https://twitter.com/intent/tweet?text=Reykjavík%20er%20næstverst%20rekna%20sveitarfélagið%20á%20höfuðborgarsvæðinu.%20Tölur%20frá%202018-2024.&url=https%3A%2F%2Fskattgreidendur.is%2Frvk-er-bestrekna" target="_blank">Twitter/X</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fskattgreidendur.is%2Frvk-er-bestrekna" target="_blank">Facebook</a>
+    <a href="javascript:navigator.clipboard.writeText(window.location.href).then(()=>alert('Krækja afrituð'))">📋 Afrita slóð</a>
+  </div>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-tekjuhlid.html">Tekjuhliðin · Reykjavíkurborg</a> — heildargreining á tekjum</li>
+      <li><a href="rvk-2025-forskot.html">2025 Forskot</a> — nýjustu ársreikningar</li>
+      <li><a href="rvk-utforska.html">Mælaborð: Opnir reikningar Reykjavíkur 2019–2025</a></li>
+    </ul>
+    <p>Heimildir: Samband íslenskra sveitarfélaga (Pivot-tafla ársreikninga A-hluta), ársreikningur Reykjavíkurborgar 2025 (reykjavik.is), ársreikningur Kópavogsbæjar 2025 (kopavogur.is).</p>
+  </div>
+</div>
+
+<script>
+function fmt(v) { return v.toLocaleString('is-IS', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
+function pct(v) { return (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+
+const __DATA_D = {
+  "all_svf": [
+    {
+      "svf": "7502 Vopnafjarðarhreppur",
+      "short": "Vopnafjarðarhreppur",
+      "margin": -14.906359429447631,
+      "tekjur_ma": 0.9096558571428571,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 1
+    },
+    {
+      "svf": "3506 Skorradalshreppur",
+      "short": "Skorradalshreppur",
+      "margin": -8.632419361717396,
+      "tekjur_ma": 0.1313885,
+      "tap_arar": 4,
+      "total_arar": 6,
+      "rank": 2
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "short": "Sveitarfélagið Árborg",
+      "margin": -8.487895574112208,
+      "tekjur_ma": 12.577132,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 3
+    },
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "short": "Seltjarnarnesbær",
+      "margin": -8.408247758170184,
+      "tekjur_ma": 4.969327157142857,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 4
+    },
+    {
+      "svf": "5609 Sveitarfélagið Skagaströnd",
+      "short": "Sveitarfélagið Skagaströnd",
+      "margin": -8.20133392978747,
+      "tekjur_ma": 0.6344454142857143,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 5
+    },
+    {
+      "svf": "3716 Sveitarfélagið Stykkishólmur",
+      "short": "Sveitarfélagið Stykkishólmur",
+      "margin": -7.719117186080194,
+      "tekjur_ma": 1.735745,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 6
+    },
+    {
+      "svf": "2506 Sveitarfélagið Vogar",
+      "short": "Sveitarfélagið Vogar",
+      "margin": -5.388043319922592,
+      "tekjur_ma": 1.5715392857142858,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 7
+    },
+    {
+      "svf": "4604 Vesturbyggð",
+      "short": "Vesturbyggð",
+      "margin": -5.318941643709388,
+      "tekjur_ma": 1.935974857142857,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 8
+    },
+    {
+      "svf": "5613 Húnabyggð",
+      "short": "Húnabyggð",
+      "margin": -3.774817401973741,
+      "tekjur_ma": 2.0008958142857143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 9
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "short": "Ísafjarðarbær",
+      "margin": -3.0361254657650196,
+      "tekjur_ma": 5.2827581142857145,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 10
+    },
+    {
+      "svf": "4100 Bolungarvíkurkaupstaður",
+      "short": "Bolungarvíkurkaupstaður",
+      "margin": -2.645161950571401,
+      "tekjur_ma": 1.3542717142857144,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 11
+    },
+    {
+      "svf": "4911 Strandabyggð",
+      "short": "Strandabyggð",
+      "margin": -1.9952640966522557,
+      "tekjur_ma": 0.7349471428571428,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 12
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "short": "Múlaþing",
+      "margin": -1.8247950670064008,
+      "tekjur_ma": 7.0000292857142865,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 13
+    },
+    {
+      "svf": "8716 Hveragerðisbær",
+      "short": "Hveragerðisbær",
+      "margin": -1.8001041798060797,
+      "tekjur_ma": 3.8406915714285716,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 14
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "6602 Grýtubakkahreppur",
+      "short": "Grýtubakkahreppur",
+      "margin": -1.7364734899314491,
+      "tekjur_ma": 0.5118842064285714,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 16
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "short": "Akureyrarbær",
+      "margin": -1.4819725872241996,
+      "tekjur_ma": 23.582316857142857,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 17
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "short": "Skagafjörður",
+      "margin": -0.937314760613269,
+      "tekjur_ma": 6.245280142857143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 18
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "short": "Fjarðabyggð",
+      "margin": -0.36989289140727816,
+      "tekjur_ma": 7.099183285714285,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 19
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "3811 Dalabyggð",
+      "short": "Dalabyggð",
+      "margin": 0.0969518253631704,
+      "tekjur_ma": 0.9155912857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 21
+    },
+    {
+      "svf": "7505 Fljótsdalshreppur",
+      "short": "Fljótsdalshreppur",
+      "margin": 0.369136442174729,
+      "tekjur_ma": 0.2448593,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 22
+    },
+    {
+      "svf": "3709 Grundarfjarðarbær",
+      "short": "Grundarfjarðarbær",
+      "margin": 0.5696543678205495,
+      "tekjur_ma": 1.191284,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 23
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "2510 Suðurnesjabær",
+      "short": "Suðurnesjabær",
+      "margin": 0.9811447026560886,
+      "tekjur_ma": 4.844553385714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 25
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "8509 Skaftárhreppur",
+      "short": "Skaftárhreppur",
+      "margin": 1.449967815113991,
+      "tekjur_ma": 0.8574102857142858,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 27
+    },
+    {
+      "svf": "3713 Eyja- og Miklaholtshreppur",
+      "short": "Eyja- og Miklaholtshreppur",
+      "margin": 1.457431018475378,
+      "tekjur_ma": 0.18100771428571427,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 28
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "8721 Bláskógabyggð",
+      "short": "Bláskógabyggð",
+      "margin": 1.6856163702106586,
+      "tekjur_ma": 1.7995357142857142,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 30
+    },
+    {
+      "svf": "6613 Þingeyjarsveit",
+      "short": "Þingeyjarsveit",
+      "margin": 2.1475814896467624,
+      "tekjur_ma": 1.9787938571428572,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 31
+    },
+    {
+      "svf": "4502 Reykhólahreppur",
+      "short": "Reykhólahreppur",
+      "margin": 2.8518909510550023,
+      "tekjur_ma": 0.5747058487142858,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 32
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "short": "Norðurþing",
+      "margin": 3.5674944056724254,
+      "tekjur_ma": 4.464155857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 33
+    },
+    {
+      "svf": "6250 Fjallabyggð",
+      "short": "Fjallabyggð",
+      "margin": 3.6413309399640035,
+      "tekjur_ma": 2.8169654285714283,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 34
+    },
+    {
+      "svf": "5508 Húnaþing vestra",
+      "short": "Húnaþing vestra",
+      "margin": 3.852075550967058,
+      "tekjur_ma": 1.6549307142857144,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 35
+    },
+    {
+      "svf": "8000 Vestmannaeyjabær",
+      "short": "Vestmannaeyjabær",
+      "margin": 3.8611471608984202,
+      "tekjur_ma": 4.949305128571429,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 36
+    },
+    {
+      "svf": "8722 Flóahreppur",
+      "short": "Flóahreppur",
+      "margin": 4.475292967888676,
+      "tekjur_ma": 0.9240921428571428,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 37
+    },
+    {
+      "svf": "6400 Dalvíkurbyggð",
+      "short": "Dalvíkurbyggð",
+      "margin": 4.561202743400242,
+      "tekjur_ma": 2.508672142857143,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 38
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "short": "Akraneskaupstaður",
+      "margin": 4.953333064763547,
+      "tekjur_ma": 8.549133742857142,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 39
+    },
+    {
+      "svf": "8710 Hrunamannahreppur",
+      "short": "Hrunamannahreppur",
+      "margin": 4.994199680580272,
+      "tekjur_ma": 1.23209,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 40
+    },
+    {
+      "svf": "6515 Hörgársveit",
+      "short": "Hörgársveit",
+      "margin": 5.278673153514231,
+      "tekjur_ma": 0.9205378571428571,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 41
+    },
+    {
+      "svf": "6710 Langanesbyggð",
+      "short": "Langanesbyggð",
+      "margin": 5.3090185362167475,
+      "tekjur_ma": 0.9777336857142856,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 42
+    },
+    {
+      "svf": "3714 Snæfellsbær",
+      "short": "Snæfellsbær",
+      "margin": 5.4351691020479205,
+      "tekjur_ma": 2.462079057142857,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 43
+    },
+    {
+      "svf": "3609 Borgarbyggð",
+      "short": "Borgarbyggð",
+      "margin": 5.962704251922355,
+      "tekjur_ma": 4.878485142857143,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 44
+    },
+    {
+      "svf": "8613 Rangárþing eystra",
+      "short": "Rangárþing eystra",
+      "margin": 6.214503499262623,
+      "tekjur_ma": 2.432912142857143,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 45
+    },
+    {
+      "svf": "8720 Skeiða- og Gnúpverjahreppur",
+      "short": "Skeiða- og Gnúpverjahreppur",
+      "margin": 6.664298045115549,
+      "tekjur_ma": 0.960735,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 46
+    },
+    {
+      "svf": "8614 Rangárþing ytra",
+      "short": "Rangárþing ytra",
+      "margin": 7.451832939233753,
+      "tekjur_ma": 2.4455714285714287,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 47
+    },
+    {
+      "svf": "8610 Ásahreppur",
+      "short": "Ásahreppur",
+      "margin": 7.6241991821788,
+      "tekjur_ma": 0.4255758571428572,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 48
+    },
+    {
+      "svf": "2300 Grindavíkurbær",
+      "short": "Grindavíkurbær",
+      "margin": 7.937165581720236,
+      "tekjur_ma": 3.922551285714286,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 49
+    },
+    {
+      "svf": "4902 Kaldrananeshreppur",
+      "short": "Kaldrananeshreppur",
+      "margin": 8.259778433045573,
+      "tekjur_ma": 0.15876814285714286,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 50
+    },
+    {
+      "svf": "8717 Sveitarfélagið Ölfus",
+      "short": "Sveitarfélagið Ölfus",
+      "margin": 8.420064557911028,
+      "tekjur_ma": 3.2965802857142856,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 51
+    },
+    {
+      "svf": "8401 Sveitarfélagið Hornafjörður",
+      "short": "Sveitarfélagið Hornafjörður",
+      "margin": 8.754191307428849,
+      "tekjur_ma": 3.092217857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 52
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "short": "Reykjanesbær",
+      "margin": 10.304015087689775,
+      "tekjur_ma": 20.41573914285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 53
+    },
+    {
+      "svf": "6513 Eyjafjarðarsveit",
+      "short": "Eyjafjarðarsveit",
+      "margin": 10.413345899189906,
+      "tekjur_ma": 1.3355044285714286,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 54
+    },
+    {
+      "svf": "6601 Svalbarðsstrandarhreppur",
+      "short": "Svalbarðsstrandarhreppur",
+      "margin": 11.67747179990543,
+      "tekjur_ma": 0.5721712857142858,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 55
+    },
+    {
+      "svf": "1606 Kjósarhreppur",
+      "short": "Kjósarhreppur",
+      "margin": 11.739308155946297,
+      "tekjur_ma": 0.3278809857142857,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 56
+    },
+    {
+      "svf": "8719 Grímsnes- og Grafningshreppur",
+      "short": "Grímsnes- og Grafningshreppur",
+      "margin": 13.360512366063755,
+      "tekjur_ma": 1.2287851428571428,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 57
+    },
+    {
+      "svf": "4803 Súðavíkurhreppur",
+      "short": "Súðavíkurhreppur",
+      "margin": 14.494382319719195,
+      "tekjur_ma": 0.339227,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 58
+    },
+    {
+      "svf": "4901 Árneshreppur",
+      "short": "Árneshreppur",
+      "margin": 16.752247103578892,
+      "tekjur_ma": 0.06550828571428571,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 59
+    },
+    {
+      "svf": "8508 Mýrdalshreppur",
+      "short": "Mýrdalshreppur",
+      "margin": 17.64010535243474,
+      "tekjur_ma": 0.9842815714285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 60
+    },
+    {
+      "svf": "6611 Tjörneshreppur",
+      "short": "Tjörneshreppur",
+      "margin": 21.63528496558689,
+      "tekjur_ma": 0.05487575714285714,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 61
+    },
+    {
+      "svf": "3511 Hvalfjarðarsveit",
+      "short": "Hvalfjarðarsveit",
+      "margin": 31.10347582751884,
+      "tekjur_ma": 1.1709767857142857,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 62
+    }
+  ],
+  "rvk_rank": 15,
+  "total_svf": 62,
+  "hborg": [
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "short": "Seltjarnarnesbær",
+      "margin": -8.408247758170184,
+      "tekjur_ma": 4.969327157142857,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 4
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "1606 Kjósarhreppur",
+      "short": "Kjósarhreppur",
+      "margin": 11.739308155946297,
+      "tekjur_ma": 0.3278809857142857,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 56
+    }
+  ],
+  "storir": [
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "short": "Sveitarfélagið Árborg",
+      "margin": -8.487895574112208,
+      "tekjur_ma": 12.577132,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 3
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "short": "Akureyrarbær",
+      "margin": -1.4819725872241996,
+      "tekjur_ma": 23.582316857142857,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 17
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "short": "Reykjanesbær",
+      "margin": 10.304015087689775,
+      "tekjur_ma": 20.41573914285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 53
+    }
+  ],
+  "hist": {
+    "2018": {
+      "0000 Reykjavíkurborg": 3.94,
+      "1000 Kópavogsbær": 3.85,
+      "1300 Garðabær": 3.1,
+      "1400 Hafnarfjarðarkaupstaður": 1.97,
+      "2000 Reykjanesbær": 17.09,
+      "8200 Sveitarfélagið Árborg": -0.62
+    },
+    "2019": {
+      "0000 Reykjavíkurborg": 1.1,
+      "1000 Kópavogsbær": 4.55,
+      "1300 Garðabær": 0.65,
+      "1400 Hafnarfjarðarkaupstaður": 1.61,
+      "2000 Reykjanesbær": 30.68,
+      "8200 Sveitarfélagið Árborg": -1.51
+    },
+    "2020": {
+      "0000 Reykjavíkurborg": -4.54,
+      "1000 Kópavogsbær": 0.42,
+      "1300 Garðabær": -1.11,
+      "1400 Hafnarfjarðarkaupstaður": 5.6,
+      "2000 Reykjanesbær": 0.48,
+      "8200 Sveitarfélagið Árborg": -9.82
+    },
+    "2021": {
+      "0000 Reykjavíkurborg": -2.71,
+      "1000 Kópavogsbær": -1.24,
+      "1300 Garðabær": -0.31,
+      "1400 Hafnarfjarðarkaupstaður": -4.74,
+      "2000 Reykjanesbær": 11.84,
+      "8200 Sveitarfélagið Árborg": -19.35
+    },
+    "2022": {
+      "0000 Reykjavíkurborg": -9.99,
+      "1000 Kópavogsbær": -4.72,
+      "1300 Garðabær": 3.18,
+      "1400 Hafnarfjarðarkaupstaður": 0.66,
+      "2000 Reykjanesbær": 2.23,
+      "8200 Sveitarfélagið Árborg": -24.96
+    },
+    "2023": {
+      "0000 Reykjavíkurborg": -2.82,
+      "1000 Kópavogsbær": -1.52,
+      "1300 Garðabær": 4.18,
+      "1400 Hafnarfjarðarkaupstaður": 0.58,
+      "2000 Reykjanesbær": 5.81,
+      "8200 Sveitarfélagið Árborg": -11.64
+    },
+    "2024": {
+      "0000 Reykjavíkurborg": 2.44,
+      "1000 Kópavogsbær": 7.89,
+      "1300 Garðabær": 1.97,
+      "1400 Hafnarfjarðarkaupstaður": 0.27,
+      "2000 Reykjanesbær": 4.0,
+      "8200 Sveitarfélagið Árborg": 8.5
+    }
+  },
+  "y2025": {
+    "0000 Reykjavíkurborg": {
+      "tekjur_ma": 206.589,
+      "nidurst_ma": -5.317,
+      "margin": -2.573709151987763
+    },
+    "1000 Kópavogsbær": {
+      "tekjur_ma": 57.688,
+      "nidurst_ma": 4.245,
+      "margin": 7.3585494383580645
+    }
+  }
+};
+((D) => {
+  // Update rank text
+  const rvkRank = D.rvk_rank;
+  const elRank1 = document.getElementById('rvkRankText');
+  if (elRank1) elRank1.textContent = `${rvkRank}. sæti frá botni`;
+  const elRank2 = document.getElementById('rvkRankText2');
+  if (elRank2) elRank2.textContent = `${rvkRank}. sæti af ${D.total_svf}`;
+  const elBetter = document.getElementById('betterCount');
+  if (elBetter) elBetter.textContent = `${D.total_svf - rvkRank} sveitarfélög`;
+
+  // ------------- Höfuðborgarsvæðið bar chart -------------
+  const hborg = D.hborg.filter(s => !s.svf.includes('Kjós')).sort((a,b) => a.margin - b.margin);
+  const maxAbs = Math.max(...hborg.map(d => Math.abs(d.margin))) * 1.1;
+  const hborgBars = document.getElementById('hborgBars');
+  hborgBars.innerHTML = hborg.map(d => {
+    const isRvk = d.svf.includes('Reykjavík');
+    const w = (Math.abs(d.margin) / maxAbs * 50);
+    const fillStyle = d.margin >= 0
+      ? `left: 50%; width: ${w}%`
+      : `right: 50%; width: ${w}%`;
+    return `<div class="bar-row ${isRvk ? 'rvk' : ''}">
+      <div class="bar-label">${d.short}</div>
+      <div class="bar-track"><div class="bar-fill ${d.margin >= 0 ? 'pos' : 'neg'}" style="${fillStyle}"></div></div>
+      <div class="bar-val ${d.margin >= 0 ? 'pos' : 'neg'}">${pct(d.margin)}</div>
+    </div>`;
+  }).join('');
+
+  // ------------- Stór sveitarfélög tafla -------------
+  const storir = D.storir.sort((a,b) => a.margin - b.margin);
+  const tbStor = document.querySelector('#storirTable tbody');
+  tbStor.innerHTML = storir.map((d, i) => {
+    const isRvk = d.svf.includes('Reykjavík');
+    return `<tr class="${isRvk ? 'rvk' : ''}">
+      <td class="num">${i+1}</td>
+      <td>${d.short}</td>
+      <td class="num ${d.margin >= 0 ? 'delta-up' : 'delta-down'}">${pct(d.margin)}</td>
+      <td class="num">${d.tap_arar}/${d.total_arar}</td>
+      <td class="num">${fmt(d.tekjur_ma)} ma</td>
+    </tr>`;
+  }).join('');
+
+  // ------------- Top 15 verstu -------------
+  const worst15 = D.all_svf.slice(0, 15);
+  const tbWorst = document.querySelector('#worstTable tbody');
+  tbWorst.innerHTML = worst15.map(d => {
+    const isRvk = d.svf.includes('Reykjavík');
+    return `<tr class="${isRvk ? 'rvk' : ''}">
+      <td class="num">${d.rank}</td>
+      <td>${d.short}</td>
+      <td class="num ${d.margin >= 0 ? 'delta-up' : 'delta-down'}">${pct(d.margin)}</td>
+      <td class="num">${d.tap_arar}/${d.total_arar}</td>
+      <td class="num">${fmt(d.tekjur_ma)} ma</td>
+    </tr>`;
+  }).join('');
+
+  // ------------- Historical line chart -------------
+  const svg = document.getElementById('histChart');
+  const W = svg.clientWidth || 1000;
+  const H = 340;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const P = { l: 50, r: 180, t: 20, b: 30 };
+  const years = Object.keys(D.hist).map(Number).sort();
+  const series = [
+    { name: 'Reykjavíkurborg', svf: '0000 Reykjavíkurborg', color: '#dc2626', width: 3.5 },
+    { name: 'Kópavogur', svf: '1000 Kópavogsbær', color: '#059669', width: 2 },
+    { name: 'Garðabær', svf: '1300 Garðabær', color: '#0891b2', width: 2 },
+    { name: 'Hafnarfj.', svf: '1400 Hafnarfjarðarkaupstaður', color: '#7c3aed', width: 2 },
+    { name: 'Reykjanesbær', svf: '2000 Reykjanesbær', color: '#10b981', width: 2 },
+    { name: 'Árborg', svf: '8200 Sveitarfélagið Árborg', color: '#f59e0b', width: 2 },
+  ];
+  const allMargins = years.flatMap(y => series.map(s => D.hist[y]?.[s.svf] || 0));
+  const maxV = Math.max(...allMargins) * 1.1;
+  const minV = Math.min(...allMargins) * 1.1;
+  const xStep = (W - P.l - P.r) / (years.length - 1);
+  const yScale = v => H - P.b - ((v - minV) / (maxV - minV)) * (H - P.t - P.b);
+
+  let html = '';
+  // Grid og y-axis
+  for (let i = 0; i <= 6; i++) {
+    const yval = minV + (maxV - minV) * i / 6;
+    const y = yScale(yval);
+    html += `<line x1="${P.l}" y1="${y}" x2="${W - P.r}" y2="${y}" stroke="#f1f5f9" stroke-dasharray="2,2"/>`;
+    html += `<text x="${P.l - 6}" y="${y + 4}" font-size="10" fill="#94a3b8" text-anchor="end">${yval.toFixed(0)}%</text>`;
+  }
+  // Zero line
+  const zeroY = yScale(0);
+  html += `<line x1="${P.l}" y1="${zeroY}" x2="${W - P.r}" y2="${zeroY}" stroke="#64748b" stroke-width="1"/>`;
+  // X labels
+  years.forEach((y, i) => {
+    const x = P.l + i * xStep;
+    html += `<text x="${x}" y="${H - 8}" font-size="11" fill="#64748b" text-anchor="middle">${y}</text>`;
+  });
+  // Lines
+  series.forEach((s, idx) => {
+    const pts = years.map((y, i) => `${P.l + i * xStep},${yScale(D.hist[y]?.[s.svf] || 0)}`).join(' ');
+    html += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.width}"/>`;
+    years.forEach((y, i) => {
+      const x = P.l + i * xStep;
+      const yy = yScale(D.hist[y]?.[s.svf] || 0);
+      html += `<circle cx="${x}" cy="${yy}" r="${s.width === 3.5 ? 4 : 3}" fill="${s.color}"><title>${s.name} ${y}: ${pct(D.hist[y]?.[s.svf] || 0)}</title></circle>`;
+    });
+    html += `<text x="${W - P.r + 10}" y="${P.t + 14 + idx * 22}" fill="${s.color}" font-weight="${s.width === 3.5 ? 700 : 500}" font-size="13">● ${s.name}</text>`;
+  });
+  svg.innerHTML = html;
+})(__DATA_D);
+</script>
+</body>
+</html>

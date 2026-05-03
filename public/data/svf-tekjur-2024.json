@@ -1,0 +1,218 @@
+{
+  "top_adrar_tekjur": [
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "ma": 27.083387
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "ma": 8.813004
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "ma": 6.975587
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 6.738521
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "ma": 3.85195
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "ma": 3.301815
+    },
+    {
+      "svf": "1300 Garðabær",
+      "ma": 2.916833
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "ma": 2.909524
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "ma": 2.091698
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "ma": 1.657583
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "ma": 1.421705
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "ma": 1.395921
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "ma": 1.389084
+    },
+    {
+      "svf": "6250 Fjallabyggð",
+      "ma": 1.187812
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "ma": 1.175563
+    }
+  ],
+  "top_skattar": [
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "ma": 147.46804
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "ma": 40.5272
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 31.625922
+    },
+    {
+      "svf": "1300 Garðabær",
+      "ma": 21.45322
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "ma": 20.062473
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "ma": 20.055594
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "ma": 13.342083
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "ma": 12.188974
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "ma": 7.572929
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "ma": 6.072611
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "ma": 5.030337
+    },
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "ma": 4.871676
+    },
+    {
+      "svf": "8000 Vestmannaeyjabær",
+      "ma": 4.341663
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "ma": 4.306534
+    },
+    {
+      "svf": "2510 Suðurnesjabær",
+      "ma": 4.196773
+    }
+  ],
+  "hlutfall_adrar": [
+    {
+      "svf": "6250 Fjallabyggð",
+      "adrar_ma": 1.187812,
+      "skattar_ma": 1.966796,
+      "hlutfall": 27.064341529491244
+    },
+    {
+      "svf": "8710 Hrunamannahreppur",
+      "adrar_ma": 0.415418,
+      "skattar_ma": 0.884814,
+      "hlutfall": 26.658016341926544
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "adrar_ma": 2.091698,
+      "skattar_ma": 3.764549,
+      "hlutfall": 25.9241650829408
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "adrar_ma": 1.389084,
+      "skattar_ma": 3.203487,
+      "hlutfall": 24.431156934397077
+    },
+    {
+      "svf": "5508 Húnaþing vestra",
+      "adrar_ma": 0.455628,
+      "skattar_ma": 1.099083,
+      "hlutfall": 21.479120899842545
+    },
+    {
+      "svf": "3716 Sveitarfélagið Stykkishólmur",
+      "adrar_ma": 0.492507,
+      "skattar_ma": 1.194143,
+      "hlutfall": 21.203351674868767
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "adrar_ma": 6.975587,
+      "skattar_ma": 20.055594,
+      "hlutfall": 21.010585883971988
+    },
+    {
+      "svf": "8720 Skeiða- og Gnúpverjahreppur",
+      "adrar_ma": 0.271859,
+      "skattar_ma": 0.886587,
+      "hlutfall": 20.64716876954239
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "adrar_ma": 3.85195,
+      "skattar_ma": 12.188974,
+      "hlutfall": 20.437853263222593
+    },
+    {
+      "svf": "2300 Grindavíkurbær",
+      "adrar_ma": 0.816831,
+      "skattar_ma": 2.313491,
+      "hlutfall": 18.814969126240474
+    },
+    {
+      "svf": "4100 Bolungarvíkurkaupstaður",
+      "adrar_ma": 0.294958,
+      "skattar_ma": 1.025931,
+      "hlutfall": 17.062377364777312
+    },
+    {
+      "svf": "8614 Rangárþing ytra",
+      "adrar_ma": 0.534174,
+      "skattar_ma": 1.982807,
+      "hlutfall": 16.983952213696625
+    },
+    {
+      "svf": "8716 Hveragerðisbær",
+      "adrar_ma": 0.827024,
+      "skattar_ma": 3.02142,
+      "hlutfall": 16.649856235582792
+    },
+    {
+      "svf": "8719 Grímsnes- og Grafningshreppur",
+      "adrar_ma": 0.254989,
+      "skattar_ma": 1.277537,
+      "hlutfall": 16.60135433831634
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "adrar_ma": 8.813004,
+      "skattar_ma": 40.5272,
+      "hlutfall": 16.402332945581094
+    }
+  ]
+}

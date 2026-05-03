@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Gagnatorg sveitarfélaga · Samtök skattgreiðenda</title>
+<meta name="description" content="Gagnaforsýning og greiningar á fjármálum Reykjavíkurborgar og annarra sveitarfélaga. Heilsuvog, lóðasala, opnir reikningar og 2025-uppfærslur.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e; --rvk-mid: #1e6091;
+    --bg: #fefefe; --bg-2: #f8fafc;
+    --text: #0f172a; --text-2: #334155; --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669; --bad: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; font-size: 16px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1 { font-family: Georgia, serif; font-size: 48px; font-weight: 700; color: var(--rvk-deep); margin: 0 0 8px; line-height: 1.05; }
+  h2 { font-family: Georgia, serif; font-size: 26px; color: var(--rvk-deep); margin: 50px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--rvk-deep); }
+  .lead { font-size: 19px; color: var(--text-2); max-width: 720px; margin: 0 0 30px; }
+
+  /* Hero featured */
+  .featured {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 24px 0 40px;
+    border-left: 6px solid var(--bad);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  @media (max-width: 720px) { .featured { grid-template-columns: 1fr; padding: 24px; } }
+  .featured-tag { font-size: 11px; color: var(--bad); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .featured h3 { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); margin: 0 0 12px; line-height: 1.15; }
+  .featured h3 .red { color: var(--bad); }
+  .featured p { color: #7f1d1d; margin: 8px 0 16px; font-size: 15px; }
+  .featured-cta {
+    display: inline-block; padding: 12px 24px;
+    background: var(--rvk-deep); color: white; text-decoration: none;
+    border-radius: 6px; font-weight: 600; font-size: 15px;
+  }
+  .featured-cta:hover { background: var(--rvk-mid); }
+  .featured-img img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .card {
+    background: var(--bg-2);
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--rvk-mid);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .card-icon { font-size: 32px; margin-bottom: 8px; }
+  .card-title { font-family: Georgia, serif; font-size: 18px; color: var(--rvk-deep); font-weight: 700; margin: 4px 0 6px; line-height: 1.2; }
+  .card-desc { font-size: 14px; color: var(--text-2); margin-bottom: 8px; line-height: 1.5; }
+  .card-meta { font-size: 12px; color: var(--sub); }
+  .card-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 600; margin-right: 6px;
+    background: var(--rvk-deep); color: white;
+  }
+  .card-tag.live { background: linear-gradient(90deg, #ef4444, #f59e0b); }
+  .card-tag.new { background: var(--good); }
+
+  /* Stats strip */
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px; margin: 30px 0;
+  }
+  .stat {
+    background: var(--bg-2); border-radius: 8px; padding: 16px;
+    border-left: 3px solid var(--rvk-mid); text-align: center;
+  }
+  .stat-value { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); font-weight: 700; }
+  .stat-label { font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Gagnatorg<br>sveitarfélaga</h1>
+  <p class="lead">Greiningar og mælaborð á opnum gögnum frá Reykjavíkurborg, Hagstofu Íslands, Sambandi íslenskra sveitarfélaga og Gagnagátt Reykjavíkur.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-value">62</div><div class="stat-label">Sveitarfélög</div></div>
+    <div class="stat"><div class="stat-value">2018-2025</div><div class="stat-label">Tímabil</div></div>
+    <div class="stat"><div class="stat-value">18.089</div><div class="stat-label">Birgjar Rvk</div></div>
+    <div class="stat"><div class="stat-value">232,9 ma.</div><div class="stat-label">Rvk gjöld 2025</div></div>
+  </div>
+
+  <!-- FEATURED: Story -->
+  <div class="featured">
+    <div>
+      <div class="featured-tag">★ Mest lesna greining</div>
+      <h3>Reykjavík hefur tapað <span class="red">19,4 milljörðum</span> á 7 árum.</h3>
+      <p>A-hluti rekstrarniðurstaða Reykjavíkurborgar 2018–2024 — sex sinnum verri en næsta sveitarfélag á höfuðborgarsvæðinu. Bein úr ársreikningunum, engin meðaltöl.</p>
+      <a href="rvk-er-bestrekna.html" class="featured-cta">Skoða greininguna →</a>
+    </div>
+    <div class="featured-img">
+      <img src="public/img/rvk-bestrekna-og.png" alt="Reykjavík -19.4 ma.kr. tap 2018-2024">
+    </div>
+  </div>
+
+  <h2>Mælaborð</h2>
+
+  <div class="card-grid">
+    <a href="rvk-utforska.html" class="card">
+      <div class="card-icon">🔎</div>
+      <div class="card-title">Útforska reikninga · Reykjavík</div>
+      <div class="card-desc">Ítarlegt mælaborð fyrir 1,1M opnir reikninga Reykjavíkurborgar 2019-2025. Sía eftir sviði, tegund, ÍSAT og birgi.</div>
+      <div class="card-meta"><span class="card-tag">2019-2025</span> 18.089 birgjar</div>
+    </a>
+
+    <a href="svf-heilsuvog.html" class="card">
+      <div class="card-icon">🌡️</div>
+      <div class="card-title">Fjárhagsleg heilsuvog</div>
+      <div class="card-desc">Einkunn 0–100 (A+ til F) fyrir 40 sveitarfélög byggð á 5 lykiltölum úr ársreikningum 2018–2024. Veldu þitt sveitarfélag.</div>
+      <div class="card-meta"><span class="card-tag new">NÝTT</span> Reykjavík: E (39,1)</div>
+    </a>
+
+    <a href="skatttekjur-per-ibua.html" class="card">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Skatttekjur á mann</div>
+      <div class="card-desc">Útsvarstekjur og fasteignaskatttekjur á íbúa fyrir 55 sveitarfélög 2024. Sýnir raunverulegan styrk hvers svf óháð stærð.</div>
+      <div class="card-meta"><span class="card-tag new">NÝTT</span> Reykjavík: 1.057.607 kr/mann (sæti 13)</div>
+    </a>
+
+    <a href="rvk-2025-forskot.html" class="card">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">2025 Forskot</div>
+      <div class="card-desc">2025-ársreikningar þegar þeir koma út, sex mánuðum áður en Hagstofa miðlar þeim út. Reykjavík, Kópavogur, Akureyri, Mosfellsbær.</div>
+      <div class="card-meta"><span class="card-tag live">LIVE</span> Apríl 2026</div>
+    </a>
+
+    <a href="sveitarfelog-dashboard.html" class="card">
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Sveitarfélaga-fjármál</div>
+      <div class="card-desc">Bera saman fjármál allra sveitarfélaga — tekjur, gjöld, mannfjölda, lýðfræði, ríkisfang og innflytjendur.</div>
+      <div class="card-meta"><span class="card-tag">2002-2024</span> Allt landið</div>
+    </a>
+  </div>
+
+  <h2>Greiningar</h2>
+
+  <div class="card-grid">
+    <a href="rvk-er-bestrekna.html" class="card">
+      <div class="card-icon">📉</div>
+      <div class="card-title">Reykjavík tapaði 19,4 ma. á 7 árum</div>
+      <div class="card-desc">Næstverst rekna sveitarfélag á höfuðborgarsvæðinu. Aðeins Seltjarnarnes er verri. Tölurnar eru óvéfengjanlegar.</div>
+      <div class="card-meta">A-hluti rekstur 2018-2024</div>
+    </a>
+
+    <a href="rvk-tekjuhlid.html" class="card">
+      <div class="card-icon">📖</div>
+      <div class="card-title">Tekjuhliðin · Reykjavíkurborg</div>
+      <div class="card-desc">Hvernig sjást skattar, lóðasala, arður B-hluta og sorpgjöld í opnu reikningunum? A-hluti vs B-hluti útskýring.</div>
+      <div class="card-meta">2019-2025 · 9 kaflar</div>
+    </a>
+
+    <a href="fjarhagsadstod-greining.html" class="card">
+      <div class="card-icon">🏛️</div>
+      <div class="card-title">Fjárhagsaðstoð Reykjavíkur</div>
+      <div class="card-desc">Þróun fjárhagsaðstoðar 1999–2024 með ríkisfangsbreytingum og sundurliðun. Erlend ríkisfang fór úr 6% (2007) í 61% (2024).</div>
+      <div class="card-meta">1999-2024 · 4 datasets</div>
+    </a>
+
+    <a href="rikisfang-greining.html" class="card">
+      <div class="card-icon">🌍</div>
+      <div class="card-title">Greiðendur og þiggjendur</div>
+      <div class="card-desc">Skattar og bætur eftir ríkisfangi (þingskjal 2158/154, tekjuár 2022). MENAPT-yfirfulltrúun og nettóstaðan per ríkisfang.</div>
+      <div class="card-meta">107 ríkisfang · 2022 tekjuár</div>
+    </a>
+  </div>
+
+  <h2>Næst á dagskrá</h2>
+
+  <div class="card-grid">
+    <div class="card" style="cursor:default; opacity:0.7">
+      <div class="card-icon">🏗️</div>
+      <div class="card-title">Garðabær & Reykjanesbær 2025</div>
+      <div class="card-desc">Fá ársreikninga þeirra þegar þeir koma út og bæta í 2025-forskotið.</div>
+      <div class="card-meta">Bíða eftir birtingu</div>
+    </div>
+
+    <div class="card" style="cursor:default; opacity:0.7">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Per-íbúa samanburður</div>
+      <div class="card-desc">Mannfjöldi-leiðrétt mælaborð — útgjöld per íbúa, skuldir per íbúa, skattar per íbúa fyrir öll sveitarfélög.</div>
+      <div class="card-meta">Í þróun</div>
+    </div>
+
+    <div class="card" style="cursor:default; opacity:0.7">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Sjálfvirk PDF-söfnun</div>
+      <div class="card-desc">Pípuflæði sem sækir nýja ársreikninga sveitarfélaga sjálfkrafa þegar þeir koma út og dregur fram lykiltölur.</div>
+      <div class="card-meta">Í hönnun</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Heimildir: Samband íslenskra sveitarfélaga · Hagstofa Íslands · opnir reikningar Reykjavíkurborgar (opnirreikningar.is) · Gagnagátt Reykjavíkur (gagnagátt.reykjavik.is) · Velstat Reykjavíkur · ársreikningar einstakra sveitarfélaga (PDF).</p>
+    <p>© Samtök skattgreiðenda · skattgreidendur.is</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,773 @@
+{
+  "all_svf": [
+    {
+      "svf": "7502 Vopnafjarðarhreppur",
+      "short": "Vopnafjarðarhreppur",
+      "margin": -14.906359429447631,
+      "tekjur_ma": 0.9096558571428571,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 1
+    },
+    {
+      "svf": "3506 Skorradalshreppur",
+      "short": "Skorradalshreppur",
+      "margin": -8.632419361717396,
+      "tekjur_ma": 0.1313885,
+      "tap_arar": 4,
+      "total_arar": 6,
+      "rank": 2
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "short": "Sveitarfélagið Árborg",
+      "margin": -8.487895574112208,
+      "tekjur_ma": 12.577132,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 3
+    },
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "short": "Seltjarnarnesbær",
+      "margin": -8.408247758170184,
+      "tekjur_ma": 4.969327157142857,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 4
+    },
+    {
+      "svf": "5609 Sveitarfélagið Skagaströnd",
+      "short": "Sveitarfélagið Skagaströnd",
+      "margin": -8.20133392978747,
+      "tekjur_ma": 0.6344454142857143,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 5
+    },
+    {
+      "svf": "3716 Sveitarfélagið Stykkishólmur",
+      "short": "Sveitarfélagið Stykkishólmur",
+      "margin": -7.719117186080194,
+      "tekjur_ma": 1.735745,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 6
+    },
+    {
+      "svf": "2506 Sveitarfélagið Vogar",
+      "short": "Sveitarfélagið Vogar",
+      "margin": -5.388043319922592,
+      "tekjur_ma": 1.5715392857142858,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 7
+    },
+    {
+      "svf": "4604 Vesturbyggð",
+      "short": "Vesturbyggð",
+      "margin": -5.318941643709388,
+      "tekjur_ma": 1.935974857142857,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 8
+    },
+    {
+      "svf": "5613 Húnabyggð",
+      "short": "Húnabyggð",
+      "margin": -3.774817401973741,
+      "tekjur_ma": 2.0008958142857143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 9
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "short": "Ísafjarðarbær",
+      "margin": -3.0361254657650196,
+      "tekjur_ma": 5.2827581142857145,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 10
+    },
+    {
+      "svf": "4100 Bolungarvíkurkaupstaður",
+      "short": "Bolungarvíkurkaupstaður",
+      "margin": -2.645161950571401,
+      "tekjur_ma": 1.3542717142857144,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 11
+    },
+    {
+      "svf": "4911 Strandabyggð",
+      "short": "Strandabyggð",
+      "margin": -1.9952640966522557,
+      "tekjur_ma": 0.7349471428571428,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 12
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "short": "Múlaþing",
+      "margin": -1.8247950670064008,
+      "tekjur_ma": 7.0000292857142865,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 13
+    },
+    {
+      "svf": "8716 Hveragerðisbær",
+      "short": "Hveragerðisbær",
+      "margin": -1.8001041798060797,
+      "tekjur_ma": 3.8406915714285716,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 14
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "6602 Grýtubakkahreppur",
+      "short": "Grýtubakkahreppur",
+      "margin": -1.7364734899314491,
+      "tekjur_ma": 0.5118842064285714,
+      "tap_arar": 5,
+      "total_arar": 7,
+      "rank": 16
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "short": "Akureyrarbær",
+      "margin": -1.4819725872241996,
+      "tekjur_ma": 23.582316857142857,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 17
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "short": "Skagafjörður",
+      "margin": -0.937314760613269,
+      "tekjur_ma": 6.245280142857143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 18
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "short": "Fjarðabyggð",
+      "margin": -0.36989289140727816,
+      "tekjur_ma": 7.099183285714285,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 19
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "3811 Dalabyggð",
+      "short": "Dalabyggð",
+      "margin": 0.0969518253631704,
+      "tekjur_ma": 0.9155912857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 21
+    },
+    {
+      "svf": "7505 Fljótsdalshreppur",
+      "short": "Fljótsdalshreppur",
+      "margin": 0.369136442174729,
+      "tekjur_ma": 0.2448593,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 22
+    },
+    {
+      "svf": "3709 Grundarfjarðarbær",
+      "short": "Grundarfjarðarbær",
+      "margin": 0.5696543678205495,
+      "tekjur_ma": 1.191284,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 23
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "2510 Suðurnesjabær",
+      "short": "Suðurnesjabær",
+      "margin": 0.9811447026560886,
+      "tekjur_ma": 4.844553385714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 25
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "8509 Skaftárhreppur",
+      "short": "Skaftárhreppur",
+      "margin": 1.449967815113991,
+      "tekjur_ma": 0.8574102857142858,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 27
+    },
+    {
+      "svf": "3713 Eyja- og Miklaholtshreppur",
+      "short": "Eyja- og Miklaholtshreppur",
+      "margin": 1.457431018475378,
+      "tekjur_ma": 0.18100771428571427,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 28
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "8721 Bláskógabyggð",
+      "short": "Bláskógabyggð",
+      "margin": 1.6856163702106586,
+      "tekjur_ma": 1.7995357142857142,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 30
+    },
+    {
+      "svf": "6613 Þingeyjarsveit",
+      "short": "Þingeyjarsveit",
+      "margin": 2.1475814896467624,
+      "tekjur_ma": 1.9787938571428572,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 31
+    },
+    {
+      "svf": "4502 Reykhólahreppur",
+      "short": "Reykhólahreppur",
+      "margin": 2.8518909510550023,
+      "tekjur_ma": 0.5747058487142858,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 32
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "short": "Norðurþing",
+      "margin": 3.5674944056724254,
+      "tekjur_ma": 4.464155857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 33
+    },
+    {
+      "svf": "6250 Fjallabyggð",
+      "short": "Fjallabyggð",
+      "margin": 3.6413309399640035,
+      "tekjur_ma": 2.8169654285714283,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 34
+    },
+    {
+      "svf": "5508 Húnaþing vestra",
+      "short": "Húnaþing vestra",
+      "margin": 3.852075550967058,
+      "tekjur_ma": 1.6549307142857144,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 35
+    },
+    {
+      "svf": "8000 Vestmannaeyjabær",
+      "short": "Vestmannaeyjabær",
+      "margin": 3.8611471608984202,
+      "tekjur_ma": 4.949305128571429,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 36
+    },
+    {
+      "svf": "8722 Flóahreppur",
+      "short": "Flóahreppur",
+      "margin": 4.475292967888676,
+      "tekjur_ma": 0.9240921428571428,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 37
+    },
+    {
+      "svf": "6400 Dalvíkurbyggð",
+      "short": "Dalvíkurbyggð",
+      "margin": 4.561202743400242,
+      "tekjur_ma": 2.508672142857143,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 38
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "short": "Akraneskaupstaður",
+      "margin": 4.953333064763547,
+      "tekjur_ma": 8.549133742857142,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 39
+    },
+    {
+      "svf": "8710 Hrunamannahreppur",
+      "short": "Hrunamannahreppur",
+      "margin": 4.994199680580272,
+      "tekjur_ma": 1.23209,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 40
+    },
+    {
+      "svf": "6515 Hörgársveit",
+      "short": "Hörgársveit",
+      "margin": 5.278673153514231,
+      "tekjur_ma": 0.9205378571428571,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 41
+    },
+    {
+      "svf": "6710 Langanesbyggð",
+      "short": "Langanesbyggð",
+      "margin": 5.3090185362167475,
+      "tekjur_ma": 0.9777336857142856,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 42
+    },
+    {
+      "svf": "3714 Snæfellsbær",
+      "short": "Snæfellsbær",
+      "margin": 5.4351691020479205,
+      "tekjur_ma": 2.462079057142857,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 43
+    },
+    {
+      "svf": "3609 Borgarbyggð",
+      "short": "Borgarbyggð",
+      "margin": 5.962704251922355,
+      "tekjur_ma": 4.878485142857143,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 44
+    },
+    {
+      "svf": "8613 Rangárþing eystra",
+      "short": "Rangárþing eystra",
+      "margin": 6.214503499262623,
+      "tekjur_ma": 2.432912142857143,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 45
+    },
+    {
+      "svf": "8720 Skeiða- og Gnúpverjahreppur",
+      "short": "Skeiða- og Gnúpverjahreppur",
+      "margin": 6.664298045115549,
+      "tekjur_ma": 0.960735,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 46
+    },
+    {
+      "svf": "8614 Rangárþing ytra",
+      "short": "Rangárþing ytra",
+      "margin": 7.451832939233753,
+      "tekjur_ma": 2.4455714285714287,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 47
+    },
+    {
+      "svf": "8610 Ásahreppur",
+      "short": "Ásahreppur",
+      "margin": 7.6241991821788,
+      "tekjur_ma": 0.4255758571428572,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 48
+    },
+    {
+      "svf": "2300 Grindavíkurbær",
+      "short": "Grindavíkurbær",
+      "margin": 7.937165581720236,
+      "tekjur_ma": 3.922551285714286,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 49
+    },
+    {
+      "svf": "4902 Kaldrananeshreppur",
+      "short": "Kaldrananeshreppur",
+      "margin": 8.259778433045573,
+      "tekjur_ma": 0.15876814285714286,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 50
+    },
+    {
+      "svf": "8717 Sveitarfélagið Ölfus",
+      "short": "Sveitarfélagið Ölfus",
+      "margin": 8.420064557911028,
+      "tekjur_ma": 3.2965802857142856,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 51
+    },
+    {
+      "svf": "8401 Sveitarfélagið Hornafjörður",
+      "short": "Sveitarfélagið Hornafjörður",
+      "margin": 8.754191307428849,
+      "tekjur_ma": 3.092217857142857,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 52
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "short": "Reykjanesbær",
+      "margin": 10.304015087689775,
+      "tekjur_ma": 20.41573914285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 53
+    },
+    {
+      "svf": "6513 Eyjafjarðarsveit",
+      "short": "Eyjafjarðarsveit",
+      "margin": 10.413345899189906,
+      "tekjur_ma": 1.3355044285714286,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 54
+    },
+    {
+      "svf": "6601 Svalbarðsstrandarhreppur",
+      "short": "Svalbarðsstrandarhreppur",
+      "margin": 11.67747179990543,
+      "tekjur_ma": 0.5721712857142858,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 55
+    },
+    {
+      "svf": "1606 Kjósarhreppur",
+      "short": "Kjósarhreppur",
+      "margin": 11.739308155946297,
+      "tekjur_ma": 0.3278809857142857,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 56
+    },
+    {
+      "svf": "8719 Grímsnes- og Grafningshreppur",
+      "short": "Grímsnes- og Grafningshreppur",
+      "margin": 13.360512366063755,
+      "tekjur_ma": 1.2287851428571428,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 57
+    },
+    {
+      "svf": "4803 Súðavíkurhreppur",
+      "short": "Súðavíkurhreppur",
+      "margin": 14.494382319719195,
+      "tekjur_ma": 0.339227,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 58
+    },
+    {
+      "svf": "4901 Árneshreppur",
+      "short": "Árneshreppur",
+      "margin": 16.752247103578892,
+      "tekjur_ma": 0.06550828571428571,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 59
+    },
+    {
+      "svf": "8508 Mýrdalshreppur",
+      "short": "Mýrdalshreppur",
+      "margin": 17.64010535243474,
+      "tekjur_ma": 0.9842815714285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 60
+    },
+    {
+      "svf": "6611 Tjörneshreppur",
+      "short": "Tjörneshreppur",
+      "margin": 21.63528496558689,
+      "tekjur_ma": 0.05487575714285714,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 61
+    },
+    {
+      "svf": "3511 Hvalfjarðarsveit",
+      "short": "Hvalfjarðarsveit",
+      "margin": 31.10347582751884,
+      "tekjur_ma": 1.1709767857142857,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 62
+    }
+  ],
+  "rvk_rank": 15,
+  "total_svf": 62,
+  "hborg": [
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "short": "Seltjarnarnesbær",
+      "margin": -8.408247758170184,
+      "tekjur_ma": 4.969327157142857,
+      "tap_arar": 7,
+      "total_arar": 7,
+      "rank": 4
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "1606 Kjósarhreppur",
+      "short": "Kjósarhreppur",
+      "margin": 11.739308155946297,
+      "tekjur_ma": 0.3278809857142857,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 56
+    }
+  ],
+  "storir": [
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "short": "Sveitarfélagið Árborg",
+      "margin": -8.487895574112208,
+      "tekjur_ma": 12.577132,
+      "tap_arar": 6,
+      "total_arar": 7,
+      "rank": 3
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "short": "Reykjavíkurborg",
+      "margin": -1.7949818821110737,
+      "tekjur_ma": 148.7400315957143,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 15
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "short": "Akureyrarbær",
+      "margin": -1.4819725872241996,
+      "tekjur_ma": 23.582316857142857,
+      "tap_arar": 4,
+      "total_arar": 7,
+      "rank": 17
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "short": "Mosfellsbær",
+      "margin": -0.33165593728557313,
+      "tekjur_ma": 14.557875142857142,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 20
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "short": "Hafnarfjarðarkaupstaður",
+      "margin": 0.8506005454106738,
+      "tekjur_ma": 33.733619714285716,
+      "tap_arar": 1,
+      "total_arar": 7,
+      "rank": 24
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "short": "Kópavogsbær",
+      "margin": 1.3178545202223408,
+      "tekjur_ma": 40.14444614285714,
+      "tap_arar": 3,
+      "total_arar": 7,
+      "rank": 26
+    },
+    {
+      "svf": "1300 Garðabær",
+      "short": "Garðabær",
+      "margin": 1.6648668531801285,
+      "tekjur_ma": 20.60059085714286,
+      "tap_arar": 2,
+      "total_arar": 7,
+      "rank": 29
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "short": "Reykjanesbær",
+      "margin": 10.304015087689775,
+      "tekjur_ma": 20.41573914285714,
+      "tap_arar": 0,
+      "total_arar": 7,
+      "rank": 53
+    }
+  ],
+  "hist": {
+    "2018": {
+      "0000 Reykjavíkurborg": 3.94,
+      "1000 Kópavogsbær": 3.85,
+      "1300 Garðabær": 3.1,
+      "1400 Hafnarfjarðarkaupstaður": 1.97,
+      "2000 Reykjanesbær": 17.09,
+      "8200 Sveitarfélagið Árborg": -0.62
+    },
+    "2019": {
+      "0000 Reykjavíkurborg": 1.1,
+      "1000 Kópavogsbær": 4.55,
+      "1300 Garðabær": 0.65,
+      "1400 Hafnarfjarðarkaupstaður": 1.61,
+      "2000 Reykjanesbær": 30.68,
+      "8200 Sveitarfélagið Árborg": -1.51
+    },
+    "2020": {
+      "0000 Reykjavíkurborg": -4.54,
+      "1000 Kópavogsbær": 0.42,
+      "1300 Garðabær": -1.11,
+      "1400 Hafnarfjarðarkaupstaður": 5.6,
+      "2000 Reykjanesbær": 0.48,
+      "8200 Sveitarfélagið Árborg": -9.82
+    },
+    "2021": {
+      "0000 Reykjavíkurborg": -2.71,
+      "1000 Kópavogsbær": -1.24,
+      "1300 Garðabær": -0.31,
+      "1400 Hafnarfjarðarkaupstaður": -4.74,
+      "2000 Reykjanesbær": 11.84,
+      "8200 Sveitarfélagið Árborg": -19.35
+    },
+    "2022": {
+      "0000 Reykjavíkurborg": -9.99,
+      "1000 Kópavogsbær": -4.72,
+      "1300 Garðabær": 3.18,
+      "1400 Hafnarfjarðarkaupstaður": 0.66,
+      "2000 Reykjanesbær": 2.23,
+      "8200 Sveitarfélagið Árborg": -24.96
+    },
+    "2023": {
+      "0000 Reykjavíkurborg": -2.82,
+      "1000 Kópavogsbær": -1.52,
+      "1300 Garðabær": 4.18,
+      "1400 Hafnarfjarðarkaupstaður": 0.58,
+      "2000 Reykjanesbær": 5.81,
+      "8200 Sveitarfélagið Árborg": -11.64
+    },
+    "2024": {
+      "0000 Reykjavíkurborg": 2.44,
+      "1000 Kópavogsbær": 7.89,
+      "1300 Garðabær": 1.97,
+      "1400 Hafnarfjarðarkaupstaður": 0.27,
+      "2000 Reykjanesbær": 4.0,
+      "8200 Sveitarfélagið Árborg": 8.5
+    }
+  },
+  "y2025": {
+    "0000 Reykjavíkurborg": {
+      "tekjur_ma": 206.589,
+      "nidurst_ma": -5.317,
+      "margin": -2.573709151987763
+    },
+    "1000 Kópavogsbær": {
+      "tekjur_ma": 57.688,
+      "nidurst_ma": 4.245,
+      "margin": 7.3585494383580645
+    }
+  }
+}

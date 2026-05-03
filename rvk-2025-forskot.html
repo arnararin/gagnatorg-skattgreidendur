@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>2025 Forskot · Reykjavíkurborg & sveitarfélög | Samtök skattgreiðenda</title>
+<meta name="description" content="2025 ársreikningar sveitarfélaga — birtir nú, ekki eftir Hagstofu sem tekur 6+ mánuði að miðla þeim.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e;
+    --rvk-mid: #1e6091;
+    --bg: #fefefe;
+    --bg-2: #f8fafc;
+    --text: #0f172a;
+    --text-2: #334155;
+    --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669;
+    --bad: #dc2626;
+    --highlight: #fef3c7;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; font-size: 16px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; color: var(--rvk-deep); line-height: 1.2; }
+  h1 { font-size: 38px; margin: 0 0 8px; }
+  h2 { font-size: 24px; margin: 50px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-size: 18px; margin: 28px 0 8px; color: var(--rvk-mid); }
+  .lead { font-size: 19px; color: var(--text-2); margin-bottom: 24px; max-width: 760px; }
+  .pill {
+    display: inline-block; padding: 4px 10px;
+    background: linear-gradient(90deg, #ef4444, #f59e0b);
+    color: white; font-size: 12px; font-weight: 600; border-radius: 12px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-left: 8px; vertical-align: middle;
+  }
+  .meta { color: var(--sub); font-size: 13px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .edge-banner {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+  .edge-banner strong { color: #92400e; font-size: 15px; }
+  .edge-banner p { margin: 6px 0 0; color: #78350f; font-size: 14px; }
+
+  /* KPI cards */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 20px 0; }
+  .kpi {
+    background: var(--bg-2);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .kpi.alert { background: #fee2e2; border-color: #fca5a5; }
+  .kpi.good { background: #dcfce7; border-color: #86efac; }
+  .kpi-label { color: var(--sub); font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .kpi-value { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); margin-top: 4px; }
+  .kpi.alert .kpi-value { color: var(--bad); }
+  .kpi-sub { color: var(--sub); font-size: 12px; margin-top: 2px; }
+  .kpi-delta { font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .kpi-delta.up { color: var(--good); }
+  .kpi-delta.down { color: var(--bad); }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th { text-align: left; padding: 8px 10px; background: var(--bg-2); border-bottom: 2px solid var(--border); font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.sum td { font-weight: 700; background: #f1f5f9; }
+  tr.highlight td { background: #fef3c7; font-weight: 600; }
+  tr:hover td { background: #f1f5f9; }
+  td.delta-up { color: var(--good); }
+  td.delta-down { color: var(--bad); }
+
+  .info-box, .warn-box {
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .info-box { background: #dbeafe; color: #1e40af; border-left: 3px solid #1e40af; }
+  .warn-box { background: #fef3c7; color: #92400e; border-left: 3px solid #92400e; }
+
+  /* Bar chart */
+  .barchart { margin: 12px 0; }
+  .bar-row { display: grid; grid-template-columns: 130px 1fr 80px; gap: 12px; align-items: center; padding: 5px 0; font-size: 13px; }
+  .bar-track { background: #f1f5f9; height: 22px; border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--rvk-deep), var(--rvk-mid)); }
+  .bar-fill.kop { background: linear-gradient(90deg, #047857, #10b981); }
+  .bar-val { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>2025 Forskot <span class="pill">EDGE</span></h1>
+  <p class="lead">Ársreikningar sveitarfélaga 2025 — birtar á þessum vef strax og þær koma út, sex mánuðum áður en Hagstofa miðlar þeim út.</p>
+
+  <div class="meta">
+    <strong>Heimildir:</strong> Reykjavíkurborg ársreikningur 2025 (birt 27. apríl 2026) ·
+    Kópavogsbær ársreikningur 2025 (birt 16. apríl 2026) ·
+    Akureyrarbær ársreikningur 2025 (birt 26. mars 2026).
+    <br>Síðast uppfært: 1. maí 2026.
+  </div>
+
+  <div class="edge-banner">
+    <strong>📊 Þetta er forsýning:</strong>
+    <p>Hagstofa Íslands birtir staðlaða sundurliðun á sveitarfélagagögnum aðeins eftir að allir sveitarfélög hafa skilað inn ársreikningi (oft í september-október ári síðar).
+    Hér eru nákvæmar tölur úr fyrstu PDF-skjölum sem koma út — sex mánuðum á undan Hagstofu.</p>
+  </div>
+
+  <h2>1. Reykjavíkurborg — Stærstu fréttir 2025</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi alert">
+      <div class="kpi-label">Rekstrarniðurstaða A-hluta 2025</div>
+      <div class="kpi-value">−5,3 ma.kr.</div>
+      <div class="kpi-sub">vs +4,7 ma.kr. árið 2024</div>
+      <div class="kpi-delta down">↘ −10,1 ma.kr.</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Rekstrartekjur 2025</div>
+      <div class="kpi-value">206,6 ma.kr.</div>
+      <div class="kpi-sub">vs 194,5 ma.kr. árið 2024</div>
+      <div class="kpi-delta up">↗ +12,1 ma.kr. (+6,2%)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Lífeyrisskuldbindingar 2025</div>
+      <div class="kpi-value">9,9 ma.kr.</div>
+      <div class="kpi-sub">vs +0,8 ma.kr. tekjufærsla 2024</div>
+      <div class="kpi-delta down">↘ −10,7 ma.kr. swing</div>
+    </div>
+    <div class="kpi alert">
+      <div class="kpi-label">Sala byggingaréttar 2025</div>
+      <div class="kpi-value">3,4 ma.kr.</div>
+      <div class="kpi-sub">vs 5,4 ma.kr. árið 2024</div>
+      <div class="kpi-delta down">↘ −2,1 ma.kr. (−38%)</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <strong>Athyglisvert:</strong> Þrátt fyrir 12,1 ma.kr. hækkun í tekjum á A-hluta 2025 skilar borgin <strong>tapi upp á 5,3 ma.kr.</strong> Helstu ástæður:
+    <ul style="margin:8px 0">
+      <li><strong>Lífeyrisskuldbindingar</strong> hækkaðu um 10,7 ma.kr. (vegna nýrra kjarasamninga, vísitala lífeyrisskuldbindinga hækkaði um 11,7%)</li>
+      <li><strong>Sala byggingaréttar</strong> dróst saman um 2,1 ma.kr. (38% lækkun)</li>
+      <li><strong>Launakostnaður</strong> jókst um 8,4 ma.kr. (kjarasamningar)</li>
+    </ul>
+  </div>
+
+  <h3>Reykjavík A-hluti — Rekstrarreikningur 2024 vs 2025</h3>
+
+  <table id="rvkTable">
+    <thead><tr>
+      <th>Liður (m.kr.)</th><th class="num">2024</th><th class="num">2025</th>
+      <th class="num">Áætlun 2025</th><th class="num">Frávik %</th><th class="num">Breyt. milli ára</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>2. Lóðasala — Tvö stór sveitarfélög 2025</h2>
+
+  <p>Lóðasala er stór og sveiflukennd tekjustofn. Hér er samanburður Reykjavíkur og Kópavogsbæjar 2024 vs 2025:</p>
+
+  <h3>Reykjavíkurborg lóðasala</h3>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Sala byggingaréttar 2025</div>
+      <div class="kpi-value">3,4 ma.kr.</div>
+      <div class="kpi-delta down">↘ −38% frá 2024 (5,4 ma.kr.)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Söluhagnaður eigna 2025</div>
+      <div class="kpi-value">1,5 ma.kr.</div>
+      <div class="kpi-delta up">↗ +116% frá 2024 (672 m.kr.)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Lóðarleiga 2025</div>
+      <div class="kpi-value">2,6 ma.kr.</div>
+      <div class="kpi-delta up">↗ +5% frá 2024 (2,5 ma.kr.)</div>
+    </div>
+  </div>
+
+  <h3>Kópavogsbær lóðasala</h3>
+  <div class="kpi-grid">
+    <div class="kpi good">
+      <div class="kpi-label">Byggingarréttur 2025</div>
+      <div class="kpi-value">5,75 ma.kr.</div>
+      <div class="kpi-delta up">↗ +85% frá 2024 (3,1 ma.kr.)</div>
+    </div>
+    <div class="kpi good">
+      <div class="kpi-label">Hagnaður vegna lóða 2025</div>
+      <div class="kpi-value">4,65 ma.kr.</div>
+      <div class="kpi-delta up">↗ +31% frá 2024 (3,6 ma.kr.)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Lóðarleiga 2025</div>
+      <div class="kpi-value">412 m.kr.</div>
+      <div class="kpi-delta up">↗ +6% frá 2024 (388 m.kr.)</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Útboðsbúhinna í Vatnsendahvarfi:</strong> Stór hluti af tekjuaukningu Kópavogs 2025 er vegna útboðs á byggingarrétti í Vatnsendahvarfi. Fyrstu lóðir voru úthlutaðar 2024 en innviðaráðuneytið ógilti úthlutunina í maí 2025. Kópavogur unir ekki úrskurði og málaferli eru í gangi.
+  </div>
+
+  <h3>Samanburður — Lóðatengdar tekjur 2025 (m.kr.)</h3>
+  <div class="barchart" id="lodaBars"></div>
+
+  <h2>3. Samhæfing milli gagnasetra</h2>
+
+  <p>Tölur í þremur gagnasettum:</p>
+  <ul>
+    <li><strong>Opnir reikningar Reykjavíkur</strong> — bókhald á transaction-stigi</li>
+    <li><strong>Sveitarfelag_arsreikningar</strong> — Hagstofu-staðlað yfirlit</li>
+    <li><strong>Ársreikningur PDF</strong> — borgarins eigin sundurliðun</li>
+  </ul>
+
+  <table>
+    <thead><tr>
+      <th>Liður (Reykjavík 2024)</th>
+      <th class="num">Opnir reikningar</th>
+      <th class="num">Hagstofu-gögn (DB)</th>
+      <th class="num">Ársreikningur (PDF)</th>
+      <th class="num">Frávik</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Söluhagnaður Eigna (samtals)</td>
+        <td class="num">6.119 m.kr.</td><td class="num">—</td><td class="num">6.119 m.kr.</td>
+        <td class="num delta-up">0%</td></tr>
+      <tr><td>— þar af Sala byggingaréttar</td><td class="num">felast saman</td>
+        <td class="num">felast saman</td><td class="num">5.447 m.kr.</td><td>—</td></tr>
+      <tr><td>— þar af Söluhagnaður eigna (eiginlega)</td><td class="num">felast saman</td>
+        <td class="num">felast saman</td><td class="num">672 m.kr.</td><td>—</td></tr>
+      <tr><td>Rekstrartekjur</td>
+        <td class="num">—</td><td class="num">194.450,68 m.kr.</td><td class="num">194.451 m.kr.</td>
+        <td class="num delta-up">−0,32 m.kr. (rounding)</td></tr>
+      <tr><td>Rekstrarniðurstaða</td>
+        <td class="num">—</td><td class="num">4.745,7 m.kr.</td><td class="num">4.746 m.kr.</td>
+        <td class="num delta-up">−0,3 m.kr. (rounding)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>Niðurstaða:</strong> Tölurnar í okkar gagnagrunni eru mjög nákvæmar á heildarstigi. Frávik eru &lt;0,01% af heild og skýrast af afslögun.
+    <br><br>
+    <strong>Edge:</strong> Okkar einstaki ávinningur er <em>sundurliðun á söluhagnaði Eigna</em> — opin reikningar Reykjavíkur sameina þetta í einn flokk en ársreikningur PDF aðskilur þetta í tvo. Við getum nú bætt sundurliðuninni við.
+  </div>
+
+  <h2>4. Akureyri 2025 (heildur)</h2>
+  <div class="kpi-grid">
+    <div class="kpi good">
+      <div class="kpi-label">Rekstrarniðurstaða (A+B)</div>
+      <div class="kpi-value">+1,06 ma.kr.</div>
+      <div class="kpi-sub">áætlun: +846 m.kr. (yfir áætlun)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Heildareignir</div>
+      <div class="kpi-value">77,3 ma.kr.</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Eiginfjárhlutfall</div>
+      <div class="kpi-value">39,6%</div>
+    </div>
+    <div class="kpi alert">
+      <div class="kpi-label">Lífeyrisskuldbindingar</div>
+      <div class="kpi-value">2,05 ma.kr.</div>
+      <div class="kpi-sub">áætlun var aðeins 800 m.kr.</div>
+    </div>
+  </div>
+
+  <h2>5. Hvað eigum við að bæta við gagnagrunninn?</h2>
+
+  <p>Eftir þessa könnun á 2025-tölum, eru þetta greinleg eyður í okkar gögnum:</p>
+
+  <ol>
+    <li><strong>Sundurliðun á Söluhagnaður Eigna</strong> í tvo flokka:
+      <ul>
+        <li>Sala byggingaréttar (gross)</li>
+        <li>Söluhagnaður eigna (mjög eiginlegt)</li>
+      </ul>
+    </li>
+    <li><strong>Lífeyrisskuldbindingar</strong> sem sérstök lína (mjög sveiflukennt og hefur stór áhrif á niðurstöðu)</li>
+    <li><strong>Lóðarleiga</strong> aðgreind frá fasteignaskatti</li>
+    <li><strong>Endurmat á eignum</strong> — eigin fé reikning sveitarfélags</li>
+    <li><strong>2025 ársreikningar fyrir hin 13+ stór sveitarfélag</strong> sem ekki eru komin í okkar gagnagrunn ennþá</li>
+  </ol>
+
+  <p>Vænleg vinnumiðstöð fyrir þetta væri:</p>
+  <ul>
+    <li>Sjálfvirkt PDF-sækingar-kerfi sem fylgir ársreikningum þegar þeir koma út (apríl-maí ár hvert)</li>
+    <li>OCR/parsing pípuflæði sem dregur fram lykiltölur</li>
+    <li>Sjálfvirk samanburðarviðmiðun við Hagstofu þegar þeir loksins miðla út (sept-okt)</li>
+  </ul>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-tekjuhlid.html">Tekjuhliðin · Reykjavíkurborg</a> (heildargreining)</li>
+      <li><a href="rvk-utforska.html">Mælaborð: Opnir reikningar Reykjavíkur 2019–2025</a></li>
+      <li><a href="sveitarfelog-dashboard.html">Mælaborð: Sveitarfélaga-fjármál</a></li>
+    </ul>
+    <p>© Samtök skattgreiðenda. Heimildir: Ársreikningar Reykjavíkurborgar 2025 (reykjavik.is), Kópavogsbær 2025 (kopavogur.is), Akureyrarbær 2025 (akureyri.is).</p>
+  </div>
+</div>
+
+<script>
+const __DATA_D = {
+  "rvk_rekstur": {
+    "lines": [
+      {
+        "name": "Nettó útsvar",
+        "2024": 115290,
+        "2025": 125266,
+        "aaetlun": 128585
+      },
+      {
+        "name": "Fasteignaskattar samtals",
+        "2024": 29457,
+        "2025": 31244,
+        "aaetlun": 31323
+      },
+      {
+        "name": "Framlög Jöfnunarsjóðs",
+        "2024": 16997,
+        "2025": 18883,
+        "aaetlun": 18521
+      },
+      {
+        "name": "Þjónustutekjur",
+        "2024": 14250,
+        "2025": 13946,
+        "aaetlun": 13079
+      },
+      {
+        "name": "Eignatekjur",
+        "2024": 37337,
+        "2025": 40467,
+        "aaetlun": 39389
+      },
+      {
+        "name": "Sala byggingaréttar",
+        "2024": 5447,
+        "2025": 3363,
+        "aaetlun": 3074
+      },
+      {
+        "name": "Söluhagnaður eigna",
+        "2024": 672,
+        "2025": 1455,
+        "aaetlun": 1854
+      },
+      {
+        "name": "Endurgreiðslur annarra",
+        "2024": 10418,
+        "2025": 10267,
+        "aaetlun": 8567
+      },
+      {
+        "name": "Aðrar tekjur",
+        "2024": 2248,
+        "2025": 2138,
+        "aaetlun": 1726
+      },
+      {
+        "name": "Milliviðskipti tekin út",
+        "2024": -37665,
+        "2025": -40441,
+        "aaetlun": -39008
+      },
+      {
+        "name": "Rekstrartekjur samtals",
+        "2024": 194451,
+        "2025": 206589,
+        "aaetlun": 207111,
+        "sum": true
+      },
+      {
+        "name": "Laun og launatengd",
+        "2024": -104695,
+        "2025": -113126,
+        "aaetlun": -111953
+      },
+      {
+        "name": "Lífeyrisskuldbindingar",
+        "2024": 847,
+        "2025": -9860,
+        "aaetlun": -6700
+      },
+      {
+        "name": "Annar rekstrarkostnaður",
+        "2024": -72443,
+        "2025": -76354,
+        "aaetlun": -74576
+      },
+      {
+        "name": "Afskriftir",
+        "2024": -9561,
+        "2025": -10510,
+        "aaetlun": -10200
+      },
+      {
+        "name": "Rekstrargjöld samtals",
+        "2024": -185852,
+        "2025": -209850,
+        "aaetlun": -203429,
+        "sum": true
+      },
+      {
+        "name": "Fjármagnsliðir",
+        "2024": -3853,
+        "2025": -2056,
+        "aaetlun": -3335
+      },
+      {
+        "name": "EBITDA",
+        "2024": 18159,
+        "2025": 7249,
+        "aaetlun": 13882,
+        "highlight": true
+      },
+      {
+        "name": "Rekstrarniðurstaða",
+        "2024": 4746,
+        "2025": -5317,
+        "aaetlun": 346,
+        "highlight": true
+      }
+    ]
+  },
+  "lodasala": {
+    "rvk_2024": {
+      "sala_byggingar": 5447,
+      "soluhagn_eigna": 672,
+      "lodaleiga": 2480,
+      "samtals_solur": 6119
+    },
+    "rvk_2025": {
+      "sala_byggingar": 3363,
+      "soluhagn_eigna": 1455,
+      "lodaleiga": 2611,
+      "samtals_solur": 4818
+    },
+    "kop_2024": {
+      "byggingarrettur": 3109,
+      "lodaleiga": 388,
+      "sala_eigna": 4,
+      "tap_hagn_loda": -3559
+    },
+    "kop_2025": {
+      "byggingarrettur": 5750,
+      "lodaleiga": 412,
+      "sala_eigna": 26,
+      "tap_hagn_loda": -4650
+    }
+  },
+  "samrymi": [
+    {
+      "lidur": "Söluhagnaður Eigna (Rvk 2024)",
+      "opin_reikningar": 6119,
+      "arsreikningur": 6119,
+      "frávik": 0
+    },
+    {
+      "lidur": "Rekstrartekjur (Rvk 2024)",
+      "okkar": 194450.68,
+      "pdf": 194451,
+      "frávik": -0.32
+    },
+    {
+      "lidur": "Rekstrarniðurstaða (Rvk 2024)",
+      "okkar": 4745.7,
+      "pdf": 4746,
+      "frávik": -0.3
+    }
+  ],
+  "top_adrar_tekjur_2024": [
+    {
+      "svf": "Reykjavíkurborg",
+      "svf_full": "0000 Reykjavíkurborg",
+      "ma": 27.083387
+    },
+    {
+      "svf": "Kópavogsbær",
+      "svf_full": "1000 Kópavogsbær",
+      "ma": 8.813004
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "svf_full": "6000 Akureyrarbær",
+      "ma": 6.975587
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "svf_full": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 6.738521
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "svf_full": "8200 Sveitarfélagið Árborg",
+      "ma": 3.85195
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "svf_full": "2000 Reykjanesbær",
+      "ma": 3.301815
+    },
+    {
+      "svf": "1300 Garðabær",
+      "svf_full": "1300 Garðabær",
+      "ma": 2.916833
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "svf_full": "1604 Mosfellsbær",
+      "ma": 2.909524
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "svf_full": "4200 Ísafjarðarbær",
+      "ma": 2.091698
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "svf_full": "3000 Akraneskaupstaður",
+      "ma": 1.657583
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "svf_full": "7300 Fjarðabyggð",
+      "ma": 1.421705
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "svf_full": "7400 Múlaþing",
+      "ma": 1.395921
+    }
+  ]
+};
+((D) => {
+  // ------------- Reykjavík tafla -------------
+  const tb = document.querySelector('#rvkTable tbody');
+  const fmt = v => v == null ? '—' : Math.abs(v).toLocaleString('is-IS').replace(/,/g, '.');
+  const sign = v => v < 0 ? '−' + fmt(v) : fmt(v);
+  D.rvk_rekstur.lines.forEach(d => {
+    const trClass = d.sum ? 'sum' : (d.highlight ? 'highlight' : '');
+    const breyting = d['2025'] - d['2024'];
+    const breytPct = d['2024'] !== 0 ? (breyting / Math.abs(d['2024']) * 100) : 0;
+    const fravik = d['2025'] - d.aaetlun;
+    const fravikPct = d.aaetlun !== 0 ? (fravik / Math.abs(d.aaetlun) * 100) : 0;
+    const fmtSign = v => v >= 0 ? '+' + fmt(v) : '−' + fmt(v);
+    const dirClass = breyting >= 0 ? 'delta-up' : 'delta-down';
+    tb.innerHTML += `<tr class="${trClass}">
+      <td>${d.name}</td>
+      <td class="num">${sign(d['2024'])}</td>
+      <td class="num"><strong>${sign(d['2025'])}</strong></td>
+      <td class="num">${sign(d.aaetlun)}</td>
+      <td class="num ${fravik >= 0 ? 'delta-up' : 'delta-down'}">${fravikPct.toFixed(1)}%</td>
+      <td class="num ${dirClass}">${fmtSign(breyting)}</td>
+    </tr>`;
+  });
+
+  // ------------- Lóða bar chart -------------
+  const lodaBars = document.getElementById('lodaBars');
+  const items = [
+    { label: 'Rvk Sala byggingaréttar', val: D.lodasala.rvk_2025.sala_byggingar, type: 'rvk' },
+    { label: 'Rvk Söluhagnaður eigna', val: D.lodasala.rvk_2025.soluhagn_eigna, type: 'rvk' },
+    { label: 'Rvk Lóðarleiga', val: D.lodasala.rvk_2025.lodaleiga, type: 'rvk' },
+    { label: 'Kópavogur Byggingarréttur', val: D.lodasala.kop_2025.byggingarrettur, type: 'kop' },
+    { label: 'Kópavogur Hagnaður lóða', val: -D.lodasala.kop_2025.tap_hagn_loda, type: 'kop' },
+    { label: 'Kópavogur Lóðarleiga', val: D.lodasala.kop_2025.lodaleiga, type: 'kop' },
+  ];
+  const maxVal = Math.max(...items.map(d => d.val));
+  lodaBars.innerHTML = items.map(d => `
+    <div class="bar-row">
+      <div>${d.label}</div>
+      <div class="bar-track"><div class="bar-fill ${d.type === 'kop' ? 'kop' : ''}" style="width:${(d.val / maxVal * 100).toFixed(1)}%"></div></div>
+      <div class="bar-val">${fmt(d.val)}</div>
+    </div>
+  `).join('');
+})(__DATA_D);
+</script>
+</body>
+</html>

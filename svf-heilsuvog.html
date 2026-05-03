@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Fjárhagsleg heilsuvog sveitarfélaga 2018–2024</title>
+<meta name="description" content="Einkunn 0–100 fyrir fjárhagsstöðu 40 sveitarfélaga byggð á 5 lykiltölum. Leitaðu að þínu sveitarfélagi.">
+<meta property="og:title" content="Fjárhagsleg heilsuvog sveitarfélaga 2018–2024">
+<meta property="og:description" content="Einkunn 0–100 fyrir 40 sveitarfélög. Reykjavík: E (39 stig).">
+<meta property="og:type" content="article">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e; --rvk-mid: #1e6091;
+    --bg: #fefefe; --bg-2: #f8fafc;
+    --text: #0f172a; --text-2: #334155; --sub: #64748b;
+    --border: #e2e8f0;
+    --good: #059669; --bad: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; font-size: 16px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 30px 24px 80px; }
+  h1 { font-family: Georgia, serif; font-size: 40px; font-weight: 700; color: var(--rvk-deep); margin: 0 0 8px; line-height: 1.1; }
+  h2 { font-family: Georgia, serif; font-size: 22px; color: var(--rvk-deep); margin: 40px 0 16px; padding-bottom: 6px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-family: Georgia, serif; font-size: 16px; color: var(--rvk-mid); margin: 16px 0 8px; }
+  .lead { font-size: 17px; color: var(--text-2); max-width: 720px; margin: 0 0 24px; }
+
+  /* Search/picker */
+  .picker {
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border-radius: 12px; padding: 24px; margin: 24px 0;
+  }
+  .picker-label { font-size: 13px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; font-weight: 600; }
+  select {
+    width: 100%; padding: 14px 16px; font-size: 18px; border-radius: 8px;
+    border: 2px solid var(--rvk-deep); background: white; color: var(--text);
+    cursor: pointer; font-family: inherit;
+  }
+  select:focus { outline: 3px solid #93c5fd; }
+
+  /* Result card */
+  .result-card {
+    background: white; border-radius: 12px; padding: 24px;
+    border: 1px solid var(--border); margin: 16px 0;
+    display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+  }
+  @media (max-width: 600px) { .result-card { grid-template-columns: 1fr; text-align: center; } }
+  .grade-badge {
+    width: 140px; height: 140px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    font-family: Georgia, serif; color: white; font-weight: 700;
+  }
+  .grade-Aplus { background: linear-gradient(135deg, #059669, #10b981); }
+  .grade-A { background: linear-gradient(135deg, #10b981, #34d399); }
+  .grade-B { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .grade-C { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+  .grade-D { background: linear-gradient(135deg, #f97316, #fb923c); }
+  .grade-E { background: linear-gradient(135deg, #ef4444, #f87171); }
+  .grade-F { background: linear-gradient(135deg, #991b1b, #dc2626); }
+  .grade-letter { font-size: 56px; line-height: 1; }
+  .grade-score { font-size: 18px; opacity: 0.9; margin-top: 4px; }
+
+  .result-info { padding: 8px 0; }
+  .result-name { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); margin: 0 0 4px; font-weight: 700; }
+  .result-rank { color: var(--text-2); font-size: 15px; margin-bottom: 12px; }
+  .result-rank strong { color: var(--rvk-deep); }
+
+  /* Score bars */
+  .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
+  .score-card {
+    background: var(--bg-2); border-radius: 8px; padding: 12px 16px;
+    border-left: 4px solid var(--rvk-mid);
+  }
+  .score-card-label { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; }
+  .score-card-value { font-family: Georgia, serif; font-size: 22px; color: var(--rvk-deep); margin: 2px 0; font-weight: 700; }
+  .score-card-bar { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+  .score-card-bar-fill { height: 100%; background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981); }
+  .score-card-detail { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+
+  /* Ranking */
+  .ranking { background: var(--bg-2); border-radius: 8px; padding: 12px; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th { padding: 8px; text-align: left; color: var(--sub); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
+  td { padding: 8px; border-bottom: 1px solid var(--border); }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .grade-tag {
+    display: inline-block; padding: 2px 10px; border-radius: 4px;
+    color: white; font-weight: 700; font-size: 11px; min-width: 28px; text-align: center;
+  }
+  tr.highlighted { background: #fef3c7; font-weight: 700; }
+  tr:hover td { background: #f1f5f9; }
+
+  /* Methodology */
+  .method {
+    background: var(--bg-2); border-radius: 8px; padding: 16px 20px;
+    margin: 24px 0; font-size: 14px;
+  }
+  .method strong { color: var(--rvk-deep); }
+  .method ul { margin: 8px 0; padding-left: 20px; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Fjárhagsleg heilsuvog<br>sveitarfélaga</h1>
+  <p class="lead">Einkunn 0–100 byggð á 5 lykiltölum úr ársreikningum 2018–2024 — leitaðu að þínu sveitarfélagi og sjáðu hvar styrkurinn og veikleikinn liggur.</p>
+
+  <div class="picker">
+    <div class="picker-label">Veldu sveitarfélag</div>
+    <select id="svfPick">
+      <option value="">— veldu —</option>
+    </select>
+  </div>
+
+  <div id="result"></div>
+
+  <h2>Heildarröð — frá bestum til verstum</h2>
+  <p style="font-size:14px; color:var(--text-2)">40 sveitarfélög með a.m.k. 5 ár af gögnum og 1 ma.kr. í tekjum. Smærri svf eru útilokuð til að gera samanburðinn marktækan.</p>
+
+  <div class="ranking">
+    <table id="rankTable">
+      <thead><tr>
+        <th class="num">#</th><th>Sveitarfélag</th><th class="num">Einkunn</th>
+        <th class="num">Grade</th><th class="num">Tekjur</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>Aðferðafræði</h2>
+  <div class="method">
+    <p>Vogin samanstendur af 5 lykiltölum vegnum saman í eina einkunn:</p>
+    <ul>
+      <li><strong>Rekstrarmargin (25%):</strong> Niðurstaða ÷ Tekjur, meðaltal 7 ára. Hvert prósentustig telur jafnt; -10% gefur 0 stig, +10% gefur 100 stig.</li>
+      <li><strong>Skuldahlutfall (20%):</strong> (Langtímaskuldir + Skammtímaskuldir + Skuldbindingar) ÷ Tekjur. 0% gefur 100 stig, 200% gefur 0.</li>
+      <li><strong>Veltufjárhlutfall (20%):</strong> Veltufé frá rekstri ÷ Tekjur. 0% gefur 0 stig, 20% gefur 100.</li>
+      <li><strong>Tap-tíðni (20%):</strong> Hlutfall ára með rekstrartapi. 0% (engin tap) gefur 100 stig, 100% (tap öll ár) gefur 0.</li>
+      <li><strong>Þróun (15%):</strong> Margin 2024 mínus margin 2018. Bætandi rekstur fær há stig.</li>
+    </ul>
+    <p>Heildareinkunn er vegið meðaltal og rúnnað í A+/A/B/C/D/E/F.</p>
+    <p><strong>Heimild:</strong> Samband íslenskra sveitarfélaga · Pivot-tafla ársreikninga A-hluta.</p>
+  </div>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-er-bestrekna.html">Reykjavík hefur tapað 19,4 milljörðum á 7 árum</a></li>
+      <li><a href="rvk-tekjuhlid.html">Tekjuhliðin · Reykjavíkurborg</a></li>
+      <li><a href="rvk-2025-forskot.html">2025 Forskot</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const GRADE_CLASS = { 'A+':'grade-Aplus', 'A':'grade-A', 'B':'grade-B', 'C':'grade-C', 'D':'grade-D', 'E':'grade-E', 'F':'grade-F' };
+const GRADE_COLORS = { 'A+':'#10b981', 'A':'#34d399', 'B':'#06b6d4', 'C':'#f59e0b', 'D':'#fb923c', 'E':'#ef4444', 'F':'#991b1b' };
+
+function fmtName(svf) { return svf.match(/^\d{4}\s+/) ? svf.split(/\s+/, 2)[1] + (svf.split(/\s+/, 3).slice(2).length ? ' ' + svf.split(/\s+/).slice(2).join(' ') : '') : svf; }
+function shortName(svf) { return svf.match(/^\d{4}\s/) ? svf.replace(/^\d+\s+/, '') : svf; }
+function fmt(v, d=1) { return v.toLocaleString('is-IS', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+function pct(v) { return (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+
+const __INLINE_DATA = {
+  "svfs": [
+    {
+      "svf": "3511 Hvalfjarðarsveit",
+      "avg_margin": 31.10347582751884,
+      "avg_skuldir_pct": 13.26980274078437,
+      "avg_veltu_pct": 34.232112649776454,
+      "tap_pct": 0.0,
+      "trend": 14.957042672499801,
+      "avg_tekjur_ma": 1.1709767857142857,
+      "years_count": 7,
+      "score_margin": 100,
+      "score_skuldir": 93.4,
+      "score_veltu": 100,
+      "score_tap": 100.0,
+      "score_trend": 100,
+      "score_total": 98.7,
+      "grade": "A+",
+      "rank": 1
+    },
+    {
+      "svf": "6513 Eyjafjarðarsveit",
+      "avg_margin": 10.413345899189904,
+      "avg_skuldir_pct": 14.338494889665785,
+      "avg_veltu_pct": 12.208380767028343,
+      "tap_pct": 0.0,
+      "trend": 8.546174066682655,
+      "avg_tekjur_ma": 1.3355044285714284,
+      "years_count": 7,
+      "score_margin": 100,
+      "score_skuldir": 92.8,
+      "score_veltu": 61.0,
+      "score_tap": 100.0,
+      "score_trend": 100,
+      "score_total": 90.8,
+      "grade": "A+",
+      "rank": 2
+    },
+    {
+      "svf": "8717 Sveitarfélagið Ölfus",
+      "avg_margin": 8.420064557911028,
+      "avg_skuldir_pct": 73.83496651100897,
+      "avg_veltu_pct": 15.715895795948317,
+      "tap_pct": 0.0,
+      "trend": 16.79017177389093,
+      "avg_tekjur_ma": 3.2965802857142856,
+      "years_count": 7,
+      "score_margin": 92.1,
+      "score_skuldir": 63.1,
+      "score_veltu": 78.6,
+      "score_tap": 100.0,
+      "score_trend": 100,
+      "score_total": 86.4,
+      "grade": "A+",
+      "rank": 3
+    },
+    {
+      "svf": "3714 Snæfellsbær",
+      "avg_margin": 5.4351691020479205,
+      "avg_skuldir_pct": 73.64975829232036,
+      "avg_veltu_pct": 14.04479289018444,
+      "tap_pct": 0.0,
+      "trend": 4.928562706964209,
+      "avg_tekjur_ma": 2.4620790571428572,
+      "years_count": 7,
+      "score_margin": 77.2,
+      "score_skuldir": 63.2,
+      "score_veltu": 70.2,
+      "score_tap": 100.0,
+      "score_trend": 99.3,
+      "score_total": 80.9,
+      "grade": "A",
+      "rank": 4
+    },
+    {
+      "svf": "8719 Grímsnes- og Grafningshreppur",
+      "avg_margin": 13.360512366063757,
+      "avg_skuldir_pct": 73.0478212788091,
+      "avg_veltu_pct": 14.037287029323702,
+      "tap_pct": 14.285714285714285,
+      "trend": 1.284074818291316,
+      "avg_tekjur_ma": 1.228785142857143,
+      "years_count": 7,
+      "score_margin": 100,
+      "score_skuldir": 63.5,
+      "score_veltu": 70.2,
+      "score_tap": 85.7,
+      "score_trend": 62.8,
+      "score_total": 78.3,
+      "grade": "A",
+      "rank": 5
+    },
+    {
+      "svf": "2300 Grindavíkurbær",
+      "avg_margin": 7.937165581720236,
+      "avg_skuldir_pct": 49.12643001736544,
+      "avg_veltu_pct": 20.390404622374255,
+      "tap_pct": 0.0,
+      "trend": -8.093405747183382,
+      "avg_tekjur_ma": 3.922551285714286,
+      "years_count": 7,
+      "score_margin": 89.7,
+      "score_skuldir": 75.4,
+      "score_veltu": 100,
+      "score_tap": 100.0,
+      "score_trend": 0,
+      "score_total": 77.5,
+      "grade": "A",
+      "rank": 6
+    },
+    {
+      "svf": "8401 Sveitarfélagið Hornafjörður",
+      "avg_margin": 8.754191307428849,
+      "avg_skuldir_pct": 50.27156187360682,
+      "avg_veltu_pct": 15.997277948934334,
+      "tap_pct": 14.285714285714285,
+      "trend": -6.99080847069099,
+      "avg_tekjur_ma": 3.092217857142857,
+      "years_count": 7,
+      "score_margin": 93.8,
+      "score_skuldir": 74.9,
+      "score_veltu": 80.0,
+      "score_tap": 85.7,
+      "score_trend": 0,
+      "score_total": 71.6,
+      "grade": "B",
+      "rank": 7
+    },
+    {
+      "svf": "8614 Rangárþing ytra",
+      "avg_margin": 7.451832939233753,
+      "avg_skuldir_pct": 69.99719835507668,
+      "avg_veltu_pct": 13.110545636872745,
+      "tap_pct": 14.285714285714285,
+      "trend": -1.815886984226566,
+      "avg_tekjur_ma": 2.4455714285714283,
+      "years_count": 7,
+      "score_margin": 87.3,
+      "score_skuldir": 65.0,
+      "score_veltu": 65.6,
+      "score_tap": 85.7,
+      "score_trend": 31.8,
+      "score_total": 69.9,
+      "grade": "B",
+      "rank": 8
+    },
+    {
+      "svf": "8710 Hrunamannahreppur",
+      "avg_margin": 4.994199680580272,
+      "avg_skuldir_pct": 78.69738438308806,
+      "avg_veltu_pct": 8.286979659749196,
+      "tap_pct": 0.0,
+      "trend": 1.9575072376581604,
+      "avg_tekjur_ma": 1.23209,
+      "years_count": 7,
+      "score_margin": 75.0,
+      "score_skuldir": 60.7,
+      "score_veltu": 41.4,
+      "score_tap": 100.0,
+      "score_trend": 69.6,
+      "score_total": 69.6,
+      "grade": "B",
+      "rank": 9
+    },
+    {
+      "svf": "5508 Húnaþing vestra",
+      "avg_margin": 3.852075550967058,
+      "avg_skuldir_pct": 49.20410831338042,
+      "avg_veltu_pct": 8.217800056457506,
+      "tap_pct": 14.285714285714285,
+      "trend": 1.4200504247700376,
+      "avg_tekjur_ma": 1.6549307142857141,
+      "years_count": 7,
+      "score_margin": 69.3,
+      "score_skuldir": 75.4,
+      "score_veltu": 41.1,
+      "score_tap": 85.7,
+      "score_trend": 64.2,
+      "score_total": 67.4,
+      "grade": "B",
+      "rank": 10
+    },
+    {
+      "svf": "8613 Rangárþing eystra",
+      "avg_margin": 6.214503499262625,
+      "avg_skuldir_pct": 62.48000092893624,
+      "avg_veltu_pct": 12.452616218705144,
+      "tap_pct": 28.57142857142857,
+      "trend": -1.9987467267991637,
+      "avg_tekjur_ma": 2.432912142857143,
+      "years_count": 7,
+      "score_margin": 81.1,
+      "score_skuldir": 68.8,
+      "score_veltu": 62.3,
+      "score_tap": 71.4,
+      "score_trend": 30.0,
+      "score_total": 65.3,
+      "grade": "B",
+      "rank": 11
+    },
+    {
+      "svf": "3609 Borgarbyggð",
+      "avg_margin": 5.962704251922355,
+      "avg_skuldir_pct": 68.63885073567073,
+      "avg_veltu_pct": 12.879254766362163,
+      "tap_pct": 14.285714285714285,
+      "trend": -8.10493717850703,
+      "avg_tekjur_ma": 4.8784851428571425,
+      "years_count": 7,
+      "score_margin": 79.8,
+      "score_skuldir": 65.7,
+      "score_veltu": 64.4,
+      "score_tap": 85.7,
+      "score_trend": 0,
+      "score_total": 63.1,
+      "grade": "C",
+      "rank": 12
+    },
+    {
+      "svf": "2510 Suðurnesjabær",
+      "avg_margin": 0.9811447026560884,
+      "avg_skuldir_pct": 82.07235033016528,
+      "avg_veltu_pct": 9.785156513914783,
+      "tap_pct": 28.57142857142857,
+      "trend": 3.2150312019164735,
+      "avg_tekjur_ma": 4.844553385714287,
+      "years_count": 7,
+      "score_margin": 54.9,
+      "score_skuldir": 59.0,
+      "score_veltu": 48.9,
+      "score_tap": 71.4,
+      "score_trend": 82.2,
+      "score_total": 61.9,
+      "grade": "C",
+      "rank": 13
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "avg_margin": 10.304015087689775,
+      "avg_skuldir_pct": 150.19185442856173,
+      "avg_veltu_pct": 11.80022661910634,
+      "tap_pct": 0.0,
+      "trend": -13.091324027060075,
+      "avg_tekjur_ma": 20.41573914285714,
+      "years_count": 7,
+      "score_margin": 100,
+      "score_skuldir": 24.9,
+      "score_veltu": 59.0,
+      "score_tap": 100.0,
+      "score_trend": 0,
+      "score_total": 61.8,
+      "grade": "C",
+      "rank": 14
+    },
+    {
+      "svf": "6250 Fjallabyggð",
+      "avg_margin": 3.641330939964003,
+      "avg_skuldir_pct": 77.9002231363999,
+      "avg_veltu_pct": 14.075987065844142,
+      "tap_pct": 14.285714285714285,
+      "trend": -4.278466194187389,
+      "avg_tekjur_ma": 2.8169654285714287,
+      "years_count": 7,
+      "score_margin": 68.2,
+      "score_skuldir": 61.0,
+      "score_veltu": 70.4,
+      "score_tap": 85.7,
+      "score_trend": 7.2,
+      "score_total": 61.5,
+      "grade": "C",
+      "rank": 15
+    },
+    {
+      "svf": "6400 Dalvíkurbyggð",
+      "avg_margin": 4.561202743400242,
+      "avg_skuldir_pct": 71.14988547763805,
+      "avg_veltu_pct": 12.497081461455426,
+      "tap_pct": 28.57142857142857,
+      "trend": -2.985467976918275,
+      "avg_tekjur_ma": 2.5086721428571432,
+      "years_count": 7,
+      "score_margin": 72.8,
+      "score_skuldir": 64.4,
+      "score_veltu": 62.5,
+      "score_tap": 71.4,
+      "score_trend": 20.1,
+      "score_total": 60.9,
+      "grade": "C",
+      "rank": 16
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "avg_margin": 4.953333064763547,
+      "avg_skuldir_pct": 90.20489485793844,
+      "avg_veltu_pct": 13.516754645534434,
+      "tap_pct": 14.285714285714285,
+      "trend": -11.442852287691627,
+      "avg_tekjur_ma": 8.549133742857142,
+      "years_count": 7,
+      "score_margin": 74.8,
+      "score_skuldir": 54.9,
+      "score_veltu": 67.6,
+      "score_tap": 85.7,
+      "score_trend": 0,
+      "score_total": 60.3,
+      "grade": "C",
+      "rank": 17
+    },
+    {
+      "svf": "8000 Vestmannaeyjabær",
+      "avg_margin": 3.8611471608984202,
+      "avg_skuldir_pct": 117.38106046282238,
+      "avg_veltu_pct": 15.881593908263799,
+      "tap_pct": 28.57142857142857,
+      "trend": -4.109216337338495,
+      "avg_tekjur_ma": 4.949305128571429,
+      "years_count": 7,
+      "score_margin": 69.3,
+      "score_skuldir": 41.3,
+      "score_veltu": 79.4,
+      "score_tap": 71.4,
+      "score_trend": 8.9,
+      "score_total": 57.1,
+      "grade": "C",
+      "rank": 18
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "avg_margin": 3.567494405672425,
+      "avg_skuldir_pct": 114.54171659684668,
+      "avg_veltu_pct": 13.067794703217839,
+      "tap_pct": 14.285714285714285,
+      "trend": -8.70551061092917,
+      "avg_tekjur_ma": 4.464155857142857,
+      "years_count": 7,
+      "score_margin": 67.8,
+      "score_skuldir": 42.7,
+      "score_veltu": 65.3,
+      "score_tap": 85.7,
+      "score_trend": 0,
+      "score_total": 55.7,
+      "grade": "C",
+      "rank": 19
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "avg_margin": 1.3178545202223408,
+      "avg_skuldir_pct": 113.67413547742974,
+      "avg_veltu_pct": 7.03559407770466,
+      "tap_pct": 42.857142857142854,
+      "trend": 4.0390841559737485,
+      "avg_tekjur_ma": 40.14444614285714,
+      "years_count": 7,
+      "score_margin": 56.6,
+      "score_skuldir": 43.2,
+      "score_veltu": 35.2,
+      "score_tap": 57.1,
+      "score_trend": 90.4,
+      "score_total": 54.8,
+      "grade": "D",
+      "rank": 20
+    },
+    {
+      "svf": "8721 Bláskógabyggð",
+      "avg_margin": 1.6856163702106586,
+      "avg_skuldir_pct": 99.05860078885402,
+      "avg_veltu_pct": 6.571600602422094,
+      "tap_pct": 14.285714285714285,
+      "trend": -2.2335632550915205,
+      "avg_tekjur_ma": 1.7995357142857142,
+      "years_count": 7,
+      "score_margin": 58.4,
+      "score_skuldir": 50.5,
+      "score_veltu": 32.9,
+      "score_tap": 85.7,
+      "score_trend": 27.7,
+      "score_total": 52.6,
+      "grade": "D",
+      "rank": 21
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "avg_margin": -1.4819725872241996,
+      "avg_skuldir_pct": 105.12094650299217,
+      "avg_veltu_pct": 8.441844994328973,
+      "tap_pct": 57.14285714285714,
+      "trend": 4.773341392697588,
+      "avg_tekjur_ma": 23.582316857142857,
+      "years_count": 7,
+      "score_margin": 42.6,
+      "score_skuldir": 47.4,
+      "score_veltu": 42.2,
+      "score_tap": 42.9,
+      "score_trend": 97.7,
+      "score_total": 51.8,
+      "grade": "D",
+      "rank": 22
+    },
+    {
+      "svf": "1300 Garðabær",
+      "avg_margin": 1.6648668531801285,
+      "avg_skuldir_pct": 112.64489109133865,
+      "avg_veltu_pct": 6.647097243761464,
+      "tap_pct": 28.57142857142857,
+      "trend": -1.1303323727575114,
+      "avg_tekjur_ma": 20.600590857142855,
+      "years_count": 7,
+      "score_margin": 58.3,
+      "score_skuldir": 43.7,
+      "score_veltu": 33.2,
+      "score_tap": 71.4,
+      "score_trend": 38.7,
+      "score_total": 50.0,
+      "grade": "D",
+      "rank": 23
+    },
+    {
+      "svf": "3709 Grundarfjarðarbær",
+      "avg_margin": 0.5696543678205496,
+      "avg_skuldir_pct": 138.30057594474206,
+      "avg_veltu_pct": 10.935772146114704,
+      "tap_pct": 42.857142857142854,
+      "trend": -0.35684850538163415,
+      "avg_tekjur_ma": 1.1912839999999998,
+      "years_count": 7,
+      "score_margin": 52.8,
+      "score_skuldir": 30.8,
+      "score_veltu": 54.7,
+      "score_tap": 57.1,
+      "score_trend": 46.4,
+      "score_total": 48.7,
+      "grade": "D",
+      "rank": 24
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "avg_margin": -0.36989289140727816,
+      "avg_skuldir_pct": 145.53770082101929,
+      "avg_veltu_pct": 9.147365415419545,
+      "tap_pct": 42.857142857142854,
+      "trend": 1.3586551824155157,
+      "avg_tekjur_ma": 7.099183285714285,
+      "years_count": 7,
+      "score_margin": 48.2,
+      "score_skuldir": 27.2,
+      "score_veltu": 45.7,
+      "score_tap": 57.1,
+      "score_trend": 63.6,
+      "score_total": 47.6,
+      "grade": "D",
+      "rank": 25
+    },
+    {
+      "svf": "8716 Hveragerðisbær",
+      "avg_margin": -1.8001041798060797,
+      "avg_skuldir_pct": 135.19735334864848,
+      "avg_veltu_pct": 8.28239651065011,
+      "tap_pct": 57.14285714285714,
+      "trend": 3.1917467044619077,
+      "avg_tekjur_ma": 3.8406915714285716,
+      "years_count": 7,
+      "score_margin": 41.0,
+      "score_skuldir": 32.4,
+      "score_veltu": 41.4,
+      "score_tap": 42.9,
+      "score_trend": 81.9,
+      "score_total": 45.9,
+      "grade": "D",
+      "rank": 26
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "avg_margin": 0.8506005454106739,
+      "avg_skuldir_pct": 147.00877100275133,
+      "avg_veltu_pct": 3.875837271454177,
+      "tap_pct": 14.285714285714285,
+      "trend": -1.7012648150712935,
+      "avg_tekjur_ma": 33.733619714285716,
+      "years_count": 7,
+      "score_margin": 54.3,
+      "score_skuldir": 26.5,
+      "score_veltu": 19.4,
+      "score_tap": 85.7,
+      "score_trend": 33.0,
+      "score_total": 44.8,
+      "grade": "E",
+      "rank": 27
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "avg_margin": -3.036125465765019,
+      "avg_skuldir_pct": 125.44878994470025,
+      "avg_veltu_pct": 7.614743839238656,
+      "tap_pct": 71.42857142857143,
+      "trend": 7.530317854366329,
+      "avg_tekjur_ma": 5.2827581142857145,
+      "years_count": 7,
+      "score_margin": 34.8,
+      "score_skuldir": 37.3,
+      "score_veltu": 38.1,
+      "score_tap": 28.6,
+      "score_trend": 100,
+      "score_total": 44.5,
+      "grade": "E",
+      "rank": 28
+    },
+    {
+      "svf": "6613 Þingeyjarsveit",
+      "avg_margin": 2.1475814896467624,
+      "avg_skuldir_pct": 56.8605236984532,
+      "avg_veltu_pct": 5.224643486233446,
+      "tap_pct": 57.14285714285714,
+      "trend": -7.37719561894362,
+      "avg_tekjur_ma": 1.9787938571428572,
+      "years_count": 7,
+      "score_margin": 60.7,
+      "score_skuldir": 71.6,
+      "score_veltu": 26.1,
+      "score_tap": 42.9,
+      "score_trend": 0,
+      "score_total": 43.3,
+      "grade": "E",
+      "rank": 29
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "avg_margin": -0.937314760613269,
+      "avg_skuldir_pct": 121.74742272271284,
+      "avg_veltu_pct": 7.361401164914251,
+      "tap_pct": 57.14285714285714,
+      "trend": 0.2133105522576857,
+      "avg_tekjur_ma": 6.245280142857143,
+      "years_count": 7,
+      "score_margin": 45.3,
+      "score_skuldir": 39.1,
+      "score_veltu": 36.8,
+      "score_tap": 42.9,
+      "score_trend": 52.1,
+      "score_total": 42.9,
+      "grade": "E",
+      "rank": 30
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "avg_margin": -1.8247950670064006,
+      "avg_skuldir_pct": 117.23859819098654,
+      "avg_veltu_pct": 7.51199020524266,
+      "tap_pct": 57.14285714285714,
+      "trend": -0.23279314792167938,
+      "avg_tekjur_ma": 7.000029285714286,
+      "years_count": 7,
+      "score_margin": 40.9,
+      "score_skuldir": 41.4,
+      "score_veltu": 37.6,
+      "score_tap": 42.9,
+      "score_trend": 47.7,
+      "score_total": 41.8,
+      "grade": "E",
+      "rank": 31
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "avg_margin": -0.3316559372855731,
+      "avg_skuldir_pct": 122.40194459171592,
+      "avg_veltu_pct": 7.547452732622175,
+      "tap_pct": 42.857142857142854,
+      "trend": -3.2999454845098826,
+      "avg_tekjur_ma": 14.55787514285714,
+      "years_count": 7,
+      "score_margin": 48.3,
+      "score_skuldir": 38.8,
+      "score_veltu": 37.7,
+      "score_tap": 57.1,
+      "score_trend": 17.0,
+      "score_total": 41.3,
+      "grade": "E",
+      "rank": 32
+    },
+    {
+      "svf": "5613 Húnabyggð",
+      "avg_margin": -3.7748174019737415,
+      "avg_skuldir_pct": 103.87278464902111,
+      "avg_veltu_pct": 4.702994644266817,
+      "tap_pct": 57.14285714285714,
+      "trend": 1.8074433378513333,
+      "avg_tekjur_ma": 2.0008958142857143,
+      "years_count": 7,
+      "score_margin": 31.1,
+      "score_skuldir": 48.1,
+      "score_veltu": 23.5,
+      "score_tap": 42.9,
+      "score_trend": 68.1,
+      "score_total": 40.9,
+      "grade": "E",
+      "rank": 33
+    },
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "avg_margin": -1.794981882111074,
+      "avg_skuldir_pct": 101.13277626511844,
+      "avg_veltu_pct": 5.095435676900785,
+      "tap_pct": 57.14285714285714,
+      "trend": -1.5041923173419263,
+      "avg_tekjur_ma": 148.7400315957143,
+      "years_count": 7,
+      "score_margin": 41.0,
+      "score_skuldir": 49.4,
+      "score_veltu": 25.5,
+      "score_tap": 42.9,
+      "score_trend": 35.0,
+      "score_total": 39.1,
+      "grade": "E",
+      "rank": 34
+    },
+    {
+      "svf": "2506 Sveitarfélagið Vogar",
+      "avg_margin": -5.388043319922592,
+      "avg_skuldir_pct": 101.0679109910817,
+      "avg_veltu_pct": 2.368722653057526,
+      "tap_pct": 71.42857142857143,
+      "trend": 2.656265885564734,
+      "avg_tekjur_ma": 1.5715392857142856,
+      "years_count": 7,
+      "score_margin": 23.1,
+      "score_skuldir": 49.5,
+      "score_veltu": 11.8,
+      "score_tap": 28.6,
+      "score_trend": 76.6,
+      "score_total": 35.2,
+      "grade": "E",
+      "rank": 35
+    },
+    {
+      "svf": "4604 Vesturbyggð",
+      "avg_margin": -5.318941643709388,
+      "avg_skuldir_pct": 126.35714584361527,
+      "avg_veltu_pct": 3.58258609455493,
+      "tap_pct": 85.71428571428571,
+      "trend": 3.566320293647781,
+      "avg_tekjur_ma": 1.935974857142857,
+      "years_count": 7,
+      "score_margin": 23.4,
+      "score_skuldir": 36.8,
+      "score_veltu": 17.9,
+      "score_tap": 14.3,
+      "score_trend": 85.7,
+      "score_total": 32.5,
+      "grade": "F",
+      "rank": 36
+    },
+    {
+      "svf": "3716 Sveitarfélagið Stykkishólmur",
+      "avg_margin": -7.719117186080193,
+      "avg_skuldir_pct": 142.01547561822667,
+      "avg_veltu_pct": 3.922823274307348,
+      "tap_pct": 85.71428571428571,
+      "trend": 22.892588190167476,
+      "avg_tekjur_ma": 1.735745,
+      "years_count": 7,
+      "score_margin": 11.4,
+      "score_skuldir": 29.0,
+      "score_veltu": 19.6,
+      "score_tap": 14.3,
+      "score_trend": 100,
+      "score_total": 30.4,
+      "grade": "F",
+      "rank": 37
+    },
+    {
+      "svf": "4100 Bolungarvíkurkaupstaður",
+      "avg_margin": -2.6451619505714015,
+      "avg_skuldir_pct": 130.99438579449873,
+      "avg_veltu_pct": 4.061595080039855,
+      "tap_pct": 57.14285714285714,
+      "trend": -4.5930517288103605,
+      "avg_tekjur_ma": 1.3542717142857144,
+      "years_count": 7,
+      "score_margin": 36.8,
+      "score_skuldir": 34.5,
+      "score_veltu": 20.3,
+      "score_tap": 42.9,
+      "score_trend": 4.1,
+      "score_total": 29.4,
+      "grade": "F",
+      "rank": 38
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "avg_margin": -8.487895574112208,
+      "avg_skuldir_pct": 169.61076138169878,
+      "avg_veltu_pct": 0.9378200972327705,
+      "tap_pct": 85.71428571428571,
+      "trend": 9.12163815018133,
+      "avg_tekjur_ma": 12.577131999999999,
+      "years_count": 7,
+      "score_margin": 7.6,
+      "score_skuldir": 15.2,
+      "score_veltu": 4.7,
+      "score_tap": 14.3,
+      "score_trend": 100,
+      "score_total": 23.7,
+      "grade": "F",
+      "rank": 39
+    },
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "avg_margin": -8.408247758170184,
+      "avg_skuldir_pct": 120.65045841329655,
+      "avg_veltu_pct": 2.6493659080885847,
+      "tap_pct": 100.0,
+      "trend": -0.7569730772934733,
+      "avg_tekjur_ma": 4.969327157142857,
+      "years_count": 7,
+      "score_margin": 8.0,
+      "score_skuldir": 39.7,
+      "score_veltu": 13.2,
+      "score_tap": 0.0,
+      "score_trend": 42.4,
+      "score_total": 18.9,
+      "grade": "F",
+      "rank": 40
+    }
+  ],
+  "weights": {
+    "margin": 0.25,
+    "skuldir": 0.2,
+    "veltu": 0.2,
+    "tap": 0.2,
+    "trend": 0.15
+  },
+  "methodology": {
+    "period": "2018-2024",
+    "metrics": {
+      "margin": "Rekstrarniðurstaða ÷ Tekjur, meðaltal yfir 7 ár",
+      "skuldir": "(Langtímaskuldir + Skammtímaskuldir + Skuldbindingar) ÷ Tekjur, lægri er betra",
+      "veltu": "Veltufé frá rekstri ÷ Tekjur, hærri er betra",
+      "tap": "% af árum með rekstrartap, lægri er betra",
+      "trend": "Margin 2024 − Margin 2018, positive = batnandi"
+    }
+  }
+};
+((D) => {
+  // Populate picker
+  const sel = document.getElementById('svfPick');
+  D.svfs.slice().sort((a,b) => shortName(a.svf).localeCompare(shortName(b.svf), 'is')).forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s.svf;
+    opt.textContent = shortName(s.svf);
+    sel.appendChild(opt);
+  });
+
+  // Default: Reykjavík
+  const rvk = D.svfs.find(s => s.svf.includes('Reykjavík'));
+  sel.value = rvk.svf;
+  showResult(rvk);
+
+  sel.addEventListener('change', () => {
+    const s = D.svfs.find(x => x.svf === sel.value);
+    if (s) showResult(s);
+    else document.getElementById('result').innerHTML = '';
+  });
+
+  function showResult(s) {
+    const cls = GRADE_CLASS[s.grade] || 'grade-D';
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-card">
+        <div class="grade-badge ${cls}">
+          <div class="grade-letter">${s.grade}</div>
+          <div class="grade-score">${s.score_total}/100</div>
+        </div>
+        <div class="result-info">
+          <div class="result-name">${shortName(s.svf)}</div>
+          <div class="result-rank">Sæti <strong>${s.rank}</strong> af ${D.svfs.length} · meðaltekjur ${fmt(s.avg_tekjur_ma)} ma.kr.</div>
+          <div class="score-grid">
+            ${makeScoreCard('Rekstrarmargin', s.score_margin, pct(s.avg_margin))}
+            ${makeScoreCard('Skuldahlutfall', s.score_skuldir, fmt(s.avg_skuldir_pct, 0) + '%')}
+            ${makeScoreCard('Veltufé/Tekjur', s.score_veltu, fmt(s.avg_veltu_pct, 1) + '%')}
+            ${makeScoreCard('Tap-tíðni', s.score_tap, fmt(s.tap_pct, 0) + '% af árum')}
+            ${makeScoreCard('Þróun', s.score_trend, pct(s.trend) + '-stig')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Highlight in ranking
+    document.querySelectorAll('#rankTable tbody tr').forEach(tr => tr.classList.remove('highlighted'));
+    const tr = document.querySelector(`#rankTable tbody tr[data-svf="${CSS.escape(s.svf)}"]`);
+    if (tr) {
+      tr.classList.add('highlighted');
+      tr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function makeScoreCard(label, score, detail) {
+    return `<div class="score-card">
+      <div class="score-card-label">${label}</div>
+      <div class="score-card-value">${score}</div>
+      <div class="score-card-bar"><div class="score-card-bar-fill" style="width:${score}%"></div></div>
+      <div class="score-card-detail">${detail}</div>
+    </div>`;
+  }
+
+  // Ranking table
+  const tbody = document.querySelector('#rankTable tbody');
+  D.svfs.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.dataset.svf = s.svf;
+    const color = GRADE_COLORS[s.grade] || '#666';
+    tr.innerHTML = `
+      <td class="num">${s.rank}</td>
+      <td>${shortName(s.svf)}</td>
+      <td class="num"><strong>${s.score_total}</strong></td>
+      <td class="num"><span class="grade-tag" style="background:${color}">${s.grade}</span></td>
+      <td class="num">${fmt(s.avg_tekjur_ma)} ma</td>
+    `;
+    tr.style.cursor = 'pointer';
+    tr.addEventListener('click', () => {
+      sel.value = s.svf;
+      sel.dispatchEvent(new Event('change'));
+    });
+    tbody.appendChild(tr);
+  });
+
+  // Highlight Rvk by default
+  const rvkTr = document.querySelector(`#rankTable tbody tr[data-svf*="Reykjavík"]`);
+  if (rvkTr) rvkTr.classList.add('highlighted');
+})(__INLINE_DATA);
+</script>
+</body>
+</html>

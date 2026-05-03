@@ -1,0 +1,1588 @@
+{
+  "heildartekjur": [
+    {
+      "ar": 1998,
+      "mkr": 185018.0,
+      "pct_gdp": 30.19
+    },
+    {
+      "ar": 1999,
+      "mkr": 239327.0,
+      "pct_gdp": 36.33
+    },
+    {
+      "ar": 2000,
+      "mkr": 256434.0,
+      "pct_gdp": 35.69
+    },
+    {
+      "ar": 2001,
+      "mkr": 295722.0,
+      "pct_gdp": 36.47
+    },
+    {
+      "ar": 2002,
+      "mkr": 280672.0,
+      "pct_gdp": 32.52
+    },
+    {
+      "ar": 2003,
+      "mkr": 306867.0,
+      "pct_gdp": 34.59
+    },
+    {
+      "ar": 2004,
+      "mkr": 352678.0,
+      "pct_gdp": 35.98
+    },
+    {
+      "ar": 2005,
+      "mkr": 410165.0,
+      "pct_gdp": 37.98
+    },
+    {
+      "ar": 2006,
+      "mkr": 480622.0,
+      "pct_gdp": 38.75
+    },
+    {
+      "ar": 2007,
+      "mkr": 529594.0,
+      "pct_gdp": 37.65
+    },
+    {
+      "ar": 2008,
+      "mkr": 637571.0,
+      "pct_gdp": 39.73
+    },
+    {
+      "ar": 2009,
+      "mkr": 564394.0,
+      "pct_gdp": 34.55
+    },
+    {
+      "ar": 2010,
+      "mkr": 541554.0,
+      "pct_gdp": 31.82
+    },
+    {
+      "ar": 2011,
+      "mkr": 591297.0,
+      "pct_gdp": 33.13
+    },
+    {
+      "ar": 2012,
+      "mkr": 636922.0,
+      "pct_gdp": 34.07
+    },
+    {
+      "ar": 2013,
+      "mkr": 670220.0,
+      "pct_gdp": 33.77
+    },
+    {
+      "ar": 2014,
+      "mkr": 741474.0,
+      "pct_gdp": 35.18
+    },
+    {
+      "ar": 2015,
+      "mkr": 755041.0,
+      "pct_gdp": 32.34
+    },
+    {
+      "ar": 2016,
+      "mkr": 1213151.0,
+      "pct_gdp": 47.63
+    },
+    {
+      "ar": 2017,
+      "mkr": 899846.0,
+      "pct_gdp": 33.61
+    },
+    {
+      "ar": 2018,
+      "mkr": 953701.0,
+      "pct_gdp": 33.01
+    },
+    {
+      "ar": 2019,
+      "mkr": 931419.0,
+      "pct_gdp": 30.4
+    },
+    {
+      "ar": 2020,
+      "mkr": 872897.0,
+      "pct_gdp": 29.25
+    },
+    {
+      "ar": 2021,
+      "mkr": 952690.0,
+      "pct_gdp": 28.6
+    },
+    {
+      "ar": 2022,
+      "mkr": 1222668.0,
+      "pct_gdp": 30.98
+    },
+    {
+      "ar": 2023,
+      "mkr": 1365613.0,
+      "pct_gdp": 31.23
+    },
+    {
+      "ar": 2024,
+      "mkr": 1434506.0,
+      "pct_gdp": 31.33
+    },
+    {
+      "ar": 2025,
+      "mkr": 1489980.0,
+      "pct_gdp": 30.07
+    }
+  ],
+  "toppflokkar": [
+    {
+      "ar": 1998,
+      "Skatttekjur": 139587.0,
+      "Tryggingargjöld": 16088.0,
+      "Fjárframlög": 710.0,
+      "Aðrar tekjur": 28634.0
+    },
+    {
+      "ar": 1999,
+      "Skatttekjur": 163149.0,
+      "Tryggingargjöld": 17787.0,
+      "Fjárframlög": 814.0,
+      "Aðrar tekjur": 57577.0
+    },
+    {
+      "ar": 2000,
+      "Skatttekjur": 175446.0,
+      "Tryggingargjöld": 19680.0,
+      "Fjárframlög": 1153.0,
+      "Aðrar tekjur": 60155.0
+    },
+    {
+      "ar": 2001,
+      "Skatttekjur": 183304.0,
+      "Tryggingargjöld": 21909.0,
+      "Fjárframlög": 1369.0,
+      "Aðrar tekjur": 89140.0
+    },
+    {
+      "ar": 2002,
+      "Skatttekjur": 193742.0,
+      "Tryggingargjöld": 23397.0,
+      "Fjárframlög": 1266.0,
+      "Aðrar tekjur": 62267.0
+    },
+    {
+      "ar": 2003,
+      "Skatttekjur": 208320.0,
+      "Tryggingargjöld": 26053.0,
+      "Fjárframlög": 1515.0,
+      "Aðrar tekjur": 70979.0
+    },
+    {
+      "ar": 2004,
+      "Skatttekjur": 241230.0,
+      "Tryggingargjöld": 28364.0,
+      "Fjárframlög": 1748.0,
+      "Aðrar tekjur": 81336.0
+    },
+    {
+      "ar": 2005,
+      "Skatttekjur": 289165.0,
+      "Tryggingargjöld": 32777.0,
+      "Fjárframlög": 1665.0,
+      "Aðrar tekjur": 86559.0
+    },
+    {
+      "ar": 2006,
+      "Skatttekjur": 329679.0,
+      "Tryggingargjöld": 38414.0,
+      "Fjárframlög": 2086.0,
+      "Aðrar tekjur": 110442.0
+    },
+    {
+      "ar": 2007,
+      "Skatttekjur": 360032.0,
+      "Tryggingargjöld": 39594.0,
+      "Fjárframlög": 1830.0,
+      "Aðrar tekjur": 128139.0
+    },
+    {
+      "ar": 2008,
+      "Skatttekjur": 362393.0,
+      "Tryggingargjöld": 41644.0,
+      "Fjárframlög": 2370.0,
+      "Aðrar tekjur": 231165.0
+    },
+    {
+      "ar": 2009,
+      "Skatttekjur": 324192.0,
+      "Tryggingargjöld": 45912.0,
+      "Fjárframlög": 8010.0,
+      "Aðrar tekjur": 186280.0
+    },
+    {
+      "ar": 2010,
+      "Skatttekjur": 339998.0,
+      "Tryggingargjöld": 63599.0,
+      "Fjárframlög": 8340.0,
+      "Aðrar tekjur": 129617.0
+    },
+    {
+      "ar": 2011,
+      "Skatttekjur": 363277.0,
+      "Tryggingargjöld": 66820.0,
+      "Fjárframlög": 9921.0,
+      "Aðrar tekjur": 151279.0
+    },
+    {
+      "ar": 2012,
+      "Skatttekjur": 396770.0,
+      "Tryggingargjöld": 64882.0,
+      "Fjárframlög": 11530.0,
+      "Aðrar tekjur": 163739.0
+    },
+    {
+      "ar": 2013,
+      "Skatttekjur": 426670.0,
+      "Tryggingargjöld": 69899.0,
+      "Fjárframlög": 11184.0,
+      "Aðrar tekjur": 162467.0
+    },
+    {
+      "ar": 2014,
+      "Skatttekjur": 510990.0,
+      "Tryggingargjöld": 73432.0,
+      "Fjárframlög": 10941.0,
+      "Aðrar tekjur": 146110.0
+    },
+    {
+      "ar": 2015,
+      "Skatttekjur": 524319.0,
+      "Tryggingargjöld": 79707.0,
+      "Fjárframlög": 11333.0,
+      "Aðrar tekjur": 139682.0
+    },
+    {
+      "ar": 2016,
+      "Skatttekjur": 944855.0,
+      "Tryggingargjöld": 85370.0,
+      "Fjárframlög": 12467.0,
+      "Aðrar tekjur": 170459.0
+    },
+    {
+      "ar": 2017,
+      "Skatttekjur": 632042.0,
+      "Tryggingargjöld": 89649.0,
+      "Fjárframlög": 12314.0,
+      "Aðrar tekjur": 165842.0
+    },
+    {
+      "ar": 2018,
+      "Skatttekjur": 653517.0,
+      "Tryggingargjöld": 98230.0,
+      "Fjárframlög": 15660.0,
+      "Aðrar tekjur": 186293.0
+    },
+    {
+      "ar": 2019,
+      "Skatttekjur": 663685.0,
+      "Tryggingargjöld": 97423.0,
+      "Fjárframlög": 18238.0,
+      "Aðrar tekjur": 152073.0
+    },
+    {
+      "ar": 2020,
+      "Skatttekjur": 656180.0,
+      "Tryggingargjöld": 88364.0,
+      "Fjárframlög": 9592.0,
+      "Aðrar tekjur": 118760.0
+    },
+    {
+      "ar": 2021,
+      "Skatttekjur": 701493.0,
+      "Tryggingargjöld": 97414.0,
+      "Fjárframlög": 11801.0,
+      "Aðrar tekjur": 141982.0
+    },
+    {
+      "ar": 2022,
+      "Skatttekjur": 874480.0,
+      "Tryggingargjöld": 115564.0,
+      "Fjárframlög": 10261.0,
+      "Aðrar tekjur": 222363.0
+    },
+    {
+      "ar": 2023,
+      "Skatttekjur": 999338.0,
+      "Tryggingargjöld": 130871.0,
+      "Fjárframlög": 8146.0,
+      "Aðrar tekjur": 227258.0
+    },
+    {
+      "ar": 2024,
+      "Skatttekjur": 1075176.0,
+      "Tryggingargjöld": 135738.0,
+      "Fjárframlög": 11171.0,
+      "Aðrar tekjur": 212422.0
+    },
+    {
+      "ar": 2025,
+      "Skatttekjur": 1110052.0,
+      "Tryggingargjöld": 153860.0,
+      "Fjárframlög": 12519.0,
+      "Aðrar tekjur": 213549.0
+    }
+  ],
+  "skattflokkar": [
+    {
+      "ar": 1998,
+      "Skattar á tekjur og hagnað": 39748.0,
+      "Skattar á launagreiðslur og vinnuafl": 121.0,
+      "Eignarskattar": 5044.0,
+      "Skattar á vöru og þjónustu": 91531.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2329.0,
+      "Aðrir skattar": 813.0
+    },
+    {
+      "ar": 1999,
+      "Skattar á tekjur og hagnað": 48369.0,
+      "Skattar á launagreiðslur og vinnuafl": 155.0,
+      "Eignarskattar": 5359.0,
+      "Skattar á vöru og þjónustu": 105822.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2528.0,
+      "Aðrir skattar": 916.0
+    },
+    {
+      "ar": 2000,
+      "Skattar á tekjur og hagnað": 55509.0,
+      "Skattar á launagreiðslur og vinnuafl": 184.0,
+      "Eignarskattar": 6619.0,
+      "Skattar á vöru og þjónustu": 109459.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2702.0,
+      "Aðrir skattar": 973.0
+    },
+    {
+      "ar": 2001,
+      "Skattar á tekjur og hagnað": 64154.0,
+      "Skattar á launagreiðslur og vinnuafl": 212.0,
+      "Eignarskattar": 7352.0,
+      "Skattar á vöru og þjónustu": 107541.0,
+      "Skattar á alþjóðaverslun og viðskipti": 3022.0,
+      "Aðrir skattar": 1023.0
+    },
+    {
+      "ar": 2002,
+      "Skattar á tekjur og hagnað": 66518.0,
+      "Skattar á launagreiðslur og vinnuafl": 226.0,
+      "Eignarskattar": 7648.0,
+      "Skattar á vöru og þjónustu": 115653.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2475.0,
+      "Aðrir skattar": 1221.0
+    },
+    {
+      "ar": 2003,
+      "Skattar á tekjur og hagnað": 73428.0,
+      "Skattar á launagreiðslur og vinnuafl": 490.0,
+      "Eignarskattar": 4724.0,
+      "Skattar á vöru og þjónustu": 125722.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2681.0,
+      "Aðrir skattar": 1276.0
+    },
+    {
+      "ar": 2004,
+      "Skattar á tekjur og hagnað": 83548.0,
+      "Skattar á launagreiðslur og vinnuafl": 516.0,
+      "Eignarskattar": 4826.0,
+      "Skattar á vöru og þjónustu": 147885.0,
+      "Skattar á alþjóðaverslun og viðskipti": 3086.0,
+      "Aðrir skattar": 1369.0
+    },
+    {
+      "ar": 2005,
+      "Skattar á tekjur og hagnað": 105705.0,
+      "Skattar á launagreiðslur og vinnuafl": 324.0,
+      "Eignarskattar": 4019.0,
+      "Skattar á vöru og þjónustu": 174074.0,
+      "Skattar á alþjóðaverslun og viðskipti": 3539.0,
+      "Aðrir skattar": 1504.0
+    },
+    {
+      "ar": 2006,
+      "Skattar á tekjur og hagnað": 128105.0,
+      "Skattar á launagreiðslur og vinnuafl": 390.0,
+      "Eignarskattar": 1311.0,
+      "Skattar á vöru og þjónustu": 193744.0,
+      "Skattar á alþjóðaverslun og viðskipti": 4621.0,
+      "Aðrir skattar": 1508.0
+    },
+    {
+      "ar": 2007,
+      "Skattar á tekjur og hagnað": 143376.0,
+      "Skattar á launagreiðslur og vinnuafl": 1519.0,
+      "Eignarskattar": 2012.0,
+      "Skattar á vöru og þjónustu": 205966.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5446.0,
+      "Aðrir skattar": 1713.0
+    },
+    {
+      "ar": 2008,
+      "Skattar á tekjur og hagnað": 157515.0,
+      "Skattar á launagreiðslur og vinnuafl": 2243.0,
+      "Eignarskattar": 1325.0,
+      "Skattar á vöru og þjónustu": 193308.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5864.0,
+      "Aðrir skattar": 2138.0
+    },
+    {
+      "ar": 2009,
+      "Skattar á tekjur og hagnað": 132273.0,
+      "Skattar á launagreiðslur og vinnuafl": 2470.0,
+      "Eignarskattar": 2077.0,
+      "Skattar á vöru og þjónustu": 175863.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5309.0,
+      "Aðrir skattar": 6200.0
+    },
+    {
+      "ar": 2010,
+      "Skattar á tekjur og hagnað": 132867.0,
+      "Skattar á launagreiðslur og vinnuafl": 2827.0,
+      "Eignarskattar": 6861.0,
+      "Skattar á vöru og þjónustu": 185504.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5952.0,
+      "Aðrir skattar": 5988.0
+    },
+    {
+      "ar": 2011,
+      "Skattar á tekjur og hagnað": 140239.0,
+      "Skattar á launagreiðslur og vinnuafl": 2900.0,
+      "Eignarskattar": 7998.0,
+      "Skattar á vöru og þjónustu": 197182.0,
+      "Skattar á alþjóðaverslun og viðskipti": 7288.0,
+      "Aðrir skattar": 7670.0
+    },
+    {
+      "ar": 2012,
+      "Skattar á tekjur og hagnað": 148125.0,
+      "Skattar á launagreiðslur og vinnuafl": 5402.0,
+      "Eignarskattar": 11765.0,
+      "Skattar á vöru og þjónustu": 213804.0,
+      "Skattar á alþjóðaverslun og viðskipti": 7682.0,
+      "Aðrir skattar": 9993.0
+    },
+    {
+      "ar": 2013,
+      "Skattar á tekjur og hagnað": 168441.0,
+      "Skattar á launagreiðslur og vinnuafl": 6534.0,
+      "Eignarskattar": 11790.0,
+      "Skattar á vöru og þjónustu": 223069.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5815.0,
+      "Aðrir skattar": 11020.0
+    },
+    {
+      "ar": 2014,
+      "Skattar á tekjur og hagnað": 204260.0,
+      "Skattar á launagreiðslur og vinnuafl": 6994.0,
+      "Eignarskattar": 13733.0,
+      "Skattar á vöru og þjónustu": 236130.0,
+      "Skattar á alþjóðaverslun og viðskipti": 6058.0,
+      "Aðrir skattar": 43814.0
+    },
+    {
+      "ar": 2015,
+      "Skattar á tekjur og hagnað": 210536.0,
+      "Skattar á launagreiðslur og vinnuafl": 6638.0,
+      "Eignarskattar": 4097.0,
+      "Skattar á vöru og þjónustu": 259696.0,
+      "Skattar á alþjóðaverslun og viðskipti": 4989.0,
+      "Aðrir skattar": 38364.0
+    },
+    {
+      "ar": 2016,
+      "Skattar á tekjur og hagnað": 240827.0,
+      "Skattar á launagreiðslur og vinnuafl": 7375.0,
+      "Eignarskattar": 388856.0,
+      "Skattar á vöru og þjónustu": 287790.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5087.0,
+      "Aðrir skattar": 14921.0
+    },
+    {
+      "ar": 2017,
+      "Skattar á tekjur og hagnað": 274572.0,
+      "Skattar á launagreiðslur og vinnuafl": 7946.0,
+      "Eignarskattar": 5675.0,
+      "Skattar á vöru og þjónustu": 323490.0,
+      "Skattar á alþjóðaverslun og viðskipti": 3912.0,
+      "Aðrir skattar": 16448.0
+    },
+    {
+      "ar": 2018,
+      "Skattar á tekjur og hagnað": 280954.0,
+      "Skattar á launagreiðslur og vinnuafl": 8542.0,
+      "Eignarskattar": 5087.0,
+      "Skattar á vöru og þjónustu": 337796.0,
+      "Skattar á alþjóðaverslun og viðskipti": 4118.0,
+      "Aðrir skattar": 17019.0
+    },
+    {
+      "ar": 2019,
+      "Skattar á tekjur og hagnað": 288811.0,
+      "Skattar á launagreiðslur og vinnuafl": 9124.0,
+      "Eignarskattar": 5461.0,
+      "Skattar á vöru og þjónustu": 338264.0,
+      "Skattar á alþjóðaverslun og viðskipti": 3430.0,
+      "Aðrir skattar": 18594.0
+    },
+    {
+      "ar": 2020,
+      "Skattar á tekjur og hagnað": 287478.0,
+      "Skattar á launagreiðslur og vinnuafl": 9233.0,
+      "Eignarskattar": 9915.0,
+      "Skattar á vöru og þjónustu": 327805.0,
+      "Skattar á alþjóðaverslun og viðskipti": 2575.0,
+      "Aðrir skattar": 19174.0
+    },
+    {
+      "ar": 2021,
+      "Skattar á tekjur og hagnað": 295626.0,
+      "Skattar á launagreiðslur og vinnuafl": 9160.0,
+      "Eignarskattar": 9299.0,
+      "Skattar á vöru og þjónustu": 370036.0,
+      "Skattar á alþjóðaverslun og viðskipti": 4122.0,
+      "Aðrir skattar": 13251.0
+    },
+    {
+      "ar": 2022,
+      "Skattar á tekjur og hagnað": 400070.0,
+      "Skattar á launagreiðslur og vinnuafl": 10003.0,
+      "Eignarskattar": 13244.0,
+      "Skattar á vöru og þjónustu": 430949.0,
+      "Skattar á alþjóðaverslun og viðskipti": 5991.0,
+      "Aðrir skattar": 14223.0
+    },
+    {
+      "ar": 2023,
+      "Skattar á tekjur og hagnað": 465751.0,
+      "Skattar á launagreiðslur og vinnuafl": 11532.0,
+      "Eignarskattar": 12821.0,
+      "Skattar á vöru og þjónustu": 488956.0,
+      "Skattar á alþjóðaverslun og viðskipti": 6294.0,
+      "Aðrir skattar": 13984.0
+    },
+    {
+      "ar": 2024,
+      "Skattar á tekjur og hagnað": 474147.0,
+      "Skattar á launagreiðslur og vinnuafl": 11883.0,
+      "Eignarskattar": 14132.0,
+      "Skattar á vöru og þjónustu": 552211.0,
+      "Skattar á alþjóðaverslun og viðskipti": 6656.0,
+      "Aðrir skattar": 16146.0
+    },
+    {
+      "ar": 2025,
+      "Skattar á tekjur og hagnað": 510720.0,
+      "Skattar á launagreiðslur og vinnuafl": 12932.0,
+      "Eignarskattar": 14199.0,
+      "Skattar á vöru og þjónustu": 547213.0,
+      "Skattar á alþjóðaverslun og viðskipti": 7606.0,
+      "Aðrir skattar": 17382.0
+    }
+  ],
+  "skattar_a_tekjur": [
+    {
+      "ar": 1998,
+      "Skattar á tekjur og hagnað, einstaklingar": 31156.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 6206.0,
+      "Skattur á fjármagnstekjur": 2385.0
+    },
+    {
+      "ar": 1999,
+      "Skattar á tekjur og hagnað, einstaklingar": 36565.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 7948.0,
+      "Skattur á fjármagnstekjur": 3855.0
+    },
+    {
+      "ar": 2000,
+      "Skattar á tekjur og hagnað, einstaklingar": 42528.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 8356.0,
+      "Skattur á fjármagnstekjur": 4625.0
+    },
+    {
+      "ar": 2001,
+      "Skattar á tekjur og hagnað, einstaklingar": 50660.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 8021.0,
+      "Skattur á fjármagnstekjur": 5473.0
+    },
+    {
+      "ar": 2002,
+      "Skattar á tekjur og hagnað, einstaklingar": 53135.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 7218.0,
+      "Skattur á fjármagnstekjur": 6165.0
+    },
+    {
+      "ar": 2003,
+      "Skattar á tekjur og hagnað, einstaklingar": 55850.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 10433.0,
+      "Skattur á fjármagnstekjur": 7144.0
+    },
+    {
+      "ar": 2004,
+      "Skattar á tekjur og hagnað, einstaklingar": 62590.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 9587.0,
+      "Skattur á fjármagnstekjur": 11371.0
+    },
+    {
+      "ar": 2005,
+      "Skattar á tekjur og hagnað, einstaklingar": 70944.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 20297.0,
+      "Skattur á fjármagnstekjur": 14464.0
+    },
+    {
+      "ar": 2006,
+      "Skattar á tekjur og hagnað, einstaklingar": 77737.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 28092.0,
+      "Skattur á fjármagnstekjur": 22275.0
+    },
+    {
+      "ar": 2007,
+      "Skattar á tekjur og hagnað, einstaklingar": 82067.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 32555.0,
+      "Skattur á fjármagnstekjur": 28754.0
+    },
+    {
+      "ar": 2008,
+      "Skattar á tekjur og hagnað, einstaklingar": 89696.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 28476.0,
+      "Skattur á fjármagnstekjur": 39343.0
+    },
+    {
+      "ar": 2009,
+      "Skattar á tekjur og hagnað, einstaklingar": 84658.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 26499.0,
+      "Skattur á fjármagnstekjur": 21116.0
+    },
+    {
+      "ar": 2010,
+      "Skattar á tekjur og hagnað, einstaklingar": 90521.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 14609.0,
+      "Skattur á fjármagnstekjur": 27737.0
+    },
+    {
+      "ar": 2011,
+      "Skattar á tekjur og hagnað, einstaklingar": 93987.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 29480.0,
+      "Skattur á fjármagnstekjur": 16772.0
+    },
+    {
+      "ar": 2012,
+      "Skattar á tekjur og hagnað, einstaklingar": 99361.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 33980.0,
+      "Skattur á fjármagnstekjur": 14784.0
+    },
+    {
+      "ar": 2013,
+      "Skattar á tekjur og hagnað, einstaklingar": 111487.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 40479.0,
+      "Skattur á fjármagnstekjur": 16475.0
+    },
+    {
+      "ar": 2014,
+      "Skattar á tekjur og hagnað, einstaklingar": 114369.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 66803.0,
+      "Skattur á fjármagnstekjur": 23088.0
+    },
+    {
+      "ar": 2015,
+      "Skattar á tekjur og hagnað, einstaklingar": 127535.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 52544.0,
+      "Skattur á fjármagnstekjur": 30457.0
+    },
+    {
+      "ar": 2016,
+      "Skattar á tekjur og hagnað, einstaklingar": 148739.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 62152.0,
+      "Skattur á fjármagnstekjur": 29936.0
+    },
+    {
+      "ar": 2017,
+      "Skattar á tekjur og hagnað, einstaklingar": 165012.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 79993.0,
+      "Skattur á fjármagnstekjur": 29566.0
+    },
+    {
+      "ar": 2018,
+      "Skattar á tekjur og hagnað, einstaklingar": 181660.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 67724.0,
+      "Skattur á fjármagnstekjur": 31569.0
+    },
+    {
+      "ar": 2019,
+      "Skattar á tekjur og hagnað, einstaklingar": 193971.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 62972.0,
+      "Skattur á fjármagnstekjur": 31868.0
+    },
+    {
+      "ar": 2020,
+      "Skattar á tekjur og hagnað, einstaklingar": 202698.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 64447.0,
+      "Skattur á fjármagnstekjur": 20333.0
+    },
+    {
+      "ar": 2021,
+      "Skattar á tekjur og hagnað, einstaklingar": 197845.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 65454.0,
+      "Skattur á fjármagnstekjur": 32327.0
+    },
+    {
+      "ar": 2022,
+      "Skattar á tekjur og hagnað, einstaklingar": 242249.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 100909.0,
+      "Skattur á fjármagnstekjur": 56911.0
+    },
+    {
+      "ar": 2023,
+      "Skattar á tekjur og hagnað, einstaklingar": 246771.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 144841.0,
+      "Skattur á fjármagnstekjur": 74139.0
+    },
+    {
+      "ar": 2024,
+      "Skattar á tekjur og hagnað, einstaklingar": 250935.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 145527.0,
+      "Skattur á fjármagnstekjur": 77684.0
+    },
+    {
+      "ar": 2025,
+      "Skattar á tekjur og hagnað, einstaklingar": 279812.0,
+      "Skattar á tekjur og hagnað, lögaðilar": 154220.0,
+      "Skattur á fjármagnstekjur": 76688.0
+    }
+  ],
+  "skattar_a_voru": [
+    {
+      "ar": 1998,
+      "Almennir skattar á vöru og þjónustu": 61668.0,
+      "Vörugjöld": 21744.0,
+      "Sértækir þjónustuskattar": 1485.0,
+      "Neyslu- og leyfisskattar": 6634.0
+    },
+    {
+      "ar": 1999,
+      "Almennir skattar á vöru og þjónustu": 72855.0,
+      "Vörugjöld": 23955.0,
+      "Sértækir þjónustuskattar": 1762.0,
+      "Neyslu- og leyfisskattar": 7250.0
+    },
+    {
+      "ar": 2000,
+      "Almennir skattar á vöru og þjónustu": 75811.0,
+      "Vörugjöld": 23585.0,
+      "Sértækir þjónustuskattar": 1828.0,
+      "Neyslu- og leyfisskattar": 8235.0
+    },
+    {
+      "ar": 2001,
+      "Almennir skattar á vöru og þjónustu": 75515.0,
+      "Vörugjöld": 21444.0,
+      "Sértækir þjónustuskattar": 1859.0,
+      "Neyslu- og leyfisskattar": 8722.0
+    },
+    {
+      "ar": 2002,
+      "Almennir skattar á vöru og þjónustu": 79898.0,
+      "Vörugjöld": 24522.0,
+      "Sértækir þjónustuskattar": 1910.0,
+      "Neyslu- og leyfisskattar": 9322.0
+    },
+    {
+      "ar": 2003,
+      "Almennir skattar á vöru og þjónustu": 85636.0,
+      "Vörugjöld": 28034.0,
+      "Sértækir þjónustuskattar": 2164.0,
+      "Neyslu- og leyfisskattar": 9889.0
+    },
+    {
+      "ar": 2004,
+      "Almennir skattar á vöru og þjónustu": 103425.0,
+      "Vörugjöld": 31174.0,
+      "Sértækir þjónustuskattar": 2334.0,
+      "Neyslu- og leyfisskattar": 10952.0
+    },
+    {
+      "ar": 2005,
+      "Almennir skattar á vöru og þjónustu": 122968.0,
+      "Vörugjöld": 38339.0,
+      "Sértækir þjónustuskattar": 2413.0,
+      "Neyslu- og leyfisskattar": 10354.0
+    },
+    {
+      "ar": 2006,
+      "Almennir skattar á vöru og þjónustu": 139733.0,
+      "Vörugjöld": 43653.0,
+      "Sértækir þjónustuskattar": 2906.0,
+      "Neyslu- og leyfisskattar": 7453.0
+    },
+    {
+      "ar": 2007,
+      "Almennir skattar á vöru og þjónustu": 148085.0,
+      "Vörugjöld": 45891.0,
+      "Sértækir þjónustuskattar": 3485.0,
+      "Neyslu- og leyfisskattar": 8504.0
+    },
+    {
+      "ar": 2008,
+      "Almennir skattar á vöru og þjónustu": 141114.0,
+      "Vörugjöld": 40364.0,
+      "Sértækir þjónustuskattar": 3900.0,
+      "Neyslu- og leyfisskattar": 7930.0
+    },
+    {
+      "ar": 2009,
+      "Almennir skattar á vöru og þjónustu": 124361.0,
+      "Vörugjöld": 39935.0,
+      "Sértækir þjónustuskattar": 3759.0,
+      "Neyslu- og leyfisskattar": 7808.0
+    },
+    {
+      "ar": 2010,
+      "Almennir skattar á vöru og þjónustu": 126351.0,
+      "Vörugjöld": 46711.0,
+      "Sértækir þjónustuskattar": 4086.0,
+      "Neyslu- og leyfisskattar": 8357.0
+    },
+    {
+      "ar": 2011,
+      "Almennir skattar á vöru og þjónustu": 133947.0,
+      "Vörugjöld": 50239.0,
+      "Sértækir þjónustuskattar": 4195.0,
+      "Neyslu- og leyfisskattar": 8801.0
+    },
+    {
+      "ar": 2012,
+      "Almennir skattar á vöru og þjónustu": 146166.0,
+      "Vörugjöld": 53930.0,
+      "Sértækir þjónustuskattar": 4505.0,
+      "Neyslu- og leyfisskattar": 9203.0
+    },
+    {
+      "ar": 2013,
+      "Almennir skattar á vöru og þjónustu": 153800.0,
+      "Vörugjöld": 55171.0,
+      "Sértækir þjónustuskattar": 4691.0,
+      "Neyslu- og leyfisskattar": 9407.0
+    },
+    {
+      "ar": 2014,
+      "Almennir skattar á vöru og þjónustu": 164355.0,
+      "Vörugjöld": 57521.0,
+      "Sértækir þjónustuskattar": 4502.0,
+      "Neyslu- og leyfisskattar": 9752.0
+    },
+    {
+      "ar": 2015,
+      "Almennir skattar á vöru og þjónustu": 188001.0,
+      "Vörugjöld": 56909.0,
+      "Sértækir þjónustuskattar": 4884.0,
+      "Neyslu- og leyfisskattar": 9901.0
+    },
+    {
+      "ar": 2016,
+      "Almennir skattar á vöru og þjónustu": 210288.0,
+      "Vörugjöld": 61710.0,
+      "Sértækir þjónustuskattar": 5241.0,
+      "Neyslu- og leyfisskattar": 10551.0
+    },
+    {
+      "ar": 2017,
+      "Almennir skattar á vöru og þjónustu": 238532.0,
+      "Vörugjöld": 67717.0,
+      "Sértækir þjónustuskattar": 6148.0,
+      "Neyslu- og leyfisskattar": 11092.0
+    },
+    {
+      "ar": 2018,
+      "Almennir skattar á vöru og þjónustu": 249586.0,
+      "Vörugjöld": 69524.0,
+      "Sértækir þjónustuskattar": 6967.0,
+      "Neyslu- og leyfisskattar": 11719.0
+    },
+    {
+      "ar": 2019,
+      "Almennir skattar á vöru og þjónustu": 248554.0,
+      "Vörugjöld": 66833.0,
+      "Sértækir þjónustuskattar": 7609.0,
+      "Neyslu- og leyfisskattar": 15268.0
+    },
+    {
+      "ar": 2020,
+      "Almennir skattar á vöru og þjónustu": 239773.0,
+      "Vörugjöld": 64251.0,
+      "Sértækir þjónustuskattar": 6835.0,
+      "Neyslu- og leyfisskattar": 16947.0
+    },
+    {
+      "ar": 2021,
+      "Almennir skattar á vöru og þjónustu": 284536.0,
+      "Vörugjöld": 66591.0,
+      "Sértækir þjónustuskattar": 6651.0,
+      "Neyslu- og leyfisskattar": 12257.0
+    },
+    {
+      "ar": 2022,
+      "Almennir skattar á vöru og þjónustu": 329554.0,
+      "Vörugjöld": 77118.0,
+      "Sértækir þjónustuskattar": 7584.0,
+      "Neyslu- og leyfisskattar": 16693.0
+    },
+    {
+      "ar": 2023,
+      "Almennir skattar á vöru og þjónustu": 377798.0,
+      "Vörugjöld": 86552.0,
+      "Sértækir þjónustuskattar": 9045.0,
+      "Neyslu- og leyfisskattar": 15561.0
+    },
+    {
+      "ar": 2024,
+      "Almennir skattar á vöru og þjónustu": 432072.0,
+      "Vörugjöld": 82813.0,
+      "Sértækir þjónustuskattar": 15031.0,
+      "Neyslu- og leyfisskattar": 22296.0
+    },
+    {
+      "ar": 2025,
+      "Almennir skattar á vöru og þjónustu": 413228.0,
+      "Vörugjöld": 91571.0,
+      "Sértækir þjónustuskattar": 18608.0,
+      "Neyslu- og leyfisskattar": 23806.0
+    }
+  ],
+  "innbyrdis_hlutdeild": [
+    {
+      "ar": 1998,
+      "Skatttekjur": 75.44,
+      "Tryggingargjöld": 8.7,
+      "Fjárframlög": 0.38,
+      "Aðrar tekjur": 15.48
+    },
+    {
+      "ar": 1999,
+      "Skatttekjur": 68.17,
+      "Tryggingargjöld": 7.43,
+      "Fjárframlög": 0.34,
+      "Aðrar tekjur": 24.06
+    },
+    {
+      "ar": 2000,
+      "Skatttekjur": 68.42,
+      "Tryggingargjöld": 7.67,
+      "Fjárframlög": 0.45,
+      "Aðrar tekjur": 23.46
+    },
+    {
+      "ar": 2001,
+      "Skatttekjur": 61.99,
+      "Tryggingargjöld": 7.41,
+      "Fjárframlög": 0.46,
+      "Aðrar tekjur": 30.14
+    },
+    {
+      "ar": 2002,
+      "Skatttekjur": 69.03,
+      "Tryggingargjöld": 8.34,
+      "Fjárframlög": 0.45,
+      "Aðrar tekjur": 22.19
+    },
+    {
+      "ar": 2003,
+      "Skatttekjur": 67.89,
+      "Tryggingargjöld": 8.49,
+      "Fjárframlög": 0.49,
+      "Aðrar tekjur": 23.13
+    },
+    {
+      "ar": 2004,
+      "Skatttekjur": 68.4,
+      "Tryggingargjöld": 8.04,
+      "Fjárframlög": 0.5,
+      "Aðrar tekjur": 23.06
+    },
+    {
+      "ar": 2005,
+      "Skatttekjur": 70.5,
+      "Tryggingargjöld": 7.99,
+      "Fjárframlög": 0.41,
+      "Aðrar tekjur": 21.1
+    },
+    {
+      "ar": 2006,
+      "Skatttekjur": 68.59,
+      "Tryggingargjöld": 7.99,
+      "Fjárframlög": 0.43,
+      "Aðrar tekjur": 22.98
+    },
+    {
+      "ar": 2007,
+      "Skatttekjur": 67.98,
+      "Tryggingargjöld": 7.48,
+      "Fjárframlög": 0.35,
+      "Aðrar tekjur": 24.2
+    },
+    {
+      "ar": 2008,
+      "Skatttekjur": 56.84,
+      "Tryggingargjöld": 6.53,
+      "Fjárframlög": 0.37,
+      "Aðrar tekjur": 36.26
+    },
+    {
+      "ar": 2009,
+      "Skatttekjur": 57.44,
+      "Tryggingargjöld": 8.13,
+      "Fjárframlög": 1.42,
+      "Aðrar tekjur": 33.01
+    },
+    {
+      "ar": 2010,
+      "Skatttekjur": 62.78,
+      "Tryggingargjöld": 11.74,
+      "Fjárframlög": 1.54,
+      "Aðrar tekjur": 23.93
+    },
+    {
+      "ar": 2011,
+      "Skatttekjur": 61.44,
+      "Tryggingargjöld": 11.3,
+      "Fjárframlög": 1.68,
+      "Aðrar tekjur": 25.58
+    },
+    {
+      "ar": 2012,
+      "Skatttekjur": 62.29,
+      "Tryggingargjöld": 10.19,
+      "Fjárframlög": 1.81,
+      "Aðrar tekjur": 25.71
+    },
+    {
+      "ar": 2013,
+      "Skatttekjur": 63.66,
+      "Tryggingargjöld": 10.43,
+      "Fjárframlög": 1.67,
+      "Aðrar tekjur": 24.24
+    },
+    {
+      "ar": 2014,
+      "Skatttekjur": 68.92,
+      "Tryggingargjöld": 9.9,
+      "Fjárframlög": 1.48,
+      "Aðrar tekjur": 19.71
+    },
+    {
+      "ar": 2015,
+      "Skatttekjur": 69.44,
+      "Tryggingargjöld": 10.56,
+      "Fjárframlög": 1.5,
+      "Aðrar tekjur": 18.5
+    },
+    {
+      "ar": 2016,
+      "Skatttekjur": 77.88,
+      "Tryggingargjöld": 7.04,
+      "Fjárframlög": 1.03,
+      "Aðrar tekjur": 14.05
+    },
+    {
+      "ar": 2017,
+      "Skatttekjur": 70.24,
+      "Tryggingargjöld": 9.96,
+      "Fjárframlög": 1.37,
+      "Aðrar tekjur": 18.43
+    },
+    {
+      "ar": 2018,
+      "Skatttekjur": 68.52,
+      "Tryggingargjöld": 10.3,
+      "Fjárframlög": 1.64,
+      "Aðrar tekjur": 19.53
+    },
+    {
+      "ar": 2019,
+      "Skatttekjur": 71.26,
+      "Tryggingargjöld": 10.46,
+      "Fjárframlög": 1.96,
+      "Aðrar tekjur": 16.33
+    },
+    {
+      "ar": 2020,
+      "Skatttekjur": 75.17,
+      "Tryggingargjöld": 10.12,
+      "Fjárframlög": 1.1,
+      "Aðrar tekjur": 13.61
+    },
+    {
+      "ar": 2021,
+      "Skatttekjur": 73.63,
+      "Tryggingargjöld": 10.23,
+      "Fjárframlög": 1.24,
+      "Aðrar tekjur": 14.9
+    },
+    {
+      "ar": 2022,
+      "Skatttekjur": 71.52,
+      "Tryggingargjöld": 9.45,
+      "Fjárframlög": 0.84,
+      "Aðrar tekjur": 18.19
+    },
+    {
+      "ar": 2023,
+      "Skatttekjur": 73.18,
+      "Tryggingargjöld": 9.58,
+      "Fjárframlög": 0.6,
+      "Aðrar tekjur": 16.64
+    },
+    {
+      "ar": 2024,
+      "Skatttekjur": 74.95,
+      "Tryggingargjöld": 9.46,
+      "Fjárframlög": 0.78,
+      "Aðrar tekjur": 14.81
+    },
+    {
+      "ar": 2025,
+      "Skatttekjur": 74.5,
+      "Tryggingargjöld": 10.33,
+      "Fjárframlög": 0.84,
+      "Aðrar tekjur": 14.33
+    }
+  ],
+  "pct_landsframl": [
+    {
+      "ar": 1998,
+      "Skatttekjur": 22.77,
+      "Tryggingargjöld": 2.62,
+      "Fjárframlög": 0.12,
+      "Aðrar tekjur": 4.67
+    },
+    {
+      "ar": 1999,
+      "Skatttekjur": 24.76,
+      "Tryggingargjöld": 2.7,
+      "Fjárframlög": 0.12,
+      "Aðrar tekjur": 8.74
+    },
+    {
+      "ar": 2000,
+      "Skatttekjur": 24.42,
+      "Tryggingargjöld": 2.74,
+      "Fjárframlög": 0.16,
+      "Aðrar tekjur": 8.37
+    },
+    {
+      "ar": 2001,
+      "Skatttekjur": 22.6,
+      "Tryggingargjöld": 2.7,
+      "Fjárframlög": 0.17,
+      "Aðrar tekjur": 10.99
+    },
+    {
+      "ar": 2002,
+      "Skatttekjur": 22.45,
+      "Tryggingargjöld": 2.71,
+      "Fjárframlög": 0.15,
+      "Aðrar tekjur": 7.21
+    },
+    {
+      "ar": 2003,
+      "Skatttekjur": 23.48,
+      "Tryggingargjöld": 2.94,
+      "Fjárframlög": 0.17,
+      "Aðrar tekjur": 8.0
+    },
+    {
+      "ar": 2004,
+      "Skatttekjur": 24.61,
+      "Tryggingargjöld": 2.89,
+      "Fjárframlög": 0.18,
+      "Aðrar tekjur": 8.3
+    },
+    {
+      "ar": 2005,
+      "Skatttekjur": 26.78,
+      "Tryggingargjöld": 3.04,
+      "Fjárframlög": 0.15,
+      "Aðrar tekjur": 8.02
+    },
+    {
+      "ar": 2006,
+      "Skatttekjur": 26.58,
+      "Tryggingargjöld": 3.1,
+      "Fjárframlög": 0.17,
+      "Aðrar tekjur": 8.91
+    },
+    {
+      "ar": 2007,
+      "Skatttekjur": 25.59,
+      "Tryggingargjöld": 2.81,
+      "Fjárframlög": 0.13,
+      "Aðrar tekjur": 9.11
+    },
+    {
+      "ar": 2008,
+      "Skatttekjur": 22.58,
+      "Tryggingargjöld": 2.59,
+      "Fjárframlög": 0.15,
+      "Aðrar tekjur": 14.4
+    },
+    {
+      "ar": 2009,
+      "Skatttekjur": 19.85,
+      "Tryggingargjöld": 2.81,
+      "Fjárframlög": 0.49,
+      "Aðrar tekjur": 11.4
+    },
+    {
+      "ar": 2010,
+      "Skatttekjur": 19.98,
+      "Tryggingargjöld": 3.74,
+      "Fjárframlög": 0.49,
+      "Aðrar tekjur": 7.62
+    },
+    {
+      "ar": 2011,
+      "Skatttekjur": 20.35,
+      "Tryggingargjöld": 3.74,
+      "Fjárframlög": 0.56,
+      "Aðrar tekjur": 8.48
+    },
+    {
+      "ar": 2012,
+      "Skatttekjur": 21.23,
+      "Tryggingargjöld": 3.47,
+      "Fjárframlög": 0.62,
+      "Aðrar tekjur": 8.76
+    },
+    {
+      "ar": 2013,
+      "Skatttekjur": 21.5,
+      "Tryggingargjöld": 3.52,
+      "Fjárframlög": 0.56,
+      "Aðrar tekjur": 8.19
+    },
+    {
+      "ar": 2014,
+      "Skatttekjur": 24.24,
+      "Tryggingargjöld": 3.48,
+      "Fjárframlög": 0.52,
+      "Aðrar tekjur": 6.93
+    },
+    {
+      "ar": 2015,
+      "Skatttekjur": 22.45,
+      "Tryggingargjöld": 3.41,
+      "Fjárframlög": 0.49,
+      "Aðrar tekjur": 5.98
+    },
+    {
+      "ar": 2016,
+      "Skatttekjur": 37.09,
+      "Tryggingargjöld": 3.35,
+      "Fjárframlög": 0.49,
+      "Aðrar tekjur": 6.69
+    },
+    {
+      "ar": 2017,
+      "Skatttekjur": 23.61,
+      "Tryggingargjöld": 3.35,
+      "Fjárframlög": 0.46,
+      "Aðrar tekjur": 6.19
+    },
+    {
+      "ar": 2018,
+      "Skatttekjur": 22.62,
+      "Tryggingargjöld": 3.4,
+      "Fjárframlög": 0.54,
+      "Aðrar tekjur": 6.45
+    },
+    {
+      "ar": 2019,
+      "Skatttekjur": 21.66,
+      "Tryggingargjöld": 3.18,
+      "Fjárframlög": 0.6,
+      "Aðrar tekjur": 4.96
+    },
+    {
+      "ar": 2020,
+      "Skatttekjur": 21.99,
+      "Tryggingargjöld": 2.96,
+      "Fjárframlög": 0.32,
+      "Aðrar tekjur": 3.98
+    },
+    {
+      "ar": 2021,
+      "Skatttekjur": 21.06,
+      "Tryggingargjöld": 2.92,
+      "Fjárframlög": 0.35,
+      "Aðrar tekjur": 4.26
+    },
+    {
+      "ar": 2022,
+      "Skatttekjur": 22.16,
+      "Tryggingargjöld": 2.93,
+      "Fjárframlög": 0.26,
+      "Aðrar tekjur": 5.63
+    },
+    {
+      "ar": 2023,
+      "Skatttekjur": 22.85,
+      "Tryggingargjöld": 2.99,
+      "Fjárframlög": 0.19,
+      "Aðrar tekjur": 5.2
+    },
+    {
+      "ar": 2024,
+      "Skatttekjur": 23.48,
+      "Tryggingargjöld": 2.96,
+      "Fjárframlög": 0.24,
+      "Aðrar tekjur": 4.64
+    },
+    {
+      "ar": 2025,
+      "Skatttekjur": 22.4,
+      "Tryggingargjöld": 3.1,
+      "Fjárframlög": 0.25,
+      "Aðrar tekjur": 4.31
+    }
+  ],
+  "kpi": {
+    "ar": 2025,
+    "heildartekjur_mkr": 1489980.0,
+    "heildartekjur_pct_gdp": 30.07,
+    "skatttekjur_mkr": 1110052.0,
+    "skatttekjur_pct": 74.5,
+    "tryggingar_mkr": 153860.0,
+    "adrar_tekjur_mkr": 213549.0
+  },
+  "topp_undirflokkar_nyjast": [
+    {
+      "kodi": "1141",
+      "label": "Almennir skattar á vöru og þjónustu",
+      "mkr": 413228.0
+    },
+    {
+      "kodi": "1111",
+      "label": "Skattar á tekjur og hagnað, einstaklingar",
+      "mkr": 279812.0
+    },
+    {
+      "kodi": "1112",
+      "label": "Skattar á tekjur og hagnað, lögaðilar",
+      "mkr": 154220.0
+    },
+    {
+      "kodi": "1142",
+      "label": "Vörugjöld",
+      "mkr": 91571.0
+    },
+    {
+      "kodi": "1113",
+      "label": "Skattur á fjármagnstekjur",
+      "mkr": 76688.0
+    },
+    {
+      "kodi": "1411",
+      "label": "Vaxtatekjur",
+      "mkr": 61874.0
+    },
+    {
+      "kodi": "1423",
+      "label": "Þjónustutekjur, frjálsar",
+      "mkr": 57427.0
+    },
+    {
+      "kodi": "1412",
+      "label": "Arðgreiðslur",
+      "mkr": 52446.0
+    },
+    {
+      "kodi": "1145",
+      "label": "Neyslu- og leyfisskattar",
+      "mkr": 23806.0
+    },
+    {
+      "kodi": "1144",
+      "label": "Sértækir þjónustuskattar",
+      "mkr": 18608.0
+    },
+    {
+      "kodi": "1415",
+      "label": "Aðrar eignatekjur",
+      "mkr": 15230.0
+    },
+    {
+      "kodi": "1133",
+      "label": "Erfðafjárskattur",
+      "mkr": 12797.0
+    },
+    {
+      "kodi": "1422",
+      "label": "Neyslu- og leyfisgjöld",
+      "mkr": 10055.0
+    },
+    {
+      "kodi": "1162",
+      "label": "Aðrir skattar ótilgreindir annars staðar",
+      "mkr": 9744.0
+    },
+    {
+      "kodi": "1161",
+      "label": "Skattar á atvinnurekstur",
+      "mkr": 7638.0
+    }
+  ],
+  "heildartekjur_real": [
+    {
+      "ar": 1998,
+      "mkr_naverdi": 659221.2536824876,
+      "mkr_nominal": 185018.0
+    },
+    {
+      "ar": 1999,
+      "mkr_naverdi": 824390.6313291141,
+      "mkr_nominal": 239327.0
+    },
+    {
+      "ar": 2000,
+      "mkr_naverdi": 841170.494224008,
+      "mkr_nominal": 256434.0
+    },
+    {
+      "ar": 2001,
+      "mkr_naverdi": 909303.3813559322,
+      "mkr_nominal": 295722.0
+    },
+    {
+      "ar": 2002,
+      "mkr_naverdi": 823481.0566037737,
+      "mkr_nominal": 280672.0
+    },
+    {
+      "ar": 2003,
+      "mkr_naverdi": 881719.4795424549,
+      "mkr_nominal": 306867.0
+    },
+    {
+      "ar": 2004,
+      "mkr_naverdi": 981815.8644501279,
+      "mkr_nominal": 352678.0
+    },
+    {
+      "ar": 2005,
+      "mkr_naverdi": 1097414.016796395,
+      "mkr_nominal": 410165.0
+    },
+    {
+      "ar": 2006,
+      "mkr_naverdi": 1204505.8641596315,
+      "mkr_nominal": 480622.0
+    },
+    {
+      "ar": 2007,
+      "mkr_naverdi": 1263711.5140664964,
+      "mkr_nominal": 529594.0
+    },
+    {
+      "ar": 2008,
+      "mkr_naverdi": 1353258.4338641535,
+      "mkr_nominal": 637571.0
+    },
+    {
+      "ar": 2009,
+      "mkr_naverdi": 1069662.569355775,
+      "mkr_nominal": 564394.0
+    },
+    {
+      "ar": 2010,
+      "mkr_naverdi": 973813.0985682821,
+      "mkr_nominal": 541554.0
+    },
+    {
+      "ar": 2011,
+      "mkr_naverdi": 1022441.2779984114,
+      "mkr_nominal": 591297.0
+    },
+    {
+      "ar": 2012,
+      "mkr_naverdi": 1047001.6566826075,
+      "mkr_nominal": 636922.0
+    },
+    {
+      "ar": 2013,
+      "mkr_naverdi": 1060626.803973831,
+      "mkr_nominal": 670220.0
+    },
+    {
+      "ar": 2014,
+      "mkr_naverdi": 1149980.217050582,
+      "mkr_nominal": 741474.0
+    },
+    {
+      "ar": 2015,
+      "mkr_naverdi": 1152143.1707943925,
+      "mkr_nominal": 755041.0
+    },
+    {
+      "ar": 2016,
+      "mkr_naverdi": 1820144.5396278428,
+      "mkr_nominal": 1213151.0
+    },
+    {
+      "ar": 2017,
+      "mkr_naverdi": 1326612.6920993228,
+      "mkr_nominal": 899846.0
+    },
+    {
+      "ar": 2018,
+      "mkr_naverdi": 1369529.7341688655,
+      "mkr_nominal": 953701.0
+    },
+    {
+      "ar": 2019,
+      "mkr_naverdi": 1298142.8700384123,
+      "mkr_nominal": 931419.0
+    },
+    {
+      "ar": 2020,
+      "mkr_naverdi": 1183002.7613612784,
+      "mkr_nominal": 872897.0
+    },
+    {
+      "ar": 2021,
+      "mkr_naverdi": 1236244.464534075,
+      "mkr_nominal": 952690.0
+    },
+    {
+      "ar": 2022,
+      "mkr_naverdi": 1464913.7237204183,
+      "mkr_nominal": 1222668.0
+    },
+    {
+      "ar": 2023,
+      "mkr_naverdi": 1504524.0389676115,
+      "mkr_nominal": 1365613.0
+    },
+    {
+      "ar": 2024,
+      "mkr_naverdi": 1493029.2726693228,
+      "mkr_nominal": 1434506.0
+    },
+    {
+      "ar": 2025,
+      "mkr_naverdi": 1489980.0,
+      "mkr_nominal": 1489980.0
+    }
+  ]
+}

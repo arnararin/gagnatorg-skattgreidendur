@@ -1,0 +1,232 @@
+{
+  "rvk_rekstur": {
+    "lines": [
+      {
+        "name": "Nettó útsvar",
+        "2024": 115290,
+        "2025": 125266,
+        "aaetlun": 128585
+      },
+      {
+        "name": "Fasteignaskattar samtals",
+        "2024": 29457,
+        "2025": 31244,
+        "aaetlun": 31323
+      },
+      {
+        "name": "Framlög Jöfnunarsjóðs",
+        "2024": 16997,
+        "2025": 18883,
+        "aaetlun": 18521
+      },
+      {
+        "name": "Þjónustutekjur",
+        "2024": 14250,
+        "2025": 13946,
+        "aaetlun": 13079
+      },
+      {
+        "name": "Eignatekjur",
+        "2024": 37337,
+        "2025": 40467,
+        "aaetlun": 39389
+      },
+      {
+        "name": "Sala byggingaréttar",
+        "2024": 5447,
+        "2025": 3363,
+        "aaetlun": 3074
+      },
+      {
+        "name": "Söluhagnaður eigna",
+        "2024": 672,
+        "2025": 1455,
+        "aaetlun": 1854
+      },
+      {
+        "name": "Endurgreiðslur annarra",
+        "2024": 10418,
+        "2025": 10267,
+        "aaetlun": 8567
+      },
+      {
+        "name": "Aðrar tekjur",
+        "2024": 2248,
+        "2025": 2138,
+        "aaetlun": 1726
+      },
+      {
+        "name": "Milliviðskipti tekin út",
+        "2024": -37665,
+        "2025": -40441,
+        "aaetlun": -39008
+      },
+      {
+        "name": "Rekstrartekjur samtals",
+        "2024": 194451,
+        "2025": 206589,
+        "aaetlun": 207111,
+        "sum": true
+      },
+      {
+        "name": "Laun og launatengd",
+        "2024": -104695,
+        "2025": -113126,
+        "aaetlun": -111953
+      },
+      {
+        "name": "Lífeyrisskuldbindingar",
+        "2024": 847,
+        "2025": -9860,
+        "aaetlun": -6700
+      },
+      {
+        "name": "Annar rekstrarkostnaður",
+        "2024": -72443,
+        "2025": -76354,
+        "aaetlun": -74576
+      },
+      {
+        "name": "Afskriftir",
+        "2024": -9561,
+        "2025": -10510,
+        "aaetlun": -10200
+      },
+      {
+        "name": "Rekstrargjöld samtals",
+        "2024": -185852,
+        "2025": -209850,
+        "aaetlun": -203429,
+        "sum": true
+      },
+      {
+        "name": "Fjármagnsliðir",
+        "2024": -3853,
+        "2025": -2056,
+        "aaetlun": -3335
+      },
+      {
+        "name": "EBITDA",
+        "2024": 18159,
+        "2025": 7249,
+        "aaetlun": 13882,
+        "highlight": true
+      },
+      {
+        "name": "Rekstrarniðurstaða",
+        "2024": 4746,
+        "2025": -5317,
+        "aaetlun": 346,
+        "highlight": true
+      }
+    ]
+  },
+  "lodasala": {
+    "rvk_2024": {
+      "sala_byggingar": 5447,
+      "soluhagn_eigna": 672,
+      "lodaleiga": 2480,
+      "samtals_solur": 6119
+    },
+    "rvk_2025": {
+      "sala_byggingar": 3363,
+      "soluhagn_eigna": 1455,
+      "lodaleiga": 2611,
+      "samtals_solur": 4818
+    },
+    "kop_2024": {
+      "byggingarrettur": 3109,
+      "lodaleiga": 388,
+      "sala_eigna": 4,
+      "tap_hagn_loda": -3559
+    },
+    "kop_2025": {
+      "byggingarrettur": 5750,
+      "lodaleiga": 412,
+      "sala_eigna": 26,
+      "tap_hagn_loda": -4650
+    }
+  },
+  "samrymi": [
+    {
+      "lidur": "Söluhagnaður Eigna (Rvk 2024)",
+      "opin_reikningar": 6119,
+      "arsreikningur": 6119,
+      "frávik": 0
+    },
+    {
+      "lidur": "Rekstrartekjur (Rvk 2024)",
+      "okkar": 194450.68,
+      "pdf": 194451,
+      "frávik": -0.32
+    },
+    {
+      "lidur": "Rekstrarniðurstaða (Rvk 2024)",
+      "okkar": 4745.7,
+      "pdf": 4746,
+      "frávik": -0.3
+    }
+  ],
+  "top_adrar_tekjur_2024": [
+    {
+      "svf": "Reykjavíkurborg",
+      "svf_full": "0000 Reykjavíkurborg",
+      "ma": 27.083387
+    },
+    {
+      "svf": "Kópavogsbær",
+      "svf_full": "1000 Kópavogsbær",
+      "ma": 8.813004
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "svf_full": "6000 Akureyrarbær",
+      "ma": 6.975587
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "svf_full": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 6.738521
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "svf_full": "8200 Sveitarfélagið Árborg",
+      "ma": 3.85195
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "svf_full": "2000 Reykjanesbær",
+      "ma": 3.301815
+    },
+    {
+      "svf": "1300 Garðabær",
+      "svf_full": "1300 Garðabær",
+      "ma": 2.916833
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "svf_full": "1604 Mosfellsbær",
+      "ma": 2.909524
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "svf_full": "4200 Ísafjarðarbær",
+      "ma": 2.091698
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "svf_full": "3000 Akraneskaupstaður",
+      "ma": 1.657583
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "svf_full": "7300 Fjarðabyggð",
+      "ma": 1.421705
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "svf_full": "7400 Múlaþing",
+      "ma": 1.395921
+    }
+  ]
+}

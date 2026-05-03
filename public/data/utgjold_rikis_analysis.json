@@ -1,0 +1,2510 @@
+{
+  "toppflokkar": [
+    {
+      "ar": 1998,
+      "01 Almenn opinber þjónusta": 36761.7,
+      "02 Varnarmál": 93.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 7242.6,
+      "04 Efnahags- og atvinnumál": 31365.5,
+      "05 Umhverfisvernd": 1698.0,
+      "06 Húsnæðis- skipulags- og veitumál": 385.8,
+      "07 Heilbrigðismál": 43326.4,
+      "08 Menningar-, íþrótta- og trúmál": 7258.7,
+      "09 Menntamál": 16251.1,
+      "10 Almannatryggingar og velferðarmál": 39283.3,
+      "_samtals": 183666.90000000002
+    },
+    {
+      "ar": 1999,
+      "01 Almenn opinber þjónusta": 65039.3,
+      "02 Varnarmál": 87.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 8225.5,
+      "04 Efnahags- og atvinnumál": 34153.4,
+      "05 Umhverfisvernd": 1952.6,
+      "06 Húsnæðis- skipulags- og veitumál": 190.4,
+      "07 Heilbrigðismál": 51482.8,
+      "08 Menningar-, íþrótta- og trúmál": 8369.2,
+      "09 Menntamál": 17702.3,
+      "10 Almannatryggingar og velferðarmál": 41823.4,
+      "_samtals": 229026.19999999998
+    },
+    {
+      "ar": 2000,
+      "01 Almenn opinber þjónusta": 67368.5,
+      "02 Varnarmál": 140.6,
+      "03 Löggæsla, réttargæsla og öryggismál": 8872.2,
+      "04 Efnahags- og atvinnumál": 36519.6,
+      "05 Umhverfisvernd": 1990.6,
+      "06 Húsnæðis- skipulags- og veitumál": 902.5,
+      "07 Heilbrigðismál": 53482.0,
+      "08 Menningar-, íþrótta- og trúmál": 9758.5,
+      "09 Menntamál": 18623.3,
+      "10 Almannatryggingar og velferðarmál": 48019.6,
+      "_samtals": 245677.4
+    },
+    {
+      "ar": 2001,
+      "01 Almenn opinber þjónusta": 95287.4,
+      "02 Varnarmál": 197.7,
+      "03 Löggæsla, réttargæsla og öryggismál": 9935.3,
+      "04 Efnahags- og atvinnumál": 42846.9,
+      "05 Umhverfisvernd": 2446.7,
+      "06 Húsnæðis- skipulags- og veitumál": 1031.3,
+      "07 Heilbrigðismál": 59775.8,
+      "08 Menningar-, íþrótta- og trúmál": 10005.1,
+      "09 Menntamál": 22641.0,
+      "10 Almannatryggingar og velferðarmál": 51676.8,
+      "_samtals": 295844.0
+    },
+    {
+      "ar": 2002,
+      "01 Almenn opinber þjónusta": 69741.3,
+      "02 Varnarmál": 238.0,
+      "03 Löggæsla, réttargæsla og öryggismál": 10822.8,
+      "04 Efnahags- og atvinnumál": 44085.7,
+      "05 Umhverfisvernd": 2693.9,
+      "06 Húsnæðis- skipulags- og veitumál": 1116.9,
+      "07 Heilbrigðismál": 69687.5,
+      "08 Menningar-, íþrótta- og trúmál": 10947.0,
+      "09 Menntamál": 24884.1,
+      "10 Almannatryggingar og velferðarmál": 55265.9,
+      "_samtals": 289483.1
+    },
+    {
+      "ar": 2003,
+      "01 Almenn opinber þjónusta": 79181.8,
+      "02 Varnarmál": 350.4,
+      "03 Löggæsla, réttargæsla og öryggismál": 11707.7,
+      "04 Efnahags- og atvinnumál": 47748.6,
+      "05 Umhverfisvernd": 3024.3,
+      "06 Húsnæðis- skipulags- og veitumál": 1125.9,
+      "07 Heilbrigðismál": 73902.9,
+      "08 Menningar-, íþrótta- og trúmál": 11487.4,
+      "09 Menntamál": 27190.2,
+      "10 Almannatryggingar og velferðarmál": 63047.2,
+      "_samtals": 318766.39999999997
+    },
+    {
+      "ar": 2004,
+      "01 Almenn opinber þjónusta": 88187.4,
+      "02 Varnarmál": 411.0,
+      "03 Löggæsla, réttargæsla og öryggismál": 12750.5,
+      "04 Efnahags- og atvinnumál": 48700.3,
+      "05 Umhverfisvernd": 3243.7,
+      "06 Húsnæðis- skipulags- og veitumál": 1268.2,
+      "07 Heilbrigðismál": 77458.2,
+      "08 Menningar-, íþrótta- og trúmál": 12952.1,
+      "09 Menntamál": 28750.8,
+      "10 Almannatryggingar og velferðarmál": 67226.0,
+      "_samtals": 340948.20000000007
+    },
+    {
+      "ar": 2005,
+      "01 Almenn opinber þjónusta": 90638.3,
+      "02 Varnarmál": 360.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 13930.5,
+      "04 Efnahags- og atvinnumál": 51492.7,
+      "05 Umhverfisvernd": 3546.4,
+      "06 Húsnæðis- skipulags- og veitumál": 1262.9,
+      "07 Heilbrigðismál": 82572.7,
+      "08 Menningar-, íþrótta- og trúmál": 13120.5,
+      "09 Menntamál": 31211.4,
+      "10 Almannatryggingar og velferðarmál": 73012.6,
+      "_samtals": 361148.5
+    },
+    {
+      "ar": 2006,
+      "01 Almenn opinber þjónusta": 112942.1,
+      "02 Varnarmál": 769.6,
+      "03 Löggæsla, réttargæsla og öryggismál": 15994.2,
+      "04 Efnahags- og atvinnumál": 53386.0,
+      "05 Umhverfisvernd": 3937.5,
+      "06 Húsnæðis- skipulags- og veitumál": 1230.7,
+      "07 Heilbrigðismál": 91036.3,
+      "08 Menningar-, íþrótta- og trúmál": 15453.6,
+      "09 Menntamál": 35552.0,
+      "10 Almannatryggingar og velferðarmál": 82547.7,
+      "_samtals": 412849.7
+    },
+    {
+      "ar": 2007,
+      "01 Almenn opinber þjónusta": 134157.7,
+      "02 Varnarmál": 809.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 17742.0,
+      "04 Efnahags- og atvinnumál": 58460.2,
+      "05 Umhverfisvernd": 4459.8,
+      "06 Húsnæðis- skipulags- og veitumál": 1357.5,
+      "07 Heilbrigðismál": 101893.5,
+      "08 Menningar-, íþrótta- og trúmál": 16798.0,
+      "09 Menntamál": 39944.1,
+      "10 Almannatryggingar og velferðarmál": 95631.6,
+      "_samtals": 471253.9
+    },
+    {
+      "ar": 2008,
+      "01 Almenn opinber þjónusta": 234503.3,
+      "02 Varnarmál": 887.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 19391.4,
+      "04 Efnahags- og atvinnumál": 268318.7,
+      "05 Umhverfisvernd": 5195.5,
+      "06 Húsnæðis- skipulags- og veitumál": 1552.3,
+      "07 Heilbrigðismál": 115075.3,
+      "08 Menningar-, íþrótta- og trúmál": 18528.9,
+      "09 Menntamál": 45877.3,
+      "10 Almannatryggingar og velferðarmál": 112797.4,
+      "_samtals": 822127.6000000002
+    },
+    {
+      "ar": 2009,
+      "01 Almenn opinber þjónusta": 245624.0,
+      "02 Varnarmál": 652.2,
+      "03 Löggæsla, réttargæsla og öryggismál": 22854.7,
+      "04 Efnahags- og atvinnumál": 79838.9,
+      "05 Umhverfisvernd": 5477.7,
+      "06 Húsnæðis- skipulags- og veitumál": 2304.4,
+      "07 Heilbrigðismál": 128180.5,
+      "08 Menningar-, íþrótta- og trúmál": 19678.2,
+      "09 Menntamál": 47173.1,
+      "10 Almannatryggingar og velferðarmál": 126842.2,
+      "_samtals": 678625.9
+    },
+    {
+      "ar": 2010,
+      "01 Almenn opinber þjónusta": 192432.0,
+      "02 Varnarmál": 747.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 18943.4,
+      "04 Efnahags- og atvinnumál": 96568.1,
+      "05 Umhverfisvernd": 5479.4,
+      "06 Húsnæðis- skipulags- og veitumál": 1722.5,
+      "07 Heilbrigðismál": 123887.6,
+      "08 Menningar-, íþrótta- og trúmál": 18816.2,
+      "09 Menntamál": 45958.7,
+      "10 Almannatryggingar og velferðarmál": 137918.3,
+      "_samtals": 642473.7
+    },
+    {
+      "ar": 2011,
+      "01 Almenn opinber þjónusta": 213173.6,
+      "02 Varnarmál": 1476.6,
+      "03 Löggæsla, réttargæsla og öryggismál": 26434.2,
+      "04 Efnahags- og atvinnumál": 83239.2,
+      "05 Umhverfisvernd": 5913.3,
+      "06 Húsnæðis- skipulags- og veitumál": 6999.0,
+      "07 Heilbrigðismál": 125952.4,
+      "08 Menningar-, íþrótta- og trúmál": 46150.4,
+      "09 Menntamál": 47128.4,
+      "10 Almannatryggingar og velferðarmál": 151721.6,
+      "_samtals": 708188.7000000001
+    },
+    {
+      "ar": 2012,
+      "01 Almenn opinber þjónusta": 225836.0,
+      "02 Varnarmál": 1248.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 23802.6,
+      "04 Efnahags- og atvinnumál": 68872.7,
+      "05 Umhverfisvernd": 5907.4,
+      "06 Húsnæðis- skipulags- og veitumál": 9038.6,
+      "07 Heilbrigðismál": 133323.1,
+      "08 Menningar-, íþrótta- og trúmál": 20851.3,
+      "09 Menntamál": 49553.7,
+      "10 Almannatryggingar og velferðarmál": 138501.5,
+      "_samtals": 676935.2
+    },
+    {
+      "ar": 2013,
+      "01 Almenn opinber þjónusta": 227285.3,
+      "02 Varnarmál": 1361.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 24929.4,
+      "04 Efnahags- og atvinnumál": 70616.4,
+      "05 Umhverfisvernd": 6139.5,
+      "06 Húsnæðis- skipulags- og veitumál": 3710.7,
+      "07 Heilbrigðismál": 142875.4,
+      "08 Menningar-, íþrótta- og trúmál": 22393.6,
+      "09 Menntamál": 51616.2,
+      "10 Almannatryggingar og velferðarmál": 141161.3,
+      "_samtals": 692089.5999999999
+    },
+    {
+      "ar": 2014,
+      "01 Almenn opinber þjónusta": 201825.0,
+      "02 Varnarmál": 1685.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 27984.9,
+      "04 Efnahags- og atvinnumál": 108293.0,
+      "05 Umhverfisvernd": 6786.6,
+      "06 Húsnæðis- skipulags- og veitumál": 3427.8,
+      "07 Heilbrigðismál": 152982.4,
+      "08 Menningar-, íþrótta- og trúmál": 21495.1,
+      "09 Menntamál": 53367.3,
+      "10 Almannatryggingar og velferðarmál": 138425.7,
+      "_samtals": 716273.3
+    },
+    {
+      "ar": 2015,
+      "01 Almenn opinber þjónusta": 215069.7,
+      "02 Varnarmál": 1338.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 31960.4,
+      "04 Efnahags- og atvinnumál": 94421.5,
+      "05 Umhverfisvernd": 7646.5,
+      "06 Húsnæðis- skipulags- og veitumál": 3437.6,
+      "07 Heilbrigðismál": 166364.5,
+      "08 Menningar-, íþrótta- og trúmál": 26023.2,
+      "09 Menntamál": 59858.1,
+      "10 Almannatryggingar og velferðarmál": 144885.8,
+      "_samtals": 751006.0999999999
+    },
+    {
+      "ar": 2016,
+      "01 Almenn opinber þjónusta": 212198.3,
+      "02 Varnarmál": 1520.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 30644.8,
+      "04 Efnahags- og atvinnumál": 98699.7,
+      "05 Umhverfisvernd": 8720.8,
+      "06 Húsnæðis- skipulags- og veitumál": 8076.3,
+      "07 Heilbrigðismál": 189356.4,
+      "08 Menningar-, íþrótta- og trúmál": 25577.3,
+      "09 Menntamál": 64234.2,
+      "10 Almannatryggingar og velferðarmál": 264079.5,
+      "_samtals": 903107.3999999999
+    },
+    {
+      "ar": 2017,
+      "01 Almenn opinber þjónusta": 210416.5,
+      "02 Varnarmál": 2171.7,
+      "03 Löggæsla, réttargæsla og öryggismál": 35315.2,
+      "04 Efnahags- og atvinnumál": 90767.1,
+      "05 Umhverfisvernd": 10290.7,
+      "06 Húsnæðis- skipulags- og veitumál": 6990.7,
+      "07 Heilbrigðismál": 204847.3,
+      "08 Menningar-, íþrótta- og trúmál": 26053.0,
+      "09 Menntamál": 67831.8,
+      "10 Almannatryggingar og velferðarmál": 185802.8,
+      "_samtals": 840486.8
+    },
+    {
+      "ar": 2018,
+      "01 Almenn opinber þjónusta": 209782.7,
+      "02 Varnarmál": 3302.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 37113.2,
+      "04 Efnahags- og atvinnumál": 113112.8,
+      "05 Umhverfisvernd": 11774.9,
+      "06 Húsnæðis- skipulags- og veitumál": 5587.7,
+      "07 Heilbrigðismál": 228669.9,
+      "08 Menningar-, íþrótta- og trúmál": 29912.6,
+      "09 Menntamál": 71096.0,
+      "10 Almannatryggingar og velferðarmál": 205016.8,
+      "_samtals": 915369.3999999999
+    },
+    {
+      "ar": 2019,
+      "01 Almenn opinber þjónusta": 204329.5,
+      "02 Varnarmál": 4609.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 39495.9,
+      "04 Efnahags- og atvinnumál": 106666.8,
+      "05 Umhverfisvernd": 11843.8,
+      "06 Húsnæðis- skipulags- og veitumál": 5906.0,
+      "07 Heilbrigðismál": 246991.1,
+      "08 Menningar-, íþrótta- og trúmál": 32116.7,
+      "09 Menntamál": 75715.2,
+      "10 Almannatryggingar og velferðarmál": 238193.8,
+      "_samtals": 965868.2999999998
+    },
+    {
+      "ar": 2020,
+      "01 Almenn opinber þjónusta": 201820.4,
+      "02 Varnarmál": 6603.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 41739.5,
+      "04 Efnahags- og atvinnumál": 147329.2,
+      "05 Umhverfisvernd": 13075.4,
+      "06 Húsnæðis- skipulags- og veitumál": 7078.2,
+      "07 Heilbrigðismál": 252775.6,
+      "08 Menningar-, íþrótta- og trúmál": 34022.3,
+      "09 Menntamál": 89308.1,
+      "10 Almannatryggingar og velferðarmál": 319375.1,
+      "_samtals": 1113127.1
+    },
+    {
+      "ar": 2021,
+      "01 Almenn opinber þjónusta": 216278.5,
+      "02 Varnarmál": 7307.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 49190.6,
+      "04 Efnahags- og atvinnumál": 150592.7,
+      "05 Umhverfisvernd": 14743.5,
+      "06 Húsnæðis- skipulags- og veitumál": 6337.1,
+      "07 Heilbrigðismál": 291384.5,
+      "08 Menningar-, íþrótta- og trúmál": 33779.0,
+      "09 Menntamál": 90200.1,
+      "10 Almannatryggingar og velferðarmál": 334158.2,
+      "_samtals": 1193971.3
+    },
+    {
+      "ar": 2022,
+      "01 Almenn opinber þjónusta": 326809.3,
+      "02 Varnarmál": 6630.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 53053.6,
+      "04 Efnahags- og atvinnumál": 150088.4,
+      "05 Umhverfisvernd": 18403.4,
+      "06 Húsnæðis- skipulags- og veitumál": 4332.9,
+      "07 Heilbrigðismál": 328381.3,
+      "08 Menningar-, íþrótta- og trúmál": 38462.6,
+      "09 Menntamál": 91734.1,
+      "10 Almannatryggingar og velferðarmál": 319898.1,
+      "_samtals": 1337794.0
+    },
+    {
+      "ar": 2023,
+      "01 Almenn opinber þjónusta": 343878.6,
+      "02 Varnarmál": 6726.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 62556.2,
+      "04 Efnahags- og atvinnumál": 155366.6,
+      "05 Umhverfisvernd": 18735.6,
+      "06 Húsnæðis- skipulags- og veitumál": 9464.8,
+      "07 Heilbrigðismál": 351953.5,
+      "08 Menningar-, íþrótta- og trúmál": 39617.3,
+      "09 Menntamál": 101122.5,
+      "10 Almannatryggingar og velferðarmál": 342796.7,
+      "_samtals": 1432217.9000000001
+    },
+    {
+      "ar": 2024,
+      "01 Almenn opinber þjónusta": 309855.8,
+      "02 Varnarmál": 9526.4,
+      "03 Löggæsla, réttargæsla og öryggismál": 78334.3,
+      "04 Efnahags- og atvinnumál": 171675.5,
+      "05 Umhverfisvernd": 18664.7,
+      "06 Húsnæðis- skipulags- og veitumál": 12080.6,
+      "07 Heilbrigðismál": 386844.6,
+      "08 Menningar-, íþrótta- og trúmál": 41995.6,
+      "09 Menntamál": 116053.4,
+      "10 Almannatryggingar og velferðarmál": 428363.7,
+      "_samtals": 1573394.5999999999
+    }
+  ],
+  "toppflokkar_real": [
+    {
+      "ar": 1998,
+      "01 Almenn opinber þjónusta": 134949.1,
+      "02 Varnarmál": 344.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 26587.1,
+      "04 Efnahags- og atvinnumál": 115139.9,
+      "05 Umhverfisvernd": 6233.2,
+      "06 Húsnæðis- skipulags- og veitumál": 1416.2,
+      "07 Heilbrigðismál": 159047.5,
+      "08 Menningar-, íþrótta- og trúmál": 26645.9,
+      "09 Menntamál": 59656.4,
+      "10 Almannatryggingar og velferðarmál": 144205.7
+    },
+    {
+      "ar": 1999,
+      "01 Almenn opinber þjónusta": 230782.9,
+      "02 Varnarmál": 309.7,
+      "03 Löggæsla, réttargæsla og öryggismál": 29187.0,
+      "04 Efnahags- og atvinnumál": 121188.6,
+      "05 Umhverfisvernd": 6928.6,
+      "06 Húsnæðis- skipulags- og veitumál": 675.6,
+      "07 Heilbrigðismál": 182679.7,
+      "08 Menningar-, íþrótta- og trúmál": 29697.0,
+      "09 Menntamál": 62814.2,
+      "10 Almannatryggingar og velferðarmál": 148404.7
+    },
+    {
+      "ar": 2000,
+      "01 Almenn opinber þjónusta": 229918.1,
+      "02 Varnarmál": 479.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 30279.4,
+      "04 Efnahags- og atvinnumál": 124635.5,
+      "05 Umhverfisvernd": 6793.5,
+      "06 Húsnæðis- skipulags- og veitumál": 3080.0,
+      "07 Heilbrigðismál": 182525.5,
+      "08 Menningar-, íþrótta- og trúmál": 33304.3,
+      "09 Menntamál": 63558.2,
+      "10 Almannatryggingar og velferðarmál": 163883.4
+    },
+    {
+      "ar": 2001,
+      "01 Almenn opinber þjónusta": 299237.3,
+      "02 Varnarmál": 620.9,
+      "03 Löggæsla, réttargæsla og öryggismál": 31200.5,
+      "04 Efnahags- og atvinnumál": 134555.0,
+      "05 Umhverfisvernd": 7683.4,
+      "06 Húsnæðis- skipulags- og veitumál": 3238.7,
+      "07 Heilbrigðismál": 187718.0,
+      "08 Menningar-, íþrótta- og trúmál": 31419.7,
+      "09 Menntamál": 71101.0,
+      "10 Almannatryggingar og velferðarmál": 162284.2
+    },
+    {
+      "ar": 2002,
+      "01 Almenn opinber þjónusta": 206883.1,
+      "02 Varnarmál": 705.9,
+      "03 Löggæsla, réttargæsla og öryggismál": 32105.0,
+      "04 Efnahags- og atvinnumál": 130777.3,
+      "05 Umhverfisvernd": 7991.3,
+      "06 Húsnæðis- skipulags- og veitumál": 3313.2,
+      "07 Heilbrigðismál": 206723.5,
+      "08 Menningar-, íþrótta- og trúmál": 32473.5,
+      "09 Menntamál": 73817.1,
+      "10 Almannatryggingar og velferðarmál": 163942.9
+    },
+    {
+      "ar": 2003,
+      "01 Almenn opinber þjónusta": 233743.8,
+      "02 Varnarmál": 1034.4,
+      "03 Löggæsla, réttargæsla og öryggismál": 34560.9,
+      "04 Efnahags- og atvinnumál": 140953.5,
+      "05 Umhverfisvernd": 8927.7,
+      "06 Húsnæðis- skipulags- og veitumál": 3323.6,
+      "07 Heilbrigðismál": 218160.8,
+      "08 Menningar-, íþrótta- og trúmál": 33910.7,
+      "09 Menntamál": 80265.1,
+      "10 Almannatryggingar og velferðarmál": 186114.7
+    },
+    {
+      "ar": 2004,
+      "01 Almenn opinber þjónusta": 253578.0,
+      "02 Varnarmál": 1181.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 36663.4,
+      "04 Efnahags- og atvinnumál": 140035.1,
+      "05 Umhverfisvernd": 9327.1,
+      "06 Húsnæðis- skipulags- og veitumál": 3646.7,
+      "07 Heilbrigðismál": 222726.7,
+      "08 Menningar-, íþrótta- og trúmál": 37243.1,
+      "09 Menntamál": 82671.2,
+      "10 Almannatryggingar og velferðarmál": 193304.4
+    },
+    {
+      "ar": 2005,
+      "01 Almenn opinber þjónusta": 253177.8,
+      "02 Varnarmál": 1006.9,
+      "03 Löggæsla, réttargæsla og öryggismál": 38911.8,
+      "04 Efnahags- og atvinnumál": 143833.3,
+      "05 Umhverfisvernd": 9906.1,
+      "06 Húsnæðis- skipulags- og veitumál": 3527.6,
+      "07 Heilbrigðismál": 230648.4,
+      "08 Menningar-, íþrótta- og trúmál": 36649.2,
+      "09 Menntamál": 87182.2,
+      "10 Almannatryggingar og velferðarmál": 203944.5
+    },
+    {
+      "ar": 2006,
+      "01 Almenn opinber þjónusta": 290285.5,
+      "02 Varnarmál": 1978.0,
+      "03 Löggæsla, réttargæsla og öryggismál": 41108.6,
+      "04 Efnahags- og atvinnumál": 137213.3,
+      "05 Umhverfisvernd": 10120.1,
+      "06 Húsnæðis- skipulags- og veitumál": 3163.0,
+      "07 Heilbrigðismál": 233982.8,
+      "08 Menningar-, íþrótta- og trúmál": 39719.2,
+      "09 Menntamál": 91376.1,
+      "10 Almannatryggingar og velferðarmál": 212165.4
+    },
+    {
+      "ar": 2007,
+      "01 Almenn opinber þjónusta": 330584.6,
+      "02 Varnarmál": 1994.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 43718.9,
+      "04 Efnahags- og atvinnumál": 144054.7,
+      "05 Umhverfisvernd": 10989.5,
+      "06 Húsnæðis- skipulags- og veitumál": 3345.2,
+      "07 Heilbrigðismál": 251080.6,
+      "08 Menningar-, íþrótta- og trúmál": 41392.8,
+      "09 Menntamál": 98428.3,
+      "10 Almannatryggingar og velferðarmál": 235650.5
+    },
+    {
+      "ar": 2008,
+      "01 Almenn opinber þjónusta": 515090.8,
+      "02 Varnarmál": 1949.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 42593.6,
+      "04 Efnahags- og atvinnumál": 589367.0,
+      "05 Umhverfisvernd": 11412.1,
+      "06 Húsnæðis- skipulags- og veitumál": 3409.7,
+      "07 Heilbrigðismál": 252765.0,
+      "08 Menningar-, íþrótta- og trúmál": 40699.0,
+      "09 Menntamál": 100770.3,
+      "10 Almannatryggingar og velferðarmál": 247761.5
+    },
+    {
+      "ar": 2009,
+      "01 Almenn opinber þjónusta": 485928.6,
+      "02 Varnarmál": 1290.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 45214.5,
+      "04 Efnahags- og atvinnumál": 157948.7,
+      "05 Umhverfisvernd": 10836.7,
+      "06 Húsnæðis- skipulags- og veitumál": 4558.9,
+      "07 Heilbrigðismál": 253585.1,
+      "08 Menningar-, íþrótta- og trúmál": 38930.3,
+      "09 Menntamál": 93324.5,
+      "10 Almannatryggingar og velferðarmál": 250937.4
+    },
+    {
+      "ar": 2010,
+      "01 Almenn opinber þjónusta": 357286.9,
+      "02 Varnarmál": 1387.9,
+      "03 Löggæsla, réttargæsla og öryggismál": 35172.0,
+      "04 Efnahags- og atvinnumál": 179297.2,
+      "05 Umhverfisvernd": 10173.5,
+      "06 Húsnæðis- skipulags- og veitumál": 3198.2,
+      "07 Heilbrigðismál": 230021.1,
+      "08 Menningar-, íþrótta- og trúmál": 34936.0,
+      "09 Menntamál": 85331.1,
+      "10 Almannatryggingar og velferðarmál": 256071.8
+    },
+    {
+      "ar": 2011,
+      "01 Almenn opinber þjónusta": 382588.1,
+      "02 Varnarmál": 2650.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 47442.1,
+      "04 Efnahags- og atvinnumál": 149391.5,
+      "05 Umhverfisvernd": 10612.7,
+      "06 Húsnæðis- skipulags- og veitumál": 12561.3,
+      "07 Heilbrigðismál": 226050.0,
+      "08 Menningar-, íþrótta- og trúmál": 82827.3,
+      "09 Menntamál": 84582.5,
+      "10 Almannatryggingar og velferðarmál": 272298.7
+    },
+    {
+      "ar": 2012,
+      "01 Almenn opinber þjónusta": 391579.8,
+      "02 Varnarmál": 2164.4,
+      "03 Löggæsla, réttargæsla og öryggismál": 41271.6,
+      "04 Efnahags- og atvinnumál": 119419.3,
+      "05 Umhverfisvernd": 10243.0,
+      "06 Húsnæðis- skipulags- og veitumál": 15672.1,
+      "07 Heilbrigðismál": 231170.6,
+      "08 Menningar-, íþrótta- og trúmál": 36154.3,
+      "09 Menntamál": 85921.8,
+      "10 Almannatryggingar og velferðarmál": 240149.4
+    },
+    {
+      "ar": 2013,
+      "01 Almenn opinber þjónusta": 384507.1,
+      "02 Varnarmál": 2303.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 42174.0,
+      "04 Efnahags- og atvinnumál": 119464.4,
+      "05 Umhverfisvernd": 10386.4,
+      "06 Húsnæðis- skipulags- og veitumál": 6277.5,
+      "07 Heilbrigðismál": 241707.6,
+      "08 Menningar-, íþrótta- og trúmál": 37884.0,
+      "09 Menntamál": 87321.1,
+      "10 Almannatryggingar og velferðarmál": 238807.8
+    },
+    {
+      "ar": 2014,
+      "01 Almenn opinber þjónusta": 327633.5,
+      "02 Varnarmál": 2736.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 45429.4,
+      "04 Efnahags- og atvinnumál": 175797.9,
+      "05 Umhverfisvernd": 11017.1,
+      "06 Húsnæðis- skipulags- og veitumál": 5564.5,
+      "07 Heilbrigðismál": 248344.7,
+      "08 Menningar-, íþrótta- og trúmál": 34894.2,
+      "09 Menntamál": 86634.0,
+      "10 Almannatryggingar og velferðarmál": 224713.9
+    },
+    {
+      "ar": 2015,
+      "01 Almenn opinber þjónusta": 327053.0,
+      "02 Varnarmál": 2036.0,
+      "03 Löggæsla, réttargæsla og öryggismál": 48601.7,
+      "04 Efnahags- og atvinnumál": 143585.2,
+      "05 Umhverfisvernd": 11627.9,
+      "06 Húsnæðis- skipulags- og veitumál": 5227.6,
+      "07 Heilbrigðismál": 252987.7,
+      "08 Menningar-, íþrótta- og trúmál": 39573.1,
+      "09 Menntamál": 91025.3,
+      "10 Almannatryggingar og velferðarmál": 220325.4
+    },
+    {
+      "ar": 2016,
+      "01 Almenn opinber þjónusta": 314206.6,
+      "02 Varnarmál": 2250.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 45376.4,
+      "04 Efnahags- og atvinnumál": 146146.8,
+      "05 Umhverfisvernd": 12913.0,
+      "06 Húsnæðis- skipulags- og veitumál": 11958.8,
+      "07 Heilbrigðismál": 280384.0,
+      "08 Menningar-, íþrótta- og trúmál": 37872.8,
+      "09 Menntamál": 95112.9,
+      "10 Almannatryggingar og velferðarmál": 391028.1
+    },
+    {
+      "ar": 2017,
+      "01 Almenn opinber þjónusta": 306740.8,
+      "02 Varnarmál": 3165.9,
+      "03 Löggæsla, réttargæsla og öryggismál": 51481.8,
+      "04 Efnahags- og atvinnumál": 132318.4,
+      "05 Umhverfisvernd": 15001.6,
+      "06 Húsnæðis- skipulags- og veitumál": 10190.8,
+      "07 Heilbrigðismál": 298622.2,
+      "08 Menningar-, íþrótta- og trúmál": 37979.6,
+      "09 Menntamál": 98883.9,
+      "10 Almannatryggingar og velferðarmál": 270859.5
+    },
+    {
+      "ar": 2018,
+      "01 Almenn opinber þjónusta": 296608.4,
+      "02 Varnarmál": 4669.8,
+      "03 Löggæsla, réttargæsla og öryggismál": 52473.7,
+      "04 Efnahags- og atvinnumál": 159928.3,
+      "05 Umhverfisvernd": 16648.3,
+      "06 Húsnæðis- skipulags- og veitumál": 7900.4,
+      "07 Heilbrigðismál": 323312.8,
+      "08 Menningar-, íþrótta- og trúmál": 42292.9,
+      "09 Menntamál": 100521.4,
+      "10 Almannatryggingar og velferðarmál": 289869.9
+    },
+    {
+      "ar": 2019,
+      "01 Almenn opinber þjónusta": 275569.5,
+      "02 Varnarmál": 6216.6,
+      "03 Löggæsla, réttargæsla og öryggismál": 53266.2,
+      "04 Efnahags- og atvinnumál": 143856.5,
+      "05 Umhverfisvernd": 15973.1,
+      "06 Húsnæðis- skipulags- og veitumál": 7965.2,
+      "07 Heilbrigðismál": 333105.1,
+      "08 Menningar-, íþrótta- og trúmál": 43314.3,
+      "09 Menntamál": 102113.6,
+      "10 Almannatryggingar og velferðarmál": 321240.7
+    },
+    {
+      "ar": 2020,
+      "01 Almenn opinber þjónusta": 260861.3,
+      "02 Varnarmál": 8535.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 53950.0,
+      "04 Efnahags- og atvinnumál": 190429.1,
+      "05 Umhverfisvernd": 16900.5,
+      "06 Húsnæðis- skipulags- og veitumál": 9148.8,
+      "07 Heilbrigðismál": 326723.0,
+      "08 Menningar-, íþrótta- og trúmál": 43975.3,
+      "09 Menntamál": 115434.4,
+      "10 Almannatryggingar og velferðarmál": 412805.6
+    },
+    {
+      "ar": 2021,
+      "01 Almenn opinber þjónusta": 263356.2,
+      "02 Varnarmál": 8897.7,
+      "03 Löggæsla, réttargæsla og öryggismál": 59898.0,
+      "04 Efnahags- og atvinnumál": 183372.4,
+      "05 Umhverfisvernd": 17952.7,
+      "06 Húsnæðis- skipulags- og veitumál": 7716.5,
+      "07 Heilbrigðismál": 354810.7,
+      "08 Menningar-, íþrótta- og trúmál": 41131.7,
+      "09 Menntamál": 109834.1,
+      "10 Almannatryggingar og velferðarmál": 406895.0
+    },
+    {
+      "ar": 2022,
+      "01 Almenn opinber þjónusta": 365653.0,
+      "02 Varnarmál": 7418.3,
+      "03 Löggæsla, réttargæsla og öryggismál": 59359.4,
+      "04 Efnahags- og atvinnumál": 167927.5,
+      "05 Umhverfisvernd": 20590.8,
+      "06 Húsnæðis- skipulags- og veitumál": 4847.9,
+      "07 Heilbrigðismál": 367411.7,
+      "08 Menningar-, íþrótta- og trúmál": 43034.1,
+      "09 Menntamál": 102637.3,
+      "10 Almannatryggingar og velferðarmál": 357920.3
+    },
+    {
+      "ar": 2023,
+      "01 Almenn opinber þjónusta": 364683.7,
+      "02 Varnarmál": 7133.0,
+      "03 Löggæsla, réttargæsla og öryggismál": 66340.9,
+      "04 Efnahags- og atvinnumál": 164766.5,
+      "05 Umhverfisvernd": 19869.1,
+      "06 Húsnæðis- skipulags- og veitumál": 10037.4,
+      "07 Heilbrigðismál": 373247.1,
+      "08 Menningar-, íþrótta- og trúmál": 42014.2,
+      "09 Menntamál": 107240.5,
+      "10 Almannatryggingar og velferðarmál": 363536.3
+    },
+    {
+      "ar": 2024,
+      "01 Almenn opinber þjónusta": 309855.8,
+      "02 Varnarmál": 9526.4,
+      "03 Löggæsla, réttargæsla og öryggismál": 78334.3,
+      "04 Efnahags- og atvinnumál": 171675.5,
+      "05 Umhverfisvernd": 18664.7,
+      "06 Húsnæðis- skipulags- og veitumál": 12080.6,
+      "07 Heilbrigðismál": 386844.6,
+      "08 Menningar-, íþrótta- og trúmál": 41995.6,
+      "09 Menntamál": 116053.4,
+      "10 Almannatryggingar og velferðarmál": 428363.7
+    }
+  ],
+  "pct_landsframl": [
+    {
+      "ar": 1998,
+      "01 Almenn opinber þjónusta": 6.0,
+      "02 Varnarmál": 0.02,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.18,
+      "04 Efnahags- og atvinnumál": 5.12,
+      "05 Umhverfisvernd": 0.28,
+      "06 Húsnæðis- skipulags- og veitumál": 0.06,
+      "07 Heilbrigðismál": 7.07,
+      "08 Menningar-, íþrótta- og trúmál": 1.18,
+      "09 Menntamál": 2.65,
+      "10 Almannatryggingar og velferðarmál": 6.41
+    },
+    {
+      "ar": 1999,
+      "01 Almenn opinber þjónusta": 9.87,
+      "02 Varnarmál": 0.01,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.25,
+      "04 Efnahags- og atvinnumál": 5.18,
+      "05 Umhverfisvernd": 0.3,
+      "06 Húsnæðis- skipulags- og veitumál": 0.03,
+      "07 Heilbrigðismál": 7.81,
+      "08 Menningar-, íþrótta- og trúmál": 1.27,
+      "09 Menntamál": 2.69,
+      "10 Almannatryggingar og velferðarmál": 6.35
+    },
+    {
+      "ar": 2000,
+      "01 Almenn opinber þjónusta": 9.38,
+      "02 Varnarmál": 0.02,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.23,
+      "04 Efnahags- og atvinnumál": 5.08,
+      "05 Umhverfisvernd": 0.28,
+      "06 Húsnæðis- skipulags- og veitumál": 0.13,
+      "07 Heilbrigðismál": 7.44,
+      "08 Menningar-, íþrótta- og trúmál": 1.36,
+      "09 Menntamál": 2.59,
+      "10 Almannatryggingar og velferðarmál": 6.68
+    },
+    {
+      "ar": 2001,
+      "01 Almenn opinber þjónusta": 11.75,
+      "02 Varnarmál": 0.02,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.23,
+      "04 Efnahags- og atvinnumál": 5.28,
+      "05 Umhverfisvernd": 0.3,
+      "06 Húsnæðis- skipulags- og veitumál": 0.13,
+      "07 Heilbrigðismál": 7.37,
+      "08 Menningar-, íþrótta- og trúmál": 1.23,
+      "09 Menntamál": 2.79,
+      "10 Almannatryggingar og velferðarmál": 6.37
+    },
+    {
+      "ar": 2002,
+      "01 Almenn opinber þjónusta": 8.08,
+      "02 Varnarmál": 0.03,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.25,
+      "04 Efnahags- og atvinnumál": 5.11,
+      "05 Umhverfisvernd": 0.31,
+      "06 Húsnæðis- skipulags- og veitumál": 0.13,
+      "07 Heilbrigðismál": 8.07,
+      "08 Menningar-, íþrótta- og trúmál": 1.27,
+      "09 Menntamál": 2.88,
+      "10 Almannatryggingar og velferðarmál": 6.4
+    },
+    {
+      "ar": 2003,
+      "01 Almenn opinber þjónusta": 8.93,
+      "02 Varnarmál": 0.04,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.32,
+      "04 Efnahags- og atvinnumál": 5.38,
+      "05 Umhverfisvernd": 0.34,
+      "06 Húsnæðis- skipulags- og veitumál": 0.13,
+      "07 Heilbrigðismál": 8.33,
+      "08 Menningar-, íþrótta- og trúmál": 1.29,
+      "09 Menntamál": 3.07,
+      "10 Almannatryggingar og velferðarmál": 7.11
+    },
+    {
+      "ar": 2004,
+      "01 Almenn opinber þjónusta": 9.0,
+      "02 Varnarmál": 0.04,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.3,
+      "04 Efnahags- og atvinnumál": 4.97,
+      "05 Umhverfisvernd": 0.33,
+      "06 Húsnæðis- skipulags- og veitumál": 0.13,
+      "07 Heilbrigðismál": 7.9,
+      "08 Menningar-, íþrótta- og trúmál": 1.32,
+      "09 Menntamál": 2.93,
+      "10 Almannatryggingar og velferðarmál": 6.86
+    },
+    {
+      "ar": 2005,
+      "01 Almenn opinber þjónusta": 8.39,
+      "02 Varnarmál": 0.03,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.29,
+      "04 Efnahags- og atvinnumál": 4.77,
+      "05 Umhverfisvernd": 0.33,
+      "06 Húsnæðis- skipulags- og veitumál": 0.12,
+      "07 Heilbrigðismál": 7.65,
+      "08 Menningar-, íþrótta- og trúmál": 1.21,
+      "09 Menntamál": 2.89,
+      "10 Almannatryggingar og velferðarmál": 6.76
+    },
+    {
+      "ar": 2006,
+      "01 Almenn opinber þjónusta": 9.11,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.29,
+      "04 Efnahags- og atvinnumál": 4.3,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.1,
+      "07 Heilbrigðismál": 7.34,
+      "08 Menningar-, íþrótta- og trúmál": 1.25,
+      "09 Menntamál": 2.87,
+      "10 Almannatryggingar og velferðarmál": 6.66
+    },
+    {
+      "ar": 2007,
+      "01 Almenn opinber þjónusta": 9.54,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.26,
+      "04 Efnahags- og atvinnumál": 4.16,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.1,
+      "07 Heilbrigðismál": 7.24,
+      "08 Menningar-, íþrótta- og trúmál": 1.19,
+      "09 Menntamál": 2.84,
+      "10 Almannatryggingar og velferðarmál": 6.8
+    },
+    {
+      "ar": 2008,
+      "01 Almenn opinber þjónusta": 14.61,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.21,
+      "04 Efnahags- og atvinnumál": 16.72,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.1,
+      "07 Heilbrigðismál": 7.17,
+      "08 Menningar-, íþrótta- og trúmál": 1.15,
+      "09 Menntamál": 2.86,
+      "10 Almannatryggingar og velferðarmál": 7.03
+    },
+    {
+      "ar": 2009,
+      "01 Almenn opinber þjónusta": 15.04,
+      "02 Varnarmál": 0.04,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.4,
+      "04 Efnahags- og atvinnumál": 4.89,
+      "05 Umhverfisvernd": 0.34,
+      "06 Húsnæðis- skipulags- og veitumál": 0.14,
+      "07 Heilbrigðismál": 7.85,
+      "08 Menningar-, íþrótta- og trúmál": 1.2,
+      "09 Menntamál": 2.89,
+      "10 Almannatryggingar og velferðarmál": 7.76
+    },
+    {
+      "ar": 2010,
+      "01 Almenn opinber þjónusta": 11.31,
+      "02 Varnarmál": 0.04,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.11,
+      "04 Efnahags- og atvinnumál": 5.67,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.1,
+      "07 Heilbrigðismál": 7.28,
+      "08 Menningar-, íþrótta- og trúmál": 1.11,
+      "09 Menntamál": 2.7,
+      "10 Almannatryggingar og velferðarmál": 8.1
+    },
+    {
+      "ar": 2011,
+      "01 Almenn opinber þjónusta": 11.94,
+      "02 Varnarmál": 0.08,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.48,
+      "04 Efnahags- og atvinnumál": 4.66,
+      "05 Umhverfisvernd": 0.33,
+      "06 Húsnæðis- skipulags- og veitumál": 0.39,
+      "07 Heilbrigðismál": 7.06,
+      "08 Menningar-, íþrótta- og trúmál": 2.59,
+      "09 Menntamál": 2.64,
+      "10 Almannatryggingar og velferðarmál": 8.5
+    },
+    {
+      "ar": 2012,
+      "01 Almenn opinber þjónusta": 12.08,
+      "02 Varnarmál": 0.07,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.27,
+      "04 Efnahags- og atvinnumál": 3.68,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.48,
+      "07 Heilbrigðismál": 7.13,
+      "08 Menningar-, íþrótta- og trúmál": 1.12,
+      "09 Menntamál": 2.65,
+      "10 Almannatryggingar og velferðarmál": 7.41
+    },
+    {
+      "ar": 2013,
+      "01 Almenn opinber þjónusta": 11.45,
+      "02 Varnarmál": 0.07,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.26,
+      "04 Efnahags- og atvinnumál": 3.56,
+      "05 Umhverfisvernd": 0.31,
+      "06 Húsnæðis- skipulags- og veitumál": 0.19,
+      "07 Heilbrigðismál": 7.2,
+      "08 Menningar-, íþrótta- og trúmál": 1.13,
+      "09 Menntamál": 2.6,
+      "10 Almannatryggingar og velferðarmál": 7.11
+    },
+    {
+      "ar": 2014,
+      "01 Almenn opinber þjónusta": 9.57,
+      "02 Varnarmál": 0.08,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.33,
+      "04 Efnahags- og atvinnumál": 5.14,
+      "05 Umhverfisvernd": 0.32,
+      "06 Húsnæðis- skipulags- og veitumál": 0.16,
+      "07 Heilbrigðismál": 7.26,
+      "08 Menningar-, íþrótta- og trúmál": 1.02,
+      "09 Menntamál": 2.53,
+      "10 Almannatryggingar og velferðarmál": 6.57
+    },
+    {
+      "ar": 2015,
+      "01 Almenn opinber þjónusta": 9.21,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.37,
+      "04 Efnahags- og atvinnumál": 4.04,
+      "05 Umhverfisvernd": 0.33,
+      "06 Húsnæðis- skipulags- og veitumál": 0.15,
+      "07 Heilbrigðismál": 7.12,
+      "08 Menningar-, íþrótta- og trúmál": 1.11,
+      "09 Menntamál": 2.56,
+      "10 Almannatryggingar og velferðarmál": 6.2
+    },
+    {
+      "ar": 2016,
+      "01 Almenn opinber þjónusta": 8.33,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.2,
+      "04 Efnahags- og atvinnumál": 3.87,
+      "05 Umhverfisvernd": 0.34,
+      "06 Húsnæðis- skipulags- og veitumál": 0.32,
+      "07 Heilbrigðismál": 7.43,
+      "08 Menningar-, íþrótta- og trúmál": 1.0,
+      "09 Menntamál": 2.52,
+      "10 Almannatryggingar og velferðarmál": 10.37
+    },
+    {
+      "ar": 2017,
+      "01 Almenn opinber þjónusta": 7.86,
+      "02 Varnarmál": 0.08,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.32,
+      "04 Efnahags- og atvinnumál": 3.39,
+      "05 Umhverfisvernd": 0.38,
+      "06 Húsnæðis- skipulags- og veitumál": 0.26,
+      "07 Heilbrigðismál": 7.65,
+      "08 Menningar-, íþrótta- og trúmál": 0.97,
+      "09 Menntamál": 2.53,
+      "10 Almannatryggingar og velferðarmál": 6.94
+    },
+    {
+      "ar": 2018,
+      "01 Almenn opinber þjónusta": 7.26,
+      "02 Varnarmál": 0.11,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.28,
+      "04 Efnahags- og atvinnumál": 3.92,
+      "05 Umhverfisvernd": 0.41,
+      "06 Húsnæðis- skipulags- og veitumál": 0.19,
+      "07 Heilbrigðismál": 7.91,
+      "08 Menningar-, íþrótta- og trúmál": 1.04,
+      "09 Menntamál": 2.46,
+      "10 Almannatryggingar og velferðarmál": 7.1
+    },
+    {
+      "ar": 2019,
+      "01 Almenn opinber þjónusta": 6.67,
+      "02 Varnarmál": 0.15,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.29,
+      "04 Efnahags- og atvinnumál": 3.48,
+      "05 Umhverfisvernd": 0.39,
+      "06 Húsnæðis- skipulags- og veitumál": 0.19,
+      "07 Heilbrigðismál": 8.06,
+      "08 Menningar-, íþrótta- og trúmál": 1.05,
+      "09 Menntamál": 2.47,
+      "10 Almannatryggingar og velferðarmál": 7.78
+    },
+    {
+      "ar": 2020,
+      "01 Almenn opinber þjónusta": 6.76,
+      "02 Varnarmál": 0.22,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.4,
+      "04 Efnahags- og atvinnumál": 4.94,
+      "05 Umhverfisvernd": 0.44,
+      "06 Húsnæðis- skipulags- og veitumál": 0.24,
+      "07 Heilbrigðismál": 8.47,
+      "08 Menningar-, íþrótta- og trúmál": 1.14,
+      "09 Menntamál": 2.99,
+      "10 Almannatryggingar og velferðarmál": 10.7
+    },
+    {
+      "ar": 2021,
+      "01 Almenn opinber þjónusta": 6.49,
+      "02 Varnarmál": 0.22,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.48,
+      "04 Efnahags- og atvinnumál": 4.52,
+      "05 Umhverfisvernd": 0.44,
+      "06 Húsnæðis- skipulags- og veitumál": 0.19,
+      "07 Heilbrigðismál": 8.75,
+      "08 Menningar-, íþrótta- og trúmál": 1.01,
+      "09 Menntamál": 2.71,
+      "10 Almannatryggingar og velferðarmál": 10.03
+    },
+    {
+      "ar": 2022,
+      "01 Almenn opinber þjónusta": 8.28,
+      "02 Varnarmál": 0.17,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.34,
+      "04 Efnahags- og atvinnumál": 3.8,
+      "05 Umhverfisvernd": 0.47,
+      "06 Húsnæðis- skipulags- og veitumál": 0.11,
+      "07 Heilbrigðismál": 8.32,
+      "08 Menningar-, íþrótta- og trúmál": 0.97,
+      "09 Menntamál": 2.32,
+      "10 Almannatryggingar og velferðarmál": 8.11
+    },
+    {
+      "ar": 2023,
+      "01 Almenn opinber þjónusta": 7.86,
+      "02 Varnarmál": 0.15,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.43,
+      "04 Efnahags- og atvinnumál": 3.55,
+      "05 Umhverfisvernd": 0.43,
+      "06 Húsnæðis- skipulags- og veitumál": 0.22,
+      "07 Heilbrigðismál": 8.05,
+      "08 Menningar-, íþrótta- og trúmál": 0.91,
+      "09 Menntamál": 2.31,
+      "10 Almannatryggingar og velferðarmál": 7.84
+    },
+    {
+      "ar": 2024,
+      "01 Almenn opinber þjónusta": 6.76,
+      "02 Varnarmál": 0.21,
+      "03 Löggæsla, réttargæsla og öryggismál": 1.71,
+      "04 Efnahags- og atvinnumál": 3.75,
+      "05 Umhverfisvernd": 0.41,
+      "06 Húsnæðis- skipulags- og veitumál": 0.26,
+      "07 Heilbrigðismál": 8.44,
+      "08 Menningar-, íþrótta- og trúmál": 0.92,
+      "09 Menntamál": 2.53,
+      "10 Almannatryggingar og velferðarmál": 9.35
+    }
+  ],
+  "innbyrdis_hlutdeild": [
+    {
+      "ar": 1998,
+      "01 Almenn opinber þjónusta": 20.02,
+      "02 Varnarmál": 0.05,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.94,
+      "04 Efnahags- og atvinnumál": 17.08,
+      "05 Umhverfisvernd": 0.92,
+      "06 Húsnæðis- skipulags- og veitumál": 0.21,
+      "07 Heilbrigðismál": 23.59,
+      "08 Menningar-, íþrótta- og trúmál": 3.95,
+      "09 Menntamál": 8.85,
+      "10 Almannatryggingar og velferðarmál": 21.39
+    },
+    {
+      "ar": 1999,
+      "01 Almenn opinber þjónusta": 28.4,
+      "02 Varnarmál": 0.04,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.59,
+      "04 Efnahags- og atvinnumál": 14.91,
+      "05 Umhverfisvernd": 0.85,
+      "06 Húsnæðis- skipulags- og veitumál": 0.08,
+      "07 Heilbrigðismál": 22.48,
+      "08 Menningar-, íþrótta- og trúmál": 3.65,
+      "09 Menntamál": 7.73,
+      "10 Almannatryggingar og velferðarmál": 18.26
+    },
+    {
+      "ar": 2000,
+      "01 Almenn opinber þjónusta": 27.42,
+      "02 Varnarmál": 0.06,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.61,
+      "04 Efnahags- og atvinnumál": 14.86,
+      "05 Umhverfisvernd": 0.81,
+      "06 Húsnæðis- skipulags- og veitumál": 0.37,
+      "07 Heilbrigðismál": 21.77,
+      "08 Menningar-, íþrótta- og trúmál": 3.97,
+      "09 Menntamál": 7.58,
+      "10 Almannatryggingar og velferðarmál": 19.55
+    },
+    {
+      "ar": 2001,
+      "01 Almenn opinber þjónusta": 32.21,
+      "02 Varnarmál": 0.07,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.36,
+      "04 Efnahags- og atvinnumál": 14.48,
+      "05 Umhverfisvernd": 0.83,
+      "06 Húsnæðis- skipulags- og veitumál": 0.35,
+      "07 Heilbrigðismál": 20.21,
+      "08 Menningar-, íþrótta- og trúmál": 3.38,
+      "09 Menntamál": 7.65,
+      "10 Almannatryggingar og velferðarmál": 17.47
+    },
+    {
+      "ar": 2002,
+      "01 Almenn opinber þjónusta": 24.09,
+      "02 Varnarmál": 0.08,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.74,
+      "04 Efnahags- og atvinnumál": 15.23,
+      "05 Umhverfisvernd": 0.93,
+      "06 Húsnæðis- skipulags- og veitumál": 0.39,
+      "07 Heilbrigðismál": 24.07,
+      "08 Menningar-, íþrótta- og trúmál": 3.78,
+      "09 Menntamál": 8.6,
+      "10 Almannatryggingar og velferðarmál": 19.09
+    },
+    {
+      "ar": 2003,
+      "01 Almenn opinber þjónusta": 24.84,
+      "02 Varnarmál": 0.11,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.67,
+      "04 Efnahags- og atvinnumál": 14.98,
+      "05 Umhverfisvernd": 0.95,
+      "06 Húsnæðis- skipulags- og veitumál": 0.35,
+      "07 Heilbrigðismál": 23.18,
+      "08 Menningar-, íþrótta- og trúmál": 3.6,
+      "09 Menntamál": 8.53,
+      "10 Almannatryggingar og velferðarmál": 19.78
+    },
+    {
+      "ar": 2004,
+      "01 Almenn opinber þjónusta": 25.87,
+      "02 Varnarmál": 0.12,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.74,
+      "04 Efnahags- og atvinnumál": 14.28,
+      "05 Umhverfisvernd": 0.95,
+      "06 Húsnæðis- skipulags- og veitumál": 0.37,
+      "07 Heilbrigðismál": 22.72,
+      "08 Menningar-, íþrótta- og trúmál": 3.8,
+      "09 Menntamál": 8.43,
+      "10 Almannatryggingar og velferðarmál": 19.72
+    },
+    {
+      "ar": 2005,
+      "01 Almenn opinber þjónusta": 25.1,
+      "02 Varnarmál": 0.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.86,
+      "04 Efnahags- og atvinnumál": 14.26,
+      "05 Umhverfisvernd": 0.98,
+      "06 Húsnæðis- skipulags- og veitumál": 0.35,
+      "07 Heilbrigðismál": 22.86,
+      "08 Menningar-, íþrótta- og trúmál": 3.63,
+      "09 Menntamál": 8.64,
+      "10 Almannatryggingar og velferðarmál": 20.22
+    },
+    {
+      "ar": 2006,
+      "01 Almenn opinber þjónusta": 27.36,
+      "02 Varnarmál": 0.19,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.87,
+      "04 Efnahags- og atvinnumál": 12.93,
+      "05 Umhverfisvernd": 0.95,
+      "06 Húsnæðis- skipulags- og veitumál": 0.3,
+      "07 Heilbrigðismál": 22.05,
+      "08 Menningar-, íþrótta- og trúmál": 3.74,
+      "09 Menntamál": 8.61,
+      "10 Almannatryggingar og velferðarmál": 19.99
+    },
+    {
+      "ar": 2007,
+      "01 Almenn opinber þjónusta": 28.47,
+      "02 Varnarmál": 0.17,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.76,
+      "04 Efnahags- og atvinnumál": 12.41,
+      "05 Umhverfisvernd": 0.95,
+      "06 Húsnæðis- skipulags- og veitumál": 0.29,
+      "07 Heilbrigðismál": 21.62,
+      "08 Menningar-, íþrótta- og trúmál": 3.56,
+      "09 Menntamál": 8.48,
+      "10 Almannatryggingar og velferðarmál": 20.29
+    },
+    {
+      "ar": 2008,
+      "01 Almenn opinber þjónusta": 28.52,
+      "02 Varnarmál": 0.11,
+      "03 Löggæsla, réttargæsla og öryggismál": 2.36,
+      "04 Efnahags- og atvinnumál": 32.64,
+      "05 Umhverfisvernd": 0.63,
+      "06 Húsnæðis- skipulags- og veitumál": 0.19,
+      "07 Heilbrigðismál": 14.0,
+      "08 Menningar-, íþrótta- og trúmál": 2.25,
+      "09 Menntamál": 5.58,
+      "10 Almannatryggingar og velferðarmál": 13.72
+    },
+    {
+      "ar": 2009,
+      "01 Almenn opinber þjónusta": 36.19,
+      "02 Varnarmál": 0.1,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.37,
+      "04 Efnahags- og atvinnumál": 11.76,
+      "05 Umhverfisvernd": 0.81,
+      "06 Húsnæðis- skipulags- og veitumál": 0.34,
+      "07 Heilbrigðismál": 18.89,
+      "08 Menningar-, íþrótta- og trúmál": 2.9,
+      "09 Menntamál": 6.95,
+      "10 Almannatryggingar og velferðarmál": 18.69
+    },
+    {
+      "ar": 2010,
+      "01 Almenn opinber þjónusta": 29.95,
+      "02 Varnarmál": 0.12,
+      "03 Löggæsla, réttargæsla og öryggismál": 2.95,
+      "04 Efnahags- og atvinnumál": 15.03,
+      "05 Umhverfisvernd": 0.85,
+      "06 Húsnæðis- skipulags- og veitumál": 0.27,
+      "07 Heilbrigðismál": 19.28,
+      "08 Menningar-, íþrótta- og trúmál": 2.93,
+      "09 Menntamál": 7.15,
+      "10 Almannatryggingar og velferðarmál": 21.47
+    },
+    {
+      "ar": 2011,
+      "01 Almenn opinber þjónusta": 30.1,
+      "02 Varnarmál": 0.21,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.73,
+      "04 Efnahags- og atvinnumál": 11.75,
+      "05 Umhverfisvernd": 0.83,
+      "06 Húsnæðis- skipulags- og veitumál": 0.99,
+      "07 Heilbrigðismál": 17.79,
+      "08 Menningar-, íþrótta- og trúmál": 6.52,
+      "09 Menntamál": 6.65,
+      "10 Almannatryggingar og velferðarmál": 21.42
+    },
+    {
+      "ar": 2012,
+      "01 Almenn opinber þjónusta": 33.36,
+      "02 Varnarmál": 0.18,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.52,
+      "04 Efnahags- og atvinnumál": 10.17,
+      "05 Umhverfisvernd": 0.87,
+      "06 Húsnæðis- skipulags- og veitumál": 1.34,
+      "07 Heilbrigðismál": 19.7,
+      "08 Menningar-, íþrótta- og trúmál": 3.08,
+      "09 Menntamál": 7.32,
+      "10 Almannatryggingar og velferðarmál": 20.46
+    },
+    {
+      "ar": 2013,
+      "01 Almenn opinber þjónusta": 32.84,
+      "02 Varnarmál": 0.2,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.6,
+      "04 Efnahags- og atvinnumál": 10.2,
+      "05 Umhverfisvernd": 0.89,
+      "06 Húsnæðis- skipulags- og veitumál": 0.54,
+      "07 Heilbrigðismál": 20.64,
+      "08 Menningar-, íþrótta- og trúmál": 3.24,
+      "09 Menntamál": 7.46,
+      "10 Almannatryggingar og velferðarmál": 20.4
+    },
+    {
+      "ar": 2014,
+      "01 Almenn opinber þjónusta": 28.18,
+      "02 Varnarmál": 0.24,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.91,
+      "04 Efnahags- og atvinnumál": 15.12,
+      "05 Umhverfisvernd": 0.95,
+      "06 Húsnæðis- skipulags- og veitumál": 0.48,
+      "07 Heilbrigðismál": 21.36,
+      "08 Menningar-, íþrótta- og trúmál": 3.0,
+      "09 Menntamál": 7.45,
+      "10 Almannatryggingar og velferðarmál": 19.33
+    },
+    {
+      "ar": 2015,
+      "01 Almenn opinber þjónusta": 28.64,
+      "02 Varnarmál": 0.18,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.26,
+      "04 Efnahags- og atvinnumál": 12.57,
+      "05 Umhverfisvernd": 1.02,
+      "06 Húsnæðis- skipulags- og veitumál": 0.46,
+      "07 Heilbrigðismál": 22.15,
+      "08 Menningar-, íþrótta- og trúmál": 3.47,
+      "09 Menntamál": 7.97,
+      "10 Almannatryggingar og velferðarmál": 19.29
+    },
+    {
+      "ar": 2016,
+      "01 Almenn opinber þjónusta": 23.5,
+      "02 Varnarmál": 0.17,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.39,
+      "04 Efnahags- og atvinnumál": 10.93,
+      "05 Umhverfisvernd": 0.97,
+      "06 Húsnæðis- skipulags- og veitumál": 0.89,
+      "07 Heilbrigðismál": 20.97,
+      "08 Menningar-, íþrótta- og trúmál": 2.83,
+      "09 Menntamál": 7.11,
+      "10 Almannatryggingar og velferðarmál": 29.24
+    },
+    {
+      "ar": 2017,
+      "01 Almenn opinber þjónusta": 25.04,
+      "02 Varnarmál": 0.26,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.2,
+      "04 Efnahags- og atvinnumál": 10.8,
+      "05 Umhverfisvernd": 1.22,
+      "06 Húsnæðis- skipulags- og veitumál": 0.83,
+      "07 Heilbrigðismál": 24.37,
+      "08 Menningar-, íþrótta- og trúmál": 3.1,
+      "09 Menntamál": 8.07,
+      "10 Almannatryggingar og velferðarmál": 22.11
+    },
+    {
+      "ar": 2018,
+      "01 Almenn opinber þjónusta": 22.92,
+      "02 Varnarmál": 0.36,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.05,
+      "04 Efnahags- og atvinnumál": 12.36,
+      "05 Umhverfisvernd": 1.29,
+      "06 Húsnæðis- skipulags- og veitumál": 0.61,
+      "07 Heilbrigðismál": 24.98,
+      "08 Menningar-, íþrótta- og trúmál": 3.27,
+      "09 Menntamál": 7.77,
+      "10 Almannatryggingar og velferðarmál": 22.4
+    },
+    {
+      "ar": 2019,
+      "01 Almenn opinber þjónusta": 21.16,
+      "02 Varnarmál": 0.48,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.09,
+      "04 Efnahags- og atvinnumál": 11.04,
+      "05 Umhverfisvernd": 1.23,
+      "06 Húsnæðis- skipulags- og veitumál": 0.61,
+      "07 Heilbrigðismál": 25.57,
+      "08 Menningar-, íþrótta- og trúmál": 3.33,
+      "09 Menntamál": 7.84,
+      "10 Almannatryggingar og velferðarmál": 24.66
+    },
+    {
+      "ar": 2020,
+      "01 Almenn opinber þjónusta": 18.13,
+      "02 Varnarmál": 0.59,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.75,
+      "04 Efnahags- og atvinnumál": 13.24,
+      "05 Umhverfisvernd": 1.17,
+      "06 Húsnæðis- skipulags- og veitumál": 0.64,
+      "07 Heilbrigðismál": 22.71,
+      "08 Menningar-, íþrótta- og trúmál": 3.06,
+      "09 Menntamál": 8.02,
+      "10 Almannatryggingar og velferðarmál": 28.69
+    },
+    {
+      "ar": 2021,
+      "01 Almenn opinber þjónusta": 18.11,
+      "02 Varnarmál": 0.61,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.12,
+      "04 Efnahags- og atvinnumál": 12.61,
+      "05 Umhverfisvernd": 1.23,
+      "06 Húsnæðis- skipulags- og veitumál": 0.53,
+      "07 Heilbrigðismál": 24.4,
+      "08 Menningar-, íþrótta- og trúmál": 2.83,
+      "09 Menntamál": 7.55,
+      "10 Almannatryggingar og velferðarmál": 27.99
+    },
+    {
+      "ar": 2022,
+      "01 Almenn opinber þjónusta": 24.43,
+      "02 Varnarmál": 0.5,
+      "03 Löggæsla, réttargæsla og öryggismál": 3.97,
+      "04 Efnahags- og atvinnumál": 11.22,
+      "05 Umhverfisvernd": 1.38,
+      "06 Húsnæðis- skipulags- og veitumál": 0.32,
+      "07 Heilbrigðismál": 24.55,
+      "08 Menningar-, íþrótta- og trúmál": 2.88,
+      "09 Menntamál": 6.86,
+      "10 Almannatryggingar og velferðarmál": 23.91
+    },
+    {
+      "ar": 2023,
+      "01 Almenn opinber þjónusta": 24.01,
+      "02 Varnarmál": 0.47,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.37,
+      "04 Efnahags- og atvinnumál": 10.85,
+      "05 Umhverfisvernd": 1.31,
+      "06 Húsnæðis- skipulags- og veitumál": 0.66,
+      "07 Heilbrigðismál": 24.57,
+      "08 Menningar-, íþrótta- og trúmál": 2.77,
+      "09 Menntamál": 7.06,
+      "10 Almannatryggingar og velferðarmál": 23.93
+    },
+    {
+      "ar": 2024,
+      "01 Almenn opinber þjónusta": 19.69,
+      "02 Varnarmál": 0.61,
+      "03 Löggæsla, réttargæsla og öryggismál": 4.98,
+      "04 Efnahags- og atvinnumál": 10.91,
+      "05 Umhverfisvernd": 1.19,
+      "06 Húsnæðis- skipulags- og veitumál": 0.77,
+      "07 Heilbrigðismál": 24.59,
+      "08 Menningar-, íþrótta- og trúmál": 2.67,
+      "09 Menntamál": 7.38,
+      "10 Almannatryggingar og velferðarmál": 27.23
+    }
+  ],
+  "drilldown": {
+    "01": {
+      "kodi": "01",
+      "label": "Almenn opinber þjónusta",
+      "children": [
+        {
+          "kodi": "017",
+          "label": "Fjármagnskostnaður hins opinbera",
+          "mkr_latest": 184852.5,
+          "level": 3
+        },
+        {
+          "kodi": "018",
+          "label": "Almennar tilfærslur milli stjórnsýslustiga",
+          "mkr_latest": 37363.4,
+          "level": 3
+        },
+        {
+          "kodi": "0112",
+          "label": "Opinber fjármál",
+          "mkr_latest": 20055.2,
+          "level": 4
+        },
+        {
+          "kodi": "0113",
+          "label": "Utanríkismál",
+          "mkr_latest": 16960.8,
+          "level": 4
+        },
+        {
+          "kodi": "0133",
+          "label": "Önnur almenn þjónusta",
+          "mkr_latest": 15439.7,
+          "level": 4
+        },
+        {
+          "kodi": "0111",
+          "label": "Æðsta stjórnsýsla og löggjafarvald",
+          "mkr_latest": 10417.7,
+          "level": 4
+        },
+        {
+          "kodi": "0121",
+          "label": "Efnahagsaðstoð við þróunarlönd og önnur lönd á þróunarstigi",
+          "mkr_latest": 9829.6,
+          "level": 4
+        },
+        {
+          "kodi": "016",
+          "label": "Almenn opinber þjónusta, ótalin annars staðar",
+          "mkr_latest": 4578.0,
+          "level": 3
+        },
+        {
+          "kodi": "014",
+          "label": "Grunnrannsóknir",
+          "mkr_latest": 4326.5,
+          "level": 3
+        },
+        {
+          "kodi": "0122",
+          "label": "Efnahagsaðstoð í samvinnu við alþjóðastofnanir",
+          "mkr_latest": 3934.6,
+          "level": 4
+        },
+        {
+          "kodi": "0132",
+          "label": "Almenn áætlana- og hagskýrslugerð",
+          "mkr_latest": 2097.8,
+          "level": 4
+        }
+      ]
+    },
+    "02": {
+      "kodi": "02",
+      "label": "Varnarmál",
+      "children": [
+        {
+          "kodi": "022",
+          "label": "Heimavarnir",
+          "mkr_latest": 9526.4,
+          "level": 3
+        }
+      ]
+    },
+    "03": {
+      "kodi": "03",
+      "label": "Löggæsla, réttargæsla og öryggismál",
+      "children": [
+        {
+          "kodi": "031",
+          "label": "Löggæsla",
+          "mkr_latest": 43590.9,
+          "level": 3
+        },
+        {
+          "kodi": "036",
+          "label": "Löggæsla, réttargæsla og öryggismál, ótalin annars staðar",
+          "mkr_latest": 20923.3,
+          "level": 3
+        },
+        {
+          "kodi": "033",
+          "label": "Dómsstólar",
+          "mkr_latest": 10079.9,
+          "level": 3
+        },
+        {
+          "kodi": "034",
+          "label": "Fangelsismál",
+          "mkr_latest": 3740.3,
+          "level": 3
+        }
+      ]
+    },
+    "04": {
+      "kodi": "04",
+      "label": "Efnahags- og atvinnumál",
+      "children": [
+        {
+          "kodi": "0451",
+          "label": "Vegasamgöngur",
+          "mkr_latest": 55096.7,
+          "level": 4
+        },
+        {
+          "kodi": "0490",
+          "label": "Önnur efnahags- og atvinnumál, ótalin annars staðar",
+          "mkr_latest": 29655.0,
+          "level": 4
+        },
+        {
+          "kodi": "0421",
+          "label": "Landbúnaður",
+          "mkr_latest": 23650.0,
+          "level": 4
+        },
+        {
+          "kodi": "0411",
+          "label": "Almenn efnahags- og viðskiptamál",
+          "mkr_latest": 11699.0,
+          "level": 4
+        },
+        {
+          "kodi": "0435",
+          "label": "Raforkumál",
+          "mkr_latest": 9862.3,
+          "level": 4
+        },
+        {
+          "kodi": "0482",
+          "label": "Rannsóknir og þróun í landbúnaði, skógrækt, fiskveiðum og öðrum veiðum",
+          "mkr_latest": 8608.7,
+          "level": 4
+        },
+        {
+          "kodi": "0412",
+          "label": "Almenn vinnumarkaðsmál",
+          "mkr_latest": 7511.4,
+          "level": 4
+        },
+        {
+          "kodi": "0454",
+          "label": "Flugsamgöngur",
+          "mkr_latest": 5139.8,
+          "level": 4
+        },
+        {
+          "kodi": "0484",
+          "label": "Rannsóknir og þróun í iðnaðar- og byggingarstarfsemi og námuvinnslu",
+          "mkr_latest": 3763.4,
+          "level": 4
+        },
+        {
+          "kodi": "0422",
+          "label": "Skógrækt",
+          "mkr_latest": 3246.6,
+          "level": 4
+        },
+        {
+          "kodi": "0443",
+          "label": "Byggingarstarfsemi",
+          "mkr_latest": 2408.3,
+          "level": 4
+        },
+        {
+          "kodi": "0473",
+          "label": "Ferðaþjónusta",
+          "mkr_latest": 2358.8,
+          "level": 4
+        },
+        {
+          "kodi": "0423",
+          "label": "Fiskveiðar og aðrar veiðar",
+          "mkr_latest": 2281.3,
+          "level": 4
+        },
+        {
+          "kodi": "0452",
+          "label": "Sjó- og vatnasamgöngur",
+          "mkr_latest": 2116.3,
+          "level": 4
+        },
+        {
+          "kodi": "0460",
+          "label": "Fjarskipti",
+          "mkr_latest": 1955.7,
+          "level": 4
+        },
+        {
+          "kodi": "0483",
+          "label": "Rannsóknir og þróun í eldsneytis- og orkumálum",
+          "mkr_latest": 1291.8,
+          "level": 4
+        },
+        {
+          "kodi": "0487",
+          "label": "Rannsóknir og þróun í öðrum atvinnugreinum",
+          "mkr_latest": 998.7,
+          "level": 4
+        },
+        {
+          "kodi": "0481",
+          "label": "Rannsóknir og þróun í efnahags-, viðskipta- og vinnumarkaðsmálum",
+          "mkr_latest": 26.2,
+          "level": 4
+        },
+        {
+          "kodi": "0432",
+          "label": "Jarðolía og jarðgas",
+          "mkr_latest": 5.5,
+          "level": 4
+        }
+      ]
+    },
+    "05": {
+      "kodi": "05",
+      "label": "Umhverfisvernd",
+      "children": [
+        {
+          "kodi": "051",
+          "label": "Götu- og sorphreinsun",
+          "mkr_latest": 9689.9,
+          "level": 3
+        },
+        {
+          "kodi": "054",
+          "label": "Verndun lands og fjölbreytni lífríkis",
+          "mkr_latest": 6610.1,
+          "level": 3
+        },
+        {
+          "kodi": "056",
+          "label": "Umhverfisvernd, ótalin annars staðar",
+          "mkr_latest": 2225.6,
+          "level": 3
+        },
+        {
+          "kodi": "055",
+          "label": "Rannsóknir og þróun í umhverfisvernd",
+          "mkr_latest": 139.2,
+          "level": 3
+        }
+      ]
+    },
+    "06": {
+      "kodi": "06",
+      "label": "Húsnæðis- skipulags- og veitumál",
+      "children": [
+        {
+          "kodi": "061",
+          "label": "Húsnæðismál",
+          "mkr_latest": 11164.5,
+          "level": 3
+        },
+        {
+          "kodi": "062",
+          "label": "Skipulagsmál",
+          "mkr_latest": 916.1,
+          "level": 3
+        }
+      ]
+    },
+    "07": {
+      "kodi": "07",
+      "label": "Heilbrigðismál",
+      "children": [
+        {
+          "kodi": "0731",
+          "label": "Almenn sjúkrahúsaþjónusta",
+          "mkr_latest": 183994.1,
+          "level": 4
+        },
+        {
+          "kodi": "0734",
+          "label": "Hjúkrunar- og endurhæfingarstofnanir",
+          "mkr_latest": 74705.5,
+          "level": 4
+        },
+        {
+          "kodi": "0721",
+          "label": "Almenn heilsugæsla",
+          "mkr_latest": 43495.8,
+          "level": 4
+        },
+        {
+          "kodi": "0722",
+          "label": "Sérfræðilæknar",
+          "mkr_latest": 20411.7,
+          "level": 4
+        },
+        {
+          "kodi": "0711",
+          "label": "Lyf",
+          "mkr_latest": 18845.2,
+          "level": 4
+        },
+        {
+          "kodi": "0724",
+          "label": "Sjúkraþjálfun, iðjuþjálfun, talþjálfun og fleira",
+          "mkr_latest": 13618.7,
+          "level": 4
+        },
+        {
+          "kodi": "0723",
+          "label": "Tannlæknar",
+          "mkr_latest": 10328.1,
+          "level": 4
+        },
+        {
+          "kodi": "0760",
+          "label": "Heilbrigðismál, ótalin annars staðar",
+          "mkr_latest": 9609.5,
+          "level": 4
+        },
+        {
+          "kodi": "0713",
+          "label": "Hjálpartæki",
+          "mkr_latest": 8287.5,
+          "level": 4
+        },
+        {
+          "kodi": "0732",
+          "label": "Sérhæfð sjúkrahúsaþjónusta",
+          "mkr_latest": 3346.9,
+          "level": 4
+        },
+        {
+          "kodi": "0740",
+          "label": "Almenn heilbrigðisþjónusta",
+          "mkr_latest": 201.6,
+          "level": 4
+        }
+      ]
+    },
+    "08": {
+      "kodi": "08",
+      "label": "Menningar-, íþrótta- og trúmál",
+      "children": [
+        {
+          "kodi": "082",
+          "label": "Menningarmál",
+          "mkr_latest": 19493.8,
+          "level": 3
+        },
+        {
+          "kodi": "084",
+          "label": "Trúmál og önnur félagsmál",
+          "mkr_latest": 9912.4,
+          "level": 3
+        },
+        {
+          "kodi": "083",
+          "label": "Fjölmiðlun",
+          "mkr_latest": 9577.0,
+          "level": 3
+        },
+        {
+          "kodi": "081",
+          "label": "Íþrótta- og tómstundamál",
+          "mkr_latest": 1647.8,
+          "level": 3
+        },
+        {
+          "kodi": "085",
+          "label": "Rannsóknir og þróun í menningar-, íþrótta- og trúmálum",
+          "mkr_latest": 1364.6,
+          "level": 3
+        }
+      ]
+    },
+    "09": {
+      "kodi": "09",
+      "label": "Menntamál",
+      "children": [
+        {
+          "kodi": "0941",
+          "label": "Menntun á háskólastigi",
+          "mkr_latest": 66249.8,
+          "level": 4
+        },
+        {
+          "kodi": "0922",
+          "label": "Framhaldsskólastig",
+          "mkr_latest": 40877.7,
+          "level": 4
+        },
+        {
+          "kodi": "0950",
+          "label": "Menntun óflokkuð á skólastig",
+          "mkr_latest": 2952.1,
+          "level": 4
+        },
+        {
+          "kodi": "0960",
+          "label": "Stoðþjónusta í skólastarfi",
+          "mkr_latest": 2359.2,
+          "level": 4
+        },
+        {
+          "kodi": "0912",
+          "label": "Barnaskólastig (1-7 bekkur grunnskóla)",
+          "mkr_latest": 1768.3,
+          "level": 4
+        },
+        {
+          "kodi": "0980",
+          "label": "Menntamál, ótalin annars staðar",
+          "mkr_latest": 1577.2,
+          "level": 4
+        },
+        {
+          "kodi": "0921",
+          "label": "Unglingastig (8-10 bekkur grunnskóla)",
+          "mkr_latest": 269.1,
+          "level": 4
+        }
+      ]
+    },
+    "10": {
+      "kodi": "10",
+      "label": "Almannatryggingar og velferðarmál",
+      "children": [
+        {
+          "kodi": "1020",
+          "label": "Öldrun",
+          "mkr_latest": 113474.8,
+          "level": 4
+        },
+        {
+          "kodi": "1012",
+          "label": "Örorka og fötlun",
+          "mkr_latest": 91716.4,
+          "level": 4
+        },
+        {
+          "kodi": "1090",
+          "label": "Almannatryggingar og velferðarmál, ótalin annars staðar",
+          "mkr_latest": 82929.5,
+          "level": 4
+        },
+        {
+          "kodi": "1040",
+          "label": "Fjölskyldur og börn",
+          "mkr_latest": 54375.8,
+          "level": 4
+        },
+        {
+          "kodi": "1050",
+          "label": "Atvinnuleysi",
+          "mkr_latest": 34754.0,
+          "level": 4
+        },
+        {
+          "kodi": "1070",
+          "label": "Félagsleg aðstoð, ótalin annars staðar",
+          "mkr_latest": 24095.8,
+          "level": 4
+        },
+        {
+          "kodi": "1060",
+          "label": "Húsnæðisaðstoð",
+          "mkr_latest": 16586.1,
+          "level": 4
+        },
+        {
+          "kodi": "1030",
+          "label": "Eftirlifendur",
+          "mkr_latest": 8378.2,
+          "level": 4
+        },
+        {
+          "kodi": "1011",
+          "label": "Sjúkdómar",
+          "mkr_latest": 2053.1,
+          "level": 4
+        }
+      ]
+    }
+  },
+  "topp_undirflokkar": [
+    {
+      "kodi": "0731",
+      "label": "Almenn sjúkrahúsaþjónusta",
+      "mkr": 183994.1,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "1020",
+      "label": "Öldrun",
+      "mkr": 113474.8,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "1012",
+      "label": "Örorka og fötlun",
+      "mkr": 91716.4,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "1090",
+      "label": "Almannatryggingar og velferðarmál, ótalin annars staðar",
+      "mkr": 82929.5,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "0734",
+      "label": "Hjúkrunar- og endurhæfingarstofnanir",
+      "mkr": 74705.5,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0941",
+      "label": "Menntun á háskólastigi",
+      "mkr": 66249.8,
+      "parent": "09",
+      "parent_label": "Menntamál"
+    },
+    {
+      "kodi": "0451",
+      "label": "Vegasamgöngur",
+      "mkr": 55096.7,
+      "parent": "04",
+      "parent_label": "Efnahags- og atvinnumál"
+    },
+    {
+      "kodi": "1040",
+      "label": "Fjölskyldur og börn",
+      "mkr": 54375.8,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "0721",
+      "label": "Almenn heilsugæsla",
+      "mkr": 43495.8,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0922",
+      "label": "Framhaldsskólastig",
+      "mkr": 40877.7,
+      "parent": "09",
+      "parent_label": "Menntamál"
+    },
+    {
+      "kodi": "1050",
+      "label": "Atvinnuleysi",
+      "mkr": 34754.0,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "0490",
+      "label": "Önnur efnahags- og atvinnumál, ótalin annars staðar",
+      "mkr": 29655.0,
+      "parent": "04",
+      "parent_label": "Efnahags- og atvinnumál"
+    },
+    {
+      "kodi": "1070",
+      "label": "Félagsleg aðstoð, ótalin annars staðar",
+      "mkr": 24095.8,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "0421",
+      "label": "Landbúnaður",
+      "mkr": 23650.0,
+      "parent": "04",
+      "parent_label": "Efnahags- og atvinnumál"
+    },
+    {
+      "kodi": "0722",
+      "label": "Sérfræðilæknar",
+      "mkr": 20411.7,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0112",
+      "label": "Opinber fjármál",
+      "mkr": 20055.2,
+      "parent": "01",
+      "parent_label": "Almenn opinber þjónusta"
+    },
+    {
+      "kodi": "0711",
+      "label": "Lyf",
+      "mkr": 18845.2,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0113",
+      "label": "Utanríkismál",
+      "mkr": 16960.8,
+      "parent": "01",
+      "parent_label": "Almenn opinber þjónusta"
+    },
+    {
+      "kodi": "1060",
+      "label": "Húsnæðisaðstoð",
+      "mkr": 16586.1,
+      "parent": "10",
+      "parent_label": "Almannatryggingar og velferðarmál"
+    },
+    {
+      "kodi": "0133",
+      "label": "Önnur almenn þjónusta",
+      "mkr": 15439.7,
+      "parent": "01",
+      "parent_label": "Almenn opinber þjónusta"
+    },
+    {
+      "kodi": "0724",
+      "label": "Sjúkraþjálfun, iðjuþjálfun, talþjálfun og fleira",
+      "mkr": 13618.7,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0411",
+      "label": "Almenn efnahags- og viðskiptamál",
+      "mkr": 11699.0,
+      "parent": "04",
+      "parent_label": "Efnahags- og atvinnumál"
+    },
+    {
+      "kodi": "0111",
+      "label": "Æðsta stjórnsýsla og löggjafarvald",
+      "mkr": 10417.7,
+      "parent": "01",
+      "parent_label": "Almenn opinber þjónusta"
+    },
+    {
+      "kodi": "0723",
+      "label": "Tannlæknar",
+      "mkr": 10328.1,
+      "parent": "07",
+      "parent_label": "Heilbrigðismál"
+    },
+    {
+      "kodi": "0435",
+      "label": "Raforkumál",
+      "mkr": 9862.3,
+      "parent": "04",
+      "parent_label": "Efnahags- og atvinnumál"
+    }
+  ],
+  "kpi": {
+    "ar": 2024,
+    "heild_mkr": 1573394.5999999999,
+    "heild_pct_gdp": 34.339999999999996,
+    "topp_1_kodi": "10",
+    "topp_1_label": "Almannatryggingar og velferðarmál",
+    "topp_1_mkr": 428363.7,
+    "topp_2_label": "Heilbrigðismál",
+    "topp_2_mkr": 386844.6,
+    "topp_3_label": "Almenn opinber þjónusta",
+    "topp_3_mkr": 309855.8
+  },
+  "per_ibua": [
+    {
+      "ar": 1998,
+      "mannfjoldi": 272381.0,
+      "01 Almenn opinber þjónusta": 495442.41338419344,
+      "02 Varnarmál": 1264.038240552755,
+      "03 Löggæsla, réttargæsla og öryggismál": 97609.96545280324,
+      "04 Efnahags- og atvinnumál": 422716.3421824577,
+      "05 Umhverfisvernd": 22884.121873405267,
+      "06 Húsnæðis- skipulags- og veitumál": 5199.3347553610565,
+      "07 Heilbrigðismál": 583915.5447700097,
+      "08 Menningar-, íþrótta- og trúmál": 97825.83954093714,
+      "09 Menntamál": 219018.2134583543,
+      "10 Almannatryggingar og velferðarmál": 529426.4284219531
+    },
+    {
+      "ar": 1999,
+      "mannfjoldi": 275712.0,
+      "01 Almenn opinber þjónusta": 837043.364090065,
+      "02 Varnarmál": 1123.2735608170844,
+      "03 Löggæsla, réttargæsla og öryggismál": 105860.463091922,
+      "04 Efnahags- og atvinnumál": 439547.78899721446,
+      "05 Umhverfisvernd": 25129.845636026,
+      "06 Húsnæðis- skipulags- og veitumál": 2450.383008356546,
+      "07 Heilbrigðismál": 662574.3529480037,
+      "08 Menningar-, íþrótta- og trúmál": 107710.21935933147,
+      "09 Menntamál": 227825.41202414114,
+      "10 Almannatryggingar og velferðarmál": 538259.8508588672
+    },
+    {
+      "ar": 2000,
+      "mannfjoldi": 279049.0,
+      "01 Almenn opinber þjónusta": 823934.5061261642,
+      "02 Varnarmál": 1719.4112861898807,
+      "03 Löggæsla, réttargæsla og öryggismál": 108509.25823063334,
+      "04 Efnahags- og atvinnumál": 446643.7794079176,
+      "05 Umhverfisvernd": 24345.186687642672,
+      "06 Húsnæðis- skipulags- og veitumál": 11037.488039734957,
+      "07 Heilbrigðismál": 654098.3841547542,
+      "08 Menningar-, íþrótta- og trúmál": 119349.28990965745,
+      "09 Menntamál": 227767.1663399618,
+      "10 Almannatryggingar og velferðarmál": 587292.5543542532
+    },
+    {
+      "ar": 2001,
+      "mannfjoldi": 283361.0,
+      "01 Almenn opinber þjónusta": 1056028.528978935,
+      "02 Varnarmál": 2191.1978006853446,
+      "03 Löggæsla, réttargæsla og öryggismál": 110108.65997790804,
+      "04 Efnahags- og atvinnumál": 474853.63193946943,
+      "05 Umhverfisvernd": 27115.234630030245,
+      "06 Húsnæðis- skipulags- og veitumál": 11429.589816523798,
+      "07 Heilbrigðismál": 662469.429455712,
+      "08 Menningar-, íþrótta- og trúmál": 110882.23149974768,
+      "09 Menntamál": 250920.20426240732,
+      "10 Almannatryggingar og velferðarmál": 572711.8410790475
+    },
+    {
+      "ar": 2002,
+      "mannfjoldi": 286575.0,
+      "01 Almenn opinber þjónusta": 721916.0778155805,
+      "02 Varnarmál": 2463.2295210677835,
+      "03 Löggæsla, réttargæsla og öryggismál": 112030.00959609177,
+      "04 Efnahags- og atvinnumál": 456345.8082526389,
+      "05 Umhverfisvernd": 27885.544796301143,
+      "06 Húsnæðis- skipulags- og veitumál": 11561.371368751636,
+      "07 Heilbrigðismál": 721359.155543924,
+      "08 Menningar-, íþrótta- og trúmál": 113315.88589374509,
+      "09 Menntamál": 257583.87856582046,
+      "10 Almannatryggingar og velferðarmál": 572076.7687341883
+    },
+    {
+      "ar": 2003,
+      "mannfjoldi": 288471.0,
+      "01 Almenn opinber þjónusta": 810285.2626433853,
+      "02 Varnarmál": 3585.80238568175,
+      "03 Löggæsla, réttargæsla og öryggismál": 119807.19032415737,
+      "04 Efnahags- og atvinnumál": 488622.7731730399,
+      "05 Umhverfisvernd": 30948.344894287467,
+      "06 Húsnæðis- skipulags- og veitumál": 11521.435430251222,
+      "07 Heilbrigðismál": 756265.9678095892,
+      "08 Menningar-, íþrótta- og trúmál": 117553.23758714047,
+      "09 Menntamál": 278243.2202890412,
+      "10 Almannatryggingar og velferðarmál": 645176.4648786186
+    },
+    {
+      "ar": 2004,
+      "mannfjoldi": 290570.0,
+      "01 Almenn opinber þjónusta": 872691.6061534226,
+      "02 Varnarmál": 4067.178304711429,
+      "03 Löggæsla, réttargæsla og öryggismál": 126177.51316378154,
+      "04 Efnahags- og atvinnumál": 481932.4087139071,
+      "05 Umhverfisvernd": 32099.322022232165,
+      "06 Húsnæðis- skipulags- og veitumál": 12550.160030285302,
+      "07 Heilbrigðismál": 766516.5020476993,
+      "08 Menningar-, íþrótta- og trúmál": 128172.55738720446,
+      "09 Menntamál": 284513.88649895036,
+      "10 Almannatryggingar og velferðarmál": 665259.3178924184
+    },
+    {
+      "ar": 2005,
+      "mannfjoldi": 293577.0,
+      "01 Almenn opinber þjónusta": 862389.7648657763,
+      "02 Varnarmál": 3429.764593275359,
+      "03 Löggæsla, réttargæsla og öryggismál": 132543.761943204,
+      "04 Efnahags- og atvinnumál": 489933.8163411984,
+      "05 Umhverfisvernd": 33742.76595237365,
+      "06 Húsnæðis- skipulags- og veitumál": 12015.927678258175,
+      "07 Heilbrigðismál": 785648.7395129728,
+      "08 Menningar-, íþrótta- og trúmál": 124836.75492289927,
+      "09 Menntamál": 296965.3617279283,
+      "10 Almannatryggingar og velferðarmál": 694688.2759889228
+    },
+    {
+      "ar": 2006,
+      "mannfjoldi": 299891.0,
+      "01 Almenn opinber þjónusta": 967970.0291105768,
+      "02 Varnarmál": 6595.729781820728,
+      "03 Löggæsla, réttargæsla og öryggismál": 137078.47184477028,
+      "04 Efnahags- og atvinnumál": 457543.90761976846,
+      "05 Umhverfisvernd": 33745.92768705963,
+      "06 Húsnæðis- skipulags- og veitumál": 10547.16547012081,
+      "07 Heilbrigðismál": 780226.1488340764,
+      "08 Menningar-, íþrótta- og trúmál": 132445.45518204948,
+      "09 Menntamál": 304697.70683348284,
+      "10 Almannatryggingar og velferðarmál": 707475.0492679006
+    },
+    {
+      "ar": 2007,
+      "mannfjoldi": 307672.0,
+      "01 Almenn opinber þjónusta": 1074470.865077095,
+      "02 Varnarmál": 6483.527912842248,
+      "03 Löggæsla, réttargæsla og öryggismál": 142095.80332301933,
+      "04 Efnahags- og atvinnumál": 468208.676772667,
+      "05 Umhverfisvernd": 35718.23240333862,
+      "06 Húsnæðis- skipulags- og veitumál": 10872.617592761122,
+      "07 Heilbrigðismál": 816065.8103434826,
+      "08 Menningar-, íþrótta- og trúmál": 134535.47934163656,
+      "09 Menntamál": 319913.0892638914,
+      "10 Almannatryggingar og velferðarmál": 765914.6753685743
+    },
+    {
+      "ar": 2008,
+      "mannfjoldi": 315459.0,
+      "01 Almenn opinber þjónusta": 1632829.622866997,
+      "02 Varnarmál": 6179.8839151839065,
+      "03 Löggæsla, réttargæsla og öryggismál": 135021.0328442048,
+      "04 Efnahags- og atvinnumál": 1868283.9925315175,
+      "05 Umhverfisvernd": 36176.17503383958,
+      "06 Húsnæðis- skipulags- og veitumál": 10808.694632266,
+      "07 Heilbrigðismál": 801261.0196570711,
+      "08 Menningar-, íþrótta- og trúmál": 129015.1810536393,
+      "09 Menntamál": 319440.2442155716,
+      "10 Almannatryggingar og velferðarmál": 785400.0044379777
+    },
+    {
+      "ar": 2009,
+      "mannfjoldi": 319368.0,
+      "01 Almenn opinber þjónusta": 1521531.9005034943,
+      "02 Varnarmál": 4040.1668294882393,
+      "03 Löggæsla, réttargæsla og öryggismál": 141574.92297287143,
+      "04 Efnahags- og atvinnumál": 494566.4562510959,
+      "05 Umhverfisvernd": 33931.70261266,
+      "06 Húsnæðis- skipulags- og veitumál": 14274.755141404274,
+      "07 Heilbrigðismál": 794021.6302196839,
+      "08 Menningar-, íþrótta- og trúmál": 121897.93592344881,
+      "09 Menntamál": 292216.18947421154,
+      "10 Almannatryggingar og velferðarmál": 785731.194108364
+    },
+    {
+      "ar": 2010,
+      "mannfjoldi": 317630.0,
+      "01 Almenn opinber þjónusta": 1124852.5013380349,
+      "02 Varnarmál": 4369.549475805182,
+      "03 Löggæsla, réttargæsla og öryggismál": 110732.613418128,
+      "04 Efnahags- og atvinnumál": 564484.4630544974,
+      "05 Umhverfisvernd": 32029.4052828763,
+      "06 Húsnæðis- skipulags- og veitumál": 10068.948147215313,
+      "07 Heilbrigðismál": 724179.3911154488,
+      "08 Menningar-, íþrótta- og trúmál": 109989.61055315933,
+      "09 Menntamál": 268649.37191071373,
+      "10 Almannatryggingar og velferðarmál": 806195.25863426
+    },
+    {
+      "ar": 2011,
+      "mannfjoldi": 311841.0,
+      "01 Almenn opinber þjónusta": 1226869.1416459028,
+      "02 Varnarmál": 8498.241090812306,
+      "03 Löggæsla, réttargæsla og öryggismál": 152135.54343399362,
+      "04 Efnahags- og atvinnumál": 479063.04815595126,
+      "05 Umhverfisvernd": 34032.407541022505,
+      "06 Húsnæðis- skipulags- og veitumál": 40281.10479378914,
+      "07 Heilbrigðismál": 724888.6451749449,
+      "08 Menningar-, íþrótta- og trúmál": 265607.47303914494,
+      "09 Menntamál": 271235.98243976897,
+      "10 Almannatryggingar og velferðarmál": 873197.2383362034
+    },
+    {
+      "ar": 2012,
+      "mannfjoldi": 313182.0,
+      "01 Almenn opinber þjónusta": 1250326.6471253138,
+      "02 Varnarmál": 6910.997439188714,
+      "03 Löggæsla, réttargæsla og öryggismál": 131781.5200107286,
+      "04 Efnahags- og atvinnumál": 381309.58995089115,
+      "05 Umhverfisvernd": 32706.221941235446,
+      "06 Húsnæðis- skipulags- og veitumál": 50041.50940986392,
+      "07 Heilbrigðismál": 738135.0141451297,
+      "08 Menningar-, íþrótta- og trúmál": 115441.81977252844,
+      "09 Menntamál": 274351.0163419354,
+      "10 Almannatryggingar og velferðarmál": 766804.605628676
+    },
+    {
+      "ar": 2013,
+      "mannfjoldi": 315810.0,
+      "01 Almenn opinber þjónusta": 1217526.6774326335,
+      "02 Varnarmál": 7294.892498654254,
+      "03 Löggæsla, réttargæsla og öryggismál": 133542.3197492163,
+      "04 Efnahags- og atvinnumál": 378279.3451758969,
+      "05 Umhverfisvernd": 32888.12893828568,
+      "06 Húsnæðis- skipulags- og veitumál": 19877.45796523226,
+      "07 Heilbrigðismál": 765357.6517526361,
+      "08 Menningar-, íþrótta- og trúmál": 119958.2027168234,
+      "09 Menntamál": 276498.84424179094,
+      "10 Almannatryggingar og velferðarmál": 756175.5485893417
+    },
+    {
+      "ar": 2014,
+      "mannfjoldi": 319718.0,
+      "01 Almenn opinber þjónusta": 1024757.7552718333,
+      "02 Varnarmál": 8557.854108933498,
+      "03 Löggæsla, réttargæsla og öryggismál": 142092.0936575357,
+      "04 Efnahags- og atvinnumál": 549852.9954522423,
+      "05 Umhverfisvernd": 34458.804321308155,
+      "06 Húsnæðis- skipulags- og veitumál": 17404.400127612458,
+      "07 Heilbrigðismál": 776761.7087558411,
+      "08 Menningar-, íþrótta- og trúmál": 109140.55511419439,
+      "09 Menntamál": 270970.0423498208,
+      "10 Almannatryggingar og velferðarmál": 702850.324348332
+    },
+    {
+      "ar": 2015,
+      "mannfjoldi": 323024.0,
+      "01 Almenn opinber þjónusta": 1012472.7574421715,
+      "02 Varnarmál": 6302.9372430531475,
+      "03 Löggæsla, réttargæsla og öryggismál": 150458.47986527317,
+      "04 Efnahags- og atvinnumál": 444503.19480905443,
+      "05 Umhverfisvernd": 35997.0157016197,
+      "06 Húsnæðis- skipulags- og veitumál": 16183.31764822428,
+      "07 Heilbrigðismál": 783185.4599039081,
+      "08 Menningar-, íþrótta- og trúmál": 122508.23468225272,
+      "09 Menntamál": 281791.1362623211,
+      "10 Almannatryggingar og velferðarmál": 682071.3012036257
+    },
+    {
+      "ar": 2016,
+      "mannfjoldi": 326036.0,
+      "01 Almenn opinber þjónusta": 963717.5035885607,
+      "02 Varnarmál": 6903.532125286778,
+      "03 Löggæsla, réttargæsla og öryggismál": 139176.0419094824,
+      "04 Efnahags- og atvinnumál": 448253.56709075073,
+      "05 Umhverfisvernd": 39606.05577298212,
+      "06 Húsnæðis- skipulags- og veitumál": 36679.385098578074,
+      "07 Heilbrigðismál": 859978.652664123,
+      "08 Menningar-, íþrótta- og trúmál": 116161.4054889644,
+      "09 Menntamál": 291725.14691629144,
+      "10 Almannatryggingar og velferðarmál": 1199340.2569041455
+    },
+    {
+      "ar": 2017,
+      "mannfjoldi": 332507.0,
+      "01 Almenn opinber þjónusta": 922509.3005560786,
+      "02 Varnarmál": 9521.30331090774,
+      "03 Löggæsla, réttargæsla og öryggismál": 154829.22164044666,
+      "04 Efnahags- og atvinnumál": 397941.6974680232,
+      "05 Umhverfisvernd": 45116.64416087481,
+      "06 Húsnæðis- skipulags- og veitumál": 30648.37732739461,
+      "07 Heilbrigðismál": 898092.9724787748,
+      "08 Menningar-, íþrótta- og trúmál": 114221.95622949292,
+      "09 Menntamál": 297388.9271504059,
+      "10 Almannatryggingar og velferðarmál": 814597.8881647604
+    },
+    {
+      "ar": 2018,
+      "mannfjoldi": 342183.0,
+      "01 Almenn opinber þjónusta": 866812.2028271422,
+      "02 Varnarmál": 13647.08357808541,
+      "03 Löggæsla, réttargæsla og öryggismál": 153349.81574186913,
+      "04 Efnahags- og atvinnumál": 467376.5207505925,
+      "05 Umhverfisvernd": 48653.20603302911,
+      "06 Húsnæðis- skipulags- og veitumál": 23088.230566685077,
+      "07 Heilbrigðismál": 944853.484831216,
+      "08 Menningar-, íþrótta- og trúmál": 123597.31488706336,
+      "09 Menntamál": 293765.03216115356,
+      "10 Almannatryggingar og velferðarmál": 847119.5237636002
+    },
+    {
+      "ar": 2019,
+      "mannfjoldi": 349468.0,
+      "01 Almenn opinber þjónusta": 788540.0093856949,
+      "02 Varnarmál": 17788.753190563944,
+      "03 Löggæsla, réttargæsla og öryggismál": 152420.82250735402,
+      "04 Efnahags- og atvinnumál": 411644.2707200659,
+      "05 Umhverfisvernd": 45706.903064085986,
+      "06 Húsnæðis- skipulags- og veitumál": 22792.358670894046,
+      "07 Heilbrigðismál": 953177.6872274429,
+      "08 Menningar-, íþrótta- og trúmál": 123943.53703343368,
+      "09 Menntamál": 292197.28272688773,
+      "10 Almannatryggingar og velferðarmál": 919227.7976810466
+    },
+    {
+      "ar": 2020,
+      "mannfjoldi": 354042.0,
+      "01 Almenn opinber þjónusta": 736808.9096773829,
+      "02 Varnarmál": 24107.591754650577,
+      "03 Löggæsla, réttargæsla og öryggismál": 152383.05059851657,
+      "04 Efnahags- og atvinnumál": 537871.4954722886,
+      "05 Umhverfisvernd": 47735.86184689952,
+      "06 Húsnæðis- skipulags- og veitumál": 25841.00191502703,
+      "07 Heilbrigðismál": 922836.8385671757,
+      "08 Menningar-, íþrótta- og trúmál": 124209.27460583772,
+      "09 Menntamál": 326047.1921410454,
+      "10 Almannatryggingar og velferðarmál": 1165979.1776116958
+    },
+    {
+      "ar": 2021,
+      "mannfjoldi": 358298.0,
+      "01 Almenn opinber þjónusta": 735020.0112755304,
+      "02 Varnarmál": 24833.239370579795,
+      "03 Löggæsla, réttargæsla og öryggismál": 167173.69340604747,
+      "04 Efnahags- og atvinnumál": 511787.39485009684,
+      "05 Umhverfisvernd": 50105.498774762906,
+      "06 Húsnæðis- skipulags- og veitumál": 21536.542207882823,
+      "07 Heilbrigðismál": 990267.0402849026,
+      "08 Menningar-, íþrótta- og trúmál": 114797.45909829249,
+      "09 Menntamál": 306543.9941054653,
+      "10 Almannatryggingar og velferðarmál": 1135632.9089193912
+    },
+    {
+      "ar": 2022,
+      "mannfjoldi": 364917.0,
+      "01 Almenn opinber þjónusta": 1002016.8969930148,
+      "02 Varnarmál": 20328.73228706802,
+      "03 Löggæsla, réttargæsla og öryggismál": 162665.48283582294,
+      "04 Efnahags- og atvinnumál": 460179.9861338332,
+      "05 Umhverfisvernd": 56425.98179860078,
+      "06 Húsnæðis- skipulags- og veitumál": 13284.938766897678,
+      "07 Heilbrigðismál": 1006836.3490876007,
+      "08 Menningar-, íþrótta- og trúmál": 117928.46044442983,
+      "09 Menntamál": 281262.04040918895,
+      "10 Almannatryggingar og velferðarmál": 980826.5989252351
+    },
+    {
+      "ar": 2023,
+      "mannfjoldi": 375218.0,
+      "01 Almenn opinber þjónusta": 971924.8543513371,
+      "02 Varnarmál": 19010.28202271746,
+      "03 Löggæsla, réttargæsla og öryggismál": 176806.28328065283,
+      "04 Efnahags- og atvinnumál": 439122.05704417167,
+      "05 Umhverfisvernd": 52953.48304185833,
+      "06 Húsnæðis- skipulags- og veitumál": 26750.84883987442,
+      "07 Heilbrigðismál": 994747.3202245095,
+      "08 Menningar-, íþrótta- og trúmál": 111972.77316120229,
+      "09 Menntamál": 285808.51664898806,
+      "10 Almannatryggingar og velferðarmál": 968866.8987095502
+    },
+    {
+      "ar": 2024,
+      "mannfjoldi": 383726.0,
+      "01 Almenn opinber þjónusta": 807492.3252529148,
+      "02 Varnarmál": 24826.04775282363,
+      "03 Löggæsla, réttargæsla og öryggismál": 204141.23619457634,
+      "04 Efnahags- og atvinnumál": 447390.8465936632,
+      "05 Umhverfisvernd": 48640.69674715813,
+      "06 Húsnæðis- skipulags- og veitumál": 31482.35980882192,
+      "07 Heilbrigðismál": 1008127.153229127,
+      "08 Menningar-, íþrótta- og trúmál": 109441.63283176016,
+      "09 Menntamál": 302438.1980892616,
+      "10 Almannatryggingar og velferðarmál": 1116327.0145885346
+    }
+  ]
+}

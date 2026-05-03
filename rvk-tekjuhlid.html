@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8">
+<title>Tekjuhliðin · Reykjavíkurborg | Samtök skattgreiðenda</title>
+<meta name="description" content="Hvernig sést tekjuhliðin í opnu reikningum Reykjavíkurborgar — útsvar, fasteignaskattur, arður frá B-hluta, lóðasala, gatnagerðargjald, sorpgjöld og frárennsli.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --rvk-deep: #0c4a6e;
+    --rvk-mid: #1e6091;
+    --rvk-light: #38bdf8;
+    --bg: #fefefe;
+    --bg-2: #f8fafc;
+    --text: #0f172a;
+    --text-2: #334155;
+    --sub: #64748b;
+    --border: #e2e8f0;
+    --warn-bg: #fef3c7;
+    --warn-fg: #92400e;
+    --info-bg: #dbeafe;
+    --info-fg: #1e40af;
+    --good: #059669;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 24px 80px;
+  }
+  h1, h2, h3, h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    color: var(--rvk-deep);
+    line-height: 1.2;
+  }
+  h1 { font-size: 36px; margin: 0 0 8px; }
+  h2 { font-size: 24px; margin: 50px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--rvk-deep); }
+  h3 { font-size: 18px; margin: 28px 0 8px; color: var(--rvk-mid); }
+  h4 { font-size: 15px; margin: 16px 0 6px; color: var(--text-2); font-family: -apple-system, sans-serif; font-weight: 600; }
+  .lead { font-size: 18px; color: var(--text-2); margin-bottom: 24px; max-width: 720px; }
+  .meta { color: var(--sub); font-size: 13px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+
+  /* KPI strá */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+  .kpi {
+    background: var(--bg-2);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .kpi-label { color: var(--sub); font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .kpi-value { font-family: Georgia, serif; font-size: 28px; color: var(--rvk-deep); margin-top: 4px; }
+  .kpi-sub { color: var(--sub); font-size: 12px; margin-top: 2px; }
+
+  /* Boxes */
+  .info, .warn, .good-box {
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .info { background: var(--info-bg); color: var(--info-fg); border-left: 3px solid var(--info-fg); }
+  .warn { background: var(--warn-bg); color: var(--warn-fg); border-left: 3px solid var(--warn-fg); }
+  .good-box { background: #dcfce7; color: #166534; border-left: 3px solid var(--good); }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th { text-align: left; padding: 8px 10px; background: var(--bg-2); border-bottom: 2px solid var(--border); font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr:hover td { background: var(--bg-2); }
+
+  /* Bar chart */
+  .barchart { margin: 12px 0; }
+  .bar-row { display: grid; grid-template-columns: 110px 1fr 90px; gap: 12px; align-items: center; padding: 5px 0; font-size: 13px; }
+  .bar-label { color: var(--text-2); }
+  .bar-track { background: #f1f5f9; height: 22px; border-radius: 3px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--rvk-deep), var(--rvk-mid)); border-radius: 3px; }
+  .bar-fill.alt { background: linear-gradient(90deg, #047857, #10b981); }
+  .bar-val { color: var(--text); font-variant-numeric: tabular-nums; text-align: right; }
+
+  /* Grid for sections */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* TOC */
+  .toc {
+    background: var(--bg-2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+  }
+  .toc-title { font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .toc ol { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.9; }
+  .toc a { color: var(--rvk-mid); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .footer { color: var(--sub); font-size: 12px; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); }
+  a { color: var(--rvk-mid); }
+
+  /* SVG */
+  svg.line-chart { width: 100%; height: 280px; }
+  svg.line-chart text { font-family: -apple-system, sans-serif; font-size: 11px; fill: var(--sub); }
+  svg.line-chart .axis { stroke: var(--border); }
+  svg.line-chart .grid { stroke: #f1f5f9; stroke-dasharray: 2,2; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Tekjuhliðin · Reykjavíkurborg</h1>
+  <p class="lead">Hvernig sést tekjuhliðin í opnu reikningum Reykjavíkurborgar — og hvað sést ekki?</p>
+  <div class="meta">
+    <strong>Heimild:</strong> opnir reikningar Reykjavíkurborgar (A-hluti og Eignasjóður fasteignastofa) 2019–2025;
+    Gagnagátt Reykjavíkur (lóðaúthlutanir 1994–2017). Síðast uppfært apríl 2026.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Efnisyfirlit</div>
+    <ol>
+      <li><a href="#hluti">A-hluti og B-hluti — hver er munurinn?</a></li>
+      <li><a href="#tekjur">Heildartekjur Reykjavíkur 2019–2025</a></li>
+      <li><a href="#skatttekjur">Skatttekjur (allir í A-hluta)</a></li>
+      <li><a href="#ardur">Arður frá B-hluta fyrirtækjum</a></li>
+      <li><a href="#lodir">Lóðasala</a></li>
+      <li><a href="#sorp">Sorp- og frárennslisgjöld</a></li>
+      <li><a href="#endurmat">Endurmat á B-hluta — Orkuveita, Félagsbústaðir</a></li>
+      <li><a href="#onnur-svf">Hvað um önnur sveitarfélög?</a></li>
+      <li><a href="#takmork">Hvað sést ekki í þessum gögnum?</a></li>
+    </ol>
+  </div>
+
+  <h2 id="hluti">1. A-hluti og B-hluti — hver er munurinn?</h2>
+
+  <p>Reykjavíkurborg samanstendur af tveim flokkum stofnana sem reikningsskil eru aðskilin fyrir:</p>
+
+  <div class="grid-2">
+    <div>
+      <h3>A-hluti</h3>
+      <p>Sveitarfélagið sjálft — skólar, leikskólar, velferðarþjónusta, garðar, skipulag, stjórnsýsla. Fjármagnað fyrst og fremst með <strong>skatttekjum</strong> (útsvar, fasteignaskattur, framlag Jöfnunarsjóðs).</p>
+      <p style="font-size:13px;color:var(--sub)">Í gögnum okkar: <code>fyrirtaeki_nafn = "Reykjavíkurborg"</code></p>
+    </div>
+    <div>
+      <h3>B-hluti</h3>
+      <p>Dótturfélög sveitarfélagsins sem reka sig á <strong>notendagjöldum</strong> — Orkuveita Reykjavíkur, Veitur, Félagsbústaðir, Faxaflóahafnir, Sorpa, Strætó (áður) og Eignasjóður fasteignastofa.</p>
+      <p style="font-size:13px;color:var(--sub)">Aðeins eitt B-hluta félag er í okkar gögnum: Eignasjóður fasteignastofa.</p>
+    </div>
+  </div>
+
+  <div class="warn">
+    <strong>Mikilvægt:</strong> Opnu reikningarnir innihalda EKKI Orkuveitu, Veitur, Félagsbústaði, Faxaflóahafnir, Sorpa, Strætó eða aðra B-hluta dótturfélag.
+    Þeir hafa eigin reikningsskil sem eru birt í árlegum samstæðureikningi (samstæða = A+B sameinað) en ekki sem opnir reikningar.
+  </div>
+
+  <h2 id="tekjur">2. Heildartekjur Reykjavíkur 2019–2025</h2>
+
+  <p>Hér er sundurliðun á öllum tekjum Reykjavíkurborgar (A-hluta) yfir 7 ár. Tölur eru í <strong>milljörðum króna</strong>:</p>
+
+  <table id="yearTable">
+    <thead><tr>
+      <th>Ár</th><th class="num">Útsvar</th><th class="num">Fasteignask.</th><th class="num">Jöfnunarsj.</th><th class="num">Arður B-hluta</th><th class="num">Lóðasala*</th><th class="num">Gatnagerð.gj.</th><th class="num">Sorpgjöld</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+  <p style="font-size:12px;color:var(--sub)">* Söluhagnaður Eigna — ekki bruttó söluverð. Sjá kafla 5.</p>
+
+  <h2 id="skatttekjur">3. Skatttekjur (allir í A-hluta)</h2>
+
+  <p>Skatttekjur eru samtals stærsti tekjustofn Reykjavíkur — yfir 80% af öllum tekjum. <strong>Allar skatttekjur fara í A-hluta</strong> — engar skatttekjur í B-hluta.</p>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <h3>Þróun skatttekna 2019–2025 (ma.kr.)</h3>
+  <svg class="line-chart" id="taxChart"></svg>
+
+  <h3>Hvað er hvað?</h3>
+  <ul>
+    <li><strong>Útsvar</strong> — tekjuskattur sem rennur til sveitarfélagsins. Reykjavík innheimtir 14,93% af launum (2025).</li>
+    <li><strong>Fasteignaskattur</strong> — skattur á fasteignamatsverð. Þrír flokkar: A (íbúðir 0,18%), B (atvinnuhúsnæði 1,32%), C (verzlun/leiga 1,32%).</li>
+    <li><strong>Framlög Jöfnunarsjóðs</strong> — millifærsla frá ríkinu sem jafnar útgjöld milli sveitarfélaga. Vekur einnig athygli að þetta hefur tvöfaldast 2019→2025 (7,5 → 18,9 ma.kr.).</li>
+  </ul>
+
+  <h2 id="ardur">4. Arður frá B-hluta fyrirtækjum</h2>
+
+  <p>A-hluti á hlutdeild í B-hluta dótturfélögum og fær arð frá þeim árlega. Þessi arður er <strong>tekjur A-hluta</strong> en ekki skattur — hann ræðst af afkomu og ákvörðun stjórna B-hluta félaga.</p>
+
+  <div class="kpi-row" id="ardurRow"></div>
+
+  <p style="margin-top:16px">Mikilvægt: aðeins arðurinn (sem er ákveðinn hluti af afkomu B-hluta) sést hér. Heildargróði Orkuveitan, Faxaflóahafna o.fl. er miklu stærri en birtist í þessari línu — restin er endurfjárfest eða heldur sig í eigin fé B-hluta félags.</p>
+
+  <h2 id="lodir">5. Lóðasala</h2>
+
+  <p>Lóðasala Reykjavíkur er bókuð á þrem mismunandi formum í opnu reikningunum:</p>
+
+  <div class="grid-2">
+    <div>
+      <h3>a) Söluhagnaður Eigna</h3>
+      <p>Bókhaldsleg færsla á <strong>hagnaði</strong> sem verður til þegar lóð er seld á hærra verði en bókfært verð.</p>
+      <ul style="font-size:14px">
+        <li>Bókað í <strong>Eignasjóði fasteignastofa (B-hluta)</strong></li>
+        <li>Tegund: <code>Söluhagnaður Eigna</code></li>
+        <li>Stofnun: oftast <code>Lóðir og lönd, sala byggingarréttar</code></li>
+        <li>Heildarsamtals 2019–2025: ~25 ma.kr.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>b) Gatnagerðargjald</h3>
+      <p>Skylda fyrir kaupanda lóðar að greiða þetta sem fer í veg-, veitu- og opin svæðisgerð.</p>
+      <ul style="font-size:14px">
+        <li>Bókað í <strong>A-hluta</strong></li>
+        <li>Tegund: <code>Leyfistekjur</code></li>
+        <li>Stofnun: <code>Gatnamál - gatnagerðargjöld</code> o.fl.</li>
+        <li>Heildarsamtals 2019–2025: ~13,6 ma.kr.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>c) Lóðaleiga (atvinnu)</h3>
+  <p>Reykjavík á margar lóðir sem eru leigðar út (oft til atvinnufyrirtækja). Þetta er árleg leiga — ekki kaupsala. Atvinnulóðaleiga gefur ~1,3–1,8 ma.kr./ár, og er skráð undir tegundinni „Fasteignaskattur".</p>
+
+  <h3>Söluhagnaður lóða — sundurliðað eftir stofnun (2019–2025)</h3>
+  <div class="barchart" id="soluPerStofnun"></div>
+
+  <h3>Lóðaúthlutanir Reykjavíkur 1994–2017 (úr Gagnagátt)</h3>
+  <p>Þessi gögn eru frá Gagnagátt Reykjavíkur og sýna fjölda lóða sem var úthlutað eftir hverfi og húsagerð. Athugið að gögnin enda 2017 — engin sambærileg gögn fyrir 2018+ eru opin.</p>
+
+  <table id="authlutanirTable">
+    <thead><tr><th>Ár</th><th class="num">Einbýli</th><th class="num">Rað/par</th><th class="num">Fjölbýli</th><th class="num">Alls</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="info">
+    <strong>Athyglisvert:</strong> 2008 sýnir <strong>neikvæða tölu</strong> (-354 lóðir) — þetta voru lóðir sem voru skilað aftur til borgarinnar í kjölfar fjármálahrunsins.
+    Eftir 2008 var lóðaúthlutun mjög lítil næstu árin (10–80 á ári), endurspeglandi húsnæðisstöðnunina.
+  </div>
+
+  <h2 id="sorp">6. Sorp- og frárennslisgjöld</h2>
+
+  <h3>Sorpgjöld — JÁ, sjást</h3>
+  <p>Sorpgjöld eru bókuð í A-hluta sem þjónustutekjur:</p>
+  <ul>
+    <li><strong>Sorphirða</strong>: ~12 ma.kr. heildargreiðslur 2019–2025 (~1,7 ma.kr./ár)</li>
+    <li><strong>Sorpeyðing</strong>: ~770 m.kr. heildargreiðslur 2019–2025 (~110 m.kr./ár)</li>
+  </ul>
+  <p>Þetta er innheimt af íbúum samhliða fasteignaskatti.</p>
+
+  <h3>Frárennslisgjöld — NEI, sjást ekki</h3>
+  <div class="warn">
+    Frárennslisgjöld eru <strong>EKKI í A-hluta</strong> Reykjavíkur. Þau eru innheimt af <strong>Veitur ohf.</strong>, sem er dótturfélag Orkuveitu Reykjavíkur (B-hluti).
+    Þú getur ekki séð þessar tekjur í opnu reikningum Reykjavíkurborgar — heldur þarf að skoða ársreikning Veitur sérstaklega.
+  </div>
+
+  <p>Sama gildir um vatnsgjöld, hitaveitugjöld og rafmagnsgjöld — allt er hjá Veitur eða ON Power, ekki hjá Reykjavíkurborg.</p>
+
+  <h2 id="endurmat">7. Endurmat á B-hluta — Orkuveita, Félagsbústaðir</h2>
+
+  <p>Þegar B-hluta félög eins og Orkuveita Reykjavíkur eða Félagsbústaðir verða mikilvægari vegna endurmats á eignum (t.d. ef vatnsréttindi eða fasteignir hækka í verði), hefur það áhrif á <strong>samstæðureikning</strong> Reykjavíkur:</p>
+
+  <ul>
+    <li><strong>Eigið fé samstæðu hækkar</strong> — eign A-hluta í B-hluta hækkar í verði</li>
+    <li><strong>Hlutdeild í afkomu B-hluta</strong> birtist í rekstrarreikningi samstæðu (ekki sundurliðað í opnu reikningunum)</li>
+    <li><strong>Ekki sama og arður</strong> — endurmat er „pappírs"-hagnaður á eignum, arður er raunverulega greiddur</li>
+  </ul>
+
+  <p>Til að sjá þessa tölur þarf að lesa <strong>samstæðureikning Reykjavíkurborgar</strong> (PDF) sem er birtur árlega á reykjavik.is. Þeir eru ekki tiltækir sem opin gögn.</p>
+
+  <h2 id="onnur-svf">8. Hvað um önnur sveitarfélög?</h2>
+
+  <p>Reykjavík er eina sveitarfélagið sem birtir <strong>opna reikninga</strong> á transaction-stigi (eins og rvk-utforska.html sýnir). Önnur sveitarfélög birta aðeins <strong>árlega ársreikninga</strong> og <strong>staðlaðar sundurliðanir</strong> sem ríkið safnar.</p>
+
+  <div class="warn">
+    <strong>Stutt svar:</strong> Lóðasala er <strong>EKKI sérstaklega sundurliðuð</strong> í þeim gögnum sem við höfum fyrir önnur sveitarfélög.
+    Hún er falinn undir „Þjónustutekjur og aðrar tekjur" — í sömu tölu og sorpgjöld, leikskólagjöld, lóðaleiga, leyfistekjur og fleira.
+  </div>
+
+  <h3>„Þjónustutekjur og aðrar tekjur" 2024 — top 10 sveitarfélög</h3>
+
+  <p>Þetta er flokkurinn sem lóðasala fellur undir í stöðluðum gögnum. Sveitarfélögin sem hafa hærra hlutfall af þessum tekjum miðað við skatttekjur eiga oft mikla lóðasala — en það getur líka verið mikið af öðrum þjónustutekjum.</p>
+
+  <div class="barchart" id="svfBars"></div>
+
+  <h3>Hlutfall „Annarra tekna" af heildartekjum (proxy fyrir mikla lóðasala)</h3>
+
+  <p>Hér eru sveitarfélögin þar sem „Þjónustutekjur og aðrar tekjur" er hæst hlutfall af heildartekjum. Hátt hlutfall getur bent á: mikla lóðasala, mikla ferðamannatekjur, eða atvinnustarfsemi á vegum sveitarfélagsins.</p>
+
+  <table id="hlutfallTable">
+    <thead><tr>
+      <th>Sveitarfélag</th>
+      <th class="num">Aðrar tekjur (ma.kr.)</th>
+      <th class="num">Skatttekjur (ma.kr.)</th>
+      <th class="num">Hlutfall</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="info">
+    <strong>Ábending:</strong> Til að fá nákvæmar lóðasala-tölur fyrir önnur sveitarfélög þarf að:
+    <ol style="margin:8px 0">
+      <li>Sækja <strong>ársreikning sveitarfélagsins</strong> (PDF) — oftast á heimasíðu þeirra eða <code>fjarmal.rikid.is</code></li>
+      <li>Lesa „Skýringar" eða „Sundurliðun" í ársreikningnum — þar er oft sundurliðun á söluhagnaði eigna</li>
+      <li>Eða hafa beint samband við sveitarfélagið og biðja um yfirlit yfir lóðasala</li>
+    </ol>
+    Þessi sundurliðun er ekki í opnu gögnunum sem Hagstofa eða Stjórnarráðið safnar saman.
+  </div>
+
+  <h2 id="takmork">9. Hvað sést ekki í þessum gögnum?</h2>
+
+  <table>
+    <thead><tr><th>Liður</th><th>Hvar er það?</th></tr></thead>
+    <tbody>
+      <tr><td>Bruttó söluverð lóða</td><td>Aðeins söluhagnaður (verð − bókfært verð) sést. Bruttó-verð er í einstökum sölusamningum sem eru ekki opnir.</td></tr>
+      <tr><td>Frárennslis-, vatns-, hitaveitu-, rafmagnsgjöld</td><td>Hjá Veitur ohf. og ON Power (Orkuveita).</td></tr>
+      <tr><td>Hlutdeild í afkomu B-hluta</td><td>Aðeins greiddur arður sést. Heildur afkoma er í samstæðureikningi.</td></tr>
+      <tr><td>Endurmat á eignum B-hluta</td><td>Birtist sem breyting á eigin fé í samstæðureikningi.</td></tr>
+      <tr><td>Lánamál og skuldir</td><td>Aðeins vextir sjást, ekki höfuðstólsbreytingar.</td></tr>
+      <tr><td>Lóðasamningar (kaupendur, einstök verð)</td><td>Eru hjá Eignaskrifstofu Reykjavíkur, ekki opin gögn.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tekjuyfirlit Reykjavíkurborgar 2024 — top 15 tegundir</h3>
+  <table id="rvk2024Table">
+    <thead><tr><th>Tegund</th><th class="num">ma.kr.</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h3>Tekjuyfirlit Eignasjóðs fasteignastofa 2024 — top 15 tegundir</h3>
+  <table id="eignasj2024Table">
+    <thead><tr><th>Tegund</th><th class="num">ma.kr.</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="footer">
+    <p><strong>Tengt efni:</strong></p>
+    <ul>
+      <li><a href="rvk-utforska.html">Mælaborð: Opnir reikningar Reykjavíkurborgar 2019–2025</a></li>
+      <li><a href="sveitarfelog-dashboard.html">Mælaborð: Sveitarfélaga-fjármál</a></li>
+    </ul>
+    <p>© Samtök skattgreiðenda · Heimildir: opnir reikningar Reykjavíkurborgar (opnirreikningar.is), Gagnagátt Reykjavíkur (gagnagátt.reykjavik.is)</p>
+  </div>
+</div>
+
+<script>
+const COLORS = ['#0c4a6e','#1e6091','#0891b2','#06b6d4','#f59e0b','#ea580c','#dc2626','#a16207','#65a30d','#059669','#7c3aed','#db2777'];
+
+function fmt(v, d) {
+  if (v == null || isNaN(v)) return '—';
+  return v.toLocaleString('is-IS', { minimumFractionDigits: d ?? 1, maximumFractionDigits: d ?? 1 });
+}
+function fmt0(v) { return v == null ? '—' : v.toLocaleString('is-IS').replace(/,/g, '.'); }
+
+const __DATA_D = {
+  "yearly": [
+    {
+      "ar": 2019,
+      "utsvar": 88.447230753,
+      "fasteignaskattur": 23.118541727,
+      "jofnunarsjodur": 7.49393077,
+      "ardur": 2.652493497,
+      "soluhagnadur_eigna": 0.043103587,
+      "gatnagerd": 1.80537747,
+      "sorphirda": 1.057217159,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.284375788
+    },
+    {
+      "ar": 2020,
+      "utsvar": 91.381807403,
+      "fasteignaskattur": 24.091791805,
+      "jofnunarsjodur": 8.031222491,
+      "ardur": 3.743935866,
+      "soluhagnadur_eigna": 1.237111921,
+      "gatnagerd": 0.804336745,
+      "sorphirda": 1.079421437,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.326304803
+    },
+    {
+      "ar": 2021,
+      "utsvar": 100.339686465,
+      "fasteignaskattur": 24.513123628,
+      "jofnunarsjodur": 8.76195104,
+      "ardur": 4.356005817,
+      "soluhagnadur_eigna": 4.32141917,
+      "gatnagerd": 1.964804384,
+      "sorphirda": 1.361031338,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.39651375
+    },
+    {
+      "ar": 2022,
+      "utsvar": 107.484759518,
+      "fasteignaskattur": 26.173169319,
+      "jofnunarsjodur": 10.608300504,
+      "ardur": 4.731139161,
+      "soluhagnadur_eigna": 5.509226629,
+      "gatnagerd": 1.676320338,
+      "sorphirda": 1.562129834,
+      "sorpeyding": 0.0,
+      "atvinnu_lodaleiga": 1.519380753
+    },
+    {
+      "ar": 2023,
+      "utsvar": 124.194326627,
+      "fasteignaskattur": 29.947475892,
+      "jofnunarsjodur": 13.449090529,
+      "ardur": 6.797123948,
+      "soluhagnadur_eigna": 2.998075027,
+      "gatnagerd": 1.841736876,
+      "sorphirda": 1.880286401,
+      "sorpeyding": 0.078825261,
+      "atvinnu_lodaleiga": 1.671281193
+    },
+    {
+      "ar": 2024,
+      "utsvar": 134.761824861,
+      "fasteignaskattur": 32.177765332,
+      "jofnunarsjodur": 17.038108364,
+      "ardur": 5.968931211,
+      "soluhagnadur_eigna": 6.1191363,
+      "gatnagerd": 2.863058109,
+      "sorphirda": 2.497331224,
+      "sorpeyding": 0.374693991,
+      "atvinnu_lodaleiga": 1.71807464
+    },
+    {
+      "ar": 2025,
+      "utsvar": 146.108525263,
+      "fasteignaskattur": 34.155697166,
+      "jofnunarsjodur": 18.914315376,
+      "ardur": 7.259184618,
+      "soluhagnadur_eigna": 4.818183068,
+      "gatnagerd": 2.653256671,
+      "sorphirda": 2.223720266,
+      "sorpeyding": 0.31833076,
+      "atvinnu_lodaleiga": 1.814559763
+    }
+  ],
+  "solu_per_stofnun": [
+    {
+      "stofnun": "Lóðir og lönd, sala byggingaréttar",
+      "ma": 21.129580983
+    },
+    {
+      "stofnun": "Rekstur eigna - Ýmsar fasteignir",
+      "ma": 2.033257876
+    },
+    {
+      "stofnun": "Rekstur eigna - Bílastæðasjóður",
+      "ma": 0.598704506
+    },
+    {
+      "stofnun": "Rekstur eigna - Velferðarmál",
+      "ma": 0.549830026
+    },
+    {
+      "stofnun": "Rekstur eigna - sala fasteigna",
+      "ma": 0.486705108
+    },
+    {
+      "stofnun": "Rekstur eigna - Borgarskrifstofur",
+      "ma": 0.155525304
+    },
+    {
+      "stofnun": "Rekstur eigna - Samgöngumál",
+      "ma": 0.034605812
+    },
+    {
+      "stofnun": "Rekstur eigna - Heilbrigðismál",
+      "ma": 0.028431371
+    },
+    {
+      "stofnun": "Rekstur lóða - skipulagseignir",
+      "ma": 0.013200002
+    },
+    {
+      "stofnun": "Vinnuvélar",
+      "ma": 0.009001324
+    },
+    {
+      "stofnun": "Bifreiðar",
+      "ma": 0.006798756
+    },
+    {
+      "stofnun": "Rekstur eigna - Grunnskólar",
+      "ma": 0.000738634
+    },
+    {
+      "stofnun": "Biðskýli Strætó",
+      "ma": 2e-05
+    },
+    {
+      "stofnun": "Bifreiðar - Bílastæðasjóður",
+      "ma": -0.000144
+    }
+  ],
+  "totals": [
+    {
+      "ar": 2019,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 38.40962643,
+      "gjold": 50.961290255
+    },
+    {
+      "ar": 2019,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 149.005966604,
+      "gjold": 149.978286936
+    },
+    {
+      "ar": 2020,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 37.949713908,
+      "gjold": 47.853109245
+    },
+    {
+      "ar": 2020,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 157.784647211,
+      "gjold": 167.618523948
+    },
+    {
+      "ar": 2021,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 46.217583988,
+      "gjold": 57.657382338
+    },
+    {
+      "ar": 2021,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 172.951370739,
+      "gjold": 182.823613576
+    },
+    {
+      "ar": 2022,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 51.037392267,
+      "gjold": 72.387939947
+    },
+    {
+      "ar": 2022,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 187.619854416,
+      "gjold": 206.462650432
+    },
+    {
+      "ar": 2023,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 52.058973027,
+      "gjold": 72.976933386
+    },
+    {
+      "ar": 2023,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 211.982647535,
+      "gjold": 220.023817821
+    },
+    {
+      "ar": 2024,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 59.152447601,
+      "gjold": 66.662342519
+    },
+    {
+      "ar": 2024,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 230.759228511,
+      "gjold": 236.380184363
+    },
+    {
+      "ar": 2025,
+      "fyr": "Eignasjóður fasteignastofa",
+      "tekjur": 59.79259272,
+      "gjold": 68.06975492
+    },
+    {
+      "ar": 2025,
+      "fyr": "Reykjavíkurborg",
+      "tekjur": 244.030708777,
+      "gjold": 259.828813431
+    }
+  ],
+  "authlutanir": [
+    {
+      "ar": 1994,
+      "alls": 804,
+      "einbyli": 80,
+      "rad_par": 190,
+      "fjolbyli": 534
+    },
+    {
+      "ar": 1995,
+      "alls": 302,
+      "einbyli": 12,
+      "rad_par": 22,
+      "fjolbyli": 268
+    },
+    {
+      "ar": 1996,
+      "alls": 586,
+      "einbyli": 68,
+      "rad_par": 174,
+      "fjolbyli": 344
+    },
+    {
+      "ar": 1997,
+      "alls": 464,
+      "einbyli": 66,
+      "rad_par": 184,
+      "fjolbyli": 214
+    },
+    {
+      "ar": 1998,
+      "alls": 840,
+      "einbyli": 158,
+      "rad_par": 100,
+      "fjolbyli": 582
+    },
+    {
+      "ar": 1999,
+      "alls": 596,
+      "einbyli": 122,
+      "rad_par": 216,
+      "fjolbyli": 258
+    },
+    {
+      "ar": 2000,
+      "alls": 850,
+      "einbyli": 90,
+      "rad_par": 190,
+      "fjolbyli": 570
+    },
+    {
+      "ar": 2001,
+      "alls": 964,
+      "einbyli": 122,
+      "rad_par": 102,
+      "fjolbyli": 740
+    },
+    {
+      "ar": 2002,
+      "alls": 844,
+      "einbyli": 32,
+      "rad_par": -28,
+      "fjolbyli": 840
+    },
+    {
+      "ar": 2003,
+      "alls": 1332,
+      "einbyli": 82,
+      "rad_par": 214,
+      "fjolbyli": 1036
+    },
+    {
+      "ar": 2004,
+      "alls": 856,
+      "einbyli": 28,
+      "rad_par": 196,
+      "fjolbyli": 632
+    },
+    {
+      "ar": 2005,
+      "alls": 1212,
+      "einbyli": 74,
+      "rad_par": 188,
+      "fjolbyli": 950
+    },
+    {
+      "ar": 2006,
+      "alls": 1022,
+      "einbyli": 56,
+      "rad_par": 274,
+      "fjolbyli": 692
+    },
+    {
+      "ar": 2007,
+      "alls": 1680,
+      "einbyli": 216,
+      "rad_par": 352,
+      "fjolbyli": 1112
+    },
+    {
+      "ar": 2008,
+      "alls": -354,
+      "einbyli": -114,
+      "rad_par": -122,
+      "fjolbyli": -118
+    },
+    {
+      "ar": 2009,
+      "alls": 102,
+      "einbyli": 8,
+      "rad_par": -4,
+      "fjolbyli": 98
+    },
+    {
+      "ar": 2010,
+      "alls": 72,
+      "einbyli": 6,
+      "rad_par": 4,
+      "fjolbyli": 62
+    },
+    {
+      "ar": 2011,
+      "alls": 40,
+      "einbyli": 8,
+      "rad_par": 32,
+      "fjolbyli": 0
+    },
+    {
+      "ar": 2012,
+      "alls": 14,
+      "einbyli": 4,
+      "rad_par": 10,
+      "fjolbyli": 0
+    },
+    {
+      "ar": 2013,
+      "alls": 32,
+      "einbyli": 8,
+      "rad_par": 16,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2014,
+      "alls": 28,
+      "einbyli": 20,
+      "rad_par": 0,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2015,
+      "alls": 78,
+      "einbyli": 22,
+      "rad_par": 52,
+      "fjolbyli": 4
+    },
+    {
+      "ar": 2016,
+      "alls": 32,
+      "einbyli": 24,
+      "rad_par": 0,
+      "fjolbyli": 8
+    },
+    {
+      "ar": 2017,
+      "alls": 66,
+      "einbyli": 44,
+      "rad_par": 0,
+      "fjolbyli": 22
+    }
+  ],
+  "top_hverfi": [
+    {
+      "hverfi": "Alls",
+      "alls": 6231
+    },
+    {
+      "hverfi": "Grafarholt",
+      "alls": 1967
+    },
+    {
+      "hverfi": "Borgarholt",
+      "alls": 1011
+    },
+    {
+      "hverfi": "Norðlingaholt",
+      "alls": 905
+    },
+    {
+      "hverfi": "Annað",
+      "alls": 753
+    },
+    {
+      "hverfi": "Úlfarsárdalur",
+      "alls": 655
+    },
+    {
+      "hverfi": "Staðahverfi",
+      "alls": 392
+    },
+    {
+      "hverfi": "Fossvogur",
+      "alls": 312
+    },
+    {
+      "hverfi": "Reynisvatnsás",
+      "alls": 94
+    },
+    {
+      "hverfi": "Kjalarnes",
+      "alls": 38
+    },
+    {
+      "hverfi": "Grafarvogur",
+      "alls": 34
+    },
+    {
+      "hverfi": "Sæviðarsund",
+      "alls": 32
+    }
+  ],
+  "tekjur_2024_rvk": [
+    {
+      "tegund": "Útsvar",
+      "ma": 134.761824861
+    },
+    {
+      "tegund": "Fasteignaskattur",
+      "ma": 32.177765332
+    },
+    {
+      "tegund": "Framlög Jöfnunarsjóðs",
+      "ma": 16.93262139
+    },
+    {
+      "tegund": "Endurgreiðslur annarra",
+      "ma": 10.026918923
+    },
+    {
+      "tegund": "Arður frá fyrirtækjum",
+      "ma": 5.621227858
+    },
+    {
+      "tegund": "Breyting Lífeyrisskuldbindingar",
+      "ma": 4.352806899
+    },
+    {
+      "tegund": "Aðrar sértekjur",
+      "ma": 3.003848976
+    },
+    {
+      "tegund": "Þjónustutekjur",
+      "ma": 2.970042683
+    },
+    {
+      "tegund": "Aðrar þjónustutekjur",
+      "ma": 2.635357649
+    },
+    {
+      "tegund": "Vörusala tekjur",
+      "ma": 2.272523994
+    },
+    {
+      "tegund": "Inni leigutekjur",
+      "ma": 2.140139309
+    },
+    {
+      "tegund": "Vistunartekjur",
+      "ma": 2.08962542
+    },
+    {
+      "tegund": "Bílastæðatekjur",
+      "ma": 2.080169659
+    },
+    {
+      "tegund": "Skóla- og námstekjur",
+      "ma": 1.939666505
+    },
+    {
+      "tegund": "Vextir og verðbætur af skuldum eigin fyrirtækja",
+      "ma": 1.086541606
+    }
+  ],
+  "tekjur_2024_eignasj": [
+    {
+      "tegund": "Inni leigutekjur",
+      "ma": 31.418690737
+    },
+    {
+      "tegund": "Millifærslur",
+      "ma": 7.013694745
+    },
+    {
+      "tegund": "Söluhagnaður Eigna",
+      "ma": 6.166467055
+    },
+    {
+      "tegund": "Milliviðskipti verkbókhald",
+      "ma": 3.228962596
+    },
+    {
+      "tegund": "Leigutekjur",
+      "ma": 2.922839483
+    },
+    {
+      "tegund": "Leyfistekjur",
+      "ma": 2.867714931
+    },
+    {
+      "tegund": "Afskriftir",
+      "ma": 1.419784512
+    },
+    {
+      "tegund": "Húsaleiga",
+      "ma": 1.334167366
+    },
+    {
+      "tegund": "Innri viðskipti rekstur",
+      "ma": 0.736983006
+    },
+    {
+      "tegund": "Aðrar tekjur",
+      "ma": 0.729383959
+    },
+    {
+      "tegund": "Aðrar sértekjur",
+      "ma": 0.374432593
+    },
+    {
+      "tegund": "Vörusala tekjur",
+      "ma": 0.253089713
+    },
+    {
+      "tegund": "Stofnbúnaður fjárfesting",
+      "ma": 0.157249724
+    },
+    {
+      "tegund": "Ýmsar framkvæmdir",
+      "ma": 0.111461507
+    },
+    {
+      "tegund": "Framlög Jöfnunarsjóðs",
+      "ma": 0.105486974
+    }
+  ]
+};
+((D) => {
+  // ------------- Yearly table -------------
+  const tb = document.querySelector('#yearTable tbody');
+  D.yearly.forEach(y => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><strong>${y.ar}</strong></td>
+      <td class="num">${fmt(y.utsvar)}</td>
+      <td class="num">${fmt(y.fasteignaskattur)}</td>
+      <td class="num">${fmt(y.jofnunarsjodur)}</td>
+      <td class="num">${fmt(y.ardur)}</td>
+      <td class="num">${fmt(y.soluhagnadur_eigna)}</td>
+      <td class="num">${fmt(y.gatnagerd)}</td>
+      <td class="num">${fmt(y.sorphirda)}</td>`;
+    tb.appendChild(tr);
+  });
+
+  // ------------- KPIs -------------
+  const last = D.yearly[D.yearly.length - 1];
+  document.getElementById('kpiRow').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Útsvar 2025</div><div class="kpi-value">${fmt(last.utsvar)}</div><div class="kpi-sub">ma.kr.</div></div>
+    <div class="kpi"><div class="kpi-label">Fasteignask. 2025</div><div class="kpi-value">${fmt(last.fasteignaskattur)}</div><div class="kpi-sub">ma.kr.</div></div>
+    <div class="kpi"><div class="kpi-label">Jöfnunarsj. 2025</div><div class="kpi-value">${fmt(last.jofnunarsjodur)}</div><div class="kpi-sub">ma.kr.</div></div>
+    <div class="kpi"><div class="kpi-label">Skatttekjur 2025</div><div class="kpi-value">${fmt(last.utsvar + last.fasteignaskattur + last.jofnunarsjodur)}</div><div class="kpi-sub">ma.kr. samtals</div></div>
+  `;
+
+  // ------------- Arður KPI -------------
+  const totArdur = D.yearly.reduce((s, y) => s + y.ardur, 0);
+  const totSoluhagn = D.yearly.reduce((s, y) => s + y.soluhagnadur_eigna, 0);
+  const totGatnag = D.yearly.reduce((s, y) => s + y.gatnagerd, 0);
+  document.getElementById('ardurRow').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Arður 2024</div><div class="kpi-value">${fmt(D.yearly[5].ardur)}</div><div class="kpi-sub">ma.kr.</div></div>
+    <div class="kpi"><div class="kpi-label">Arður 2025</div><div class="kpi-value">${fmt(last.ardur)}</div><div class="kpi-sub">ma.kr.</div></div>
+    <div class="kpi"><div class="kpi-label">Samtals 2019–2025</div><div class="kpi-value">${fmt(totArdur)}</div><div class="kpi-sub">ma.kr.</div></div>
+  `;
+
+  // ------------- Tax line chart (skatttekjur) -------------
+  const svg = document.getElementById('taxChart');
+  const W = svg.clientWidth || 900;
+  const H = 280;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const P = { l: 50, r: 130, t: 20, b: 30 };
+  const series = [
+    { name: 'Útsvar', color: COLORS[0], get: y => y.utsvar },
+    { name: 'Fasteignaskattur', color: COLORS[2], get: y => y.fasteignaskattur },
+    { name: 'Jöfnunarsjóður', color: COLORS[4], get: y => y.jofnunarsjodur },
+    { name: 'Arður B-hluta', color: COLORS[7], get: y => y.ardur },
+  ];
+  const xVals = D.yearly.map(y => y.ar);
+  const allVals = series.flatMap(s => D.yearly.map(s.get));
+  const maxV = Math.max(...allVals) * 1.1;
+  const xStep = (W - P.l - P.r) / (xVals.length - 1);
+  const yScale = v => H - P.b - (v / maxV) * (H - P.t - P.b);
+  let html = '';
+  // Grid
+  for (let i = 0; i <= 4; i++) {
+    const y = P.t + i * (H - P.t - P.b) / 4;
+    const v = maxV * (1 - i / 4);
+    html += `<line class="grid" x1="${P.l}" y1="${y}" x2="${W - P.r}" y2="${y}"/>`;
+    html += `<text x="${P.l - 6}" y="${y + 4}" text-anchor="end">${v.toFixed(0)}</text>`;
+  }
+  // X labels
+  xVals.forEach((ar, i) => {
+    const x = P.l + i * xStep;
+    html += `<text x="${x}" y="${H - 8}" text-anchor="middle">${ar}</text>`;
+  });
+  // Lines
+  series.forEach((s, idx) => {
+    const pts = D.yearly.map((y, i) => `${P.l + i * xStep},${yScale(s.get(y))}`).join(' ');
+    html += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2.5"/>`;
+    D.yearly.forEach((y, i) => {
+      const x = P.l + i * xStep;
+      const yy = yScale(s.get(y));
+      html += `<circle cx="${x}" cy="${yy}" r="3" fill="${s.color}"><title>${s.name} ${y.ar}: ${fmt(s.get(y))} ma.kr.</title></circle>`;
+    });
+    html += `<text x="${W - P.r + 10}" y="${P.t + 14 + idx * 18}" fill="${s.color}" font-weight="600">● ${s.name}</text>`;
+  });
+  svg.innerHTML = html;
+
+  // ------------- Söluhagn per stofnun bar chart -------------
+  // Sýna aðeins stofnanir með > 50 m.kr. (0,05 ma.kr.) söluhagnað yfir tímabilið
+  const spsItems = D.solu_per_stofnun.filter(d => Math.abs(d.ma) >= 0.05);
+  const sps = document.getElementById('soluPerStofnun');
+  const maxSps = Math.max(...spsItems.map(d => d.ma));
+  sps.innerHTML = spsItems.map(d => `
+    <div class="bar-row">
+      <div class="bar-label">${d.stofnun}</div>
+      <div class="bar-track"><div class="bar-fill alt" style="width:${(d.ma / maxSps * 100).toFixed(1)}%"></div></div>
+      <div class="bar-val">${fmt(d.ma)} ma.kr.</div>
+    </div>
+  `).join('');
+
+  // ------------- Authlutanir tafla -------------
+  const at = document.querySelector('#authlutanirTable tbody');
+  D.authlutanir.forEach(a => {
+    const tr = document.createElement('tr');
+    const allsClass = a.alls < 0 ? 'style="color:#dc2626;font-weight:600"' : '';
+    tr.innerHTML = `<td><strong>${a.ar}</strong></td>
+      <td class="num">${fmt0(a.einbyli)}</td>
+      <td class="num">${fmt0(a.rad_par)}</td>
+      <td class="num">${fmt0(a.fjolbyli)}</td>
+      <td class="num" ${allsClass}>${fmt0(a.alls)}</td>`;
+    at.appendChild(tr);
+  });
+
+  // ------------- Top tekjur 2024 töflur -------------
+  document.querySelector('#rvk2024Table tbody').innerHTML = D.tekjur_2024_rvk.map(t =>
+    `<tr><td>${t.tegund}</td><td class="num">${fmt(t.ma)}</td></tr>`
+  ).join('');
+  document.querySelector('#eignasj2024Table tbody').innerHTML = D.tekjur_2024_eignasj.map(t =>
+    `<tr><td>${t.tegund}</td><td class="num">${fmt(t.ma)}</td></tr>`
+  ).join('');
+})(__DATA_D);
+
+// ------------- Sveitarfélaga-samanburður (sjálfstæð fetch) -------------
+const __DATA_S = {
+  "top_adrar_tekjur": [
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "ma": 27.083387
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "ma": 8.813004
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "ma": 6.975587
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 6.738521
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "ma": 3.85195
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "ma": 3.301815
+    },
+    {
+      "svf": "1300 Garðabær",
+      "ma": 2.916833
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "ma": 2.909524
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "ma": 2.091698
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "ma": 1.657583
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "ma": 1.421705
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "ma": 1.395921
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "ma": 1.389084
+    },
+    {
+      "svf": "6250 Fjallabyggð",
+      "ma": 1.187812
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "ma": 1.175563
+    }
+  ],
+  "top_skattar": [
+    {
+      "svf": "0000 Reykjavíkurborg",
+      "ma": 147.46804
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "ma": 40.5272
+    },
+    {
+      "svf": "1400 Hafnarfjarðarkaupstaður",
+      "ma": 31.625922
+    },
+    {
+      "svf": "1300 Garðabær",
+      "ma": 21.45322
+    },
+    {
+      "svf": "2000 Reykjanesbær",
+      "ma": 20.062473
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "ma": 20.055594
+    },
+    {
+      "svf": "1604 Mosfellsbær",
+      "ma": 13.342083
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "ma": 12.188974
+    },
+    {
+      "svf": "3000 Akraneskaupstaður",
+      "ma": 7.572929
+    },
+    {
+      "svf": "7300 Fjarðabyggð",
+      "ma": 6.072611
+    },
+    {
+      "svf": "7400 Múlaþing",
+      "ma": 5.030337
+    },
+    {
+      "svf": "1100 Seltjarnarnesbær",
+      "ma": 4.871676
+    },
+    {
+      "svf": "8000 Vestmannaeyjabær",
+      "ma": 4.341663
+    },
+    {
+      "svf": "5716 Skagafjörður",
+      "ma": 4.306534
+    },
+    {
+      "svf": "2510 Suðurnesjabær",
+      "ma": 4.196773
+    }
+  ],
+  "hlutfall_adrar": [
+    {
+      "svf": "6250 Fjallabyggð",
+      "adrar_ma": 1.187812,
+      "skattar_ma": 1.966796,
+      "hlutfall": 27.064341529491244
+    },
+    {
+      "svf": "8710 Hrunamannahreppur",
+      "adrar_ma": 0.415418,
+      "skattar_ma": 0.884814,
+      "hlutfall": 26.658016341926544
+    },
+    {
+      "svf": "4200 Ísafjarðarbær",
+      "adrar_ma": 2.091698,
+      "skattar_ma": 3.764549,
+      "hlutfall": 25.9241650829408
+    },
+    {
+      "svf": "6100 Norðurþing",
+      "adrar_ma": 1.389084,
+      "skattar_ma": 3.203487,
+      "hlutfall": 24.431156934397077
+    },
+    {
+      "svf": "5508 Húnaþing vestra",
+      "adrar_ma": 0.455628,
+      "skattar_ma": 1.099083,
+      "hlutfall": 21.479120899842545
+    },
+    {
+      "svf": "3716 Sveitarfélagið Stykkishólmur",
+      "adrar_ma": 0.492507,
+      "skattar_ma": 1.194143,
+      "hlutfall": 21.203351674868767
+    },
+    {
+      "svf": "6000 Akureyrarbær",
+      "adrar_ma": 6.975587,
+      "skattar_ma": 20.055594,
+      "hlutfall": 21.010585883971988
+    },
+    {
+      "svf": "8720 Skeiða- og Gnúpverjahreppur",
+      "adrar_ma": 0.271859,
+      "skattar_ma": 0.886587,
+      "hlutfall": 20.64716876954239
+    },
+    {
+      "svf": "8200 Sveitarfélagið Árborg",
+      "adrar_ma": 3.85195,
+      "skattar_ma": 12.188974,
+      "hlutfall": 20.437853263222593
+    },
+    {
+      "svf": "2300 Grindavíkurbær",
+      "adrar_ma": 0.816831,
+      "skattar_ma": 2.313491,
+      "hlutfall": 18.814969126240474
+    },
+    {
+      "svf": "4100 Bolungarvíkurkaupstaður",
+      "adrar_ma": 0.294958,
+      "skattar_ma": 1.025931,
+      "hlutfall": 17.062377364777312
+    },
+    {
+      "svf": "8614 Rangárþing ytra",
+      "adrar_ma": 0.534174,
+      "skattar_ma": 1.982807,
+      "hlutfall": 16.983952213696625
+    },
+    {
+      "svf": "8716 Hveragerðisbær",
+      "adrar_ma": 0.827024,
+      "skattar_ma": 3.02142,
+      "hlutfall": 16.649856235582792
+    },
+    {
+      "svf": "8719 Grímsnes- og Grafningshreppur",
+      "adrar_ma": 0.254989,
+      "skattar_ma": 1.277537,
+      "hlutfall": 16.60135433831634
+    },
+    {
+      "svf": "1000 Kópavogsbær",
+      "adrar_ma": 8.813004,
+      "skattar_ma": 40.5272,
+      "hlutfall": 16.402332945581094
+    }
+  ]
+};
+((S) => {
+  // Bar chart fyrir top 10
+  const bars = document.getElementById('svfBars');
+  const top10 = S.top_adrar_tekjur.slice(0, 10);
+  const maxV = Math.max(...top10.map(d => d.ma));
+  bars.innerHTML = top10.map(d => `
+    <div class="bar-row">
+      <div class="bar-label">${d.svf.replace(/^\d+ /, '')}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(d.ma / maxV * 100).toFixed(1)}%"></div></div>
+      <div class="bar-val">${fmt(d.ma)} ma.kr.</div>
+    </div>
+  `).join('');
+
+  // Hlutfall tafla
+  document.querySelector('#hlutfallTable tbody').innerHTML = S.hlutfall_adrar.slice(0, 10).map(d => `
+    <tr>
+      <td>${d.svf.replace(/^\d+ /, '')}</td>
+      <td class="num">${fmt(d.adrar_ma)}</td>
+      <td class="num">${fmt(d.skattar_ma)}</td>
+      <td class="num"><strong>${d.hlutfall.toFixed(1)}%</strong></td>
+    </tr>
+  `).join('');
+})(__DATA_S);
+</script>
+</body>
+</html>
