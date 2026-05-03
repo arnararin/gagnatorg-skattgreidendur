@@ -114,8 +114,8 @@
 
   <div class="hero-result">
     <div class="hero-tag">★ Þjóðhagslegt mat</div>
-    <div class="hero-stat" id="heroStat"><span class="red">5,2</span> ma.kr.</div>
-    <p class="hero-text" id="heroText">Á ári fer í tíma íslenskra heimila við sorpflokkun (miðað við 10 mín/viku á heimili og 4.000 kr/klst tímakostnað).</p>
+    <div class="hero-stat" id="heroStat"><span class="red">15,1</span> ma.kr.</div>
+    <p class="hero-text" id="heroText">Á ári fer í tíma íslenskra heimila við sorpflokkun (miðað við 30 mín/viku á heimili og 4.000 kr/klst tímakostnað). Inniheldur uppvask á umbúðum, bið í röð á Sorpu og flokkun í tunnur.</p>
   </div>
 
   <h2>Reiknivél — breyttu forsendum</h2>
@@ -126,10 +126,19 @@
         <div class="input-group">
           <div class="input-label">
             <span>Mínútur á viku á heimili</span>
-            <span class="input-value" id="lblMin">10</span>
+            <span class="input-value" id="lblMin">30</span>
           </div>
-          <input type="range" id="inMin" min="0" max="60" value="10" step="1">
-          <div class="input-help">Tími sem fer í að flokka rusl, þrífa umbúðir, skipta milli tunna o.fl.</div>
+          <input type="range" id="inMin" min="0" max="120" value="30" step="5">
+          <div class="input-help">
+            Heildartími á viku sem fer í:
+            <ul style="margin:4px 0; padding-left:18px">
+              <li>Uppvask á umbúðum (mjólkurfernur, dósir, krukkur)</li>
+              <li>Flokkun í 4-6 tunnur (lífrænt, plast, pappi, gler, málmar, blandað)</li>
+              <li>Tæmd tunnur, hreingerning</li>
+              <li>Ferðir og bið í röð á Sorpu fyrir stærri hluti</li>
+            </ul>
+            Varlega áætlað 30 mín, líklega nær klukkutíma fyrir mörg heimili.
+          </div>
         </div>
 
         <div class="input-group">
@@ -155,27 +164,27 @@
         <h3 style="margin-top:0">Niðurstöður</h3>
         <div class="result-line">
           <div class="result-label">Tími á heimili á ári</div>
-          <div class="result-val" id="resTimeHome">8,7 klst</div>
+          <div class="result-val" id="resTimeHome">26,0 klst</div>
         </div>
         <div class="result-line">
           <div class="result-label">Tími á einstakling á ári</div>
-          <div class="result-val" id="resTimePerson">3,1 klst</div>
+          <div class="result-val" id="resTimePerson">9,3 klst</div>
         </div>
         <div class="result-line">
           <div class="result-label">Kostnaður á heimili á ári</div>
-          <div class="result-val" id="resCostHome">34.667 kr.</div>
+          <div class="result-val" id="resCostHome">104.000 kr.</div>
         </div>
         <div class="result-line">
           <div class="result-label">Kostnaður á einstakling á ári</div>
-          <div class="result-val" id="resCostPerson">12.381 kr.</div>
+          <div class="result-val" id="resCostPerson">37.143 kr.</div>
         </div>
         <div class="result-line">
           <div class="result-label">Klukkustundir samtals (Ísland)</div>
-          <div class="result-val" id="resTotalHrs">1.257.000 klst</div>
+          <div class="result-val" id="resTotalHrs">3.770.000 klst</div>
         </div>
         <div class="result-line">
           <div class="result-label"><strong>Samanlagður þjóðhagslegur kostnaður</strong></div>
-          <div class="result-val" id="resTotal">5,03 ma.kr.</div>
+          <div class="result-val" id="resTotal">15,08 ma.kr.</div>
         </div>
       </div>
     </div>
@@ -185,8 +194,12 @@
 
   <div class="comparison">
     <div class="comp-row">
-      <div class="comp-label">Sorpflokkun (þetta mat, sjálfgefið)</div>
-      <div class="comp-val" id="compSelf">5,0 ma.kr./ár</div>
+      <div class="comp-label">Sorpflokkun (þetta mat, 30 mín/viku)</div>
+      <div class="comp-val" id="compSelf">15,1 ma.kr./ár</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Sorpflokkun ef 60 mín/viku (klukkutími)</div>
+      <div class="comp-val">30 ma.kr./ár</div>
     </div>
     <div class="comp-row">
       <div class="comp-label">Umferðartafir á höfuðborgarsvæðinu</div>
@@ -195,6 +208,10 @@
     <div class="comp-row">
       <div class="comp-label">Reykjavíkurborg sorphirða (heild 2024)</div>
       <div class="comp-val">2,5 ma.kr./ár</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">SORPA — útflutningur sorps (2025)</div>
+      <div class="comp-val">3 ma.kr./ár</div>
     </div>
     <div class="comp-row">
       <div class="comp-label">Reykjavíkurborg söluhagn. lóða (2024)</div>
@@ -218,15 +235,16 @@
   <h2>Hvað þýðir þetta?</h2>
 
   <div class="info-box">
-    <p><strong>Sjálfgefnar forsendur (10 mín/viku, 4.000 kr/klst):</strong></p>
+    <p><strong>Sjálfgefnar forsendur (30 mín/viku, 4.000 kr/klst):</strong></p>
     <ul style="margin:8px 0">
-      <li>Hver einstaklingur eyðir <strong>3,1 klst</strong> á ári í sorpflokkun</li>
-      <li>Hvert heimili eyðir <strong>8,7 klst</strong> á ári</li>
-      <li>Þjóðhagslegur kostnaður: <strong>5 ma.kr. á ári</strong></li>
-      <li>Þetta er <strong>tvöfalt</strong> kostnaður Reykjavíkur við sorphirðu (~2,5 ma.kr.)</li>
-      <li>Ennþá er það <strong>5%</strong> af kostnaði umferðartafa (~100 ma.kr.)</li>
+      <li>Hver einstaklingur eyðir <strong>9,3 klst</strong> á ári í sorpflokkun</li>
+      <li>Hvert heimili eyðir <strong>26 klst</strong> á ári</li>
+      <li>Þjóðhagslegur kostnaður: <strong>15 ma.kr./ár</strong></li>
+      <li>Þetta er <strong>sex sinnum</strong> kostnaður Reykjavíkur við sorphirðu (~2,5 ma.kr.)</li>
+      <li>Eða <strong>5x</strong> útflutningskostnaður SORPA (~3 ma.kr.)</li>
+      <li>15% af kostnaði umferðartafa á höfuðborgarsvæðinu</li>
     </ul>
-    <p>Ef tíminn er 20 mín/viku á heimili (raunsæ tala fyrir flokkað hverfi með 4-6 tunnur) þá tvöfaldast kostnaðurinn í <strong>10 ma.kr./ár</strong>.</p>
+    <p>Margir áætla nær <strong>klukkutíma á viku</strong> þegar uppvask + bið á Sorpu er talin með → <strong>30 ma.kr./ár</strong>. Það er hærra en heildarútflutningur sorps + sorphirðukostnaður Reykjavíkurborgar samanlagt.</p>
   </div>
 
   <h2>Spurningar sem vantar svar við</h2>
@@ -256,8 +274,8 @@
       <div></div>
     </div>
     <div class="comp-row" style="border-bottom-color:#fca5a5">
-      <div class="comp-label" style="color:#7f1d1d">— Tímakostnaður íbúa við flokkun (þetta mat)</div>
-      <div class="comp-val" style="color:#7f1d1d">5 ma.kr./ár</div>
+      <div class="comp-label" style="color:#7f1d1d">— Tímakostnaður íbúa við flokkun (30 mín/viku)</div>
+      <div class="comp-val" style="color:#7f1d1d">15 ma.kr./ár</div>
     </div>
     <div class="comp-row" style="border-bottom-color:#fca5a5">
       <div class="comp-label" style="color:#7f1d1d">— Útflutningur sorps SORPA (núverandi 40 þ. tonn)</div>
@@ -273,7 +291,7 @@
     </div>
     <div class="comp-row" style="border-top:2px solid #dc2626; font-weight:700">
       <div class="comp-label" style="color:#7f1d1d"><strong>Samtals leið A (2028 áætlun):</strong></div>
-      <div class="comp-val" style="color:var(--bad); font-size:24px">~10–11 ma.kr./ár</div>
+      <div class="comp-val" style="color:var(--bad); font-size:24px">~21–24 ma.kr./ár</div>
     </div>
   </div>
 
@@ -300,17 +318,17 @@
     </div>
     <div class="comp-row" style="border-bottom-color:#86efac">
       <div class="comp-label" style="color:#166534">+ Engin eða mun minni tímakostnaður íbúa við flokkun</div>
-      <div class="comp-val" style="color:#166534">−5 ma.kr./ár sparnaður</div>
+      <div class="comp-val" style="color:#166534">−15 ma.kr./ár sparnaður</div>
     </div>
     <div class="comp-row" style="border-top:2px solid #059669; font-weight:700">
       <div class="comp-label" style="color:#166534"><strong>Nettó leið B (eftir afskriftir + sparnaður):</strong></div>
-      <div class="comp-val" style="color:var(--good); font-size:24px">~−2 til +1 ma.kr./ár</div>
+      <div class="comp-val" style="color:var(--good); font-size:24px">~−12 til −10 ma.kr./ár</div>
     </div>
   </div>
 
   <div class="info-box">
-    <p><strong>Niðurstaða:</strong> Að byggja eigin sorpbrennslustöð gæti <strong>sparað 10+ ma.kr./ár</strong> miðað við núverandi kerfi árið 2028 — og veitt orku að auki. Stofnkostnaður (25 ma.kr.) myndi greiða sig á 2-3 árum.</p>
-    <p><strong>Sjónarhorn skattgreiðenda:</strong> Það er erfitt að réttlæta þjóðhagslega kerfi sem krefst 5+ ma.kr./ár í tímakostnað íbúa, plús 2-6 ma.kr./ár í flutningskostnað til útlanda, þegar lausn á 25 ma.kr. einskiptis-fjárfestingu liggur fyrir.</p>
+    <p><strong>Niðurstaða:</strong> Að byggja eigin sorpbrennslustöð gæti <strong>sparað 20+ ma.kr./ár</strong> miðað við núverandi kerfi árið 2028 — og veitt orku að auki. Stofnkostnaður (25 ma.kr.) myndi greiða sig á <strong>aðeins ~1 ári</strong>.</p>
+    <p><strong>Sjónarhorn skattgreiðenda:</strong> Það er erfitt að réttlæta þjóðhagslega kerfi sem krefst 15+ ma.kr./ár í tímakostnað íbúa, plús 3-6 ma.kr./ár í flutningskostnað til útlanda, þegar lausn á 25 ma.kr. einskiptis-fjárfestingu liggur fyrir og er notuð víða um Norðurlöndin.</p>
   </div>
 
   <h3>Af hverju brennum við ekki?</h3>
