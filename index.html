@@ -100,6 +100,13 @@
   <h1>Gagnatorg<br>sveitarfélaga</h1>
   <p class="lead">Greiningar og mælaborð á opnum gögnum frá Reykjavíkurborg, Hagstofu Íslands, Sambandi íslenskra sveitarfélaga og Gagnagátt Reykjavíkur.</p>
 
+  <!-- Search -->
+  <div style="position:relative; margin: 24px 0 30px;">
+    <input id="search" type="text" placeholder="🔍 Leita að mælaborði eða greiningu..."
+      style="width:100%; padding:14px 18px; font-size:16px; border:2px solid var(--border); border-radius:10px; outline:none; font-family:inherit; background:var(--bg-2);">
+    <div id="searchResults" style="display:none; position:absolute; top:100%; left:0; right:0; margin-top:4px; background:white; border:1px solid var(--border); border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08); max-height:400px; overflow-y:auto; z-index:10"></div>
+  </div>
+
   <div class="stats">
     <div class="stat"><div class="stat-value">62</div><div class="stat-label">Sveitarfélög</div></div>
     <div class="stat"><div class="stat-value">2018-2025</div><div class="stat-label">Tímabil</div></div>
@@ -123,10 +130,17 @@
   <h2>Mælaborð</h2>
 
   <div class="card-grid">
-    <a href="rvk-utforska.html" class="card">
+    <a href="rvk-leit.html" class="card">
       <div class="card-icon">🔎</div>
-      <div class="card-title">Útforska reikninga · Reykjavík</div>
-      <div class="card-desc">Ítarlegt mælaborð fyrir 1,1M opnir reikninga Reykjavíkurborgar 2019-2025. Sía eftir sviði, tegund, ÍSAT og birgi.</div>
+      <div class="card-title">Opnir reikningar Reykjavíkurborgar</div>
+      <div class="card-desc">Leit að birgjum sem fá greitt frá Reykjavíkurborg. Sía eftir sviði, ÍSAT, tegund birgis og tímabili. Einfalt sía-viðmót eins og á opnir reikningar ríkisins.</div>
+      <div class="card-meta"><span class="card-tag new">NÝTT</span> 18.089 birgjar · 2019-2025</div>
+    </a>
+
+    <a href="rvk-utforska.html" class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Útforska reikninga · Reykjavík (ítarlegt)</div>
+      <div class="card-desc">Ítarlegt mælaborð fyrir 1,1M opnir reikninga Reykjavíkurborgar 2019-2025. Sía eftir sviði, tegund, ÍSAT og birgi með tré-síun og verðlagsleiðréttingu.</div>
       <div class="card-meta"><span class="card-tag">2019-2025</span> 18.089 birgjar</div>
     </a>
 
@@ -221,5 +235,53 @@
     <p>© Samtök skattgreiðenda · skattgreidendur.is</p>
   </div>
 </div>
+
+<script>
+// ─── Search ────
+const __PAGES = [
+  { url: 'rvk-leit.html', title: 'Opnir reikningar Reykjavíkurborgar', desc: 'Leit að birgjum, svið, ÍSAT, tegund birgis, tímabil', tags: 'birgjar reykjavik leit svið ísat opnir reikningar' },
+  { url: 'rvk-utforska.html', title: 'Útforska reikninga · Reykjavík (ítarlegt)', desc: 'Ítarlegt mælaborð með tré, donut, trend, lífeyrisleiðrétting', tags: 'birgjar tré reykjavík mælaborð ítarlegt cube vnv' },
+  { url: 'svf-heilsuvog.html', title: 'Fjárhagsleg heilsuvog', desc: 'Einkunn 0-100 fyrir 40 sveitarfélög', tags: 'heilsa vog einkunn fjárhags margin tap skuldir' },
+  { url: 'skatttekjur-per-ibua.html', title: 'Skatttekjur á mann', desc: 'Útsvar, fasteignaskattur, jöfnunarsjóður á íbúa', tags: 'skatttekjur útsvar fasteignaskattur jöfnunarsjóður mann íbúi 18+' },
+  { url: 'rvk-2025-forskot.html', title: '2025 Forskot', desc: '2025 ársreikningar þegar þeir koma út', tags: '2025 forskot ársreikningur reykjavík kópavogur akureyri mosfellsbær' },
+  { url: 'rvk-er-bestrekna.html', title: 'Reykjavík tap 19,4 ma.kr.', desc: 'Næstverst rekna sveitarfélag á höfuðborgarsvæðinu', tags: 'reykjavík tap 19.4 milljörðum besta verst rekið' },
+  { url: 'rvk-tekjuhlid.html', title: 'Tekjuhliðin · Reykjavík', desc: 'Útsvar, lóðasala, arður B-hluta, sorpgjöld', tags: 'tekjur reykjavík útsvar lóðasala arður a-hluti b-hluti' },
+];
+
+const searchInput = document.getElementById('search');
+const searchResults = document.getElementById('searchResults');
+
+function fmtResults(matches) {
+  if (matches.length === 0) {
+    return '<div style="padding:16px; color:var(--sub); font-size:14px">Engin niðurstaða — prófaðu „opnir", „skattar", „tap" o.s.frv.</div>';
+  }
+  return matches.map(m =>
+    '<a href="' + m.url + '" style="display:block; padding:12px 16px; border-bottom:1px solid var(--border); text-decoration:none; color:inherit">' +
+    '<div style="font-weight:600; color:var(--rvk-deep); margin-bottom:2px">' + m.title + '</div>' +
+    '<div style="font-size:13px; color:var(--text-2)">' + m.desc + '</div>' +
+    '</a>'
+  ).join('');
+}
+
+searchInput.addEventListener('input', function() {
+  const q = searchInput.value.trim().toLowerCase();
+  if (q.length < 2) { searchResults.style.display = 'none'; return; }
+  const matches = __PAGES.filter(p => {
+    const txt = (p.title + ' ' + p.desc + ' ' + p.tags).toLowerCase();
+    // Multi-token AND search
+    return q.split(/\s+/).every(t => txt.includes(t));
+  });
+  searchResults.innerHTML = fmtResults(matches);
+  searchResults.style.display = '';
+});
+searchInput.addEventListener('blur', () => setTimeout(() => searchResults.style.display = 'none', 200));
+searchInput.addEventListener('focus', function() {
+  if (searchInput.value.trim().length >= 2) searchResults.style.display = '';
+});
+// Keyboard nav: Esc closes
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { searchInput.value = ''; searchResults.style.display = 'none'; }
+});
+</script>
 </body>
 </html>
